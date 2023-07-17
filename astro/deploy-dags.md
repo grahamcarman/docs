@@ -23,9 +23,10 @@ Before you enable DAG-only deploys on a Deployment, ensure the following:
 - You have access to the latest version of your Deployment's Astro project.
 - You can update your Deployment using the Astro CLI. 
 - Your Deployment does not have [CI/CD enforcement](configure-deployment-resources.md#enforce-cicd-deploys) enabled. You can confirm this from the Cloud UI or by running [`astro deployment inspect`](cli/astro-deployment-inspect.md) command.
-:::warning be careful
 
-Carefully read and complete all of the following steps to ensure that your Deployment is not disrupted by enabling this feature. Crucially, you must trigger a DAG-based deploy to your Astro Deployment using `astro deploy --dags` immediately after you enable the DAG-only deploy feature. If you don't complete this step, your DAGs will not be refreshed in the Airflow UI until you update your Deployment. 
+:::warning
+
+Carefully read and complete all of the following steps to ensure that your Deployment is not disrupted by enabling this feature. Crucially, you must trigger a DAG-based deploy to your Astro Deployment using `astro deploy --dags` immediately after you enable the DAG-only deploy feature. If you don't complete this step, your DAGs will not be available in the Airflow UI until you update your Deployment. 
 
 :::
 
