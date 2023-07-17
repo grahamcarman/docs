@@ -68,7 +68,7 @@ Before you disable DAG-only deploys on a Deployment, ensure the following:
 
 :::warning
 
-Carefully read and complete all of the following steps to ensure that your Deployment is not disrupted by disabling this feature. Crucially, you must trigger an image deploy to your Astro Deployment using `astro deploy` immediately after you disable the DAG-only deploy feature. If you don't, your DAGs will be not be refreshed in the Airflow UI until you update your Deployment.
+Carefully read and complete all of the following steps to ensure that your Deployment is not disrupted by disabling this feature. Crucially, you must trigger an image deploy to your Astro Deployment using `astro deploy` immediately after you disable the DAG-only deploy feature. If you don't, your DAGs will be not be available in the Airflow UI until you update your Deployment.
 
 :::
 
