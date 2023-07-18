@@ -28,7 +28,7 @@ module.exports = {
         {
           type: "category",
           label: "Migrate to Astro",
-          items: ["migrate-mwaa", "migrate-gcc"],
+          items: ["migrate-mwaa", "migrate-gcc", "migrate-astronomer-software-nebula"],
         },
       ],
     },
