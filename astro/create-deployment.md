@@ -48,13 +48,13 @@ If you prefer, you can also run `astro deployment create` to create a Deployment
 
         - **Executor**: Select an executor to run your scheduled tasks. The Celery executor runs multiple tasks in a single worker and is a good choice for most teams. The Kubernetes executor runs each task in an isolated Kubernetes Pod and is a good option for teams that want fine-grained control over the execution environment for each of their tasks. For more information about the benefits and limitations of each executor, see [Choose an executor](configure-deployment-resources.md#choose-an-executor).
         - **Worker queue**: (Celery executor only) Configure the `default` worker queue for your Deployment. A worker queue is a group of identically-configured workers responsible for running your tasks. The default options for the `default` worker queue are suitable for most workloads. See [Worker queues](configure-deployment-resources.md#worker-queues).
+        - **Kubernetes Executor and KPO Pods**: (Optional, Hosted only) If you're using the Kubernetes executor or KubernetesPodOperator, configure the default Pods that tasks run in. See [Configure Kubernetes Pod resources](configure-deployment-resources.md#configure-kubernetes-pod-resources).
         
     - **Advanced**
 
         - **Astro Runtime/ Airflow Version**: Choose which Astro Runtime version you want your Deployment to run. By default, the latest version of Astro Runtime is selected. The Astro Runtime versions available in the Cloud UI are limited to patches for the most recent major and minor releases. Deprecated versions of Astro Runtime aren't available.
-        - **Kubernetes Executor and KPO Pods**: (Optional, Hosted only) If you're using the Kubernetes executor or KubernetesPodOperator, configure the default Pods that tasks run in. See [Configure Kubernetes Pod resources](configure-deployment-resources.md#configure-kubernetes-pod-resources).
-
         To upgrade the Astro Runtime version for your Deployment, you’ll need to update your Docker image in your Astro project directory. See [Upgrade Astro Runtime](upgrade-runtime.md).
+
         - **Scheduler**: Select the amount of resources you want your Deployment scheduler to use. The scheduler is responsible for queueing and scheduling your Airflow tasks. See [Configure Deployment resources](configure-deployment-resources.md#scheduler-resources) for more information.
     
     These are the essential fields for configuring a Deployment. You can optionally configure additional details for your Deployment based on resource usage, user permissions, and resiliency. For all available Deployment options, see [Configure Deployment resources](configure-deployment-resources.md).
