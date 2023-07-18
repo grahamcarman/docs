@@ -57,7 +57,7 @@ Review the following table to see the equivalent Astro documentation for each fe
 | Run the KubernetesPodOperator         | [Run the KubernetesPodOperator on Astro](https://docs.astronomer.io/astro/kubernetespodoperator)                                                                                                                                     |
 | Run the Kubernetes Executor           | [Run the Kubernetes executor on Astro](https://docs.astronomer.io/astro/kubernetes-executor)                                                                                                                                         |
 | Manage User Permissions               | [Manage Astro users](https://docs.astronomer.io/astro/add-user)                                                                                                                                                                      |
-| Accessing the Airflow database        | [Programmatically accessing the Airflow metadata database](https://docs.astronomer.io/learn/airflow-database)                                                                                                                        |
+| Access the Airflow database        | [Programmatically accessing the Airflow metadata database](https://docs.astronomer.io/learn/airflow-database)                                                                                                                        |
 | Deploy DAGS via CLI                   | [Deploy code](https://docs.astronomer.io/astro/deploy-code)                                                                                                                                                                          |
 | Manage Airflow versions               | [Upgrade Astro Runtime](https://docs.astronomer.io/astro/upgrade-runtime)                                                                                                                                                            |
 | Configure environment variables       | [Set environment variables on Astro](https://docs.astronomer.io/astro/environment-variables)                                                                                                                                         |
@@ -79,10 +79,10 @@ Additionally, review the following table to see how key component names have bee
 
 Astro also includes a number of brand new features. In particular, the biggest differentiators between Astro and Astronomer Software/Nebula are:
 
-- Lineage capabilities
-- Worker queues
-- The Astro Cloud IDE
-- Default Kubernetes Pod configurations
+- [Data lineage integrations](https://docs.astronomer.io/astro/data-lineage)
+- [Worker queues](https://docs.astronomer.io/astro/configure-worker-queues)
+- [The Astro Cloud IDE](https://docs.astronomer.io/astro/cloud-ide)
+- [Kubernetes Pod resource configurations in the Cloud UI](https://docs.astronomer.io/astro/configure-deployment-resources#configure-kubernetes-pod-resources)
 
 :::
 
