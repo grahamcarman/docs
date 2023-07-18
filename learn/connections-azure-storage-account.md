@@ -9,13 +9,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 [Azure Storage Account](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview) provides the storage for all of your Azure Storage data objects - blobs, files, queues, tables. Integrating Azure storage with Airflow will allow users to perform different kind of operations on data objects stored in the cloud. For example, users can create or delete a container, upload or read a file, download blobs etc.
-
-:::info
-
 This guide explains how to set up an Azure Storage Account connection using the **Azure Blob Storage** connection type. Astronomer recommends using this connection type because it utilizes the `wasb` protocol, which means you can connect with any Azure Storage account including Azure Data Lake Gen 1 and Azure Data Lake Gen 2.
-
-:::
-
 ## Prerequisites
 - The [Astro CLI](https://docs.astronomer.io/astro/cli/overview).
 - A locally running [Astro project](https://docs.astronomer.io/astro/cli/get-started-cli).
