@@ -185,6 +185,20 @@ module.exports = {
           'vscode-local-dev',
           {
             type: 'category',
+            label: 'Airflow connections',
+            link: {
+              type: 'generated-index',
+              title: 'Airflow connections',
+              description: 'Use the following guides to quickly set up Airflow connections to external systems.',
+            },
+            items: [
+              'connections/azure-data-factory',
+              'connections/bigquery',
+              'connections/databricks'
+            ],
+          },
+          {
+            type: 'category',
             label: 'Use cases',
             items: [
               'use-case-airflow-databricks',
