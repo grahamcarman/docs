@@ -1,7 +1,7 @@
 ---
 title: 'Migrate from Astronomer Software or Nebula to Astro'
 sidebar_label: 'From Astronomer Software/ Nebula'
-id: migrate-to-astro
+id: migrate-astronomer-software-nebula
 ---
 
 Astro includes most of the same features that are available in Astronomer Software and Astronomer Nebula and Software. After Astronomer completes your migration, use this document to familiarize yourself with Astro and relocate key workflows and features from other Astronomer products. 
