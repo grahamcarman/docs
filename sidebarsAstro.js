@@ -160,11 +160,10 @@ module.exports = {
                 "manage-domains",
                 "add-user", 
                 "manage-teams", 
-                "user-permissions",
               ],
             },
             "organization-api-tokens",
-            "audit-logs",
+            "audit-logs"
           ],
         },
         {
@@ -214,6 +213,7 @@ module.exports = {
           ],
         },
         "manage-billing",
+        "user-permissions"
       ],
     },
     {

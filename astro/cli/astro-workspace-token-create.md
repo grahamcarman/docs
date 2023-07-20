@@ -22,12 +22,12 @@ astro workspace token create
 | `--description` |The description for the token | Any string surrounded by quotations |
 | `--expiration` | The expiration date for the token. By default there is no expiration date. | Any integer between 1 and 3650, used to represent days |
 | `--name` | The name for the token. | Any string surrounded by quotations |
-| `--role`  | The token's role in the Workspace.                | Possible values are either `WORKSPACE_MEMBER`, `WORKSPACE_OPERATOR`, or `WORKSPACE_OWNER`. |
+| `--role`  | The token's role in the Workspace.                | Possible values are either `WORKSPACE_VIEWER`, `WORKSPACE_EDITOR`, or `WORKSPACE_ADMIN`. |
 
 ## Examples
 
 ```sh
-astro workspace token create --name "My production API token" --role WORKSPACE_MEMBER
+astro workspace token create --name "My production API token" --role WORKSPACE_VIEWER
 ```
 
 ## Related commands

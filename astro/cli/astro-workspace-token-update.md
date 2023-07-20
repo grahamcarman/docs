@@ -23,12 +23,12 @@ astro workspace token update <flags>
 | `--expiration` | The expiration date for the token. By default there is no expiration date. | Any integer between 1 and 3650, used to represent days |
 | `--name` | The current name for the token. | Any string surrounded by quotations |
 | `--new-name` | The updated name for the token. | Any string surrounded by quotations |
-| `--role`  | The token's role in the Workspace.                | Possible values are either `WORKSPACE_MEMBER`, `WORKSPACE_OPERATOR`, or `WORKSPACE_OWNER`. |
+| `--role`  | The token's role in the Workspace.                | Possible values are either `WORKSPACE_VIEWER`, `WORKSPACE_EDITOR`, or `WORKSPACE_ADMIN`. |
 
 ## Examples
 
 ```sh
-astro workspace token update --new-name "My updated API token" --role WORKSPACE_MEMBER
+astro workspace token update --new-name "My updated API token" --role WORKSPACE_VIEWER
 ```
 
 ## Related commands

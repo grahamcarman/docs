@@ -22,7 +22,7 @@ To find a Team ID in the Cloud UI, click Astronomer logo in the upper left corne
 
 | Option    | Description                                          | Valid Values                                                                               |
 | --------- | ---------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| `--role`  | The Team's role in the Workspace.                    | Possible values are either `WORKSPACE_MEMBER`, `WORKSPACE_OPERATOR`, or `WORKSPACE_OWNER`. |
+| `--role`  | The Team's role in the Workspace.                    | Possible values are either `WORKSPACE_VIEWER`, `WORKSPACE_EDITOR`, or `WORKSPACE_ADMIN`. |
 
 ## Related commands
 
