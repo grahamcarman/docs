@@ -17,9 +17,13 @@ To access Astro features from the command line, all of your team members should 
 
 1. Install the latest version of the Astro CLI. See [Install the CLI](https://docs.astronomer.io/astro/cli/install-cli#install-the-cli) and [Upgrade the CLI](https://docs.astronomer.io/astro/cli/install-cli#install-the-cli).
    
-2. Run the following command to delete the Nebula login context:
+2. Run one of the following commands to delete the login context for your previous Astronomer product:
 
     ```sh
+    # Delete context for Astronomer Software
+    astro context delete <your-organization>.astronomer.io
+
+    # Delete context for Astronomer Nebula
     astro context delete app.gcp0001.us-east4.astronomer.io
     ```
 
@@ -29,30 +33,30 @@ To access Astro features from the command line, all of your team members should 
     astro login cloud.astronomer.io
     ```
 
-    Log in with your new Astro user credentials. 
+    Log in using your new Astro user credentials. 
 
 :::tip
 
-The Astro CLI includes several new features for managing Deployments that were not available on Astronomer Nebula. If you have time, review the [CLI reference guide](https://docs.astronomer.io/astro/cli/reference) to see all available commands.
+The Astro CLI includes several new features for managing Deployments that were not available on Astronomer Software or Nebula. If you have time, review the [CLI reference guide](https://docs.astronomer.io/astro/cli/reference) to see all available commands.
 
 :::
 
 ## Step 2: Reestablish workflows in Astro
 
-Most Astronomer Nebula and Software features are available in Astro, but they might be renamed or not work in the exact same way. 
+Most Astronomer Software and Nebula features are available in Astro, but they might be renamed or not work in the same way. 
 
 ### Key similarities and differences
 
 - You can still configure CI/CD for Astro Deployments. However, your CI/CD scripts have to be updated to use Astro CLI commands instead of manual image pushes.
 - You can now have the option of deploying either a Docker image or just your DAGs folder to a Deployment. 
 - You can no longer use the Houston API to manage your platform. However, the Astro CLI now supports a number of workflows for programmatically updating Deployments, Workspaces, and user permissions. 
-- Just like on Astronomer Nebula and Software, Deployments on Astro are organized into Workspaces. Workspaces are now additionally grouped in an Organization, which is where you can manage users, authentication, and settings for all Workspaces. Users and API tokens can have Organization-level permissions, which are similar to "System Admin" permissions in Astronomer Software. 
+- Just like on Astronomer Software and Nebula, Deployments on Astro are organized into Workspaces. Workspaces are now additionally grouped in an Organization, which is where you can manage users, authentication, and settings for all Workspaces. Users and API tokens can have Organization-level permissions, which are similar to "System Admin" permissions in Astronomer Software. 
 
 ### Related documentation
 
 Review the following table to see the equivalent Astro documentation for each feature you might have used in Astronomer Software and Nebula. 
 
-| Nebula/ Software feature                   | Astro documentation                                                                                                                                                                                                                  |
+| Software/ Nebula feature                   | Astro documentation                                                                                                                                                                                                                  |
 | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Configure a Deployment                | [Create a Deployment](https://docs.astronomer.io/astro/create-deployment) / [Configure a Deployment](https://docs.astronomer.io/astro/configure-deployment-resources)                                                                |
 | Make Requests to the Airflow API      | [Make Requests to the Airflow API (Astro)](https://docs.astronomer.io/astro/airflow-api)                                                                                                                                             |
@@ -73,9 +77,9 @@ Review the following table to see the equivalent Astro documentation for each fe
 
 ### Renamed components
 
-Additionally, review the following table to see how key component names have been updated from Nebula to Astronomer. If a component is not listed, it has the same name in both Nebula and Astro. Note that these renamed components include functionality changes in addition to name changes.
+Additionally, review the following table to see how key component names have been updated from Software and Nebula to Astronomer. If a component is not listed, it has the same name in all products. Note that these renamed components include functionality changes in addition to name changes.
 
-| Nebula/ Software component name | Astronomer component name |
+| Software/ Nebula component name | Astronomer component name |
 | ------------------------------- | ------------------------- |
 | Astronomer UI                   | Cloud UI                  |
 | Service account                 | API key/ token            |
@@ -83,7 +87,7 @@ Additionally, review the following table to see how key component names have bee
 
 ### Key new features
 
-Astro also includes a number of new features that accompany the traditional workflows you're used to. After you have reestablished your Software/ Nebula workflows, see the following documentation to learn more about these features.
+Astro also includes a number of new features that accompany the traditional workflows you're used to. After you have reestablished your Software or Nebula workflows, see the following documentation to learn more about these features.
 
 - [Data lineage integrations](https://docs.astronomer.io/astro/data-lineage)
 - [Worker queues](https://docs.astronomer.io/astro/configure-worker-queues)
@@ -92,12 +96,12 @@ Astro also includes a number of new features that accompany the traditional work
 
 ## Step 3: Reconfigure CI/CD pipelines 
 
-Existing Astronomer Nebula CI/CD pipelines need to be rewritten to work with Astro. Astronomer recommends rebuilding your CI/CD pipelines from scratch. For each of your new Deployments:
+Existing Astronomer Software and Nebula CI/CD pipelines need to be rewritten to work with Astro. Astronomer recommends rebuilding your CI/CD pipelines from scratch. For each of your new Deployments:
 
 1. Determine how you want to deploy code from your pipeline. Astro supports image deploys, DAG-only deploys, and combinations of both through CI/CD. See [Develop a CI/CD workflow](https://docs.astronomer.io/astro/set-up-ci-cd).
-2. Create a credential that your new CI/CD pipeline can use to access your Deployment. Use the following table to see how Astro credentials correlate to Nebula/ Software credentials.
+2. Create a credential that your new CI/CD pipeline can use to access your Deployment. Use the following table to see how Astro credentials correlate to Software/ Nebula credentials.
 
-  | Nebula/ Software credential       | Astro credential                               |
+  | Software/ Nebula credential       | Astro credential                               |
   | --------------------------------- | ---------------------------------------------- |
   | Deployment-level service account. | Deployment API key or Workspace API token.     |
   | Workspace-level service account.  | Workspace API token or Organization API token. |
