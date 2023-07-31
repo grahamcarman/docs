@@ -6,6 +6,8 @@ id: dags
 ---
 
 <head>
+  <title>Introduction to Airflow DAGs in Python | Documentation</title>
+  <meta name="og:title" content=" Introduction to Airflow DAGs in Python | Documentation" />
   <meta name="description" content="Learn how to write DAGs and get tips on how to define an Airflow DAG in Python. Learn all about DAG parameters and their settings." />
   <meta name="og:description" content="Learn how to write DAGs and get tips on how to define an Airflow DAG in Python. Learn all about DAG parameters and their settings." />
 </head>
