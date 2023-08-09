@@ -10,9 +10,9 @@ import TabItem from '@theme/TabItem';
 
 :::caution
 
-This document applies only to [Astro Hybrid](hybrid-overview.md). To see whether you're an Astro Hybrid user, click your Workspace name in the upper left corner of the Cloud UI, then click **Organization Settings**. On the **General** page, your Astro product type is listed under **Product Type**.
+This document applies only to Astro Hosted. To see whether you're an Astro Hosted user, click your Workspace name in the upper left corner of the Cloud UI, then click **Organization Settings**. On the **General** page, your Astro product type is listed under **Product Type**.
 
-For Astro Hybrid resource reference material, see:
+For [Astro Hybrid](hybrid-overview.md) resource reference material, see:
 
 - [AWS Hybrid cluster settings](resource-reference-aws-hybrid.md)
 - [Azure Hybrid cluster settings](resource-reference-azure-hybrid.md)
