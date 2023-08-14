@@ -48,15 +48,39 @@ This connection option is only available for dedicated Astro Hosted clusters and
 
 To set up a private connection between an Astro VPC and an AWS VPC, you can create a VPC peering connection. VPC peering ensures private and secure connectivity, reduces network transit costs, and simplifies network layouts.
 
-To create a VPC peering connection between an Astro VPC and an AWS VPC, contact [Astronomer support](https://cloud.astronomer.io/support) and provide the following information:
+To create a VPC peering connection between an Astro VPC and an AWS VPC, you must create a temporary assumable role. The Astro AWS account will assume this role to initiate a VPC peering connection.
 
-- Astro cluster ID and name
-- AWS Account ID of the target VPC
-- Region of the target VPC
-- VPC ID of the target VPC
-- Classless Inter-Domain Routing (CIDR) block of the target VPC
+1. Open the AWS console of the AWS account with the target VPC and copy the following:
 
-After receiving your request, Astronomer support initiates a peering request and creates the routing table entries in the Astro VPC. To allow multidirectional traffic between Airflow and your organization's data sources, the owner of the target VPC needs to accept the peering request and create the routing table entries in the target VPC.
+    - AWS account ID 
+    - AWS region
+    - VPC ID of the target VPC
+    - CIDR block of the target VPC
+    
+2. Create a temporary role using the [role creation stack template](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?templateURL=https://cre-addon-infrastructure-us-east-1.s3.amazonaws.com/astro-peering-role.yaml). In the **Quick create stack** template that opens, complete the following fields:
+
+    - **Stack name**: Enter a meaningful name for your stack.
+    - **Peer Owner IDs**: Enter your cluster's AWS account ID. To retrieve your cluster's AWS account ID on Astro Hosted, contact [Astronomer support](https://cloud.astronomer.io/support). To retrieve your cluster's AWS account ID on Astro Hybrid, click the name of your Workspace in the upper left corner of the Cloud UI, click **Organization Settings**, then click **Clusters**. Open your cluster and copy its **Account ID**.
+
+3. After the stack is created, go to the **Stack info** tab and copy the AssumeRole ARN from the **Stack ID** field.
+
+4. In the Cloud UI, click your Workspace name in the upper left corner, then click **Organization Settings**. Click **Clusters**, select your cluster, and copy the **ID** of the cluster.
+
+5. Contact [Astronomer support](https://cloud.astronomer.io/support) and provide the following details:
+
+    - AWS region of the target VPC from Step 1
+    - VPC ID of the target VPC from Step 1
+    - AWS account ID of the target VPC from Step 1
+    - CIDR block of the target VPC from Step 1
+    - **Stack ID** from Step 3
+    - Astro cluster **ID** from Step 4
+    
+    Astronomer support will initiate a peering request and create the routing table entries in the Astro VPC.
+
+6. Wait for Astronomer support to send you the Astro VPC CIDR. Then, the owner of the target VPC needs to [accept the peering request](https://docs.aws.amazon.com/vpc/latest/peering/accept-vpc-peering-connection.html) and [create the routing table entries](https://docs.aws.amazon.com/vpc/latest/userguide/WorkWithRouteTables.html#AddRemoveRoutes) in the target VPC.
+
+7. (Optional) Delete the stack that you created. This will delete the temporary assumable role.
+
 
 #### DNS considerations for VPC peering
 
