@@ -29,7 +29,7 @@ In order to push up DAGs to a Deployment on Astronomer, you must have:
 
 To authenticate via the Astronomer CLI, run:
 
-```sh
+```bash
 astro auth login BASEDOMAIN
 ```
 
@@ -41,19 +41,19 @@ Before you deploy to Astronomer, make sure that the Airflow Deployment you'd lik
 
 To see the list of Workspaces you have access to, run:
 
-```sh
+```bash
 astro workspace list
 ```
 
 To switch between Workspaces, run:
 
-```sh
+```bash
 astro workspace switch
 ```
 
 To see the list of Deployments within a particular Workspace, run:
 
-```sh
+```bash
 astro deployment list
 ```
 
@@ -65,7 +65,7 @@ Finally, make sure you're in the correct Airflow project directory.
 
 When you're ready to deploy your DAGs, run:
 
-```sh
+```bash
 astro deploy
 ```
 

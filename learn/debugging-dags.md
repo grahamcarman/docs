@@ -98,7 +98,7 @@ To prevent compatibility issues when new packages are released, Astronomer recom
 
 If you are using the Astro CLI, packages are installed in the scheduler Docker container. You can confirm that a package is installed correctly by running:
 
-```sh
+```bash
 astro dev bash --scheduler "pip freeze | grep <package-name>"
 ```
 

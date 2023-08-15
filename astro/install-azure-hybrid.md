@@ -123,28 +123,28 @@ The data plane is a collection of Astro infrastructure components that run in yo
 
 1. Run the following command to log in to your Azure account:
 
-    ```sh
+    ```bash
     az login
     ```
 2. Run the following command to select your Azure subscription:
 
-    ```sh
+    ```bash
     az account set -s <subscription-id>
     ```
 3. Run the following command to add the Astronomer Service Principal to Azure AD:
 
-    ```sh
+    ```bash
     az ad sp create --id a67e6057-7138-4f78-bbaf-fd9db7b8aab0
     ```
 4. Run the following commands to get details about the Azure subscription and create a new role assignment for the Astronomer service principal:
 
-    ```sh
+    ```bash
     subid=$(az account show --query id --output tsv)
     az role assignment create --assignee a67e6057-7138-4f78-bbaf-fd9db7b8aab0 --role Owner --scope /subscriptions/$subid
     ```
 5. Run the following commands to register the `EncryptionAtHost` feature:
 
-    ```sh
+    ```bash
     az feature register --namespace "Microsoft.Compute" --name "EncryptionAtHost"
     while [ $(az feature list --query "[?contains(name, 'Microsoft.Compute/EncryptionAtHost')].{State:properties.state}" -o tsv) != "Registered" ]
     do
@@ -161,38 +161,38 @@ The data plane is a collection of Astro infrastructure components that run in yo
 
 1. Run the following command to log in to your Azure account:
 
-    ```sh
+    ```bash
     Connect-AzAccount
     ```
 
 2. Run the following command to select your Azure subscription:
 
-    ```sh
+    ```bash
     Set-AzContext -SubscriptionId <subscription-id>
     ```
 3. Run the following command to create the Astronomer service principal:
 
-    ```sh
+    ```bash
     $sp = New-AzADServicePrincipal -AppId a67e6057-7138-4f78-bbaf-fd9db7b8aab0
     ```
 4. Run the following commands to get details about the Azure subscription and create a new role assignment for the Astronomer service principal:
 
-    ```sh
+    ```bash
     $sp = Get-AzADServicePrincipal -ApplicationId a67e6057-7138-4f78-bbaf-fd9db7b8aab0
     ```
-    ```sh
+    ```bash
     $subid = (Get-AzContext).Subscription.id
     ```
-    ```sh
+    ```bash
     $ra = New-AzRoleAssignment -ObjectId $sp.id -RoleDefinitionName Owner -Scope "/subscriptions/$subid"
     ```
 5. Run the following commands to register the `EncryptionAtHost` feature:
 
-    ```sh
+    ```bash
     Register-AzProviderFeature -FeatureName EncryptionAtHost -ProviderNamespace Microsoft.Compute
     while ( (Get-AzProviderFeature -FeatureName EncryptionAtHost -ProviderNamespace Microsoft.Compute).RegistrationState -ne "Registered") {echo "Still waiting for Feature Registration (EncryptionAtHost) to complete, this can take up to 15 minutes"; sleep 60} echo "Registration Complete"
     ```
-    ```sh
+    ```bash
     Register-AzResourceProvider -ProviderNamespace Microsoft.compute
     ```
 

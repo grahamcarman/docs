@@ -73,7 +73,7 @@ You can use the Astro CLI and a shell script to add multiple users to a Workspac
 4. Log in to the Astro CLI using `astro login`, then run `astro workspace list` to ensure that you're in the same Workspace where you want to add the users. If you're not in the right Workspace, run `astro workspace switch`.
 5. Run the following command to execute the shell script:
 
-    ```sh
+    ```bash
     sh path/to/add-users.sh path/to/users.txt
     ```
 

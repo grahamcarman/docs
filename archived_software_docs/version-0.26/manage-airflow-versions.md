@@ -27,7 +27,7 @@ Starting with Astronomer Software v0.23, new versions of Astronomer Certified ar
 
 > **Note:** If you don't want to wait for new versions of Astronomer Certified to appear on their own, you can manually trigger the cron job with the following Kubernetes command:
 >
-> ```sh
+> ```bash
 > kubectl create job --namespace astronomer --from=cronjob/astronomer-houston-update-airflow-check airflow-update-check-first-run
 > ```
 >
@@ -161,7 +161,7 @@ If you're developing locally, make sure to save your changes and issue the follo
 
 If you don't need to test this locally and just want to push to your Astronomer Software installation, you can run:
 
-```sh
+```bash
 astro deploy
 ```
 

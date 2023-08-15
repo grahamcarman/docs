@@ -38,13 +38,13 @@ The Astronomer CLI installation process requires [Docker](https://www.docker.com
 
 If you have Homebrew installed, run:
 
-```sh
+```bash
 brew install astro
 ```
 
 To install a specific version of the Astronomer CLI, you'll have to specify `@major.minor.patch`. To install v0.23.0, for example, run:
 
-```sh
+```bash
 brew install astro@0.23.0
 ```
 
@@ -81,14 +81,14 @@ To install the Astronomer CLI on a machine with an [Apple M1 chip](https://www.a
 
 1. Run the following command to install the x86_64 version of Homebrew:
 
-    ```sh
+    ```bash
     arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     ```
 
 2. Confirm that the script successfully installed Homebrew on `/usr/local`.
 3. Run the following command to install the Astronomer CLI:
 
-    ```sh
+    ```bash
     arch -x86_64 /usr/local/Homebrew/bin/brew install astro
     ```
 
@@ -143,13 +143,13 @@ Once the Astronomer CLI is installed, the next step is to initialize an Airflow 
 
 1. Create a new directory on your machine by running the following command:
 
-    ```sh
+    ```bash
     mkdir <directory-name> && cd <directory-name>
     ```
 
 2. Create the necessary project files in your new directory by running the following command:
 
-    ```sh
+    ```bash
     astro dev init
     ```
 
@@ -261,13 +261,13 @@ While upgrading to a new minor version of Astronomer requires upgrading the Astr
 
 To check your working versions of Astronomer (`Astro Server Version`) and the Astronomer CLI (`Astronomer CLI`), run:
 
-```sh
+```bash
 astro version
 ```
 
 This command will output something like the following:
 
-```sh
+```bash
 $ astro version
 Astronomer CLI Version: 0.23.2
 Astro Server Version: 0.23.9

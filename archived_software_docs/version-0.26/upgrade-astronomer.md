@@ -27,7 +27,7 @@ You need Astronomer System Admin permissions to complete version upgrades. To co
 
 You also need permissions to create Kubernetes resources. To confirm that you have the required permissions, run the following commands:
 
-```sh
+```bash
 kubectl auth can-i create pods --namespace <your-astronomer-namespace>
 kubectl auth can-i create sa --namespace <your-astronomer-namespace>
 kubectl auth can-i create jobs --namespace <your-astronomer-namespace>
@@ -43,7 +43,7 @@ Before you perform an upgrade, back up your Astronomer database. To create a bac
 
 Then, ensure that all Kubernetes Pods in your Astronomer namespace are healthy by running:
 
-```sh
+```bash
 kubectl get pods -n <your-astronomer-namespace>
 ```
 
@@ -53,7 +53,7 @@ All Pods should be in either the `Running` or `Completed` state. If any of your 
 
 1. Run the following command to retrieve your current platform configuration:
 
-    ```sh
+    ```bash
     helm get values <your-platform-release-name> -n <your-platform-namespace>  > config.yaml
     ```
 
@@ -64,7 +64,7 @@ All Pods should be in either the `Running` or `Completed` state. If any of your 
 
 To verify your current version of Astronomer, run:
 
-```sh
+```bash
 helm list --all-namespaces | grep astronomer
 ```
 
@@ -72,7 +72,7 @@ helm list --all-namespaces | grep astronomer
 
 Review and run the script below to upgrade to the version of your choice.
 
-```sh
+```bash
 #!/bin/bash
 set -xe
 
@@ -229,7 +229,7 @@ Before upgrading to 0.25, ensure that the following software is updated to the a
 
     For example, all of the following images would work for this upgrade:
 
-    ```sh
+    ```bash
     quay.io/astronomer/ap-airflow:1.10.10-5-alpine3.10-onbuild
     quay.io/astronomer/ap-airflow:2.0.0-3-buster-onbuild
     quay.io/astronomer/ap-airflow:2.0.2-buster-onbuild
@@ -244,6 +244,6 @@ Before upgrading to 0.25, ensure that the following software is updated to the a
 
 Upgrading to 0.25 requires a non-standard upgrade script. Ignore Step 4 in the standard upgrade process and run the following command instead:
 
-```sh
+```bash
 kubectl apply -f https://raw.githubusercontent.com/astronomer/astronomer/v0.25.15-final/migrations/scripts/lts-to-lts/0.23-to-0.25/manifests/upgrade-0.23-to-0.25.yaml
 ```

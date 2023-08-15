@@ -10,7 +10,7 @@ Log out of the Astro CLI. This command does not affect your current login sessio
 
 ## Usage
 
-```sh
+```bash
 astro logout
 ```
 

@@ -59,19 +59,19 @@ An _Astro project_ contains the set of files necessary to run Airflow, including
 
 2. Create a new folder for your Astro project:
 
-    ```sh
+    ```bash
     mkdir <your-astro-project-name>
     ```
 
 3. Open the folder:
 
-    ```sh
+    ```bash
     cd <your-astro-project-name>
     ```
 
 4. Run the following Astro CLI command to initialize an Astro project in the folder:
 
-    ```sh
+    ```bash
     astro dev init
     ```
 
@@ -100,7 +100,7 @@ DAG-only deploys are an Astro feature that you can use to quickly update your As
 
 1. Run the following command to authenticate to Astro on the CLI:
 
-    ```sh
+    ```bash
     astro login astronomer.io
     ```
 
@@ -108,7 +108,7 @@ DAG-only deploys are an Astro feature that you can use to quickly update your As
 
 2. Run the following command to enable DAG-only code deploys on your Deployment.
    
-    ```sh
+    ```bash
     astro deployment update --dag-deploy enable
     ```
    
@@ -116,7 +116,7 @@ DAG-only deploys are an Astro feature that you can use to quickly update your As
 
 3. Run the following command to deploy your DAGs to Astro: 
    
-    ```sh
+    ```bash
     astro deploy --dags
     ```
 

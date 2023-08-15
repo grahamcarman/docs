@@ -27,7 +27,7 @@ In most cases, you only need to modify these settings in the case of debugging a
 
 Run the following command in an Astro project:
 
-```sh
+```bash
 astro config set <configuration-option> <value>
 ```
 
@@ -35,7 +35,7 @@ This command applies your configuration to `.astro/config.yaml` in your current 
 
 For example, to update the port of your local Airflow webserver to 8081 from the default of 8080, run:
 
-```sh
+```bash
 astro config set webserver.port 8081
 ```
 
@@ -130,7 +130,7 @@ If you receive an error after running `podman ps`, there is likely a problem wit
 
 1. Run the following command to identify the connection URI for `podman-machine-default`:
 
-    ```sh
+    ```bash
     podman system connection ls
     ```
     
@@ -151,7 +151,7 @@ If you receive an error after running `podman ps`, there is likely a problem wit
 
 1. Run the following command to confirm that Podman has access to Astro images at `docker.io`:
 
-    ```sh
+    ```bash
     podman run --rm -it postgres:12.6 whoami
     ```
 
@@ -159,13 +159,13 @@ If you receive an error after running `podman ps`, there is likely a problem wit
 
 2. Run the following command to set Podman as your container management engine for the Astro CLI:
 
-    ```sh
+    ```bash
     astro config set -g container.binary podman
     ```
 
     If you're using Podman 3, additionally run the following command:
 
-    ```sh
+    ```bash
     astro config set -g duplicate_volumes false
     ```
 
@@ -187,7 +187,7 @@ If you receive an error after running `podman ps`, there is likely a problem wit
 
 1. In a WSL 2 terminal, run the following command to identify the connection URI for `podman-machine-default`:
 
-    ```sh
+    ```bash
     podman system connection ls
     ```
     
@@ -208,13 +208,13 @@ If you receive an error after running `podman ps`, there is likely a problem wit
 
 1. In a WSL 2 terminal, run the following command to confirm that Podman has access to Astro images at `docker.io`:
 
-    ```sh
+    ```bash
     podman run --rm -it postgres:12.6 whoami
     ```
 
     If this command fails, run the following command to change Podman's default image registry location to `docker.io`:
 
-    ```sh
+    ```bash
     cat << EOF | sudo tee -a /etc/containers/registries.conf.d/shortnames.conf
     "postgres" = "docker.io/postgres"
     EOF
@@ -222,13 +222,13 @@ If you receive an error after running `podman ps`, there is likely a problem wit
 
 2. Run the following command to set Podman as your container management engine for the Astro CLI:
 
-    ```sh
+    ```bash
     astro config set -g container.binary podman
     ```
 
     If you're using Podman 3, additionally run the following command:
 
-    ```sh
+    ```bash
     astro config set -g duplicate_volumes false
     ```
 
@@ -249,7 +249,7 @@ If you receive an error after running `podman ps`, there is likely a problem wit
 
 1. Run the following command to identify the connection URI for `podman-machine-default`:
 
-    ```sh
+    ```bash
     podman system connection ls
     ```
     
@@ -270,13 +270,13 @@ If you receive an error after running `podman ps`, there is likely a problem wit
 
 1. Run the following command to confirm that Podman has access to Astro images at `docker.io`:
 
-    ```sh
+    ```bash
     podman run --rm -it postgres:12.6 whoami
     ```
 
     If this command fails, run the following command to change Podman's default image registry location to `docker.io`:
 
-    ```sh
+    ```bash
     cat << EOF | sudo tee -a /etc/containers/registries.conf.d/shortnames.conf
     "postgres" = "docker.io/postgres"
     EOF
@@ -284,13 +284,13 @@ If you receive an error after running `podman ps`, there is likely a problem wit
 
 2. Run the following command to set Podman as your container management engine for the Astro CLI:
 
-    ```sh
+    ```bash
     astro config set -g container.binary podman
     ```
 
     If you're using Podman 3, additionally run the following command:
 
-    ```sh
+    ```bash
     astro config set -g duplicate_volumes false
     ```
 
@@ -302,12 +302,12 @@ If you receive an error after running `podman ps`, there is likely a problem wit
 
 After you set up the Astro CLI to use Podman on your local machine, the CLI automatically runs Podman containers whenever you run a command that requires them. To revert to the default behavior and run CLI commands in Docker containers, run the following command:
 
-```sh
+```bash
 astro config set container.binary docker
 ```
 
 If you need to switch back to using Podman again, run the following command:
 
-```sh
+```bash
 astro config set container.binary podman
 ```

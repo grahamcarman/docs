@@ -10,7 +10,7 @@ Create an Astro Workspace.
 
 ## Usage
 
-```sh
+```bash
 astro workspace create <options>
 ```
 
@@ -26,7 +26,7 @@ astro workspace create <options>
 
 ## Examples
 
-```sh
+```bash
 $ astro workspace create --name "My Deployment" --enforce-ci-cd ON
 ```
 

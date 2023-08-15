@@ -52,7 +52,7 @@ The images and tags which are required for your Software installation depend on 
 
 2. Run the following command to template the Airflow Helm chart and fetch its rendered image tags:
 
-    ```shell
+    ```bashell
     helm template astronomer/airflow --set airflow.postgresql.enabled=false --set airflow.pgbouncer.enabled=true     --set airflow.statsd.enabled=true --set airflow.executor=CeleryExecutor | grep "image: " | sed -e 's/"//g' -e     's/image:[ ]//' -e 's/^ *//g' | sort | uniq
     ```
 
@@ -232,7 +232,7 @@ To complete this setup:
 
 3. Save this file and apply it to your cluster by running the following command:
 
-    ```sh
+    ```bash
     kubectl apply -f nginx-astronomer-releases.yaml
     ```
 

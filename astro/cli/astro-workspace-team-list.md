@@ -10,7 +10,7 @@ List all Teams in your current Workspace.
 
 ## Usage
 
-```sh
+```bash
 astro workspace team list
 ```
 

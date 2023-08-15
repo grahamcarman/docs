@@ -10,7 +10,7 @@ Create an Organization API token.
 
 ## Usage
 
-```sh
+```bash
 astro organization token create
 ```
 
@@ -26,7 +26,7 @@ astro organization token create
 
 ## Examples
 
-```sh
+```bash
 astro organization token create --name "My Org Owner API token" --role ORGANIZATION OWNER
 ```
 

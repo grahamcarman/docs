@@ -57,7 +57,7 @@ To get the most out of this tutorial, make sure you have an understanding of:
 
 1. Set up Airflow by creating a new Astro project:
 
-    ```sh
+    ```bash
     $ mkdir airflow-custom-xcom-example && cd airflow-custom-xcom-example
     $ astro dev init
     ```
@@ -66,7 +66,7 @@ To get the most out of this tutorial, make sure you have an understanding of:
 
 2. Start your Airflow project by running:
 
-    ```sh
+    ```bash
     $ astro dev start
     ```
 

@@ -10,7 +10,7 @@ Create an Airflow connection in a Deployment's metadata database.
 
 ## Usage
 
-```sh
+```bash
 astro deployment connection create
 ```
 

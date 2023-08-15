@@ -10,7 +10,7 @@ Delete an Organization API token.
 
 ## Usage
 
-```sh
+```bash
 astro organization token delete
 ```
 

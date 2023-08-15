@@ -10,7 +10,7 @@ Update a Team's role in your current Workspace.
 
 ## Usage
 
-```sh
+```bash
 astro workspace team update <team-id> 
 ```
 

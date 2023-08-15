@@ -20,7 +20,7 @@ This command requires Astro Runtime version `4.1.0`+. For more information, see 
 
 ## Usage
 
-```sh
+```bash
 astro dev pytest
 ```
 

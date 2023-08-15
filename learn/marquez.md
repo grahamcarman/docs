@@ -33,13 +33,13 @@ To get the most out of this tutorial, make sure you have an understanding of:
 
 1. Clone the Marquez repository:
 
-    ```sh
+    ```bash
     git clone https://github.com/MarquezProject/marquez && cd marquez
     ```
 
 2. Run the following command in the `marquez` directory to start Marquez:
 
-    ```sh
+    ```bash
     ./docker/up.sh
     ```
 
@@ -51,7 +51,7 @@ Use the Astro CLI to create and run an Airflow project locally that will integra
 
 1. Create a new Astro project:
 
-    ```sh
+    ```bash
     $ mkdir astro-marquez-tutorial && cd astro-marquez-tutorial
     $ astro dev init
     ```
@@ -70,13 +70,13 @@ Use the Astro CLI to create and run an Airflow project locally that will integra
 
 3. Marquez also uses Postgres, so you will need to have Airflow use a different port than the default 5432 which is already allocated to Airflow. Run the following command to use a port 5435 for Postgres:
 
-    ```sh
+    ```bash
     astro config set postgres.port 5435
     ```
 
 4. Run the following command to start your local project:
 
-    ```sh
+    ```bash
     astro dev start
     ```
 

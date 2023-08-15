@@ -9,7 +9,7 @@ Update the settings for an existing [worker queue](configure-deployment-resource
 
 ## Usage
 
-```sh
+```bash
 astro deployment worker-queue update
 ```
 
@@ -28,7 +28,7 @@ astro deployment worker-queue update
 
 ## Examples
 
-```sh
+```bash
 astro deployment worker-queue update --deployment-id cl03oiq7d80402nwn7fsl3dmv --name="Updated name"
 # Update a worker queue's name in a specified Deployment.
 

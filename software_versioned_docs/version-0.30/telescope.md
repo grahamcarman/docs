@@ -52,7 +52,7 @@ Go to the [**Releases** page of the Telescope GitHub repository](https://github.
 
 For example, to install Telescope on a Linux machine with x86_64 CPU architecture, you would run:
 
-```sh
+```bash
 wget https://github.com/astronomer/telescope/releases/latest/download/telescope-linux-x86_64
 chmod +x telescope-linux-x86_64
 ```
@@ -62,7 +62,7 @@ chmod +x telescope-linux-x86_64
 
 To install Telescope using pip, run the following command:
 
-```sh
+```bash
 pip install telescope --find-links https://github.com/astronomer/telescope/releases/latest
 ```
 
@@ -73,7 +73,7 @@ pip install telescope --find-links https://github.com/astronomer/telescope/relea
 
 In your Kubernetes cluster, run the following command:
 
-```sh
+```bash
 telescope --kubernetes --organization-name <your-organization-name>
 ```
 
@@ -83,7 +83,7 @@ This command observes all scheduler containers in the cluster and outputs the re
 
 By default, Telescope only observes Pods with the label `component=scheduler`. If your Deployments use an alternative label to denote scheduler Pods, use  `--label-selector` in your command. For example, if your label for scheduler pods is `role=scheduler`, you would run.  
 
-```sh
+```bash
 --kubernetes --organization-name <your-organization> --label-selector "role=scheduler"
 ```
 
@@ -93,7 +93,7 @@ By default, Telescope only observes Pods with the label `component=scheduler`. I
 
 Open your Astro project and run the following command:
 
-```sh
+```bash
 telescope --docker --organization-name <your-organization-name>
 ```
 
@@ -128,7 +128,7 @@ You can use Telescope to observe both Apache Airflow environments and standalone
 
 7. Run the following command to observe Airflow on the remote machine:
 
-    ```sh
+    ```bash
     telescope -f hosts.yaml --organization-name <your-organization-name>
     ```
 

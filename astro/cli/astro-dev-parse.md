@@ -10,7 +10,7 @@ Parse the DAGs in a locally hosted Astro project to quickly check them for error
 
 ## Usage
 
-```sh
+```bash
 astro dev parse
 ```
 
@@ -23,7 +23,7 @@ astro dev parse
 
 ## Examples
 
-```sh
+```bash
 # Parse DAGs
 astro dev parse
 

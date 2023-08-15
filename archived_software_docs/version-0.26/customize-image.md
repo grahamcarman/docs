@@ -353,7 +353,7 @@ To run Astronomer Certified on Docker with Python versions 3.6 or 3.8, you need 
 
 1. Using `docker build`, build a custom [Astronomer Certified Docker image](https://github.com/astronomer/ap-airflow) and specify `PYTHON_MAJOR_MINOR_VERSION` for the version of Python you'd like to support. For example, the command for building a custom Astronomer Certified image for Airflow 2.0.0 with Python 3.8 would look something like this:
 
-    ```sh
+    ```bash
     docker build --build-arg PYTHON_MAJOR_MINOR_VERSION=3.8 -t <your-registry>/ap-airflow:<image-tag> https://github.com/astronomer/ap-airflow.git#master:2.0.0/buster
     ```
 
@@ -363,7 +363,7 @@ To run Astronomer Certified on Docker with Python versions 3.6 or 3.8, you need 
 
 2. Push the custom image to your Docker registry. Based on the example in the previous step, the command to do so would look something like this:
 
-    ```sh
+    ```bash
     docker push <your-registry>/ap-airflow:<image-tag>
     ```
 

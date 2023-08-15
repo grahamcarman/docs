@@ -44,7 +44,7 @@ The Astronomer Registry includes:
 
 To create a new Astro project, run the following command in an empty directory:
 
-```sh
+```bash
 astro dev init
 ```
 
@@ -73,7 +73,7 @@ Use the rest of this document to learn more about modifying each of these folder
 
 Applying changes to your Astro project and testing them locally requires an Airflow environment on your computer. To start an Astro project in a local Airflow environment, run the following command:
 
-```sh
+```bash
 astro dev start
 ```
 
@@ -97,7 +97,7 @@ You must restart your environment to apply changes from any of the following fil
 
 To restart your local Airflow environment, run:
 
-```sh
+```bash
 astro dev restart
 ```
 
@@ -198,7 +198,7 @@ The `airflow_settings.yaml` file includes a template with the default values for
 2. Save the modified `airflow_settings.yaml` file in your code editor. If you use a Mac computer, for example, use **Command-S**.
 3. Import these objects to the Airflow UI. Run:
 
-    ```sh
+    ```bash
     astro dev object import
     ```
 
@@ -239,7 +239,7 @@ Adding the name of a package to the `packages.txt` or `requirements.txt` files o
 2. [Restart your local environment](#restart-your-local-environment).
 3. Confirm that your package was installed:
 
-    ```sh
+    ```bash
     astro dev bash --scheduler "pip freeze | grep <package-name>"
     ```
 
@@ -265,7 +265,7 @@ If your environment variables contain sensitive information or credentials that 
 3. [Restart your local environment](/astro/develop-project.md#restart-your-local-environment).
 4. Run the following command to confirm that your environment variables were applied locally:
    
-    ```sh
+    ```bash
     astro dev bash --scheduler "/bin/bash && env"
     ```
 
@@ -279,7 +279,7 @@ For local environments, the Astro CLI generates an `airflow.cfg` file at runtime
 
 To view your local environment variables in the context of the generated Airflow configuration, run:
 
-```sh
+```bash
 astro dev bash --scheduler "/bin/bash && cat airflow.cfg"
 ```
 
@@ -467,13 +467,13 @@ This example assumes that the name of each of your Python packages is identical 
 
 1. Run the following command to automatically generate a unique image name:
 
-    ```sh
+    ```bash
     image_name=astro-$(date +%Y%m%d%H%M%S)
     ```
 
 2. Run the following command to create a new Docker image from your `Dockerfile`. Replace `<ssh-key>` with your SSH private key file name.
 
-    ```sh
+    ```bash
     DOCKER_BUILDKIT=1 docker build -f Dockerfile --progress=plain --ssh=github="$HOME/.ssh/<ssh-key>" -t $image_name .
     ```
 
@@ -481,7 +481,7 @@ This example assumes that the name of each of your Python packages is identical 
 
 4. Deploy the image to Astro using the Astro CLI:
 
-    ```sh
+    ```bash
     astro deploy --image-name $image_name
     ```
 
@@ -570,19 +570,19 @@ Make sure that the name of any privately hosted Python package doesn’t conflic
 
 1. Run the following command to automatically generate a unique image name:
 
-    ```sh
+    ```bash
     image_name=astro-$(date +%Y%m%d%H%M%S)
     ```
 
 2. Run the following command to create a new Docker image from your `Dockerfile`. Replace `<private-pypi-repo-domain-name>`, `<repo-username>` and `<repo-password>` with your own values.
 
-    ```sh
+    ```bash
     DOCKER_BUILDKIT=1 docker build -f Dockerfile --progress=plain --build-arg PIP_EXTRA_INDEX_URL=https://${<repo-username>}:${<repo-password>}@<private-pypi-repo-domain-name> -t $image_name .
     ```
 
 3. Optional. Test your DAGs locally or deploy your image to Astro. See [Build and Run a Project Locally](#build-and-run-a-project-locally) or [Deploy Code to Astro](/astro/deploy-code.md).
 
-    ```sh
+    ```bash
     astro dev start --image-name $image_name
     ```
   

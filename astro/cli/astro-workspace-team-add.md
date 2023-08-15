@@ -10,7 +10,7 @@ Add a Team to your current Workspace and grant it a Workspace role.
 
 ## Usage
 
-```sh
+```bash
 astro workspace team add <team-id> 
 ```
 

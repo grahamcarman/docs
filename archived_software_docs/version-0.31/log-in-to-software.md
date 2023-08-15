@@ -24,7 +24,7 @@ Developing locally with the Astro CLI does not require an Astro account. This in
 
 1. In the Astro CLI, run the following command:
 
-    ```sh
+    ```bash
     astro login <basedomain>
     ```
 2. Enter your username and password or use an OAuth token for authentication:

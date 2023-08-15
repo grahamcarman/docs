@@ -38,7 +38,7 @@ An Astro project contains all of the files you need to run Airflow locally.
 
 1. Create a new Astro project:
 
-    ```sh
+    ```bash
     $ mkdir astro-fivetran-project && cd astro-fivetran-project
     $ astro dev init
     ```
@@ -51,7 +51,7 @@ An Astro project contains all of the files you need to run Airflow locally.
 
 3. Run the following command to start your project in a local environment:
 
-    ```sh
+    ```bash
     astro dev start
     ```
 

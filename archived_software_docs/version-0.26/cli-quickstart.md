@@ -38,7 +38,7 @@ The Astronomer CLI installation process requires [Docker](https://www.docker.com
 
 To install the latest supported version of the Astronomer CLI, run:
 
-```sh
+```bash
 brew install astro@0.25
 ```
 
@@ -67,7 +67,7 @@ curl -sSL https://install.astronomer.io | sudo bash -s < /dev/null
 
 To install the Astronomer CLI on a machine with an [Apple M1 chip](https://www.apple.com/newsroom/2020/11/apple-unleashes-m1/), you must use Homebrew. Because the Astronomer CLI does not yet have an ARM64 build, installing it via Homebrew on a machine with an Apple M1 chip requires a few additional steps:
 
-```sh
+```bash
 sudo curl -sSL https://install.astronomer.io | sudo bash -s
 ```
 
@@ -75,14 +75,14 @@ Because the Astronomer CLI does not yet have an ARM64 build, installing it via H
 
 1. Run the following command to install the x86_64 version of Homebrew:
 
-    ```sh
+    ```bash
     arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     ```
 
 2. Confirm that the script successfully installed Homebrew on `/usr/local`.
 3. Run the following command to install the Astronomer CLI:
 
-    ```sh
+    ```bash
     arch -x86_64 /usr/local/Homebrew/bin/brew install astro@0.25
     ```
 
@@ -137,13 +137,13 @@ Once the Astronomer CLI is installed, the next step is to initialize an Airflow 
 
 1. Create a new directory on your machine by running the following command:
 
-    ```sh
+    ```bash
     mkdir <directory-name> && cd <directory-name>
     ```
 
 2. Create the necessary project files in your new directory by running the following command:
 
-    ```sh
+    ```bash
     astro dev init
     ```
 
@@ -255,13 +255,13 @@ While upgrading to a new minor version of Astronomer requires upgrading the Astr
 
 To check your working versions of Astronomer (`Astro Server Version`) and the Astronomer CLI (`Astronomer CLI`), run:
 
-```sh
+```bash
 astro version
 ```
 
 This command will output something like the following:
 
-```sh
+```bash
 $ astro version
 Astronomer CLI Version: 0.23.2
 Astro Server Version: 0.23.9

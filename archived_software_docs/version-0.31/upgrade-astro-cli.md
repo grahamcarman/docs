@@ -54,7 +54,7 @@ When you create a new Astro project with the `astro dev init` command, you must 
 
 If you don't specify this flag, the project is initialized with an Astro Runtime image. Support for Astro Runtime on Astronomer Software is coming soon.
 
-```sh
+```bash
 # Before upgrade
 astro dev init
 
@@ -66,7 +66,7 @@ astro dev init --use-astronomer-certified
 
 The previous `astro auth login` and `astro auth logout` commands have been simplified:
 
-```sh
+```bash
 # Before upgrade
 astro auth login <domain>
 astro auth logout
@@ -80,7 +80,7 @@ astro logout
 
 When you specify configurations for a Workspace using `astro workspace create` or `astro workspace update`, you must now specify those properties with new flags.
 
-```sh
+```bash
 # Before upgrade
 astro workspace create label=my-workspace
 
@@ -92,7 +92,7 @@ astro workspace create --label=my-workspace
 
 The flag for specifying a description for a Workspace has been renamed from `--desc` to `--description`.
 
-```sh
+```bash
 # Before upgrade
 astro workspace create label=my-workspace --desc="my description"
 
@@ -104,7 +104,7 @@ astro workspace create --label=my-workspace --description="my description"
 
 You must now specify a new user's email using the `--email` flag when running `astro workspace `
 
-```sh
+```bash
 # Before upgrade
 astro workspace user add email-to-add@astronomer.io --role WORKSPACE_VIEWER
 # After upgrade
@@ -115,7 +115,7 @@ astro workspace user add --email email-to-add@astronomer.io --role WORKSPACE_VIE
 
 To deploy code to a specific Deployment without manually selecting a Deployment from a list, you must now specify that Deployment's ID instead of its release name when running `astro deploy`.
 
-```sh
+```bash
 # Before upgrade
 astro deploy <release-name>
 
@@ -125,7 +125,7 @@ astro deploy <deployment-id>
 
 ### `astro workspace sa get` is now `astro workspace sa list`
 
-```sh
+```bash
 # Before upgrade
 astro workspace sa get
 # After upgrade
@@ -136,7 +136,7 @@ astro workspace sa list
 
 The `--role` flag now accepts either `WORKSPACE_EDITOR`, `WORKSPACE_ADMIN`, or `WORKSPACE_VIEWER`.
 
-```sh
+```bash
 # Before upgrade
 astro workspace sa create --role viewer
 
@@ -148,7 +148,7 @@ astro workspace sa create --role WORKSPACE_VIEWER
 
 You must now specify a Deployment's properties using flags when you run `astro deployment create` or `astro deployment update`.
 
-```sh
+```bash
 # Before upgrade
 astro deployment create my-deployment --executor=local
 
@@ -160,7 +160,7 @@ astro deployment create --label=my-deployment --executor=local
 
 To list users that have access to a specific Deployment, you must now use the `--deployment-id` flag when running `astro deployment user list`.
 
-```sh
+```bash
 # Before upgrade
 astro deployment user list <deployment-id>
 
@@ -172,7 +172,7 @@ astro deployment user list --deployment-id=<deployment-id>
 
 You must now specify a user's email using the `--email` flag when running `astro deployment user add`.
 
-```sh
+```bash
 # Before upgrade
 astro deployment user add <email> --deployment-id=<deployment-id>
 
@@ -182,7 +182,7 @@ astro deployment user add --email=<email> --deployment-id=<deployment-id>
 
 ### `astro deployment user delete` is now `astro deployment user remove`
 
-```sh
+```bash
 # Before upgrade
 astro deployment user delete <email> --deployment-id=<deployment-id>
 
@@ -196,7 +196,7 @@ The `astro logs` command has been removed. This command has been unavailable for
 
 ### `astro cluster list/switch` is now `astro context list/switch`
 
-```sh
+```bash
 # Before upgrade
 astro cluster list
 
@@ -212,7 +212,7 @@ The `--system-sa` and `--user-id` flags have been deprecated for `astro deployme
 
 The shortcut for specifying an Astronomer Certified version for `astro dev init` has been changed from `-v` to `-a`.
 
-```sh
+```bash
 # Before upgrade
 astro dev init -v=2.3.0
 

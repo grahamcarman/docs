@@ -10,7 +10,7 @@ Copy Airflow connections from one Astro Deployment to another. Airflow connectio
 
 ## Usage
 
-```sh
+```bash
 astro deployment connection copy
 ```
 

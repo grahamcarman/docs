@@ -33,7 +33,7 @@ Astronomer uses refresh tokens to make sure that you don’t need to log in to t
 
 1. In the Astro CLI, run the following command:
 
-    ```sh
+    ```bash
     astro login
     ```
 

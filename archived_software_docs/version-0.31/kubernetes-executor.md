@@ -166,7 +166,7 @@ For each task with the Kubernetes executor, you can customize its individual wor
 
 1. Add the following import to your DAG file:
 
-    ```sh
+    ```bash
     from kubernetes.client import models as k8s
     ```
 
@@ -234,7 +234,7 @@ When this DAG runs, it launches a Kubernetes Pod with exactly 0.5m of CPU and 10
 
 1. Run the following command to find the namespace (release name) of your Airflow Deployment:
 
-    ```sh
+    ```bash
     kubectl get ns
     ```
 

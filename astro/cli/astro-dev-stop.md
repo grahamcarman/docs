@@ -12,7 +12,7 @@ This command can be used regularly with `astro dev start` to apply changes to yo
 
 ## Usage
 
-```sh
+```bash
 astro dev stop
 ```
 

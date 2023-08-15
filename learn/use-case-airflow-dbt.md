@@ -38,7 +38,7 @@ Clone the example project from this [Astronomer GitHub](https://github.com/astro
 
 To run the example project, first make sure Docker Desktop is running. Then, navigate to your project directory and run:
 
-```sh
+```bash
 astro dev start
 ```
 

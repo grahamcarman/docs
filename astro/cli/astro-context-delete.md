@@ -12,7 +12,7 @@ If you re-authenticate to an installation that you previously deleted with this 
 
 ## Usage
 
-```sh
+```bash
 astro context delete <basedomain>
 ```
 

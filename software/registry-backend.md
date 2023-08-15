@@ -140,7 +140,7 @@ To use AWS S3 as a registry backend solution, you'll need:
 
 3. Create Kubernetes secrets for your key credentials in your Astronomer installation:
 
-    ```sh
+    ```bash
     $ kubectl create secret generic astronomer-s3-access-key --from-literal=accesskey=<your-access-key> -n <your-namespace>
     $ kubectl create secret generic astronomer-s3-secret-key --from-literal=secretkey=<your-secret-key> -n <your-namespace>
     ```
@@ -195,7 +195,7 @@ To use AWS S3 as a registry backend solution, you'll need:
 
 2. Create Kubernetes secrets for your key credentials:
 
-    ```sh
+    ```bash
     $ kubectl create secret generic astronomer-s3-access-key --from-literal=accesskey=<your-access-key> -n <your-namespace>
     $ kubectl create secret generic astronomer-s3-secret-key --from-literal=secretkey=<your-secret-key> -n <your-namespace>
     ```
@@ -247,7 +247,7 @@ To use Azure Blog Storage as a registry backend solution, you'll need:
 
 1. Create Kubernetes secrets for your key credentials:
 
-    ```sh
+    ```bash
     $ kubectl create secret generic astronomer-azure-access-key --from-literal=accountname=<your-account-name> -n <your-namespace>
     $ kubectl create secret generic astronomer-azure-secret-key --from-literal=accountkey=<your-account-key> -n <your-namespace>
     ```

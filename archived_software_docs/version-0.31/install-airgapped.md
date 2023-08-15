@@ -43,7 +43,7 @@ After you create your registry:
 1. Log in to the registry and follow the [Kubernetes documentation](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#log-in-to-docker-hub) to produce a `/.docker/config.json` file.
 2. Run the following command to create an image pull secret:
 
-    ```sh
+    ```bash
     kubectl create secret generic regcred \
     --from-file=.dockerconfigjson=<path/to/.docker/config.json> \
     --type=kubernetes.io/dockerconfigjson
@@ -63,7 +63,7 @@ The images and tags which are required for your Software installation depend on 
     This command sets all possible Helm values that could impact which images are required for your installation. By fetching all images now, you save time by eliminating the risk of missing an image. 
 2. Run the following command to template the Airflow Helm chart and fetch its rendered image tags:
 
-    ```shell
+    ```bashell
     helm template astronomer/airflow --set airflow.postgresql.enabled=false --set airflow.pgbouncer.enabled=true     --set airflow.statsd.enabled=true --set airflow.executor=CeleryExecutor | grep "image: " | sed -e 's/"//g' -e     's/image:[ ]//' -e 's/^ *//g' | sort | uniq
     ```
 
@@ -244,7 +244,7 @@ To complete this setup:
 
 3. Save this file and apply it to your cluster by running the following command:
 
-    ```sh
+    ```bash
     kubectl apply -f nginx-astronomer-releases.yaml
     ```
 

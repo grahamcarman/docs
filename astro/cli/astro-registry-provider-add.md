@@ -10,7 +10,7 @@ Download a provider package from the [Astronomer Registry](https://registry.astr
 
 ## Usage 
 
-```sh
+```bash
 astro registry provider add
 ```
 
@@ -25,7 +25,7 @@ When you run the command, the CLI prompts you for a provider to download. To ret
 
 ## Examples
 
-```sh
+```bash
 # Download version 1.2.0 of a provider
 astro registry provider add apache-airflow-providers-airbyte --version 1.2.0
 ```

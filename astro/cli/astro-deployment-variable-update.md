@@ -15,7 +15,7 @@ This command is functionally identical to editing and saving the value of an exi
 
 ## Usage
 
-```sh
+```bash
 astro deployment variable update
 ```
 
@@ -43,7 +43,7 @@ After setting the variables, this command works for a Deployment without you hav
 
 ## Examples
 
-```sh
+```bash
 # Update an existing environment variable and set as secret
 $ astro deployment variable update --deployment-id cl03oiq7d80402nwn7fsl3dmv AIRFLOW__SECRETS__BACKEND_KWARGS=<my-new-secret-value> --secret
 

@@ -10,7 +10,7 @@ List all Deployments within your current Workspace.
 
 ## Usage
 
-```sh
+```bash
 astro deployment list
 ```
 
@@ -23,7 +23,7 @@ astro deployment list
 
 ## Examples
 
-```sh
+```bash
 $ astro deployment list --all
 # Shows Deployments from all Workspaces that you're authenticated to
 ```

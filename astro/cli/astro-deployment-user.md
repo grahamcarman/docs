@@ -24,7 +24,7 @@ Give an existing user in a Workspace access to a Deployment within that Workspac
 
 #### Usage
 
-```sh
+```bash
 astro deployment user add --email=<user-email-address> --deployment-id=<user-deployment-id> --role<user-role>
 ```
 
@@ -46,7 +46,7 @@ Remove access to a Deployment for an existing Workspace user. To grant that same
 
 #### Usage
 
-```sh
+```bash
 astro deployment user remove --deployment-id=<deployment-id> --email=<user-email-address>
 ```
 
@@ -67,7 +67,7 @@ View a list of all Workspace users who have access to a given Deployment.
 
 #### Usage
 
-```sh
+```bash
 astro deployment user list --deployment-id=<deployment-id> 
 ```
 
@@ -89,7 +89,7 @@ Update a user's role in a given Deployment.
 
 #### Usage
 
-```sh
+```bash
 astro deployment user update --deployment-id=<deployment-id>
 ```
 

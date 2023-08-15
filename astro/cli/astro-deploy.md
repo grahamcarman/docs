@@ -43,7 +43,7 @@ To skip the parsing process before deploys, complete one of the following setups
 
 ## Usage
 
-```sh
+```bash
 astro deploy <options>
 ```
 
@@ -64,7 +64,7 @@ astro deploy <options>
 
 ## Examples
 
-```sh
+```bash
 # List of Deployments appears
 $ astro deploy
 
@@ -104,7 +104,7 @@ When you run `astro deploy`, you'll be prompted to select from a list of all Dep
 
 ## Examples
 
-```sh
+```bash
 # List of Deployments appears
 $ astro deploy
 

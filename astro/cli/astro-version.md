@@ -10,6 +10,6 @@ Show the running version of the Astro CLI. Note that this command does not show 
 
 ## Usage
 
-```sh
+```bash
 astro version
 ```

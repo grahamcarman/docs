@@ -67,7 +67,7 @@ The Airflow CLI contains options to set, get and delete [Airflow variables](http
     ]}>
 <TabItem value="astro">
 
-```sh
+```bash
 astro dev run variables set my_var my_value
 astro dev run variables set -j my_json_var '{"key": "value"}'
 ```
@@ -79,7 +79,7 @@ Note that [`astro dev run`](https://docs.astronomer.io/astro/cli/astro-dev-run) 
 <TabItem value="airflow">
 
 
-```sh
+```bash
 airflow variables set my_var my_value
 airflow variables set -j my_json_var '{"key": "value"}'
 ```

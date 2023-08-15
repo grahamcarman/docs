@@ -30,7 +30,7 @@ The Astronomer CLI installation process requires [Docker](https://www.docker.com
 
 If you have Homebrew installed, run:
 
-```sh
+```bash
 brew install astro@0.25
 ```
 
@@ -59,7 +59,7 @@ curl -sSL https://install.astronomer.io | sudo bash -s < /dev/null
 
 To install the Astronomer CLI on a machine with an [Apple M1 chip](https://www.apple.com/newsroom/2020/11/apple-unleashes-m1/), you must use Homebrew. Because the Astronomer CLI does not yet have an ARM64 build, installing it via Homebrew on a machine with an Apple M1 chip requires a few additional steps:
 
-```sh
+```bash
 sudo curl -sSL https://install.astronomer.io | sudo bash -s
 ```
 
@@ -67,14 +67,14 @@ Because the Astronomer CLI does not yet have an ARM64 build, installing it via H
 
 1. Run the following command to install the x86_64 version of Homebrew:
 
-    ```sh
+    ```bash
     arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     ```
 
 2. Confirm that the script successfully installed Homebrew on `/usr/local`.
 3. Run the following command to install the Astronomer CLI:
 
-    ```sh
+    ```bash
     arch -x86_64 /usr/local/Homebrew/bin/brew install astro@0.25
     ```
 
@@ -166,7 +166,7 @@ Generates autocompletion scripts for Astronomer.
 Use `astro completion <subcommand>` to generate autocompletion scripts, which can be used to automate workflows on Astronomer that require multiple CLI commands.
 
 > **Note:** If you're running on MacOS, make sure to install [Bash Completion](https://github.com/scop/bash-completion) before creating autocompletion scripts. To do so via Homebrew, run:
-    ```sh
+    ```bash
     brew install bash-completion
     ```
 
@@ -650,7 +650,7 @@ Checks for the latest version of the Astronomer CLI, but does not perform the up
 
 > **Note:** This command only checks whether or not a new version of the Astronomer CLI is available. To actually upgrade the CLI to the latest version, run:
 >
-> ```sh
+> ```bash
 > brew install astro
 > ```
 

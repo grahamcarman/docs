@@ -105,7 +105,7 @@ To use a Workspace API token with Astro CLI, specify the `ASTRO_API_TOKEN` envir
 
 For example, to automate Astro CLI Workspace commands on a Mac, run the following command to set a temporary value for the environment variable:
 
-```sh
+```bash
 export ASTRO_API_TOKEN=<your-token>
 ```
 

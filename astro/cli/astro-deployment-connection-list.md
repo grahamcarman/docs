@@ -10,7 +10,7 @@ List the Airflow connections stored in a Deployment's metadata database.
 
 ## Usage
 
-```sh
+```bash
 astro deployment connection list
 ```
 

@@ -12,7 +12,7 @@ This command can be used to rebuild an Astro project and run it locally. For mor
 
 ## Usage
 
-```sh
+```bash
 astro dev restart
 ```
 
@@ -26,7 +26,7 @@ astro dev restart
 
 ## Examples
 
-```sh
+```bash
 $ astro dev restart --env=/users/username/documents/myfile.env
 ```
 

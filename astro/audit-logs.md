@@ -30,13 +30,13 @@ You can also export logs using the Astro CLI.
 
 1. Run the following command to enable the feature:
 
-    ```sh
+    ```bash
     astro config set -g beta.audit_logs true
     ```
 
 2. Run the following command to export audit logs as a GZIP file to your current directory:
 
-    ```sh
+    ```bash
     astro organization audit-logs export --organization-name="<your-organization-name>"
     ```
 

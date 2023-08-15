@@ -364,13 +364,13 @@ This example assumes that the name of each of your Python packages is identical 
 
 1. Run the following command to create a new Docker image from your `Dockerfile.build` file, making sure to replace `<ssh-key>` with your SSH private key file name and `<your-image>` with your Astronomer image:
 
-    ```sh
+    ```bash
     DOCKER_BUILDKIT=1 docker build -f Dockerfile.build --progress=plain --ssh=github="$HOME/.ssh/<ssh-key>" -t custom-<your-image> .
     ```
 
     For example, if you have `quay.io/astronomer/runtime:5.0.6-base` in your `Dockerfile.build`, this command would be:
 
-    ```sh
+    ```bash
     DOCKER_BUILDKIT=1 docker build -f Dockerfile.build --progress=plain --ssh=github="$HOME/.ssh/<authorized-key>" -t custom-runtime:5.0.6-base .
     ```
 
@@ -473,13 +473,13 @@ Ensure that the name of the package on the private repository does not clash wit
 
 1. Run the following command to create a new Docker image from your `Dockerfile.build` file, making sure to substitute in the pip repository and associated credentials:
 
-    ```sh
+    ```bash
     DOCKER_BUILDKIT=1 docker build -f Dockerfile.build --progress=plain --build-arg PIP_EXTRA_INDEX_URL=https://${<repo-username>}:${<repo-password>}@<private-pypi-repo-domain-name> -t custom-<airflow-image> .
     ```
 
     For example, if you have `quay.io/astronomer/runtime:5.0.6-base` in your `Dockerfile.build`, this command would be:
 
-    ```sh
+    ```bash
     DOCKER_BUILDKIT=1 docker build -f Dockerfile.build --progress=plain --build-arg PIP_EXTRA_INDEX_URL=https://${<repo-username>}:${<repo-password>}@<private-pypi-repo-domain-name> -t custom-runtime-5.0.6-base .
     ```
 

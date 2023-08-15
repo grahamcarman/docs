@@ -10,7 +10,7 @@ Update an Astro Workspace.
 
 ## Usage
 
-```sh
+```bash
 astro workspace update <workspace-id> <options>
 ```
 
@@ -27,7 +27,7 @@ You can find a Workspace's ID by running `astro workspace list`. If you do not p
 
 ## Examples
 
-```sh
+```bash
 $ astro workspace update --name "My Deployment" --enforce-ci-cd OFF
 ```
 

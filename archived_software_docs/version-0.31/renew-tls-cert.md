@@ -14,7 +14,7 @@ After you set up a transport layer security (TLS) certificate for Astronomer, yo
 
 By default, [Certbot](https://certbot.eff.org/) uses Elliptic Curve Digital Signature Algorithm (ECDSA) keys to sign certificates. If you're using Certbot to renew your TLS certificate, you must include `-key-type rsa --rsa-key-size 2048` in your command to sign your certificate with an RSA key. If you don't use RSA keys, deploys fail and error messages appear in the registry and Houston logs. For example, you can run the following command to sign your certificate with an RSA key:
 
-```sh
+```bash
 sudo certbot certonly --manual --preferred-challenges=dns -d -d *. --key-type=rsa
 ```
 
@@ -84,7 +84,7 @@ sudo certbot certonly --manual --preferred-challenges=dns -d -d *. --key-type=rs
 
     Then, create the ClusterIssuer by running the following command:
 
-    ```sh
+    ```bash
     kubectl apply -f clusterissuer.yaml -n astronomer
     ```
 
@@ -116,12 +116,12 @@ sudo certbot certonly --manual --preferred-challenges=dns -d -d *. --key-type=rs
 
     Then, create the certificate by running the following command and waiting a few minutes:
 
-    ```sh
+    ```bash
     kubectl apply -f certificate.yaml -n astronomer
     ```
 
 5. Ensure that the certificate was created by running:
-   ```sh
+   ```bash
    kubectl get certificates -n astronomer
    ```
 
@@ -132,14 +132,14 @@ sudo certbot certonly --manual --preferred-challenges=dns -d -d *. --key-type=rs
 Use a manual process to renew TLS certificates when your organization has its own process for requesting and renewing TLS certificates. When you renew a TLS certificate with Let's Encrypt, you must specify the RSA key type to sign certificates or your deploys will fail and error messages will appear in the registry and Houston logs.
 
 1. Delete your current TLS certificate by running the following command:
-   ```sh
+   ```bash
    kubectl delete secret astronomer-tls -n astronomer
    ```
 
 2. Follow the instructions for requesting a TLS certificate from your organization's security team as described in [Step 4: Configure TLS](install-aws-standard.md#step-4-configure-tls). The linked guide is written for users installing Astronomer on AWS, but this step is the same regardless of which service you use.
 
 3. Restart your Houston, nginx, and registry pods to begin using the new certificate by running the following commands:
-   ```sh
+   ```bash
    kubectl rollout restart deployments -n astronomer
    kubectl rollout restart statefulsets -n astronomer
    ```

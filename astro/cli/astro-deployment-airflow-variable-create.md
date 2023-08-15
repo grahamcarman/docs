@@ -10,7 +10,7 @@ Create Airflow variables on a Deployment. Airflow variables are stored in the De
 
 ## Usage
 
-```sh
+```bash
 astro deployment airflow-variable create
 ```
 

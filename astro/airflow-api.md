@@ -116,7 +116,7 @@ To retrieve a list of all DAGs in a Deployment, you can run a `GET` request to t
 
 #### cURL
 
-```sh
+```bash
 curl -X GET https://<your-deployment-url>/api/v1/dags \
    -H 'Cache-Control: no-cache' \
    -H 'Authorization: Bearer <your-access-token>'
@@ -144,7 +144,7 @@ This will trigger a DAG run for the DAG you specify with a `logical_date` value 
 
 #### cURL
 
-```sh
+```bash
 curl -X POST <your-deployment-url>/api/v1/dags/<your-dag-id>/dagRuns \
    -H 'Content-Type: application/json' \
    -H 'Cache-Control: no-cache' \
@@ -185,7 +185,7 @@ You can also specify a `logical_date` at the time in which you wish to trigger t
 
 #### cURL
 
-```sh
+```bash
 curl -v -X POST https://<your-deployment-url>/api/v1/dags/<your-dag-id>/dagRuns \
    -H 'Authorization: Bearer <your-access-token>' \
    -H 'Cache-Control: no-cache' \
@@ -221,7 +221,7 @@ Replace `<your-dag-id>` with your own value.
 
 #### cURL
 
-```sh
+```bash
 curl -X PATCH https://<your-deployment-url>/api/v1/dags/<your-dag-id> \
    -H 'Content-Type: application/json' \
    -H 'Cache-Control: no-cache' \

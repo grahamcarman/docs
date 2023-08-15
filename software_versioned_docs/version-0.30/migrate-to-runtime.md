@@ -51,7 +51,7 @@ If you prefer to use the Astro CLI, you can run `astro deployment runtime migrat
 1. In your Astro project, open your `Dockerfile`.
 2. Update the `FROM` line of your project's `Dockerfile` to reference a new Astro Runtime image. For example, to migrate to Astro Runtime 5.0.4, you would change the `FROM` line to:
 
-    ```sh
+    ```bash
     FROM quay.io/astronomer/astro-runtime:5.0.4
     ```
 
@@ -65,7 +65,7 @@ If you prefer to use the Astro CLI, you can run `astro deployment runtime migrat
 
 1. Optional. Test your migration to Astro Runtime locally by running:
 
-    ```sh
+    ```bash
     astro dev restart
     ```
 
@@ -77,7 +77,7 @@ If you prefer to use the Astro CLI, you can run `astro deployment runtime migrat
 
 1. To push your migration from Astronomer Certified to Astro Runtime on Astronomer Software, run:
 
-    ```sh
+    ```bash
     astro deploy
     ```
 

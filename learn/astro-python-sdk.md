@@ -71,7 +71,7 @@ Now that you have a staging table in Snowflake and some example data ready to lo
 
 1. Create a new Astro project:
 
-    ```sh
+    ```bash
     $ mkdir astro-sdk-tutorial && cd astro-sdk-tutorial
     $ astro dev init
     ```
@@ -102,7 +102,7 @@ Now that you have a staging table in Snowflake and some example data ready to lo
 
 4. Run the following command to start your project in a local environment:
 
-    ```sh
+    ```bash
     astro dev start
     ```
 

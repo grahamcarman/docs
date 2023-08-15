@@ -12,7 +12,7 @@ This command can be used to build an Astro project and run it locally. For more 
 
 ## Usage
 
-```sh
+```bash
 astro dev start
 ```
 
@@ -31,7 +31,7 @@ astro dev start
 
 ## Examples
 
-```sh
+```bash
 $ astro dev start --env=/users/username/documents/myfile.env
 ```
 

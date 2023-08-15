@@ -107,7 +107,7 @@ Major Astro Runtime upgrades can include major upgrades to built-in provider pac
 
 For the most stable upgrade path, Astronomer recommends pinning all provider package versions from your current Runtime version before upgrading. To check the version of all provider packages installed in your Runtime version, run:
 
-```sh
+```bash
 docker run --rm quay.io/astronomer/astro-runtime:<current-runtime-version> pip freeze | grep apache-airflow-providers
 ```
 
@@ -149,7 +149,7 @@ If you pinned provider package versions before your upgrade, upgrade your provid
 
 To push your upgraded project to an Astro Deployment, run:
 
-```sh
+```bash
 astro deploy
 ```
 

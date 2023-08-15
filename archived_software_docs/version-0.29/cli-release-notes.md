@@ -70,13 +70,13 @@ Release date: June 1, 2022
 
 `astro dev init` now initializes Astro projects with the latest Astro Runtime image by default. To use a specific Runtime version, run:
 
-```sh
+```bash
 astro dev init --runtime-version <runtime-version>
 ```
 
 If you want to continue using Astronomer Certified images in your new Astro projects, specify the new `--use-astronomer-certified` flag:
 
-```sh
+```bash
 astro dev init --use-astronomer-certified
 ```
 
@@ -86,7 +86,7 @@ For more information about Runtime vs. Certified, see [Differences Between Astro
 
 To support running Astro Runtime images on Astronomer Software Deployments, you can now specify a Runtime image version when creating new deployments using `astro deployment create`. To do so, run:
 
-```sh
+```bash
 astro deployment create <flags> --runtime-version=<your-runtime-version>
 ```
 
@@ -94,7 +94,7 @@ astro deployment create <flags> --runtime-version=<your-runtime-version>
 
 The Astro CLI includes a new command for migrating existing Software Deployments from Astronomer Certified to Astro Runtime. To initiate the process for migrating a Software Deployment to a Runtime image, run:
 
-```sh
+```bash
 astro deployment runtime migrate --deployment-id=<deployment-id>
 ```
 
@@ -104,7 +104,7 @@ For more information, see the [CLI Reference Guide](cli-reference.md#astro-deplo
 
 The Astro CLI includes a new command for upgrading existing Software Deployments to a newer version of Runtime. To upgrade a Software Deployment runtime image, run:
 
-```sh
+```bash
 astro deployment runtime upgrade --deployment-id=<deployment-id> --desired-runtime-version=<desired-runtime-version>
 ```
 

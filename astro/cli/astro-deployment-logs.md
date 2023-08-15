@@ -27,7 +27,7 @@ Show [scheduler logs](view-logs.md#view-airflow-scheduler-logs) over the last 24
 
 ## Usage
 
-```sh
+```bash
 astro deployment logs
 ```
 
@@ -45,7 +45,7 @@ astro deployment logs
 
 ## Examples
 
-```sh
+```bash
 $ astro deployment logs
 # CLI prompts you for a Deployment to view logs for
 
@@ -66,7 +66,7 @@ Show Airflow component logs over the last 24 hours for a given Deployment. These
 
 Run one of the following commands depending on which logs you want to stream:
 
-```sh
+```bash
 astro deployment logs <deployment-id> scheduler
 astro deployment logs <deployment-id> webserver
 astro deployment logs <deployment-id> workers
@@ -86,7 +86,7 @@ astro deployment logs <deployment-id> triggerer
 
 ## Examples
 
-```sh
+```bash
 # Return logs for last five minutes of webserver logs.
 $ astro deployment logs webserver example-deployment-uuid
 

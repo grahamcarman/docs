@@ -36,19 +36,19 @@ To run Airflow locally, you first need to create an Astro project.
 
 1. Create a new directory for your Astro project:
 
-    ```sh
+    ```bash
     mkdir <your-astro-project-name> && cd <your-astro-project-name>
     ```
 
 2. Run the following Astro CLI command to initialize an Astro project in the directory:
 
-    ```sh
+    ```bash
     astro dev init
     ```
 
 3. Start your Airflow instance by running:
 
-    ```sh
+    ```bash
     astro dev start
     ```
 

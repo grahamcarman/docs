@@ -103,7 +103,7 @@ Typically, this indicates that the Deployment you selected does not currently ha
 
 To show logs for your Airflow scheduler, webserver, or triggerer locally, run the following Astro CLI command:
 
-```sh
+```bash
 astro dev logs
 ```
 

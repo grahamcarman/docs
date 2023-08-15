@@ -10,13 +10,13 @@ Run [Airflow CLI commands](https://airflow.apache.org/docs/apache-airflow/stable
 
 ## Usage
 
-```sh
+```bash
 astro dev run <airflow-command>
 ```
 
 ## Examples
 
-```sh
+```bash
 $ astro dev run users create --role Admin --username admin --email <your-email-address> --firstname <your-first-name> --lastname <your-last-name> --password admin
 # Create a user in your local Airflow environment using the `airflow user create` Airflow CLI command
 

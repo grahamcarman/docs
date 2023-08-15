@@ -10,7 +10,7 @@ Update an Organization API token.
 
 ## Usage
 
-```sh
+```bash
 astro organization token update <flags>
 ```
 
@@ -27,7 +27,7 @@ astro organization token update <flags>
 
 ## Examples
 
-```sh
+```bash
 astro organization token update --new-name "My updated API token" --role ORGANIZATION_MEMBER
 ```
 

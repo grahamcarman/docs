@@ -38,7 +38,7 @@ To use GX with Airflow, install the [Great Expectations Airflow Provider](https:
 
 1. Create a new Astro project:
 
-    ```sh
+    ```bash
     $ mkdir astro-gx-tutorial && cd astro-gx-tutorial
     $ astro dev init
     ```
@@ -55,7 +55,7 @@ The Great Expectations Airflow Provider requires a GX project to be present in y
 
 1. Initialize a new GX project in your Astro project `include` folder.
 
-    ```sh
+    ```bash
     $ great_expectations init
     ```
 

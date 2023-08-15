@@ -24,7 +24,7 @@ View information for a single Team.
 
 #### Usage  
 
-```sh
+```bash
 astro team get <team-id>
 ```
 
@@ -47,7 +47,7 @@ List all Teams on Astronomer Software.
 
 #### Usage  
 
-```sh
+```bash
 astro team list 
 ```
 
@@ -65,7 +65,7 @@ Update an Astro Team's system-level role.
 
 #### Usage  
 
-```sh
+```bash
 astro team update <team-id> --role=<system-role>
 ```
 

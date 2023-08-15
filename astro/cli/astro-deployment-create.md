@@ -27,7 +27,7 @@ Create a Deployment on Astro. This command is functionally identical to using th
 
 ## Usage
 
-```sh
+```bash
 astro deployment create
 ```
 
@@ -83,7 +83,7 @@ Create a Deployment on Astronomer Software. This command is functionally identic
 
 ## Usage
 
-```sh
+```bash
 astro deployment create
 ```
 
@@ -111,7 +111,7 @@ astro deployment create
 
 ## Examples
 
-```sh
+```bash
 $ astro deployment create
 # CLI prompts you for a Deployment name
 

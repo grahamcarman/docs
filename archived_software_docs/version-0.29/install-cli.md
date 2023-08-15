@@ -40,7 +40,7 @@ To use the Astro CLI on Mac, you must have:
 
 To install the latest version of the Astro CLI, run the following command:
 
-```sh
+```bash
 brew install astro
 ```
 
@@ -65,7 +65,7 @@ To use the Astro CLI on Windows, you must have:
 
 2. If the `.zip` file does not automatically unzip, run the following command to unzip the executable:
 
-    ```sh
+    ```bash
     tar -xvzf .\astrocli.tar.gz
     ```
 
@@ -87,7 +87,7 @@ To use the Astro CLI on Linux, you must have:
 
 Run the following command to install the latest version of the Astro CLI directly to `PATH`:
 
-```sh
+```bash
 curl -sSL install.astronomer.io | sudo bash -s
 ```
 
@@ -123,7 +123,7 @@ Astro CLI Version: ${siteVariables.cliVersion}`}</code></pre>
 
 To upgrade the Astro CLI to the latest version, run the following command:
 
-```sh
+```bash
 brew install astro
 ```
 
@@ -141,7 +141,7 @@ To upgrade the Astro CLI on Windows:
 
 3. If the `.zip` file isn't automatically extracted, run the following command to extract the executable:
 
-    ```sh
+    ```bash
     tar -xvzf .\astrocli.tar.gz
     ```
 
@@ -155,7 +155,7 @@ To upgrade the Astro CLI on Windows:
 
 To upgrade to the latest version of the Astro CLI, run:
 
-```sh
+```bash
 curl -sSL install.astronomer.io | sudo bash -s
 ```
 

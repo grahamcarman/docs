@@ -48,13 +48,13 @@ To build docs locally, you need to install both Node and Yarn. While Yarn is inc
 1.  Follow the instructions on [Nodejs](https://nodejs.org/en/download/) to install Node, then confirm that you successfully installed Node by running the following command:
 
 
-    ```sh
+    ```bash
     node -version
     ```
 
 2. Run the following command to enable `corepacks` and make Yarn available:
 
-    ```sh
+    ```bash
     corepack enable
     ```
 After you install Node and enable Yarn with Corepacks, Docusaurus commands are available when you open the `docs` directory from your terminal. 
@@ -67,7 +67,7 @@ If you used an alternative package manager to install Node, such as `npm` or `ho
 
 1. Run the following command to check your Node version:
 
-    ```sh
+    ```bash
     node --version
     ```
     
@@ -76,7 +76,7 @@ If you used an alternative package manager to install Node, such as `npm` or `ho
     - **Node and yarn are installed, but need to be updated**: Use a package manager like [npm or nvm](https://www.freecodecamp.org/news/how-to-update-node-and-npm-to-the-latest-version/) to update your version, or download the installer from the [Node.js](https://nodejs.org/en/) site.
     - **Node is installed, but you cannot enable Corepack**: If you installed Node using a package manager, and it's above version 16.10, but Corepack isn't available, follow the instructions for installing [Corepack with npm](https://github.com/nodejs/corepack#manual-installs) or installing [Corepack with Homebrew or nvm](https://stackoverflow.com/questions/70082424/command-not-found-corepack-when-installing-yarn-on-node-v17-0-1), then run the following command to enable Corepack:
 
-    ```sh
+    ```bash
     corepack enable
     ```
 
@@ -85,13 +85,13 @@ If you used an alternative package manager to install Node, such as `npm` or `ho
 
 To serve a local version of the docs site with your changes, run:
 
-```sh
+```bash
 yarn run start
 ```
 
 You might also need to install `fs-extra` before you can build the site locally. To install it, run:
 
-```sh
+```bash
 yarn add fs-extra
 ```
 

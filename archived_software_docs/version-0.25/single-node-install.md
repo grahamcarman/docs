@@ -51,7 +51,7 @@ In Airflow, the metadata database is responsible for keeping a record of all tas
 
 1. Create a database user named `airflow`:
 
-    ```sh
+    ```bash
     sudo -u postgres createuser airflow -P
     ```
 
@@ -59,7 +59,7 @@ In Airflow, the metadata database is responsible for keeping a record of all tas
 
 2. Create a database named `airflow` and set the `airflow` user as the owner:
 
-    ```sh
+    ```bash
     sudo -u postgres createdb --owner airflow airflow
     ```
 
@@ -78,7 +78,7 @@ When you specify the `AIRFLOW__CORE__SQL_ALCHEMY_CONN` environment variable in s
 
 Airflow can run as any user, but for this setup we configure a new user called `astro`. Run the following command to add this user to your machine:
 
-```sh
+```bash
 sudo useradd --create-home astro
 ```
 
@@ -86,7 +86,7 @@ sudo useradd --create-home astro
 
 You also need to configure an `AIRFLOW_HOME` directory (not to be confused with the user's home directory) where you'll store your DAGs and other necessary files. We recommend using the path `/usr/local/airflow` as your project directory and `/usr/local/airflow/dags` as your DAG directory, but any path can be chosen as long as the `astro` user has write access to it. To do this, run the following commands:
 
-```sh
+```bash
 sudo install --owner=astro --group=astro -d /usr/local/airflow
 echo 'export AIRFLOW_HOME=/usr/local/airflow' | sudo tee --append ~astro/.bashrc
 cd ${AIRFLOW_HOME}
@@ -97,7 +97,7 @@ sudo mkdir dags
 
 To isolate your Airflow components from changes to the system, create a virtual environment in a directory named `astro/airflow-venv` using the following command:
 
-```sh
+```bash
 sudo -u astro python3 -m venv ~astro/airflow-venv
 ```
 
@@ -109,19 +109,19 @@ To install the AC Python wheel onto your machine, run one of the following comma
 
 - For Local Executor:
 
-    ```sh
+    ```bash
     sudo -u astro ~astro/airflow-venv/bin/pip install --extra-index-url=https://pip.astronomer.io/simple/ 'astronomer-certified[postgres]==<airflow-version>' --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-<airflow-version>/constraints-3.8.txt"
     ```
 
 - For Celery Executor:
 
-    ```sh
+    ```bash
     sudo -u astro ~astro/airflow-venv/bin/pip install --extra-index-url=https://pip.astronomer.io/simple/ 'astronomer-certified[postgres, celery, redis]==<airflow-version>' --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-<airflow-version>/constraints-3.8.txt"
     ```
 
 For example, to install the latest patch version of Apache Airflow 2.0.1 with support for the Celery executor, this command would be:
 
-```sh
+```bash
 sudo -u astro ~astro/airflow-venv/bin/pip install --extra-index-url=https://pip.astronomer.io/simple/ 'astronomer-certified[postgres, celery, redis]==2.0.1.*' --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-2.0.1/constraints-3.8.txt"
 ```
 
@@ -141,7 +141,7 @@ To use systemd as a process supervisor:
 
 1. Create a systemd unit file using the following command:
 
-    ```sh
+    ```bash
     sudo -e /etc/systemd/system/astronomer-certified@.service
     ```
 
@@ -203,7 +203,7 @@ The password you specify here should be the same one you specified when prompted
 
 When you've finished configuring environment variables, run the following command to add your environment variables to your `astro` user's shell environment:
 
-```sh
+```bash
 echo 'set -a; source ${AIRFLOW_HOME}/sys-config; set +a' | sudo tee --append ~astro/.bashrc
 ```
 
@@ -223,13 +223,13 @@ In Airflow, [the Scheduler](https://airflow.apache.org/docs/apache-airflow/stabl
 
 1. Enable the Scheduler by running the following command:
 
-    ```sh
+    ```bash
     sudo systemctl enable astronomer-certified@scheduler.service
     ```
 
 2. Edit the override file for the machine by running the following command:
 
-    ```sh
+    ```bash
     sudo systemctl edit astronomer-certified@scheduler.service
     ```
 
@@ -244,7 +244,7 @@ In Airflow, [the Scheduler](https://airflow.apache.org/docs/apache-airflow/stabl
 
 4. Start the service by running:
 
-    ```sh
+    ```bash
     sudo systemctl start astronomer-certified@scheduler.service
     ```
 
@@ -254,13 +254,13 @@ In Airflow, [the Scheduler](https://airflow.apache.org/docs/apache-airflow/stabl
 
 1. Enable the Webserver by running the following:
 
-    ```sh
+    ```bash
     sudo systemctl enable astronomer-certified@webserver.service
     ```
 
 2. Start the Webserver by running the following:
 
-    ```sh
+    ```bash
     sudo systemctl start astronomer-certified@webserver.service
     ```
 
@@ -272,7 +272,7 @@ Workers are an essential component for running Airflow with the Celery Executor.
 
 1. Create a new systemd unit file specifically for your Celery workers by running the following command:
 
-    ```sh
+    ```bash
     sudo -e /etc/systemd/system/astronomer-certified-worker.service
     ```
 
@@ -303,13 +303,13 @@ Workers are an essential component for running Airflow with the Celery Executor.
 
 3. Enable the Worker service by running the following command:
 
-    ```sh
+    ```bash
     sudo systemctl enable astronomer-certified-worker.service
     ```
 
 4. Start the service by running the following command:
 
-    ```sh
+    ```bash
     sudo systemctl start astronomer-certified-worker.service
     ```
 
@@ -319,7 +319,7 @@ To log in to the Airflow UI, you need to first create an Airflow user:
 
 1. Switch to your system `astro` user using the following command:
 
-   ```sh
+   ```bash
    sudo -H su -u astro bash
    ```
 
@@ -327,7 +327,7 @@ To log in to the Airflow UI, you need to first create an Airflow user:
 
 2. Create a new `admin` Airflow user with the following command:
 
-   ```sh
+   ```bash
    airflow users create -e EMAIL -f FIRSTNAME -l LASTNAME -p PASSWORD -r Admin -u USERNAME
    ```
 

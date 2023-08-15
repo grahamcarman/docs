@@ -26,7 +26,7 @@ Ensure that the following software is updated to the appropriate version:
 astronomerinc/ap-airflow:<airflow-version>-<build-number>-<distribution>-onbuild
 ```
 For example, all of the following images would work for this upgrade:
-```sh
+```bash
 astronomerinc/ap-airflow:1.10.12-1-alpine3.10-onbuild
 astronomerinc/ap-airflow:1.10.12-1-alpine3.10
 astronomerinc/ap-airflow:1.10.5-9-buster-onbuild
@@ -42,7 +42,7 @@ Minor version upgrades can be initiated only by a user with System Admin permiss
 
 You also need permission to create Kubernetes resources. To confirm you have those permissions, run the following commands:
 
-```sh
+```bash
 kubectl auth can-i create pods --namespace <your-astronomer-namespace>
 kubectl auth can-i create sa --namespace <your-astronomer-namespace>
 kubectl auth can-i create jobs --namespace <your-astronomer-namespace>
@@ -66,7 +66,7 @@ All pods should be in either the `Running` or `Completed` state. If any of your 
 
 Switch to the default namespace in your Kubernetes context by running the following command:
 
-```sh
+```bash
 kubectl config set-context --current --namespace=default
 ```
 
@@ -74,19 +74,19 @@ kubectl config set-context --current --namespace=default
 
 Run the following command to begin the upgrade process:
 
-```sh
+```bash
 kubectl apply -f https://raw.githubusercontent.com/astronomer/astronomer/v0.23.18/bin/migration-scripts/lts-to-lts/0.16-to-0.23/manifests/upgrade-0.16-to-0.23.yaml
 ```
 
 While your platform is upgrading, monitor your pods to ensure that no errors occur. To do so, first find the names of your pods by running the following command:
 
-```sh
+```bash
 kubectl get pods | grep upgrade-astronomer
 ```
 
 Then, run the following command for each pod you find:
 
-```sh
+```bash
 kubectl logs <your-pod-name>
 ```
 
@@ -106,7 +106,7 @@ If the upgrade was successful, you should be able to:
 
 We recommend cleaning up any remaining Kubernetes resources after your upgrade. To do so, run the following command:
 
-```sh
+```bash
 kubectl delete -f https://raw.githubusercontent.com/astronomer/astronomer/v0.23.18/bin/migration-scripts/lts-to-lts/0.16-to-0.23/manifests/upgrade-0.16-to-0.23.yaml
 ```
 
@@ -116,13 +116,13 @@ To ensure reliability and full access to features included in Astronomer Softwar
 
 To upgrade to the latest available v0.23 version of the Astronomer CLI, run:
 
-```sh
+```bash
 curl -sSL https://install.astronomer.io | sudo bash -s -- v0.23.0
 ```
 
 To do so via Homebrew, run:
 
-```sh
+```bash
 brew install astro@0.23
 ```
 
@@ -133,7 +133,7 @@ All team members within your organization should upgrade the Astronomer CLI indi
 If you encounter an issue during your upgrade that requires you to recover your original platform, you can roll back to Astronomer v0.16. To do so:
 
 1. Apply the rollback automation script by running the following command:
-```sh
+```bash
 kubectl apply -f https://raw.githubusercontent.com/astronomer/astronomer/v0.23.18/bin/migration-scripts/lts-to-lts/0.16-to-0.23/manifests/rollback-0.16-to-0.23.yaml
 ```
 This restores the platform database and the Helm state of the Astronomer Helm chart.
@@ -141,6 +141,6 @@ This restores the platform database and the Helm state of the Astronomer Helm ch
 2. Wait a few minutes for your platform to come back up.
 
 3. Confirm that the rollback completed. To do so, watch your pods until they have stabilized; every pod in your Astronomer namespace should be `Running` with full readiness or `Completed`. You can check the status of your pods using the following command:
-```sh
+```bash
 watch kubectl get pods -n <your-astronomer-namespace>
 ```

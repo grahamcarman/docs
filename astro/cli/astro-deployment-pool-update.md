@@ -10,7 +10,7 @@ Update the value for a Deployment's Airflow pool.
 
 ## Usage
 
-```sh
+```bash
 astro deployment airflow-pool update
 ```
 

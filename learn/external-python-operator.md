@@ -69,7 +69,7 @@ Now that you have your Snowflake resources configured, you can set up Airflow.
 
 1. Create a new Astro project:
 
-    ```sh
+    ```bash
     $ mkdir astro-snowpark-tutorial && cd astro-snowpark-tutorial
     $ astro dev init
     ```
@@ -123,7 +123,7 @@ Now that you have your Snowflake resources configured, you can set up Airflow.
 
 6. Run the following command to start your project in a local environment:
 
-    ```sh
+    ```bash
     astro dev start
     ```
 

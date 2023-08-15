@@ -12,7 +12,7 @@ This command works similarly to [`docker ps`](https://docs.docker.com/engine/ref
 
 ## Usage
 
-```sh
+```bash
 astro dev ps
 ```
 

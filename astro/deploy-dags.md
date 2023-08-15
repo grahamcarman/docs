@@ -22,7 +22,7 @@ Triggering a DAG-only deploy pushes DAGs to Astro and mounts them to the workers
 
 Run the following command to deploy only your `dags` directory to a Deployment:
 
-```sh
+```bash
 astro deploy --dags
 ```
 
@@ -51,18 +51,18 @@ Carefully read and complete all of the following steps to ensure that your Deplo
 
 1. To turn off DAG-only deploys, run the following command:
 
-    ```sh
+    ```bash
     astro deployment update --dag-deploy disable
     ```
 
     To turn on DAG-only deploys, run the following command:
 
-    ```sh
+    ```bash
     astro deployment update --dag-deploy enable
     ```
 
 2. Run the following command to deploy all of the files in your Astro project as a Docker image:
 
-    ```sh
+    ```bash
     astro deploy
     ```

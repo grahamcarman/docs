@@ -11,7 +11,7 @@ Import Airflow variables, connections, and pools from a configuration file to a 
 
 After starting your local Airflow environment with `astro dev start`, run:
 
-```sh
+```bash
 astro dev object import
 ```
 
@@ -29,7 +29,7 @@ By default, the command imports all variables, connections, and pools from `airf
 
 ## Examples 
 
-```sh
+```bash
 astro dev object import --pools 
 # Imports pools from `airflow_settings.yaml` to a locally running Airflow environment
 

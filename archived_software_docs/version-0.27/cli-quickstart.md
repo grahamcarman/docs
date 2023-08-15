@@ -43,7 +43,7 @@ There are two ways to install any version of the Astronomer CLI:
 
 To install the latest supported version of the Astronomer CLI, run:
 
-```sh
+```bash
 brew install astro@0.27.4
 ```
 
@@ -51,7 +51,7 @@ brew install astro@0.27.4
 
 To install the latest supported version of the Astronomer CLI, run:
 
-```sh
+```bash
 curl -sSL https://install.astronomer.io | sudo bash -s -- v0.27.4
 ```
 
@@ -117,13 +117,13 @@ Once the Astronomer CLI is installed, the next step is to initialize an Airflow 
 
 1. Create a new directory on your machine by running the following command:
 
-    ```sh
+    ```bash
     mkdir <directory-name> && cd <directory-name>
     ```
 
 2. Create the necessary project files in your new directory by running the following command:
 
-    ```sh
+    ```bash
     astro dev init
     ```
 
@@ -235,13 +235,13 @@ While upgrading to a new minor version of Astronomer requires upgrading the Astr
 
 To check your working versions of Astronomer (`Astro Server Version`) and the Astronomer CLI (`Astro CLI`), run:
 
-```sh
+```bash
 astro version
 ```
 
 This command will output something like the following:
 
-```sh
+```bash
 $ astro version
 Astro CLI Version: 0.27.0
 Astro Server Version: 0.27.0

@@ -59,7 +59,7 @@ You can learn more about connecting to local Kafka from within a Docker containe
 
 1. Create a new Astro project:
 
-    ```sh
+    ```bash
     $ mkdir astro-kafka-tutorial && cd astro-kafka-tutorial
     $ astro dev init
     ```
@@ -80,7 +80,7 @@ You can learn more about connecting to local Kafka from within a Docker containe
 
 4. Run the following command to start your project in a local environment:
 
-    ```sh
+    ```bash
     astro dev start
     ```
 

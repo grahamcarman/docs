@@ -99,13 +99,13 @@ Use the information provided here to set up lineage collection for Spark running
 3. Download the `open-lineage-init-script.sh` file to the new directory. See [OpenLineage GitHub](https://github.com/OpenLineage/OpenLineage/blob/main/integration/spark/databricks/open-lineage-init-script.sh).
 4. In Databricks, run this command to create a [cluster-scoped init script](https://docs.databricks.com/clusters/init-scripts.html#example-cluster-scoped-init-script) and install the `openlineage-spark` library at cluster initialization:
 
-    ```sh
+    ```bash
     dbfs:/databricks/openlineage/open-lineage-init-script.sh
     ```
 
 5. In the cluster configuration page for your Databricks cluster, specify the following [Spark configuration](https://docs.databricks.com/clusters/configure.html#spark-configuration):
 
-   ```sh
+   ```bash
    spark.driver.extraJavaOptions -Djava.security.properties=
    spark.executor.extraJavaOptions -Djava.security.properties=
    spark.openlineage.url https://<your-astro-base-domain>

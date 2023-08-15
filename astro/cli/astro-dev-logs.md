@@ -10,7 +10,7 @@ Show webserver, scheduler, and triggerer logs from your local Airflow environmen
 
 ## Usage
 
-```sh
+```bash
 astro dev logs
 ```
 
@@ -26,7 +26,7 @@ astro dev logs
 
 ## Examples
 
-```sh
+```bash
 $ astro dev logs
 # Show the most recent logs from both the Airflow webserver and Scheduler
 

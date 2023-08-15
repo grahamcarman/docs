@@ -21,7 +21,7 @@ __Install the CLI__
 
 To install with Homebrew, run:
 
-```sh
+```bash
 brew install astro
 ```
 

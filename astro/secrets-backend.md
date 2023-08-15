@@ -137,7 +137,7 @@ After you configure an Airflow connection to AWS, can run a DAG locally to check
 
 1. Run the following commands to export your secrets backend configurations as environment variables to Astro.
 
-    ```sh
+    ```bash
     $ astro deployment variable create --deployment-id <your-deployment-id> AIRFLOW__SECRETS__BACKEND=airflow.providers.amazon.aws.secrets.secrets_manager.SecretsManagerBackend
   
     $ astro deployment variable create --deployment-id <your-deployment-id> AIRFLOW__SECRETS__BACKEND_KWARGS='{"connections_prefix": "airflow/connections", "variables_prefix": "airflow/variables",  "role_arn": "<your-role-arn>", "region_name": "<your-region>"}' --secret
@@ -342,7 +342,7 @@ You can now run a DAG locally to check that your variables are accessible using 
   
 1. Run the following commands to export your secrets backend configurations as environment variables to Astro.
 
-    ```sh
+    ```bash
     $ astro deployment variable create --deployment-id <your-deployment-id> AIRFLOW__SECRETS__BACKEND=airflow.providers.amazon.aws.secrets.systems_manager.SystemsManagerParameterStoreBackend
 
     $ astro deployment variable create --deployment-id <your-deployment-id> AIRFLOW__SECRETS__BACKEND_KWARGS='{"connections_prefix": "airflow/connections", "variables_prefix": "airflow/variables",  "role_arn": "<your-role-arn>", "region_name": "<your-region>"}' --secret
@@ -376,7 +376,7 @@ Secrets must be formatted such that:
 
 For example, to add an Airflow variable with a key `my-secret-variable`, you would run the following gcloud CLI command:
 
-```sh
+```bash
 gcloud secrets create airflow-variables-<my-secret-variable> \
     --replication-policy="automatic"
 ```
@@ -417,7 +417,7 @@ To ensure the security of secrets, the `.env` variable is only available in your
 
 2. Run the following command to set the `SECRET_VAR_SERVICE_ACCOUNT` environment variable on your Astro Deployment: 
  
-    ```sh
+    ```bash
     astro deployment variable create --deployment-id <your-deployment-id> SECRET_VAR_SERVICE_ACCOUNT="<your-service-account-key>" --secret
     ```
 
@@ -480,7 +480,7 @@ By default, this setup requires that you prefix any secret names in Key Vault wi
 
 1. Run the following commands to export your environment variables to Astro.
  
-    ```sh
+    ```bash
     astro deployment variable create --deployment-id <your-deployment-id> --load --env .env
     ```
     
@@ -488,7 +488,7 @@ By default, this setup requires that you prefix any secret names in Key Vault wi
   
 2. Run the following command to push your updated `requirements.txt` file to Astro:
   
-    ```sh
+    ```bash
     astro deploy --deployment-id <your-deployment-id> 
     ```
     

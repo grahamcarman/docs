@@ -18,7 +18,7 @@ Manage Deployment-level service accounts, which you can use to configure a CI/CD
 
 This command includes three subcommands: `create`, `delete`, and `list`
 
-```sh
+```bash
 # Creates a Deployment-level service account
 astro deployment service-account create --deployment-id=<your-deployment-id> --label=<your-service-account-label> 
 

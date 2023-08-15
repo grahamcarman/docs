@@ -12,7 +12,7 @@ Run a bash command in a locally running Docker container for an Airflow componen
 
 In a locally running Astro project, run:
 
-```sh
+```bash
 astro dev bash
 ```
 
@@ -29,7 +29,7 @@ By default, the command execs into the scheduler container and prompts you to ru
 
 ## Examples
 
-```sh
+```bash
 $ astro dev bash --webserver
 $ ls -al
 # View all files in the webserver container

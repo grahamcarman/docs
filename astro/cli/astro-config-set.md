@@ -12,7 +12,7 @@ Update any part of the current configuration of your Astro project as defined in
 
 Within your Astro project directory, run:
 
-```sh
+```bash
 astro config set <configuration> <value>
 ```
 
@@ -22,7 +22,7 @@ For a list of available configurations, see [Configure the CLI](configure-cli.md
 
 ## Examples
 
-```sh
+```bash
 ## Set your webserver port to 8081
 $ astro config set webserver.port 8081
 ```

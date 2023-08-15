@@ -10,7 +10,7 @@ Delete an Astro Workspace.
 
 ## Usage
 
-```sh
+```bash
 astro workspace delete <workspace-id>
 ```
 

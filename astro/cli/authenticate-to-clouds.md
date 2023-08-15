@@ -155,7 +155,7 @@ For example, if you completed the configuration in this document and then create
 
 Run the following command to obtain your user credentials locally:
 
-```sh
+```bash
 gcloud auth application-default login
 ```
 
@@ -264,7 +264,7 @@ For example, if you completed the configuration in this document and then create
     
 Run the following command to obtain your user credentials locally:
       
-```sh
+```bash
 az login
 ```
 
@@ -401,7 +401,7 @@ Now that Airflow has access to your user credentials, you can use them to connec
 
 3. Run the following command to start Airflow locally:
 
-    ```sh
+    ```bash
     astro dev start
     ```
 
@@ -457,7 +457,7 @@ Now that Airflow has access to your user credentials, you can use them to connec
 
 3. Run the following command to start Airflow locally:
 
-    ```sh
+    ```bash
     astro dev start
     ```
 
@@ -524,7 +524,7 @@ Now that Airflow has access to your user credentials, you can use them to connec
 
 4. Run the following command to start Airflow locally:
 
-    ```sh
+    ```bash
     astro dev start
     ```
 

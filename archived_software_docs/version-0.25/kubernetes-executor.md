@@ -24,7 +24,7 @@ By default, Airflow Deployments on Astronomer use a pod template to construct ea
 
 1. Run the following command to find the namespace (release name) of your Airflow Deployment:
 
-    ```sh
+    ```bash
     kubectl get ns
     ```
 
@@ -32,7 +32,7 @@ By default, Airflow Deployments on Astronomer use a pod template to construct ea
 
 2. Run the following command to get the `pod_template_spec` for your release:
 
-    ```sh
+    ```bash
     kubectl exec deploy/<release-name>-scheduler -- cat pod_templates/pod_template_file.yaml > new_pod_template_file.yaml
     ```
 

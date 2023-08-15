@@ -10,7 +10,7 @@ Rotate a Workspace API token in your current Workspace.
 
 ## Usage
 
-```sh
+```bash
 astro workspace token rotate <flags>
 ```
 
@@ -24,7 +24,7 @@ astro workspace token rotate <flags>
 
 ## Examples
 
-```sh
+```bash
 astro workspace token rotate --name "My token" --force
 ```
 

@@ -10,7 +10,7 @@ Rotate an Organization API token.
 
 ## Usage
 
-```sh
+```bash
 astro organization token rotate <flags>
 ```
 
@@ -24,7 +24,7 @@ astro organization token rotate <flags>
 
 ## Examples
 
-```sh
+```bash
 astro organization token rotate --name "My token" --force
 ```
 

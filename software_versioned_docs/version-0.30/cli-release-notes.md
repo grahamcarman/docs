@@ -54,7 +54,7 @@ By default, paginated lists show 20 items per page. To change the number of item
 
 To permanently set these flags, run the following commands:
 
-```sh
+```bash
 # Always paginate lists when possible
 astro config set -g interactive true
 # Always show the specified number of items per page

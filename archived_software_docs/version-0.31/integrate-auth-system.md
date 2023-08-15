@@ -537,7 +537,7 @@ This setup is primarily used for encrypting the required secrets for [configurin
 
 2. Run the following command to apply your secret to your Astronomer cluster:
 
-    ```sh
+    ```bash
     kubectl apply -f ./secret.yaml
     ```
 

@@ -50,7 +50,7 @@ Now that you have your Azure resources configured, you can move on to setting up
 
 1. Create a new Astro project:
 
-    ```sh
+    ```bash
     $ mkdir astro-adx-tutorial && cd astro-adx-tutorial
     $ astro dev init
     ```
@@ -65,7 +65,7 @@ Now that you have your Azure resources configured, you can move on to setting up
 
 3. Run the following command to start your project in a local environment:
 
-    ```sh
+    ```bash
     astro dev start
     ```
 

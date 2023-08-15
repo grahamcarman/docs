@@ -261,7 +261,7 @@ Release date: March 22, 2023
 
 - You can now expose your local Airflow webserver and postgres database to all networks you're connected to using the following command:
 
-    ```sh
+    ```bash
     astro config set airflow.expose_port true
     ```
 
@@ -269,7 +269,7 @@ Release date: March 22, 2023
 - If you add the environment variable `ASTRO_API_TOKEN=<workspace-api-token>` to your environment, the Astro CLI will use the specified Workspace API token to perform Workspace and Deployment actions without requiring you to log in. 
 - You can now disable [`astro run`](cli/astro-run.md) commands and exclude `astro-run-dag` from any images built by the CLI using the following command:
 
-    ```sh
+    ```bash
     astro config set disable_astro_run true
     ```
   
@@ -650,7 +650,7 @@ The Astro CLI is now a single CLI executable built for all Astronomer products. 
 
 To establish a shared framework between products, the Astro CLI now uses a single `astro` executable:
 
-```sh
+```bash
 # Before upgrade
 astrocloud dev init
 
@@ -660,7 +660,7 @@ astro dev init
 
 Additionally, some commands have been standardized so that they can be shared between Astro and Astronomer Software users. As part of this change, `astro auth login` and `astro auth logout` have been renamed `astro login` and `astro logout`:
 
-```sh
+```bash
 # Before upgrade
 astrocloud auth login
 
@@ -904,7 +904,7 @@ The Astro CLI sets the foundation for more robust functionality in the future an
 
 The Astro CLI can be installed via Homebrew. Commands take the form of:
 
-```sh
+```bash
 astro <command> # E.g. `astro dev start`
 ```
 

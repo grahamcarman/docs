@@ -11,7 +11,7 @@ Export Airflow variables, connections, and pools from a locally running environm
 
 After starting your local Airflow environment with `astro dev start`, run:
 
-```sh
+```bash
 astro dev object export
 ```
 
@@ -32,7 +32,7 @@ By default, the command exports all variables, connections, and pools as YAML co
 
 ## Examples 
 
-```sh
+```bash
 astro dev object export --pools 
 # Exports only pools from the local Airflow environment to `airflow_settings.yaml`
 

@@ -12,13 +12,13 @@ For more information about how to use Deployment files, see [Manage Deployments 
 
 ## Usage
 
-```sh
+```bash
 astro deployment inspect
 ```
 
 When using the `--key` flag, specify the complete path of the key you want to return the value for, excluding `deployment`. For example, to return the `cluster_id` for a specific Deployment, you would run:
 
-```sh
+```bash
 astro deployment inspect -n <deployment-name> --key metadata.cluster_id
 ```
 
@@ -37,7 +37,7 @@ See [Template file contents](manage-deployments-as-code.md#template-file-referen
 
 ## Examples
 
-```sh
+```bash
 # Shows a list of Deployments to inspect and prompts you to choose one
 $ astro deployment inspect
 

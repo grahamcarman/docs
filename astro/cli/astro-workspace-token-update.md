@@ -10,7 +10,7 @@ Update a Workspace API token in your current Workspace.
 
 ## Usage
 
-```sh
+```bash
 astro workspace token update <flags>
 ```
 
@@ -27,7 +27,7 @@ astro workspace token update <flags>
 
 ## Examples
 
-```sh
+```bash
 astro workspace token update --new-name "My updated API token" --role WORKSPACE_MEMBER
 ```
 

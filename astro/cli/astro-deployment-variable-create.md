@@ -10,7 +10,7 @@ For a given Deployment on Astro, create environment variables in the Astro CLI b
 
 ## Usage
 
-```sh
+```bash
 astro deployment variable create <key>=<value>
 ```
 
@@ -38,7 +38,7 @@ After setting these variables, `astro deployment variable create` works for your
 
 ## Examples
 
-```sh
+```bash
 # Create a new secret environment variable
 $ astro deployment variable create --deployment-id cl03oiq7d80402nwn7fsl3dmv AIRFLOW__SECRETS__BACKEND_KWARGS=<my-secret-value> --secret
 

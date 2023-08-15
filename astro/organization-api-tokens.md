@@ -71,7 +71,7 @@ To use an Organization API token with Astro CLI, specify the `ASTRO_API_TOKEN` e
 
 For example, to automate Astro CLI commands on a Mac, run the following command to set a temporary value for the environment variable:
 
-```sh
+```bash
 export ASTRO_API_TOKEN=<your-token>
 ```
 

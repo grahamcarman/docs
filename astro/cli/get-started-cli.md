@@ -16,7 +16,7 @@ One of the Astro CLI's main features is its ability to run Airflow on your local
 
 An _Astro project_ contains the set of files necessary to run Airflow, including dedicated folders for your DAG files, plugins, and dependencies. All new Astro projects contain two example DAGs. This set of files builds a Docker image that you can both run on your local machine with Airflow and deploy to Astro.
 
-```sh
+```bash
 astro dev init
 ```
 
@@ -45,7 +45,7 @@ Running your project locally allows you to test your DAGs before you deploy them
 
 1. To start running your project in a local Airflow environment, run the following command from your project directory:
 
-    ```sh
+    ```bash
     astro dev start
     ```
 
@@ -85,7 +85,7 @@ You must restart your environment to apply changes from any of the following fil
 
 To restart your local Airflow environment, run:
 
-```sh
+```bash
 astro dev restart
 ```
 
@@ -95,7 +95,7 @@ This command rebuilds your image and restarts the Docker containers running on y
 
 Run the following to pause all Docker containers running your local Airflow environment. 
 
-```sh
+```bash
 astro dev stop
 ```
 
@@ -107,7 +107,7 @@ This command can be used regularly with `astro dev start` and `astro dev restart
 
 When you want to force-stop all four Docker containers for your local Airflow environment, use the following command. 
 
-```sh
+```bash
 astro dev kill
 ```
 

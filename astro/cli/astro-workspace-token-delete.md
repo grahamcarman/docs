@@ -10,7 +10,7 @@ Delete a Workspace API token or remove an Organization API token in your current
 
 ## Usage
 
-```sh
+```bash
 astro workspace token delete
 ```
 

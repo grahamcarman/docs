@@ -10,7 +10,7 @@ Delete a Team from your Organization.
 
 ## Usage
 
-```sh
+```bash
 astro organization team delete <team-id>
 ```
 

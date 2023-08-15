@@ -22,7 +22,7 @@ You can inspect an existing Deployment with the Astro CLI to create a template f
 
 To create a template file, run the following command. Replace `<deployment-template-file-name>` with your preferred name for the new template file. For example, `dev-deployment.yaml` or `dev-deployment.json`.
 
-```sh
+```bash
 # save the template to a YAML file
 astro deployment inspect <deployment-name>  --template  > <deployment-template-file-name>
 # save the template to a JSON file
@@ -197,7 +197,7 @@ To update a Deployment using a Deployment file:
 
 1. Inspect an existing Deployment and create a Deployment file for its current configurations:
 
-  ```sh
+  ```bash
   astro deployment inspect -n <deployment-name> > <your-deployment-file-name>
   ```
 
@@ -205,13 +205,13 @@ To update a Deployment using a Deployment file:
 
 3. Update your Deployment according to the configurations in the Deployment file:
 
-  ```sh
+  ```bash
   astro deployment update <deployment-name> --deployment-file <your-deployment-file>
   ```
 
 4. Optional. Confirm that your Deployment was updated successfully by running the following command. You can also go to the Deployment page in the Cloud UI to confirm the new values.
 
-  ```sh
+  ```bash
   astro deployment inspect -n <deployment-name>
   ```
 

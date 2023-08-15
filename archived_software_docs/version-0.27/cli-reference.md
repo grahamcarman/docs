@@ -30,7 +30,7 @@ The Astronomer CLI installation process requires [Docker](https://www.docker.com
 
 If you have Homebrew installed, run:
 
-```sh
+```bash
 brew install astro@0.27
 ```
 
@@ -38,7 +38,7 @@ brew install astro@0.27
 
 To install the latest version of the Astronomer CLI, run:
 
-```sh
+```bash
 curl -sSL https://install.astronomer.io | sudo bash -s -- v0.27.4
 ```
 
@@ -141,7 +141,7 @@ Generates autocompletion scripts for Astronomer.
 Use `astro completion <subcommand>` to generate autocompletion scripts, which can be used to automate workflows on Astronomer that require multiple CLI commands.
 
 > **Note:** If you're running on MacOS, make sure to install [Bash Completion](https://github.com/scop/bash-completion) before creating autocompletion scripts. To do so via Homebrew, run:
-    ```sh
+    ```bash
     brew install bash-completion
     ```
 
@@ -633,7 +633,7 @@ Checks for the latest version of the Astronomer CLI, but does not perform the up
 
 > **Note:** This command only checks whether or not a new version of the Astronomer CLI is available. To actually upgrade the CLI to the latest version, run:
 >
-> ```sh
+> ```bash
 > brew install astro
 > ```
 

@@ -12,7 +12,7 @@ Note that after switching to a different Astronomer installation, you might have
 
 ## Usage
 
-```sh
+```bash
 astro context switch <basedomain>
 ```
 

@@ -161,7 +161,7 @@ The Airflow CLI offers two commands related to local testing:
 
 With the Astro CLI, you can run all Airflow CLI commands using [`astro dev run`](https://docs.astronomer.io/astro/cli/astro-dev-run). For example, to run `airflow dags test` on the DAG `my_dag` for the execution date of `2023-01-29` run:
 
-```sh
+```bash
 astro dev run dags test my_dag '2023-01-29'
 ```
 

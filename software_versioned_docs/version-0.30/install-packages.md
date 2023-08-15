@@ -63,7 +63,7 @@ Once you rebuild your image with `docker-build`, the image will have access to a
 
 To build Python and OS-level packages into a machine running the Python wheel distribution of Astronomer Certified, run the following command:
 
-```sh
+```bash
 sudo -u astro ~astro/airflow-venv/bin/pip install --extra-index-url=https://pip.astronomer.io/simple/ 'astronomer-certified[<your-package>]==<airflow-version>.*'
 ```
 

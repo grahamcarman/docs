@@ -26,7 +26,7 @@ To complete this setup, you need:
 
 1. Run the following command to start the Podman API service:
 
-    ```sh
+    ```bash
     podman system service -t 0 &
     ```
 
@@ -36,13 +36,13 @@ To complete this setup, you need:
 
 2. Run the following command to create a new Astronomer project:
 
-    ```sh
+    ```bash
     astro dev init
     ```
 
 3. Run the following command to specify Podman as the CLI's primary container engine:
 
-    ```sh
+    ```bash
     astro config set container.engine podman
     ```
 
@@ -55,14 +55,14 @@ To set up Podman for an Astronomer project:
 
 1. Run the following commands to start Podman:
 
-    ```sh
+    ```bash
     $ podman machine init
     $ podman machine start
     ```
 
 2. Run the following command to pick up the Identity and connection URI for your `podman-machine-default`:
 
-    ```sh
+    ```bash
     podman system connection ls
     ```
 
@@ -77,13 +77,13 @@ To set up Podman for an Astronomer project:
 
 2. Run the following command to export the Podman Identity as a system environment variable:
 
-    ```sh
+    ```bash
     export CONTAINER_SSHKEY=<your-podman-identity>
     ```
 
 3. Run the following command to set the connection URI from the Astronomer CLI:
 
-    ```sh
+    ```bash
     astro config set podman.connection_uri <your-podman-uri>
     ```
 
@@ -91,7 +91,7 @@ To set up Podman for an Astronomer project:
 
 5. In a separate terminal window, complete the following set of commands and configurations to mount your local Airflow project directory to the Podman machine:
 
-    ```sh
+    ```bash
     $ podman machine --log-level=debug ssh -- exit 2>&1 | grep Executing
     # copy ssh command from above output for the next command, for example:
     # 49671 core@localhost
@@ -116,7 +116,7 @@ To set up Podman for an Astronomer project:
 
 6. Open a new terminal window. In an empty directory, run the following commands to create a new Astronomer project, set Podman as your primary container engine, and generate a `pod-config.yml` file for your project:
 
-    ```sh
+    ```bash
     $ astro dev init
     $ astro config set container.engine podman
     $ astro dev start
@@ -146,12 +146,12 @@ You can now run the Astronomer CLI in Podman containers for this Astronomer proj
 
 Once you set up the Astronomer CLI to use Podman on your local machine, the CLI will automatically run Podman containers whenever you run a command that requires them. To revert back to default behavior and run CLI commands in Docker containers, run the following command:
 
-```sh
+```bash
 astro config set container.engine docker
 ```
 
 If you need to switch back to using Podman again, run the following command:
 
-```sh
+```bash
 astro config set container.engine podman
 ```

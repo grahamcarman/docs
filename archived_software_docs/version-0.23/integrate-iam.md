@@ -218,13 +218,13 @@ In order to apply your IAM role to any Airflow Deployment on Astronomer, you'll 
 
 1. To create a new Airflow Deployment with your IAM role attached, run the following Astronomer CLI command:
 
-    ```sh
+    ```bash
     astro deployment create <deployment-id> --executor=celery --cloud-role=arn:aws:iam::<your-iam-id>:role/<your-role>
     ```
 
     Alternatively, to update an existing Airflow Deployment with your IAM role attached, run the following:
 
-    ```sh
+    ```bash
     astro deployment update <deployment-id> --cloud-role=arn:aws:iam::<your-iam-id>:role/<your-role>
     ```
 

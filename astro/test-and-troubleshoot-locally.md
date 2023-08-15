@@ -19,7 +19,7 @@ Use the `astro run` command to run a DAG from the command line. When you run the
 
 To run a DAG located within your local `/dags` directory run:
 
-```sh
+```bash
 astro run <dag-id>
 ```
 
@@ -36,7 +36,7 @@ To enhance the development experience for data pipelines, Astro enables users to
 
 To quickly parse your DAGs, you can run:
 
-```sh
+```bash
 astro dev parse
 ```
 
@@ -48,7 +48,7 @@ The command `astro dev parse` is a more convenient but less customizable version
 
 To perform unit tests on your Astro project, you can run:
 
-```sh
+```bash
 astro dev pytest
 ```
 
@@ -73,7 +73,7 @@ See [View logs](view-logs.md).
 
 To run [Apache Airflow CLI](https://airflow.apache.org/docs/apache-airflow/stable/cli-and-env-variables-ref.html) commands locally, run the following:
 
-```sh
+```bash
 astro dev run <airflow-cli-command>
 ```
 
@@ -97,7 +97,7 @@ To make requests to the Airflow REST API in a Deployment on Astro, see [Airflow 
 
 ### cURL
 
-```sh
+```bash
 curl -X GET localhost:8080/api/v1/<endpoint> --user "admin:admin"
 ```
 
@@ -120,7 +120,7 @@ View local Kubernetes logs to troubleshoot issues with Pods that are created by 
 
 In most cases, [restarting your local project](develop-project.md#restart-your-local-environment) is sufficient for testing and making changes to your project. However, it is sometimes necessary to kill your Docker containers and metadata database for testing purposes. To do so, run the following command:
 
-```sh
+```bash
 astro dev kill
 ```
 
@@ -136,13 +136,13 @@ For example, if your `packages.txt` file contains the `openjdk-8-jdk`, `gcc`, `g
 
 2. Run the following command to build your Astro project into a Docker image and start a local Docker container for each Airflow component:
 
-    ```sh
+    ```bash
     astro dev start
     ```
 
 3. Run the following command to open a bash terminal in your scheduler container:
 
-    ```sh
+    ```bash
     astro dev bash --scheduler
     ```
 
@@ -190,7 +190,7 @@ Make sure to specify `version: "3.1"` and follow the format of the source code f
 
 To see your override file live in your local Airflow environment, run the following command to see the file in your scheduler container:
 
-```sh
+```bash
 astro dev bash --scheduler "ls -al"
 ```
 
@@ -240,13 +240,13 @@ If your project won't load, it might also be because your webserver or scheduler
 1. After running `astro dev start`, retrieve a list of running containers by running `astro dev ps`.
 2. If the webserver and scheduler containers exist but are unhealthy, check their logs by running:
 
-    ```sh
+    ```bash
     $ astro dev logs --webserver
     $ astro dev logs --scheduler
     ```
 3. Optional. Run the following command to prune volumes and free disk space:
 
-    ```sh
+    ```bash
     docker system prune --volumes
     ```
 
@@ -283,14 +283,14 @@ To resolve a port availability error, you have the following options:
 
 If port 8080 or 5432 are in use on your machine by other services, the Airflow webserver and metadata database won't be able to start. To run these components on different ports, run the following commands in your Astro project:
 
-```sh
+```bash
 astro config set webserver.port <available-port>
 astro config set postgres.port <available-port>
 ```
 
 For example, to use 8081 for your webserver port and 5435 for your database port, you would run the following commands:
 
-```sh
+```bash
 astro config set webserver.port 8081
 astro config set postgres.port 5435
 ```

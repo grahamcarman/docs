@@ -9,7 +9,7 @@ Delete an existing [worker queue](configure-deployment-resources.md#worker-queue
 
 ## Usage
 
-```sh
+```bash
 astro deployment worker-queue delete
 ```
 

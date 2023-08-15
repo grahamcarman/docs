@@ -28,7 +28,7 @@ Authenticate to Astro. After you run this command, the CLI prompts you for your 
 ## Usage
 
 
-```sh
+```bash
 astro login
 ```
 
@@ -41,7 +41,7 @@ astro login
 
 ## Examples
 
-```sh
+```bash
 astro login
 # The CLI automatically opens the Cloud UI in a web browser, which prompts you to log in.
 
@@ -60,7 +60,7 @@ Authenticate to Astronomer Software. After you run this command, the CLI prompts
 ## Usage
 
 
-```sh
+```bash
 astro login <basedomain>
 ```
 
@@ -74,7 +74,7 @@ astro login <basedomain>
 
 ## Examples
 
-```sh
+```bash
 astro login mycompany.astromomer.io
 # The CLI prompts you for a username and password, or to leave the prompt empty for OAuth authentication
 

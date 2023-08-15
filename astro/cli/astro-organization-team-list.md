@@ -10,7 +10,7 @@ List all Teams in your current Organization.
 
 ## Usage
 
-```sh
+```bash
 astro organization team list
 ```
 

@@ -25,7 +25,7 @@ Creates a service account for a given Workspace.
 
 #### Usage
 
-```sh
+```bash
 astro workspace service-account create --workspace-id=<your-workspace> --label=<your-label>
 ```
 
@@ -49,7 +49,7 @@ Deletes a service account for a given Workspace.
 
 #### Usage
 
-```sh
+```bash
 astro workspace service-account delete <your-service-account-id>
 ```
 

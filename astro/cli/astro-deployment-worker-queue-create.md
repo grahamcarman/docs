@@ -9,7 +9,7 @@ Create a [worker queue](configure-deployment-resources.md#worker-queues on) for 
 
 ## Usage
 
-```sh
+```bash
 astro deployment worker-queue create
 ```
 
@@ -28,7 +28,7 @@ astro deployment worker-queue create
 
 ## Examples 
 
-```sh
+```bash
 astro deployment worker-queue create --deployment-id cl03oiq7d80402nwn7fsl3dmv
 # Creates a new worker queue for a Deployment with ID `cl03oiq7d80402nwn7fsl3dmv`. The Astro CLI prompts you for configuration information.
 

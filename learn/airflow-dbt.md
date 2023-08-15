@@ -84,7 +84,7 @@ To use dbt with Airflow install dbt Core in a virtual environment and Cosmos in 
 
 1. Create a new Astro project:
 
-    ```sh
+    ```bash
     $ mkdir astro-dbt-core-tutorial && cd astro-dbt-core-tutorial
     $ astro dev init
     ```

@@ -100,7 +100,7 @@ To use Vault as a secrets backend, Astronomer recommends configuring a Vault App
 2. [Create a Vault AppRole](https://www.vaultproject.io/docs/auth/approle) and attach the policy you just created to it.
 3. Retrieve the `role-id` and `secret-id` for your AppRole by running the following commands:
 
-    ```sh
+    ```bash
     vault read auth/approle/role/<your-approle>/role-id
     vault write -f auth/approle/role/<your-approle>/secret-id
     ```
@@ -113,19 +113,19 @@ To test whether your Vault server is set up properly, create a test Airflow vari
 
 To store an Airflow variable in Vault as a secret, run the following Vault CLI command with your own values:
 
-```sh
+```bash
 vault kv put secret/variables/<your-variable-key> value=<your-variable-value>
 ```
 
 To store a connection in Vault as a secret, run the following Vault CLI command with your own values:
 
-```sh
+```bash
 vault kv put secret/connections/<your-connection-id> conn_uri=<connection-type>://<connection-login>:<connection-password>@<connection-host>:5432
 ```
 
 To confirm that your secret was written to Vault successfully, run:
 
-```sh
+```bash
 # For variables
 $ vault kv get secret/variables/<your-variable-key>
 # For connections
@@ -441,7 +441,7 @@ Secrets must be formatted such that:
 
 For example, to add an Airflow variable with a key `my-secret-variable`, you would run the following gcloud CLI command:
 
-```sh
+```bash
 gcloud secrets create airflow-variables-<my-secret-variable> \
     --replication-policy="automatic"
 ```

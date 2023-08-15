@@ -22,7 +22,7 @@ Use this document to learn how image deploys work and how to manually push your 
 
 Run the following command to authenticate to Astro:
 
-```sh
+```bash
 astro login
 ```
 
@@ -38,7 +38,7 @@ If you have API credentials set as OS-level environment variables on your local 
 
 To deploy your Astro project, run:
 
-```sh
+```bash
 astro deploy
 ```
 

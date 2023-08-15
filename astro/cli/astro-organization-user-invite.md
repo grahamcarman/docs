@@ -29,7 +29,7 @@ You must add new users to an Astro Organization before you can add them to speci
 
 ## Examples
 
-```sh
+```bash
 # Invite a user to your Organization
 astro organization user invite user@cosmicenergy.org --role ORGANIZATION_BILLING_ADMIN
 ```

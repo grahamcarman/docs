@@ -48,7 +48,7 @@ View a list of all Teams in a Workspace.
 
 #### Usage
 
-```sh
+```bash
 astro workspace team list
 ```
 
@@ -58,7 +58,7 @@ Update a Team from a given Workspace.
 
 #### Usage
 
-```sh
+```bash
 astro workspace team remove <team-id> --workspace-id <workspace-id>
 ```
 
@@ -79,7 +79,7 @@ Update a Team's permissions in a given Workspace.
 
 #### Usage
 
-```sh
+```bash
 astro workspace team update <team-id> --workspace-id <workspace-id> --role=<system-role>
 ```
 

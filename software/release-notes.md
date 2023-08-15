@@ -82,7 +82,7 @@ You can now clean task data from your Deployments by exporting it to an external
 
 You can assign the System Admin, System Editor, and System Viewer permissions to teams by setting the following values in your `config.yaml` file:
 
-```sh
+```bash
 # Auth configuration.
 auth:
   openidConnect:

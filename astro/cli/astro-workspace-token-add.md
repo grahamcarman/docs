@@ -10,7 +10,7 @@ Add an Organization API token to your current Workspace and grant it Workspace p
 
 ## Usage
 
-```sh
+```bash
 astro workspace token add
 ```
 

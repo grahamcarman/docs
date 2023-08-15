@@ -84,7 +84,7 @@ When you run an [Airflow DAG from the CLI](https://airflow.apache.org/docs/apach
 
 Run Airflow commands from the Astro CLI using `astro dev run`: 
 
-```sh
+```bash
 astro dev run dags trigger params_defaults_example --conf '{"param1" : "Hello from the CLI"}'
 ```
 
@@ -93,7 +93,7 @@ astro dev run dags trigger params_defaults_example --conf '{"param1" : "Hello fr
 <TabItem value="airflow">
 
 
-```sh
+```bash
 airflow dags trigger params_defaults_example --conf '{"param1" : "Hello from the CLI"}'
 ```
 

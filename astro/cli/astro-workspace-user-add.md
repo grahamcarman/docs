@@ -29,7 +29,7 @@ You can use this command to invite multiple users to a Workspace at a time. See 
 
 ## Usage
 
-```sh
+```bash
 astro workspace user add <email> 
 ```
 
@@ -53,7 +53,7 @@ Creates a new user in your current Workspace. If the user has already authentica
 
 ## Usage
 
-```sh
+```bash
 astro workspace user add --email <user-email-address> 
 ```
 

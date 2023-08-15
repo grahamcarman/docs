@@ -27,7 +27,7 @@ List all users with access to your current Workspace.
 
 ## Usage
 
-```sh
+```bash
 astro workspace user list
 ```
 
@@ -44,7 +44,7 @@ Outputs a list of all users with access to your current Workspace.
 
 ## Usage
 
-```sh
+```bash
 astro workspace user list
 ```
 

@@ -53,7 +53,7 @@ To use DuckDB with Airflow, install the [DuckDB Airflow provider](https://github
 
 1. Create a new Astro project:
 
-    ```sh
+    ```bash
     $ mkdir astro-duckdb-tutorial && cd astro-duckdb-tutorial
     $ astro dev init
     ```

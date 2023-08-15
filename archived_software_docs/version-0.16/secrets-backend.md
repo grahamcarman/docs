@@ -241,7 +241,7 @@ This setup assumes that you already have a Google Cloud project with [Secret Man
 3. Create and download a [JSON service account key](https://cloud.google.com/iam/docs/creating-managing-service-account-keys#creating_service_account_keys) for the service account.
 4. In the Software UI, set the following [environment variables](environment-variables.md) in your Airflow Deployment, making sure to paste the entire JSON key file in place of `<your-key-file>`:
 
-    ```sh
+    ```bash
     AIRFLOW__SECRETS__BACKEND=airflow.providers.google.cloud.secrets.secret_manager.CloudSecretManagerBackend
     AIRFLOW__SECRETS__BACKEND_KWARGS='{"connections_prefix": "airflow-connections", "variables_prefix": "airflow-variables", "gcp_keyfile_dict": <your-key-file>}'
     ```

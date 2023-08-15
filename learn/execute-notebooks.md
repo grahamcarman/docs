@@ -39,19 +39,19 @@ To run a DAG that executes a Jupyter notebook, you first need to create an Astro
 
 1. Create a new directory for your Astro project:
 
-    ```sh
+    ```bash
     mkdir <your-astro-project-name>
     ```
 
 2. Open the directory:
 
-    ```sh
+    ```bash
     cd <your-astro-project-name>
     ```
 
 3. Run the following Astro CLI command to initialize an Astro project in the directory:
 
-    ```sh
+    ```bash
     astro dev init
     ```
 

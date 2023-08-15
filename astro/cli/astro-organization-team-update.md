@@ -10,7 +10,7 @@ Update a Team in your Organization.
 
 ## Usage
 
-```sh
+```bash
 astro organization team update <flags>
 ```
 

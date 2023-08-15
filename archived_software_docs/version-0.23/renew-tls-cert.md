@@ -75,7 +75,7 @@ Once you set up a TLS certificate for Astronomer, you'll need to establish a pro
 
     Then, create the ClusterIssuer by running the following command:
 
-    ```sh
+    ```bash
     kubectl apply -f clusterissuer.yaml
     ```
 
@@ -107,12 +107,12 @@ Once you set up a TLS certificate for Astronomer, you'll need to establish a pro
 
     Then, create the certificate by running the following command and waiting a few minutes:
 
-    ```sh
+    ```bash
     kubectl apply -f certificate.yaml
     ```
 
 5. Ensure that the certificate was created by running:
-   ```sh
+   ```bash
    kubectl get certificates
    ```
 
@@ -123,14 +123,14 @@ Once you set up a TLS certificate for Astronomer, you'll need to establish a pro
 Larger organizations with dedicated security teams will likely have their own processes for requesting and renewing TLS certificates. Regardless, there are specific steps you have to complete for Astronomer when renewing TLS certificates:
 
 1. Delete your current TLS certificate by running the following command:
-   ```sh
+   ```bash
    kubectl delete secret astronomer-tls
    ```
 
 2. Follow the instructions for requesting a TLS certificate from your organization's security team as described in [Step 4: Configure TLS](install-aws-standard.md#step-4-configure-tls). The linked guide is written for users installing Astronomer on AWS, but this step is the same regardless of which service you use.
 
 3. Restart your Houston, nginx, and registry pods to begin using the new certificate by running the following commands:
-   ```sh
+   ```bash
    kubectl rollout restart deployments -n <your-namespace>
    kubectl rollout restart statefulsets -n <your-namespace>
    ```

@@ -58,7 +58,7 @@ We have documentation for deploying Astronomer on:
 
 Using the Astronomer CLI, create an Airflow project to work from that lives on your local machine:
 
- ```sh
+ ```bash
 mkdir <your-new-directory> && cd <your-new-directory>
  ```
 
@@ -126,7 +126,7 @@ For more information, read [Manage Workspaces and Deployments](manage-workspaces
 
 You can authenticate to Astronomer using the following command:
 
-```sh
+```bash
 astro auth login BASEDOMAIN
 ```
 
@@ -155,7 +155,7 @@ You can now use Astronomer to start Airflow locally and deploy code. To do so:
 
 1. Go to the Airflow project directory you created in **Step 4** and run the following command:
 
-    ```sh
+    ```bash
     astro dev start
     ```
 
@@ -169,7 +169,7 @@ You can now use Astronomer to start Airflow locally and deploy code. To do so:
 
 2. Verify that all 3 Docker containers were created by running the following command:
 
-    ```sh
+    ```bash
     docker ps
     ```
 
@@ -178,7 +178,7 @@ You can now use Astronomer to start Airflow locally and deploy code. To do so:
 
 3. Deploy the `example-dag` from `hello-astro` to Airflow by running the following command:
 
-    ```sh
+    ```bash
     astro deploy
     ```
 

@@ -10,7 +10,7 @@ Download a DAG from the [Astronomer Registry](https://registry.astronomer.io/) t
 
 ## Usage 
 
-```sh
+```bash
 astro registry dag add
 ```
 
@@ -26,7 +26,7 @@ When you run the command, the CLI prompts you for a DAG ID to download. To retri
 
 ## Examples
 
-```sh
+```bash
 # Download version 1.0.0 of a DAG called 'upload_files_to_s3'
 astro registry dag add upload_files_to_s3 --version 1.0.0
 ```

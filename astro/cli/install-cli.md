@@ -41,13 +41,13 @@ By default, the Astro CLI uses Docker as its container management engine for run
 
 To install the latest version of the Astro CLI, run the following command:
 
-```sh
+```bash
 brew install astro
 ```
 
 To install a specific version of the Astro CLI, specify the version you want to install at the end of the command:
 
-```sh
+```bash
 brew install astro@<major.minor.patch-version>
 ```
 
@@ -57,7 +57,7 @@ If you specify only a major version, this command installs the latest minor or p
 
 To verify that the correct Astro CLI version was installed, run:
 
-```sh
+```bash
 astro version
 ```
 
@@ -67,7 +67,7 @@ Follow this procedure when Homebrew fails to install the latest Astro CLI versio
 
 1. Run the following command to update Homebrew and all package definitions (formulae):
 
-    ```sh
+    ```bash
     brew update
     ```
 
@@ -94,7 +94,7 @@ By default, the Astro CLI uses Docker as its container management engine for run
 
 1. Open Windows PowerShell as an administrator and then run the following command:
 
-    ```sh
+    ```bash
     winget install -e --id Astronomer.Astro
     ```
 
@@ -104,7 +104,7 @@ By default, the Astro CLI uses Docker as its container management engine for run
 
 2. Run the following command to access the location of the CLI executable:
 
-    ```sh
+    ```bash
     $env:path.split(";")
     ```
     
@@ -160,7 +160,7 @@ By default, the Astro CLI uses Docker as its container management engine for run
 
 Run the following command to install the latest version of the Astro CLI directly to `PATH`:
 
-```sh
+```bash
 curl -sSL install.astronomer.io | sudo bash -s
 ```
 
@@ -189,7 +189,7 @@ If you specify only a major version, this command installs the latest minor or p
 
 To upgrade the Astro CLI to the latest version, run the following command:
 
-```sh
+```bash
 brew upgrade astro
 ```
 
@@ -201,7 +201,7 @@ Starting with Astro CLI version 1.6, you can use the winget command line tool to
 
 To upgrade the Astro CLI to the latest version, open Windows PowerShell as an administrator and run the following command:
 
-```sh
+```bash
 winget install -e --id Astronomer.Astro
 ```
 
@@ -227,7 +227,7 @@ winget install -e --id Astronomer.Astro
 
 To upgrade the Astro CLI to the latest version, run the following command:
 
-```sh
+```bash
 curl -sSL install.astronomer.io | sudo bash -s
 ```
 
@@ -250,7 +250,7 @@ curl -sSL install.astronomer.io | sudo bash -s
 
 To uninstall the Astro CLI on Mac, run:
 
-```sh
+```bash
 brew uninstall astro
 ```
 
@@ -262,7 +262,7 @@ Starting with Astro CLI version 1.6, you can use the winget command line tool to
 
 To uninstall the Astro CLI, open Windows PowerShell as an administrator and run the following command:
 
-```sh
+```bash
 winget uninstall -e --id Astronomer.Astro
 ```
 
@@ -281,7 +281,7 @@ To uninstall the Astro CLI on Windows:
 
 To uninstall the Astro CLI on Linux, run the following command:
 
-```sh
+```bash
 sudo rm /usr/local/bin/astro
 ```
 

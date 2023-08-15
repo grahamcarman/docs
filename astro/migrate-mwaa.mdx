@@ -56,14 +56,14 @@ To complete this setup from the command line:
 
 1. Run the following commands to set environment variables on your local machine:
 
-    ```sh
+    ```bash
     export MWAA_NAME="MWAA"
     export MWAA_BUCKET="MWAA BUCKET"
     ```
 
 2. Run the following AWS CLI commands to install Starship:
 
-    ```shell
+    ```bashell
     aws s3 cp "s3://$MWAA_BUCKET/requirements.txt" requirements.txt
     echo 'astronomer-starship' >> requirements.txt
     aws s3 cp requirements.txt "s3://$MWAA_BUCKET/requirements.txt"
@@ -132,7 +132,7 @@ To avoid breaking dependency upgrades, Astronomer recommends pinning your packag
 
 2. Run the following command to copy your PyPI packages from AWS to your Astro project `requirements.txt` file:
 
-    ```sh
+    ```bash
     aws s3 cp s3://[BUCKET]/requirements.txt requirements.txt
     ```  
 
@@ -140,7 +140,7 @@ To avoid breaking dependency upgrades, Astronomer recommends pinning your packag
 
 3. Run the following command to copy your PyPI packages from AWS to your Astro project `requirements.txt` file:
   
-    ```sh
+    ```bash
     aws s3 cp --recursive s3://[BUCKET]/dags dags
     ```  
     
@@ -155,7 +155,7 @@ To avoid breaking dependency upgrades, Astronomer recommends pinning your packag
 
 4. If you used the [`plugins` folder](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-folders.html) in your MWAA project, run the following command to directly copy your PyPI packages from AWS to your Astro project `requirements.txt` file:
   
-    ```sh
+    ```bash
     aws s3 cp --recursive s3://[BUCKET]/plugins.zip plugins.zip
     unzip plugins.zip
     ```

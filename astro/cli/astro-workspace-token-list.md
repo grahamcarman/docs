@@ -10,7 +10,7 @@ List all Workspace API tokens in your current Workspace.
 
 ## Usage
 
-```sh
+```bash
 astro workspace token list
 ```
 

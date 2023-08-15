@@ -47,7 +47,7 @@ An Astro project contains all of the files you need to run Airflow locally.
 
 1. Create a new Astro project:
 
-    ```sh
+    ```bash
     $ mkdir astro-dbt-cloud-tutorial && cd astro-dbt-cloud-tutorial
     $ astro dev init
     ```
@@ -60,7 +60,7 @@ An Astro project contains all of the files you need to run Airflow locally.
 
 3. Run the following command to start your Astro project:
 
-    ```sh
+    ```bash
     $ astro dev start
     ```
 

@@ -10,7 +10,7 @@ Create a Workspace API token in your current Workspace.
 
 ## Usage
 
-```sh
+```bash
 astro workspace token create
 ```
 
@@ -26,7 +26,7 @@ astro workspace token create
 
 ## Examples
 
-```sh
+```bash
 astro workspace token create --name "My production API token" --role WORKSPACE_MEMBER
 ```
 

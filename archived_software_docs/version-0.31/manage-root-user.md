@@ -11,7 +11,7 @@ When you install Astronomer Software, a root user with the username `root` and a
 
 1. Run the following command to retrieve the default password created by Astronomer: 
 
-    ```sh
+    ```bash
     kubectl get secret astronomer-root-admin-credentials -o jsonpath='{.data.password}' -n <your-platform-namespace> | base64 --decode
     ```
 
@@ -23,7 +23,7 @@ You can use a custom root user password to prevent employees who leave your orga
 
 To configure a custom password for the root user, run the following command: 
 
-```sh
+```bash
 kubectl patch secret -n <your-platform-namespace> astronomer-root-admin-credentials --type=json -p='[{ "op" : "replace" , "path" : "/data/password" , "value" : "'$(echo -n "<your-new-password>" | base64)'"}]' && kubectl create job --from=cronjob/<your-release-name>-update-root-admin-password-cronjob manual3 -n <your-platform-namespace>
 ```
 

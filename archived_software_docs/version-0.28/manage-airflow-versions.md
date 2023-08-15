@@ -27,7 +27,7 @@ Starting with Astronomer Software v0.23, new versions of Astronomer Certified ar
 
 > **Note:** If you don't want to wait for new versions of Astronomer Certified to appear on their own, you can manually trigger the cron job with the following Kubernetes command:
 >
-> ```sh
+> ```bash
 > kubectl create job --namespace astronomer --from=cronjob/astronomer-houston-update-airflow-check airflow-update-check-first-run
 > ```
 >
@@ -147,13 +147,13 @@ For our platform's full collection of Docker Images, reference [Astronomer on Qu
 
 To test a new version of Astronomer Certified on your local machine, save all changes to your `Dockerfile` and run:
 
-```sh
+```bash
 $ astro dev stop
 ```
 
 This will stop all 3 running Docker containers for each of the necessary Airflow components (Webserver, Scheduler, Postgres). Then, apply your changes locally by running:
 
-```sh
+```bash
 $ astro dev start
 ```
 
@@ -161,7 +161,7 @@ $ astro dev start
 
 To push your upgrade to a Deployment on Astronomer Software, run:
 
-```sh
+```bash
 astro deploy
 ```
 

@@ -16,7 +16,7 @@ You can use [`astro dev upgrade-test`](astro-dev-upgrade-test.md) to test your l
 
 To run these tests, open your Astro project and run:
 
-```sh
+```bash
 astro dev upgrade-test
 ```
 

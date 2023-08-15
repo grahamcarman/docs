@@ -10,7 +10,7 @@ List the Airflow variables stored in a Deployment's metadata database.
 
 ## Usage
 
-```sh
+```bash
 astro deployment airflow-variable list
 ```
 

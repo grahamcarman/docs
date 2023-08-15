@@ -12,7 +12,7 @@ View the current configuration of your Astro project as defined in the `.astro/c
 
 Within your Astro project directory, run:
 
-```sh
+```bash
 astro config get <option>
 ```
 
@@ -22,7 +22,7 @@ For a list of available configurations, see [Configure the CLI](configure-cli.md
 
 ## Examples
 
-```sh
+```bash
 ## View the username for your project's postgres user
 $ astro config get postgres.user
 ```

@@ -18,7 +18,7 @@ Manage Deployment-level Teams on Astronomer Software.
 
 This command includes three subcommands: `create`, `delete`, and `list`
 
-```sh
+```bash
 astro deployment team add --deployment-id=<your-deployment-id> <team-id>
 astro deployment team list <deployment-id>
 astro deployment team --deployment-id=<your-deployment-id> <team-id> 

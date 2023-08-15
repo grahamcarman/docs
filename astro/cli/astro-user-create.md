@@ -16,7 +16,7 @@ Create a new user profile on Astronomer Software.
 
 ## Usage 
 
-```sh
+```bash
 astro user invite
 ```
 

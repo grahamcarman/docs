@@ -45,13 +45,13 @@ Use the value of a Python cell's `return` statement in another Python cell by ca
 
 For example, consider two Python cells. One cell is named `hello_world` and includes the following code:
 
-```sh
+```bash
 return "Hello, world!"
 ```
 
 Another cell is named `data_dependency` and includes the following code:
 
-```sh
+```bash
 my_string = hello_world
 return my_string
 ```

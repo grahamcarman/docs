@@ -56,7 +56,7 @@ astronomer:
 
 Once all the changes are made, run `helm upgrade` to switch your platform to the new config:
 
-```shell
+```bashell
 helm upgrade <platform-release-name> -f config.yaml --version=<platform-version> astronomer/astronomer -n <your-namespace>
 ```
 

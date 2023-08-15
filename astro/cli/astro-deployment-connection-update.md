@@ -10,7 +10,7 @@ Update the value for a Deployment's Airflow variable.
 
 ## Usage
 
-```sh
+```bash
 astro deployment connection update
 ```
 

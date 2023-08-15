@@ -27,7 +27,7 @@ First, ensure you have a copy of the `config.yaml` file of your platform namespa
 
 To do this, you can run:
 
-```sh
+```bash
 helm get values <your-platform-release-name> -n <your-platform-namespace>  > config.yaml
 ```
 
@@ -37,7 +37,7 @@ Review this configuration and delete the line `"USER-SUPPLIED VALUES:"` if you s
 
 To verify the version of Astronomer you're currently operating with, run:
 
-```sh
+```bash
 helm list --all-namespaces | grep astronomer
 ```
 
@@ -51,7 +51,7 @@ Make sure to substitute the following 3 variables with your own values:
 - `NAMESPACE`
 - `ASTRO_VERSION`
 
-```sh
+```bash
 #!/bin/bash
 set -xe
 

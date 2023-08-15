@@ -152,7 +152,7 @@ To create a potential dependency to a Python cell, the upstream Python cell must
    
 2. Add the following code to the cell:
 
-   ```sh
+   ```bash
    my_string = hello_world
    return my_string
    ```

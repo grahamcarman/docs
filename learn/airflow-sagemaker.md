@@ -62,7 +62,7 @@ Now that you have your AWS resources configured, you can move on to Airflow setu
 
 1. Create a new Astro project:
 
-    ```sh
+    ```bash
     $ mkdir astro-sagemaker-tutorial && cd astro-sagemaker-tutorial
     $ astro dev init
     ```
@@ -87,7 +87,7 @@ Now that you have your AWS resources configured, you can move on to Airflow setu
 
 4. Run the following command to start your project in a local environment:
 
-    ```sh
+    ```bash
     astro dev start
     ```
 

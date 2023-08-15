@@ -32,7 +32,7 @@ If you do not specify `--desired-airflow-version`, this command creates a list o
 
 ## Examples 
 
-```sh
+```bash
 # Upgrade to Airflow 2.4 
 $ astro deployment airflow --deployment-id telescopic-sky-4599 --desired-airflow-version 2.2.0
 ```

@@ -41,7 +41,7 @@ To get the most out of this tutorial, make sure you have an understanding of:
 
 Set up Airflow by creating a new Astro project:
 
-```sh
+```bash
 $ mkdir astro-extra-link-tutorial && cd astro-extra-link-tutorial
 $ astro dev init
 ```

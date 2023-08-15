@@ -21,7 +21,7 @@ Run `astro organization user update` to update a user's Organization role. The C
 
 ## Examples
 
-```sh
+```bash
 # Invite a user to your Organization
 astro organization user invite user@cosmicenergy.org --role ORGANIZATION_BILLING_ADMIN
 

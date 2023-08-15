@@ -10,7 +10,7 @@ Create a new Team in your Organization.
 
 ## Usage
 
-```sh
+```bash
 astro organization team create --name "<team-name>"
 ```
 
@@ -24,7 +24,7 @@ astro organization team create --name "<team-name>"
 
 ## Examples
 
-```sh
+```bash
 # Invite a user to your Organization
 astro organization team create --name "Billing Admins" --role ORGANIZATION_BILLING_ADMIN
 ```

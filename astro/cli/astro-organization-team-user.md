@@ -18,7 +18,7 @@ Add a user to a Team.
 
 #### Usage 
 
-```sh
+```bash
 astro organization team user add 
 ```
 
@@ -35,7 +35,7 @@ List all users in a Team
 
 #### Usage 
 
-```sh
+```bash
 astro organization team user list 
 ```
 
@@ -45,7 +45,7 @@ Remove a user from a Team.
 
 #### Usage 
 
-```sh
+```bash
 astro organization team user remove 
 ```
 

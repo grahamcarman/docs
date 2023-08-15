@@ -23,7 +23,7 @@ A cron job automatically pulls new Astronomer image versions from the Astronomer
 
 If you don't want to wait for new Astronomer image versions, you can manually trigger the cron job with the following Kubernetes command:
 
-> ```sh
+> ```bash
 > kubectl create job --namespace astronomer --from=cronjob/astronomer-houston-update-airflow-check airflow-update-check-first-run
 > ```
 >
@@ -77,7 +77,7 @@ The Software UI and CLI only provide Airflow versions that are later than the ve
 
 3. Optional. Test your upgrade on your local machine by running:
 
-    ```sh
+    ```bash
     astro dev restart
     ```
 
@@ -89,7 +89,7 @@ The Software UI and CLI only provide Airflow versions that are later than the ve
 
 1. To push your upgrade to a Deployment on Astronomer Software, run:
 
-    ```sh
+    ```bash
     astro deploy
     ```
 

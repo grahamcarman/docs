@@ -42,7 +42,7 @@ To use the Astro CLI on Mac, you must have:
 
 To install the latest version of the Astro CLI, run the following command:
 
-```sh
+```bash
 brew install astro
 ```
 
@@ -92,13 +92,13 @@ The winget command line tool is supported on Windows 10 1709 (build 16299) or la
 
 Open Windows PowerShell as an administrator and then run the following command:
 
-```sh
+```bash
 winget install -e --id Astronomer.Astro
 ```
 
 To install a specific version of the Astro CLI, specify the version you want to install at the end of the command. For example, running the following command installs Astro CLI version 1.6:
 
-```sh
+```bash
 winget install -e --id Astronomer.Astro -v 1.6.0
 ```
 
@@ -116,7 +116,7 @@ To use the Astro CLI on Linux, you must have:
 
 Run the following command to install the latest version of the Astro CLI directly to `PATH`:
 
-```sh
+```bash
 curl -sSL install.astronomer.io | sudo bash -s
 ```
 
@@ -151,7 +151,7 @@ Astro CLI Version: ${siteVariables.cliVersion}`}</code></pre>
 
 To upgrade the Astro CLI to the latest version, run the following command:
 
-```sh
+```bash
 brew install astro
 ```
 
@@ -169,7 +169,7 @@ To upgrade the Astro CLI on Windows:
 
 3. If the `.zip` file isn't automatically extracted, run the following command to extract the executable:
 
-    ```sh
+    ```bash
     tar -xvzf .\astrocli.tar.gz
     ```
 
@@ -183,7 +183,7 @@ To upgrade the Astro CLI on Windows:
 
 To upgrade to the latest version of the Astro CLI, run:
 
-```sh
+```bash
 curl -sSL install.astronomer.io | sudo bash -s
 ```
 

@@ -15,13 +15,13 @@ Creating an Astro project requires the [Astro CLI](install-cli.md).
 
 Before you create a Software project, create an empty directory and open it:
 
- ```sh
+ ```bash
 mkdir <your-new-directory> && cd <your-new-directory>
  ```
 
 From this directory, run the following Astro CLI command:
 
-```sh
+```bash
 astro dev init --use-astronomer-certified
 ```
 
@@ -71,7 +71,7 @@ If you'd like to deploy some more functional DAGs, upload your own or check out 
 
 To confirm that you successfully initialized an Astro project, run the following command from your project directory:
 
-```sh
+```bash
 astro dev start
 ```
 

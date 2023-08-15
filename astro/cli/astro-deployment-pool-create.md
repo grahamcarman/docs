@@ -10,7 +10,7 @@ Create Airflow pools on a Deployment. Airflow pools are stored in the Deployment
 
 ## Usage
 
-```sh
+```bash
 astro deployment pool create
 ```
 

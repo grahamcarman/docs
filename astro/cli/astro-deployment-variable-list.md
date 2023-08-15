@@ -14,7 +14,7 @@ If an environment variable value is set as secret, the CLI will list only its ke
 
 ## Usage
 
-```sh
+```bash
 astro deployment variable list
 ```
 
@@ -42,7 +42,7 @@ After setting the variables, this command works for a Deployment without you hav
 
 ## Examples
 
-```sh
+```bash
 # Save all environment variables currently running on an Astro Deployment to the `.env` file in your current directory
 $ astro deployment variable list --deployment-id cl03oiq7d80402nwn7fsl3dmv --save
 

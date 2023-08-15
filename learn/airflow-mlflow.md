@@ -49,7 +49,7 @@ To get the most out of this tutorial, make sure you have an understanding of:
 
 1. Create a new Astro project:
 
-    ```sh
+    ```bash
     $ mkdir astro-mlflow-tutorial && cd astro-mlflow-tutorial
     $ astro dev init
     ```

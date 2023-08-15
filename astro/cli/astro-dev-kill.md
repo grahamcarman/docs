@@ -12,7 +12,7 @@ For more information, read [Hard reset your local environment](test-and-troubles
 
 ## Usage
 
-```sh
+```bash
 astro dev kill
 ```
 

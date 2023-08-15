@@ -173,7 +173,7 @@ You can use the Astro CLI to push build and push images from a Kubernetes cluste
 
 Within your Kubernetes cluster, open your Astro project and run:
 
-```sh
+```bash
 astro deploy
 ```
 

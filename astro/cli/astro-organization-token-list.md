@@ -10,7 +10,7 @@ List all Organization API tokens.
 
 ## Usage
 
-```sh
+```bash
 astro organization token list
 ```
 

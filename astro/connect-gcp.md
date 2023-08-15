@@ -58,7 +58,7 @@ To create a VPC peering connection between an Astro VPC and a GCP VPC:
     
 2. Using the information provided by Astronomer support, [create a peering connection](https://cloud.google.com/vpc/docs/using-vpc-peering#creating_a_peering_configuration) from your target VPC to your Astro cluster VPC. For example, you can use the following gcloud CLI command to create the connection:
 
-   ```sh
+   ```bash
    gcloud compute networks peerings create <choose-any-name> --network=<your-target-vpc-network-name>  --peer-project=<your-cluster-project-id> --peer-network=<your-cluster-vpc-name>
    ```
 
@@ -74,7 +74,7 @@ Astro clusters are by default configured with a PSC endpoint with a target of [A
 
 A list of Google services and their associated service names are provided in the [Google APIs Explorer Directory](https://developers.google.com/apis-explorer). Alternatively, you can run the following command in the Google Cloud CLI to return a list of Google services and their associated service names:
 
-```sh
+```bash
 gcloud services list --available --filter="name:googleapis.com"
 ```
 

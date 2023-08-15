@@ -10,7 +10,7 @@ Remove a Team from your current Workspace.
 
 ## Usage
 
-```sh
+```bash
 astro workspace team remove
 ```
 

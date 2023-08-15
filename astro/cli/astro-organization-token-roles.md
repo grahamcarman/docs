@@ -10,7 +10,7 @@ List the roles that an Organization API token has throughout the Organization, i
 
 ## Usage
 
-```sh
+```bash
 astro organization token roles <token-id>
 ```
 

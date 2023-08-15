@@ -10,7 +10,7 @@ List the Airflow pools stored in a Deployment's metadata database.
 
 ## Usage
 
-```sh
+```bash
 astro deployment pool list
 ```
 

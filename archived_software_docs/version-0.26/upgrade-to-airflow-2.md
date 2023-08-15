@@ -37,7 +37,7 @@ Not all Airflow 1.10.15 DAGs work in Airflow 2,. The Airflow 2 upgrade check scr
 
 To run the Airflow 2 upgrade check script and install the latest version of the `apache-airflow-upgrade-check` package at runtime, open your Astro project and run the following command:
 
-```shell
+```bashell
 astro dev upgrade-check
 ```
 

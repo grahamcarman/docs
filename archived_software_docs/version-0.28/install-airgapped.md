@@ -213,7 +213,7 @@ To complete this setup:
 
 3. Save this file and apply it to your cluster by running the following command:
 
-    ```sh
+    ```bash
     kubectl apply -f nginx-astronomer-certified.yaml
     ```
 

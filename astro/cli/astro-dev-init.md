@@ -10,7 +10,7 @@ Initialize an [Astro project](develop-project.md#create-an-astro-project) in an 
 
 ## Usage
 
-```sh
+```bash
 astro dev init
 ```
 
@@ -24,7 +24,7 @@ astro dev init
 
 ## Examples
 
-```sh
+```bash
 $ astro dev init
 # Initializes default project
 

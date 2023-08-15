@@ -43,7 +43,7 @@ To use SQL check operators, install the [Common SQL provider](https://registry.a
 
 1. Run the following commands to create a new Astro project:
 
-    ```sh
+    ```bash
     $ mkdir astro-sql-check-tutorial && cd astro-sql-check-tutorial
     $ astro dev init
     ```

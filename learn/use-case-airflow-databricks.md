@@ -46,7 +46,7 @@ In `renewable_analysis_dag.py`, replace the `DATABRICKS_LOGIN_EMAIL`, `S3_BUCKET
 
 To run the example project, first make sure Docker Desktop is running. Then, open your project directory and run:
 
-```sh
+```bash
 astro dev start
 ```
 

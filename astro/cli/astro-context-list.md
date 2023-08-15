@@ -12,7 +12,7 @@ If you're an Astro user, you should only see `astronomer.io` on this list.
 
 ## Usage
 
-```sh
+```bash
 astro context list
 ```
 

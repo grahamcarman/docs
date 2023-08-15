@@ -35,7 +35,7 @@ To complete this action, [Workspace Admin](user-permissions.md#workspace-roles) 
 
 ## Usage
 
-```sh
+```bash
 astro deployment delete
 ```
 
@@ -50,7 +50,7 @@ astro deployment delete
 
 ## Examples
 
-```sh
+```bash
 $ astro deployment delete
 # CLI prompts you for a Deployment to delete
 $ astro deployment delete ckvvfp9tf509941drl4vela81n -f
@@ -67,7 +67,7 @@ Delete a Deployment on Astronomer Software. This command is functionally identic
 
 ## Usage
 
-```sh
+```bash
 astro deployment delete
 ```
 

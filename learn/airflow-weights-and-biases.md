@@ -42,7 +42,7 @@ If you have a Github account, you can get started quickly by cloning the demo re
 
 1. Clone the demo repository:
       
-    ```sh 
+    ```bash 
     git clone https://github.com/astronomer/airflow-wandb-demo
     cd airflow-wandb-demo
     ```
@@ -51,7 +51,7 @@ If you have a Github account, you can get started quickly by cloning the demo re
 
 3. Start Airflow by running:
 
-    ```sh 
+    ```bash 
     astro dev start
     ```
 
@@ -63,7 +63,7 @@ Use the Astro CLI to create and run an Airflow project locally.
 
 1. Create a new Astro project:
 
-    ```sh
+    ```bash
     $ mkdir astro-wandb-tutorial && cd astro-wandb-tutorial
     $ astro dev init
     ```
@@ -297,7 +297,7 @@ You'll use environment variables to create Airflow connections to Snowflake and 
 
 2. Run the following command to start your project in a local environment:
 
-    ```sh
+    ```bash
     astro dev start
     ```
 

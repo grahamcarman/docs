@@ -16,7 +16,7 @@ This command is helpful for users interacting with the CLI on a regular basis.
 
 If you're running the CLI MacOS, install [Bash Completion](https://github.com/scop/bash-completion) before creating autocompletion scripts. To do this with Homebrew, run:
 
-```sh
+```bash
  brew install bash-completion
 ```
 
@@ -24,7 +24,7 @@ If you're running the CLI MacOS, install [Bash Completion](https://github.com/sc
 
 ## Usage
 
-```sh
+```bash
 astro completion <shell>
 ```
 
@@ -38,14 +38,14 @@ astro completion <shell>
 
 To generate a shell completion script for zsh, for example, you can run:
 
-```sh
+```bash
 $ astro completion zsh > /usr/local/share/zsh/site-functions/_astro
 # Completion script saved in your local directory
 ```
 
 Then, to enable autocompletion, ensure that the following lines are present in your `~/.zshrc` file:
 
-```sh
+```bash
 autoload -U compinit
 compinit -i
 ```

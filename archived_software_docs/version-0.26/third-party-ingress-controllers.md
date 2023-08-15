@@ -114,7 +114,7 @@ global:
 
 > **Note:** Depending on the version of Traefik, upgrading from using the default ingress controller to a Traefik controller might cause issues. If you are upgrading a platform that used the built-in ingress controller, manually delete the Astronomer Platform Ingress objects in the Astronomer Platform namespace before updating your `config.yaml` file. You can do so using the following commands:
 >
->    ```sh
+>    ```bash
 >    $ kubectl -n <your-platform-namespace> delete ingress -l release=<your-platform-release-name>
 >    $ helm upgrade --install -f config.yaml --version=<your-platform-version> --namespace=<your-platform-namespace> <your-platform-release-name> astronomer/astronomer
 >    ```
@@ -154,7 +154,7 @@ Contour ships with support for websockets disabled by default. To use a Contour 
 
 > **Note:** Depending on the version of Contour, upgrading from using the default ingress controller to a Contour controller might cause issues. If you are upgrading a platform that used the built-in ingress controller, manually delete the Astronomer Platform Ingress objects in the Astronomer Platform namespace before updating your `config.yaml` file. You can do so using the following commands:
 >
->    ```sh
+>    ```bash
 >    $ kubectl -n <your-platform-namespace> delete ingress -l release=<your-platform-release-name>
 >    $ helm upgrade --install -f config.yaml --version=<your-platform-version> --namespace=<your-platform-namespace> <your-platform-release-name> astronomer/astronomer
 >
@@ -175,7 +175,7 @@ OpenShift clusters with multitenant isolation enabled will need to explicitly al
 
 This is typically done by labeling the namespace containing your ingress controller with the `network.openshift.io/policy-group=ingress` label, but this may vary based on the specific policy and configuration on your cluster. For example, you might run the following:
 
-```sh
+```bash
 kubectl label namespace/<ingress namespace> network.openshift.io/policy-group=ingress
 ```
 

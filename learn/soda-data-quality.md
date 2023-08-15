@@ -43,7 +43,7 @@ Configure a new Astro project to run Airflow locally.
 
 1. Create a new Astro project:
 
-    ```sh
+    ```bash
     $ mkdir astro-soda-tutorial && cd astro-soda-tutorial
     $ astro dev init
     ```
@@ -58,7 +58,7 @@ Configure a new Astro project to run Airflow locally.
 
 3. Run the following command to start your project in a local environment:
 
-    ```sh
+    ```bash
     astro dev start
     ```
 

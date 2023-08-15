@@ -148,7 +148,7 @@ If you're developing locally, make sure to save your changes and issue the follo
 ### On Astronomer
 
 If you don't need to test this locally and just want to push to your Astronomer Software installation, you can run:
-```sh
+```bash
 astro deploy
 ```
 

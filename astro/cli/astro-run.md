@@ -12,7 +12,7 @@ For more information, see [Run a DAG with Astro Run](test-and-troubleshoot-local
 
 ## Usage
 
-```sh
+```bash
 astro run <dag-id>
 ```
 
@@ -28,7 +28,7 @@ astro run <dag-id>
 
 ## Examples
 
-```sh
+```bash
 # Run a DAG with an alternative set of environment variables
 $ astro run example_dag_basic --env dev.env
 ```

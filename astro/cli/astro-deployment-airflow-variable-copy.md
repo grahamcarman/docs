@@ -10,7 +10,7 @@ Copy Airflow variables from one Astro Deployment to another. Airflow variables a
 
 ## Usage
 
-```sh
+```bash
 astro deployment airflow-variable copy
 ```
 

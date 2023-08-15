@@ -27,7 +27,7 @@ Update the role of an existing user in your current Workspace. The CLI prompts y
 
 ## Usage
 
-```sh
+```bash
 astro workspace user update --role <user-role>
 ```
 
@@ -50,7 +50,7 @@ Update a user's permissions in your current Astronomer Workspace.
 
 ## Usage
 
-```sh
+```bash
 astro workspace user update --email <user-email-address>
 ```
 

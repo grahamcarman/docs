@@ -23,7 +23,7 @@ For each task running with the Kubernetes executor, you can customize its indivi
 
 1. Add the following import to your DAG file:
 
-    ```sh
+    ```bash
     from kubernetes.client import models as k8s
     ```
 

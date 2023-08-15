@@ -64,7 +64,7 @@ As you follow the guide linked above, keep in mind:
 
 Create a [namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) called `astronomer` to host the core Astronomer platform:
 
-```sh
+```bash
 kubectl create namespace astronomer
 ```
 
@@ -76,7 +76,7 @@ Astronomer recommends running Astronomer Software on a dedicated domain (`BASEDO
 
 In order for users to access the web applications they need to manage Astronomer, you'll need a TLS certificate that covers the following subdomains:
 
-```sh
+```bash
 BASEDOMAIN
 app.BASEDOMAIN
 deployments.BASEDOMAIN
@@ -110,7 +110,7 @@ If you're installing Astronomer for a large organization, you'll need to request
 
 To confirm that your enterprise security team generated the correct certificate, run the following command using the `openssl` CLI:
 
-```sh
+```bash
 openssl x509 -in  <your-certificate-filepath> -text -noout
 ```
 
@@ -146,7 +146,7 @@ After you create the certificate, add the following configuration block to your 
 
 If your organization is using a private certificate authority, you'll need to confirm that your certificate chain is ordered correctly. To determine your certificate chain order, run the following command using the `openssl` CLI:
 
-```sh
+```bash
 openssl crl2pkcs7 -nocrl -certfile <your-certificate-filepath> | openssl pkcs7 -print_certs -noout
 ```
 
@@ -162,7 +162,7 @@ If the certificate order is correct, proceed to step 5.
 
 If you received a globally trusted certificate or created a self-signed certificate, create a Kubernetes TLS secret using the following command and then proceed to Step 6:
 
-```sh
+```bash
 kubectl create secret tls astronomer-tls --cert <your-certificate-filepath> --key <your-private-key-filepath> -n astronomer
 ```
 
@@ -176,7 +176,7 @@ If you received a certificate from a private CA, follow these steps instead:
 
 1. Add the root certificate provided by your security team to an [Opaque Kubernetes secret](https://kubernetes.io/docs/concepts/configuration/secret/#secret-types) in the Astronomer namespace by running the following command:
 
-    ```sh
+    ```bash
     kubectl create secret generic private-root-ca --from-file=cert.pem=./<your-certificate-filepath> -n astronomer
     ```
 
@@ -190,7 +190,7 @@ If you received a certificate from a private CA, follow these steps instead:
 
 An SMTP service is required for sending and accepting email invites from Astronomer. If you're running Astronomer Software with `publicSignups` disabled (which is the default), you'll need to configure SMTP as a way for your users to receive and accept invites to the platform via email. To integrate your SMTP service with Astronomer, fetch your SMTP service's URI and store it in a Kubernetes secret:
 
-```sh
+```bash
 kubectl create secret generic astronomer-smtp --from-literal connection="smtp://USERNAME:PASSWORD@HOST/?requireTLS=true" -n astronomer
 ```
 
@@ -343,19 +343,19 @@ Now that you have an EKS cluster set up and your `config.yaml` file defined, you
 
 First, run:
 
-```sh
+```bash
 helm repo add astronomer https://helm.astronomer.io/
 ```
 
 Then, run:
 
-```sh
+```bash
 helm repo update
 ```
 
 This ensures that you pull the latest image from the Astronomer Helm repository. Now, run:
 
-```sh
+```bash
 helm install -f config.yaml --version=0.31 --namespace=astronomer <your-platform-release-name> astronomer/astronomer
 ```
 
@@ -392,7 +392,7 @@ Because ArgoCD doesn't support sync wave dependencies for [app of apps](https://
 
 To verify all pods are up and running, run:
 
-```sh
+```bash
 kubectl get pods --namespace <my-namespace>
 ```
 
@@ -448,7 +448,7 @@ Now that you've successfully installed Astronomer, a new load balancer will have
 
 Run `$ kubectl get svc -n astronomer` to view your load balancer's CNAME, located under the `EXTERNAL-IP` column for the `astronomer-nginx` service.
 
-```sh
+```bash
 $ kubectl get svc -n astronomer
 NAME                                 TYPE           CLUSTER-IP       EXTERNAL-IP                                                               PORT(S)                                      AGE
 astronomer-alertmanager              ClusterIP      172.20.48.232    <none>                                                                    9093/TCP                                     24d
@@ -474,7 +474,7 @@ You will need to create a new CNAME record through your DNS provider using the E
 
 You can create a single wildcard CNAME record such as `*.astro.mydomain.com`, or alternatively create individual CNAME records for the following routes:
 
-```sh
+```bash
 app.astro.mydomain.com
 deployments.astro.mydomain.com
 registry.astro.mydomain.com
@@ -499,32 +499,32 @@ Consider this your new Airflow control plane. From the Software UI, you'll be ab
 
 To check if your TLS certificates were accepted, log in to the Software UI. Then, go to `app.BASEDOMAIN/token` and run:
 
-```sh
+```bash
 curl -v -X POST https://houston.BASEDOMAIN/v1 -H "Authorization: Bearer <token>"
 ```
 
 Verify that this output matches with that of the following command, which doesn't look for TLS:
 
-```sh
+```bash
 curl -v -k -X POST https://houston.BASEDOMAIN/v1 -H "Authorization: Bearer <token>"
 ```
 
 Next, to make sure the registry is accepted by Astronomer's local docker client, try authenticating to Astronomer with the Astro CLI:
 
-```sh
+```bash
 astro auth login <your-astronomer-base-domain>
 ```
 
 If you can log in, then your Docker client trusts the registry. If Docker does not trust the Astronomer registry, run the following and restart Docker:
 
-```sh
+```bash
 mkdir -p /etc/docker/certs.d
 cp privateCA.pem /etc/docker/certs.d/
 ```
 
 Finally, try running `$ astro deploy` on a test deployment. Create a deployment in the Software UI, then run:
 
-```sh
+```bash
 mkdir demo
 cd demo
 astro dev init --use-astronomer-certified

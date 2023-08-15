@@ -34,7 +34,7 @@ To update existing worker queues or to create new queues for an existing Deploym
 
 ## Usage
 
-```sh
+```bash
 astro deployment update <deployment-id> <flags>
 ```
 
@@ -68,7 +68,7 @@ After setting the variables, this command works for a Deployment and you don't n
 
 ## Examples
 
-```sh
+```bash
 # Update a Deployment's name and description
 $ astro deployment update cl03oiq7d80402nwn7fsl3dmv -d="My Deployment Description" --name="My Deployment Name"
 
@@ -87,7 +87,7 @@ Create a Deployment on Astronomer Software. This command is functionally identic
 
 ## Usage
 
-```sh
+```bash
 astro deployment update <deployment-id>
 ```
 
@@ -116,7 +116,7 @@ astro deployment update <deployment-id>
 
 ## Examples
 
-```sh
+```bash
 $ astro deployment update telescopic-sky-4599 --executor kubernetes
 # Change the executor for a Deployment
 

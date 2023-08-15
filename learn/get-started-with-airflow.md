@@ -42,19 +42,19 @@ To run data pipelines on Astro, you first need to create an Astro project, which
 
 1. Create a new directory for your Astro project:
 
-    ```sh
+    ```bash
     mkdir <your-astro-project-name>
     ```
 
 2. Open the directory:
 
-    ```sh
+    ```bash
     cd <your-astro-project-name>
     ```
 
 3. Run the following Astro CLI command to initialize an Astro project in the directory:
 
-    ```sh
+    ```bash
     astro dev init
     ```
 
@@ -69,7 +69,7 @@ The default Astro project structure includes a collection of folders and files t
 
 Now that you have an Astro project ready, the next step is to actually start Airflow on your machine. In your terminal, open your Astro project directory and run the following command:
 
-```sh
+```bash
 astro dev start
 ```
 
@@ -79,7 +79,7 @@ Starting Airflow for the first time can take 2 to 5 minutes. Once your local env
 
 If port 8080 or 5432 are in use on your machine, Airflow won't be able to start. To run Airflow on alternative ports, run:
 
-```sh
+```bash
 astro config set webserver.port <available-port>
 astro config set postgres.port <available-port>
 ```

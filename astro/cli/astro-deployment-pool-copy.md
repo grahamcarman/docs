@@ -11,7 +11,7 @@ Copy Airflow pools from one Astro Deployment to another. Airflow pools are store
 
 ## Usage
 
-```sh
+```bash
 astro deployment pool copy
 ```
 

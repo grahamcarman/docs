@@ -46,19 +46,19 @@ Then, for each machine running Airflow:
 
 1. Upgrade Astronomer Certified using the following command, making sure to replace the dependencies and version number as needed:
 
-    ```sh
+    ```bash
     pip install --extra-index-url=https://pip.astronomer.io/simple/ 'astronomer-certified[<dependencies>]==<version-number>' --upgrade
     ```
 
     For example, if you wanted to upgrade to the latest patch version of Airflow 2.1 while using a Postgres database, your command would look something like this:
 
-    ```sh
+    ```bash
     pip install --extra-index-url=https://pip.astronomer.io/simple/ 'astronomer-certified[postgres]==2.1.0.*' --upgrade
     ```
 
 2. Upgrade your metadata database using the following command:
 
-    ```sh
+    ```bash
     airflow upgradedb
     ```
 

@@ -27,7 +27,7 @@ Remove a user from your current Workspace.
 
 ## Usage
 
-```sh
+```bash
 astro workspace user remove
 ```
 
@@ -49,7 +49,7 @@ Removes a user from your current Workspace.
 
 ## Usage
 
-```sh
+```bash
 astro workspace user remove --email <user-email-address>
 ```
 
