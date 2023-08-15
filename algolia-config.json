@@ -3,10 +3,12 @@
   "start_urls": [
     {
       "url": "https://docs.astronomer.io/astro",
+      "selectors_key": "astro",
       "page_rank": 5
     },
     {
       "url": "https://docs.astronomer.io/software",
+      "selectors_key": "software",
       "page_rank": 1
     }
   ],
