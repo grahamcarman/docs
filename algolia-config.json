@@ -1,7 +1,14 @@
 {
   "index_name": "published-docs",
   "start_urls": [
-    "https://docs.astronomer.io"
+    {
+      "url": "https://docs.astronomer.io/astro",
+      "page_rank": 5
+    },
+    {
+      "url": "https://docs.astronomer.io/software",
+      "page_rank": 1
+    }
   ],
   "stop_urls": [
     "(?:tab=)"
