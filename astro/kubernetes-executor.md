@@ -11,6 +11,22 @@ On Astro, you can configure Kubernetes executor in the following ways:
 
 This document describes how to configure individual task Pods for different use cases. To configure defaults for all Kubernetes executor task Pods, see [Configure Kubernetes Pod resources](configure-deployment-resources.md#configure-kubernetes-pod-resources).
 
+## Configure resources for the Kubernetes executor
+### CPU and memory quotas
+Resource quotas define the maximum available resources for an Airflow Deployment. Resource quotas for the Kubernetes executor follow a 1:2 ratio of vCPUs to GiBs of memory. For example, if a deployment is configured to limit Airflow to 50 vCPUs, then Airflow will also be limited to 100 GiBs of memory and vice versa. The maximum quota is 400 vCPU / 800 GiB RAM.
+
+### Max pod size
+The max pod size configures the maximum amount of resources that a given Airflow task can consume. Max pod size quotas for the Kubernetes executor follow a 1:2 ratio of vCPUs to GiBs of memory. For example, if the maximum memory is set to 20GiB, the number of vCPUs will be limited to 10 and vice versa. The maximum max pod size is currently 27 vCPU / 54 GiB RAM for Standard Clusters and 12 vCPU / 24 GiB RAM for Dedicated Clusters.
+
+:::warning
+
+If the max pod size is equal to the deployment's quota, and a task requests the max pod size, only one task will run at a time, because that task is consuming the deployment's entire quota.
+
+:::
+
+### Default pod size
+The default pod size configures the size of a task's pod if no resources are specified. The default pod size cannot exceed the max pod size.
+
 ## Customize a task's Kubernetes Pod
 
 :::warning
