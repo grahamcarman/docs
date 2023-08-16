@@ -219,7 +219,8 @@ module.exports = {
           customCss: require.resolve('./src/css/custom.css'),
         },
       },
-      'redocusaurus',
+      [
+      '@redocusaurus',
       {
         // Plugin Options for loading OpenAPI files
         specs: [
@@ -234,6 +235,7 @@ module.exports = {
           primaryColor: '#7352ba',
         },
       },
+    ],
     ],
   ],
   plugins: [
