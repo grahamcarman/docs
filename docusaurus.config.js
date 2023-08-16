@@ -219,6 +219,21 @@ module.exports = {
           customCss: require.resolve('./src/css/custom.css'),
         },
       },
+      'redocusaurus',
+      {
+        // Plugin Options for loading OpenAPI files
+        specs: [
+          {
+            id: 'astro',
+            spec: 'https://api.astronomer-dev.io/openapi/doc.json',
+          },
+        ],
+        // Theme Options for modifying how redoc renders them
+        theme: {
+          // Change with your site colors
+          primaryColor: '#1890ff',
+        },
+      },
     ],
   ],
   plugins: [

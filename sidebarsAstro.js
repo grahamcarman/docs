@@ -233,6 +233,13 @@ module.exports = {
     },
     {
       type: "category",
+      label: "API reference",
+      items: [
+        "api-reference",
+      ],
+    },
+    {
+      type: "category",
       label: "Reference",
       items: [
         "astro-support",
