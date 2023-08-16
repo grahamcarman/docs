@@ -141,6 +141,10 @@ Complete the manual setup if you configured your existing Astro app without usin
     | displayName                      | displayName     |
     | members                          | members         |
 
+    Delete any other group attributes not listed in the previous table. You should have exactly two attributes as shown in the following screenshot:
+
+    ![Azure group mappings with only the correct 2 attributes listed](/img/docs/azure-group-mappings.png)
+
 11. Go back to the **Mappings** menu and open the **User** mapping configuration.
 12. In **Target Object Actions**, tick the checkboxes for **Create**, **Update**, and **Delete**.
 13. In the **Attribute Mappings** table, add the following mappings:
@@ -150,8 +154,6 @@ Complete the manual setup if you configured your existing Astro app without usin
     | userPrincipalName                                           | userName        |
     | Switch([IsSoftDeleted], , "False", "True", "True", "False") | active          |
     | displayName                                                 | displayName     |
-    | givenName                                                   | name.givenName  |
-    | surname                                                     | name.familyName |
 
   :::caution
 
@@ -159,7 +161,11 @@ Complete the manual setup if you configured your existing Astro app without usin
 
   ::: 
 
-1. Click **Test connection** in the Azure AD application management menu to confirm your connection to the SCIM endpoint.
+    Delete any other user attributes not listed in the previous table. You should have exactly three attributes as shown in the following screenshot:
+
+    ![Azure user mappings with only the correct 3 attributes listed](/img/docs/azure-mappings.png)
+
+1.  Click **Test connection** in the Azure AD application management menu to confirm your connection to the SCIM endpoint.
 
 </TabItem>
 </Tabs>
