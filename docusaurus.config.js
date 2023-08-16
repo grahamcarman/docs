@@ -231,7 +231,7 @@ module.exports = {
         // Theme Options for modifying how redoc renders them
         theme: {
           // Change with your site colors
-          primaryColor: '#1890ff',
+          primaryColor: '#7352ba',
         },
       },
     ],
