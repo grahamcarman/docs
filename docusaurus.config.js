@@ -220,8 +220,8 @@ module.exports = {
         },
       },
     ],
-      [
-        '@redocusaurus',
+    [
+      'redocusaurus',
         {
           // Plugin Options for loading OpenAPI files
           specs: [
@@ -236,8 +236,8 @@ module.exports = {
             primaryColor: '#7352ba',
           },
         },
-      ],
     ],
+  ],
   plugins: [
     [
       '@docusaurus/plugin-content-docs',
