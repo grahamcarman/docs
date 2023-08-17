@@ -350,23 +350,6 @@ RUN ls
 
 This is supported both on Astro and in the context of local development.
 
-### Add a CA certificate to an Astro Runtime image
-
-If you need your Astro Deployment to communicate securely with a remote service using a certificate signed by an untrusted or internal certificate authority (CA), you need to add the CA certificate to the trust store inside your Astro project's Docker image.
-
-1. In your Astro project `Dockerfile`, add the following entry below the existing `FROM` statement which specifies your Astro Runtime image version:
-
-    ```docker
-    USER root
-    COPY <internal-ca.crt> /usr/local/share/ca-certificates/<your-company-name>/
-    RUN update-ca-certificates
-    USER astro
-    ```
-    
-2. Optional. Add additional `COPY` statements before the `RUN update-ca-certificates` stanza for each CA certificate your organization is using for external access.
-
-3. [Restart your local environment](/astro/develop-project.md#restart-your-local-environment) or deploy to Astro. See [Deploy code](/astro/deploy-code.md).
-
 ### Install Python packages from private sources
 
 Python packages can be installed into your image from public and private locations. To install packages listed on private PyPI indices or a private git-based repository, you need to complete additional configuration in your project.
@@ -592,6 +575,44 @@ Your Astro project can now utilize Python packages from your private PyPi index.
 
 </TabItem>
 </Tabs>
+
+
+### Add a CA certificate to an Astro Runtime image
+
+If you need your Astro Deployment to communicate securely with a remote service using a certificate signed by an untrusted or internal certificate authority (CA), you need to add the CA certificate to the trust store inside your Astro project's Docker image. It happens when Security/Network team implements Man-in-the-Middle (MitM) approach for traffic monitoring.
+
+1. Ask Security/Network team for internal root certificate.
+2. Create `pip.conf` file in your project folder with following content:
+
+    ```shell
+    [global]
+    trusted-host = pypi.python.org
+                   pypi.org
+                   files.pythonhosted.org
+                   pip.astronomer.io
+                   # more hosts can be added if needed
+    ```
+   
+3. Use Dockerfile similar to [Install packages from Private repository](/astro/develop-project#install-python-packages-from-private-sources).
+4. Add the following entry below `FROM stage1 AS stage2` line in our example or any other location before installing Python packages:
+
+    ```docker
+    USER root
+    COPY <internal-ca.crt> /usr/local/share/ca-certificates/<internal-ca.crt>
+    RUN update-ca-certificates
+    COPY pip.conf pip.conf
+    USER astro
+    ```
+
+    :::info
+
+   Make sure you use Runtime **base** image i.e. quay.io/astronomer/astro-runtime:8.8.0-base but not regular one quay.io/astronomer/astro-runtime:8.8.0 .
+
+   :::
+    
+5. Optional. Add additional `COPY` statements before the `RUN update-ca-certificates` stanza for each CA certificate your organization is using for external access.
+
+6. [Restart your local environment](/astro/develop-project.md#restart-your-local-environment) or deploy to Astro. See [Deploy code](/astro/deploy-code.md).
 
 ## Unsupported project configurations 
 
