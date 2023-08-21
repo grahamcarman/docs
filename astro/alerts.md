@@ -28,6 +28,7 @@ To configure Airflow notifications, see [Airflow email notifications](airflow-em
 - A Slack workspace, PagerDuty service, or email address.
 
 <!-- Sensitive header used in product - do not change without a redirect-->
+
 ## Step 1: Configure your communication channel
 
 <Tabs
@@ -54,7 +55,7 @@ To set up alerts in Slack, you need to create a Slack app in your Slack workspac
 
 4. Select **Incoming webhooks**.
 
-5. On the **Incoming webhooks** page, click to turn on **Activate Incoming Webhooks**.
+5. On the **Incoming webhooks** page, click the toggle to turn on **Activate Incoming Webhooks**. See [Sending messages using Incoming Webhooks](https://api.slack.com/messaging/webhooks).
 
 6. In the **Webhook URLs for your Workspace** section, click **Add new Webhook to Workspace**. 
 
@@ -73,9 +74,11 @@ To set up alerts in Slack, you need to create a Slack app in your Slack workspac
 
 To set up an alert integration with PagerDuty, you need access to your organization's PagerDuty Service. PagerDuty uses the [Events API v2](https://developer.pagerduty.com/docs/ZG9jOjExMDI5NTgw-events-api-v2-overview#getting-started) to create a new integration that connects your Service with Astro.
 
-1. Open your PagerDuty service.
+1. Open your PagerDuty service and click the **Integrations** tab.
 
-2. On the **Integrations** tab, click **Add an integration**.
+  ![Select PagerDuty integrations](/img/docs/pagerduty_alerts_integrations.png)
+
+2. Click **Add an integration**.
 
 3. Select **Events API v2** as the **Integration Type**.
 
@@ -116,16 +119,22 @@ In the Cloud UI, you can enable alerts from the **Workspace Settings** page.
     <TabItem value="Slack">
     
     Paste the Webhook URL from your Slack workspace app. If you need to find a URL for an app you've already created, go to your [Slack Apps](https://api.slack.com/apps) page, select your app, and then choose the **Incoming Webhooks** page. 
+
+    ![Add your Slack Webhook URL](/img/docs/astro_alerts_slack.png)
     
     </TabItem>
     <TabItem value="PagerDuty">
 
     Paste the Integration Key from your PagerDuty Integration and select the **Severity** of the alert.
+
+    ![Paste the Integration Key](/img/docs/astro_alerts_pagerduty.png)
     
     </TabItem>
     <TabItem value="Email">
 
     Enter the email addresses that should receive the alert. 
+
+    ![Add an email address](/img/docs/astro_alerts_email.png)
     
     </TabItem>
     </Tabs>
@@ -139,3 +148,22 @@ In the Cloud UI, you can enable alerts from the **Workspace Settings** page.
      You can add more DAGs or tasks after you create your alert. 
 
 7. Click **Create alert**.
+
+## Step 3: (Optional) Test your DAG failure alert
+
+Astro alerts work whether your DAG run is manual or scheduled, so you can test your configured Astro alerts by failing your DAG manually.
+
+1. In the Cloud UI, click **DAGs**.
+
+2. Choose the DAG that has your alert configured.
+
+3. Trigger a DAG run.
+
+4. Select **Mark as** and choose **Failed** to trigger an alert for a DAG failure. 
+
+  ![Manually marking a successful DAG run as Failed.](/img/docs/astro_alerts_manual_fail.png)
+
+5. Check your Slack, PagerDuty, or Email alerts for your DAG failure alert. The alert includes information about the DAG, Workspace, Deployment, and data lineage associated with the failure as well as direct links to the Cloud UI.
+
+    ![Example of a Slack test alert.](/img/docs/slack_alerts_example.png)
+
