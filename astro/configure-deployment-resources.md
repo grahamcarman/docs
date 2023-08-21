@@ -38,10 +38,13 @@ All Deployments use the Celery executor by default. See [Choose an executor](exe
 ### Update the Deployment executor
 
 1. In the Cloud UI, select a Workspace, click **Deployments**, and then select a Deployment.
-2. Click the **Details** tab.
-3. Click **Edit Details**. 
+2. Click the **Options** menu of the Deployment you want to update, and select **Edit Deployment**.
+
+    ![Edit Deployment in options menu](/img/docs/edit-deployment.png)
+
+3. Expand the **Execution** section if it is not already expanded.
 4. Select **Celery** or **Kubernetes** in the **Executor** list. If you're moving from the Celery to the Kubernetes executor, all existing worker queues are deleted. Running tasks stop gracefully and all new tasks start with the selected executor.
-5. Click **Update**.
+5. Click **Update Deployment**.
 
 See [Configure an executor](executors-overview.md) for more information about each available executor type, including how to optimize executor usage.
 
@@ -56,10 +59,13 @@ Unlike workers, schedulers do not autoscale. The resources you set for them are 
 ### Update scheduler size 
 
 1. In the Cloud UI, select a Workspace, click **Deployments**, and then select a Deployment.
-2. Click the **Details** tab.
-3. Click **Edit Details**. 
+2. Click the **Options** menu of the Deployment you want to update, and select **Edit Deployment**.
+
+    ![Edit Deployment in options menu](/img/docs/edit-deployment.png)
+
+3. Expand the **Advanced** section if it is not already expanded.
 4. Choose a scheduler size. See [Scheduler size](#scheduler-size).
-5. Click **Update**.
+5. Click **Update Deployment**.
 
     The Airflow components of your Deployment automatically restart to apply the updated resource allocations. This action is equivalent to deploying code and triggers a rebuild of your Deployment image. If you're using the Celery executor, currently running tasks have 24 hours to complete before their running workers are terminated. See [What happens during a code deploy](deploy-code.md#what-happens-during-a-code-deploy).
 
@@ -68,22 +74,28 @@ Unlike workers, schedulers do not autoscale. The resources you set for them are 
 To configure the scheduler on an [Astro Hybrid](hybrid-overview.md) Deployment:
 
 1. In the Cloud UI, select a Workspace, click **Deployments**, and then select a Deployment.
-2. Click the **Details** tab.
-3. Click **Edit Details**. 
+2. Click the **Options** menu of the Deployment you want to update, and select **Edit Deployment**.
+
+    ![Edit Deployment in options menu](/img/docs/edit-deployment.png)
+
+3. Expand the **Advanced** section if it is not already expanded.
 4. Configure the following values:
 
     - **Scheduler Resources**: Determine the total CPU and memory allocated to each scheduler in your Deployment, defined as Astronomer Units (AU). One AU is equivalent to 0.1 CPU and 0.375 GiB of memory. The default scheduler size is 5 AU, or .5 CPU and 1.88 GiB memory. The number of schedulers running in your Deployment is determined by **Scheduler Count**, but all schedulers are created with the same CPU and memory allocations.
     - **Scheduler Count**: Move the slider to select the number of schedulers for the Deployment. Each scheduler is provisioned with the AU you specified in the **Scheduler Resources** field. For example, if you set scheduler resources to 10 AU and **Scheduler Count** to 2, your Deployment will run with 2 Airflow schedulers using 10 AU each. For high availability, Astronomer recommends selecting a minimum of two schedulers. 
-
+5. Click **Update Deployment**.
 :::
 
 ## Update a Deployment name and description
 
 1. In the Cloud UI, select a Workspace, click **Deployments**, and then select a Deployment.
-2. Click the **Details** tab.
-3. Click **Edit Details**.
+2. Click the **Options** menu of the Deployment you want to update, and select **Edit Deployment**.
+
+    ![Edit Deployment in options menu](/img/docs/edit-deployment.png)
+
+3. Expand the **Basic** section if it is not already expanded.
 4. Update the Deployment name or description. 
-5. Click **Update**.
+5. Click **Update Deployment**.
 
 ## Configure Deployment email alerts
 
@@ -113,8 +125,11 @@ By default, Deployments accept code deploys from any authenticated source. When 
 - You can't enable [DAG-only deploys](deploy-dags.md) for the Deployment.
 
 1. In the Cloud UI, select a Workspace, click **Deployments**, and then select a Deployment.
-2. Click the **Details** tab.
-3. Click **Edit Details**.
+2. Click the **Options** menu of the Deployment you want to update, and select **Edit Deployment**.
+
+    ![Edit Deployment in options menu](/img/docs/edit-deployment.png)
+
+3. Expand the **Advanced** section if it is not already expanded.
 4. In **CI/CD Enforcement**, click the toggle to **On**.
 
 You can also update your Workspace so that any new Deployments in the Workspace enforce CI/CD deploys by default. See [Update general Workspace settings](manage-workspaces.md#update-general-workspace-settings).
@@ -126,8 +141,11 @@ By default, the Pods running your Deployment's Airflow components are distribute
 Because this setting results in more resource usage, it can increase the cost of your Deployment. See [Pricing](https://astronomer.io/pricing).
 
 1. In the Cloud UI, select a Workspace, click **Deployments**, and then select a Deployment.
-2. Click the **Details** tab.
-3. Click **Edit Details**.
+2. Click the **Options** menu of the Deployment you want to update, and select **Edit Deployment**.
+
+    ![Edit Deployment in options menu](/img/docs/edit-deployment.png)
+
+3. Expand the **Advanced** section if it is not already expanded.
 4. In **High Availability**, click the toggle to **On**.
 
 :::info Alternative Astro Hybrid Setup
