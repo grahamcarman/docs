@@ -16,6 +16,11 @@ module.exports = {
       items: [
         'astro-architecture',
         'features',
+        {
+          type: "category",
+          label: "Key concepts",
+          items: ["astro-components", "runtime-overview"],
+        }
       ],
     },
     {
@@ -236,14 +241,15 @@ module.exports = {
       label: "Reference",
       items: [
         "astro-support",
-        {
-          type: "category",
-          label: "Astro Runtime",
-          items: [
-            "runtime-image-architecture",
-            "runtime-version-lifecycle-policy",
-          ],
-        },
+        "runtime-version-lifecycle-policy",
+        // {
+        //   type: "category",
+        //   label: "Astro Runtime",
+        //   items: [
+        //     "runtime-image-architecture",
+        //     "runtime-version-lifecycle-policy",
+        //   ],
+        // },
         'platform-variables',
         "feature-previews",
         {

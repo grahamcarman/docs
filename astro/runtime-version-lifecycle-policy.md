@@ -9,9 +9,52 @@ id: runtime-version-lifecycle-policy
   <meta name="og:description" content="Learn how Astronomer releases and maintains Astro Runtime. Astro Runtime is a Docker image built by Astronomer that provides a differentiated Apache Airflow experience and execution framework." />
 </head>
 
-Astro Runtime is a production ready, data orchestration tool based on Apache Airflow that is distributed as a Docker image and is required by all Astronomer products. It is intended to provide organizations with improved functionality, reliability, efficiency, and performance. Deploying Astro Runtime is a requirement if your organization is using Astro.
+Astro Runtime is required by all Astronomer products and is maintained by Astronomer. It improves your Airflow environment's functionality, reliability, efficiency, and performance.
 
-Astronomer maintenance and lifecycle policies are part of the distribution and define the period that specific Astro Runtime versions are supported and how frequently updates are provided.
+Astronomer maintenance and lifecycle policies are part of the Astro Runtime distribution and define the period that specific versions are supported and how frequently updates are provided.
+
+## Versioning
+
+Astro Runtime versions are released regularly and use [semantic versioning](https://semver.org/). Astronomer ships major, minor, and patch releases of Astro Runtime in the format of `major.minor.patch`.
+
+- **Major** versions are released for significant feature additions. This includes new major or minor versions of Apache Airflow, as well as API or DAG specification changes that are not backward compatible.
+- **Minor** versions are released for functional changes. This includes API or DAG specification changes that are backward compatible, which might include new minor versions of `astronomer-providers` and `openlineage-airflow`.
+- **Patch** versions are released for bug and security fixes that resolve unwanted behavior. This includes new patch versions of Apache Airflow, `astronomer-providers`, and `openlineage-airflow`.
+
+Every version of Astro Runtime correlates to an Apache Airflow version. All Deployments on Astro must run only one version of Astro Runtime, but you can run different versions of Astro Runtime on different Deployments within a given cluster or Workspace. See [Create a Deployment](create-deployment.md#create-a-deployment).
+
+For a list of supported Astro Runtime versions and more information on the Astro Runtime maintenance policy, see [Astro Runtime versioning and lifecycle policy](runtime-version-lifecycle-policy.md).
+
+## Distribution
+
+Astro Runtime is distributed as a Debian-based Docker image. For a list of all Astro Runtime Docker images, see [Quay.io](https://quay.io/repository/astronomer/astro-runtime?tab=tags).
+
+### Base distributions
+
+The base Astro Runtime Docker images have the following format:
+
+- `quay.io/astronomer/astro-runtime:<version>`
+- `quay.io/astronomer/astro-runtime:<version>-base`
+
+An Astro Runtime image must be specified in the `Dockerfile` of your Astro project. Astronomer recommends using non-`base` images, which incorporate ONBUILD commands that copy and scaffold your Astro project directory so you can more easily pass those files to the containers running each core Airflow component. A `base` Astro Runtime image is recommended for complex use cases that require additional customization, such as [installing Python packages from private sources](develop-project.md#install-python-packages-from-private-sources).
+
+### Python version distributions
+
+Starting with Astro Runtime 9, Astronomer maintains different distributions Astro Runtime for each supported Python version. Python version distribution images have the following format:
+
+```text
+quay.io/astronomer/astro-runtime:<runtime-version>-python-<python-version>
+```
+
+### Provider package versioning
+
+If an Astro Runtime release includes changes to an installed version of a provider package that is maintained by Astronomer (`astronomer-providers` or `openlineage-airflow`), the version change is documented in the [Astro Runtime release notes](runtime-release-notes.md).
+
+To determine the version of any provider package installed in your current Astro Runtime image, run:
+
+```bash
+docker run --rm <runtime-image> pip freeze | grep <provider>
+```
 
 ## Release channels
 
@@ -26,7 +69,7 @@ For users that want to keep up with the latest Astronomer and Airflow features o
 
 For customers looking for less frequent upgrades and functional changes, we recommend following the LTS release channel exclusively.
 
-## Astro Runtime maintenance policy
+## Maintenance policy
 
 The maintenance period for an Astro Runtime version depends on its release channel:
 
@@ -53,9 +96,26 @@ When the maintenance window for a given version of Runtime ends, the following i
 
 Astronomer will not interrupt service for Deployments running Astro Runtime versions that are no longer in maintenance. Unsupported versions of Astro Runtime are available for local development and testing with the Astro CLI.
 
-### End of maintenance date
+#### End of maintenance date
 
 Maintenance is discontinued the last day of the month for a given version. For example, if the maintenance window for a version of Astro Runtime is January - June of a given year, that version will be maintained by Astronomer until the last day of June.
+
+## Lifecycle schedule
+
+<!--- Version-specific -->
+
+The following table contains the exact lifecycle for each published version of Astro Runtime. These timelines are based on the LTS and Stable release channel maintenance policies.
+
+| Runtime Version                                 | Apache Airflow version | Release Date       | End of Maintenance Date | LTS Support |
+| ----------------------------------------------- | ---------------------- | ------------------ | ----------------------- |-------------|
+| [4](runtime-release-notes.md#astro-runtime-420) | 2.2                    | March 10, 2022     | September 2023          | ✓           |
+| [5](runtime-release-notes.md#astro-runtime-500) | 2.3                    | April 30, 2022     | October 2023            | ✓           |
+| [6](runtime-release-notes.md#astro-runtime-600) | 2.4                    | September 19, 2022 | March 2024              | ✓           |
+| [7](runtime-release-notes.md#astro-runtime-700) | 2.5                    | December 3, 2022   | July 2023               |             |
+| [8](runtime-release-notes.md#astro-runtime-800) | 2.6                    | April 30, 2023     | October 2023            |             |
+| [9](runtime-release-notes.md#astro-runtime-900) | 2.7                    | August 18, 2023    | January 2025            | ✓           |
+
+If you have any questions or concerns, contact [Astronomer support](https://cloud.astronomer.io/support).
 
 ## Security
 
@@ -73,35 +133,23 @@ If you identify a vulnerability that results in relevant risk for your organizat
 
 Occasionally, Astronomer might deviate from the defined response policy and backport a bug or security fix to releases other than the latest stable and LTS versions. To request a fix for a specific bug, contact your customer success manager.
 
-## Astro Runtime lifecycle schedule
 
-<!--- Version-specific -->
+## System distribution
 
-The following table contains the exact lifecycle for each published version of Astro Runtime. These timelines are based on the LTS and Stable release channel maintenance policies.
+The following table lists the operating systems and architectures supported by each Astro Runtime version. If you're using a Mac computer with an M1 chip, Astronomer recommends using Astro Runtime 6.0.4 or later.
 
-### Stable releases
+| Astro Runtime | Operating System (OS)  | Architecture    |
+| ------------- | ---------------------- | --------------- |
+| 4             | Debian 11.3 (bullseye) | AMD64           |
+| 5             | Debian 11.3 (bullseye) | AMD64           |
+| 6             | Debian 11.3 (bullseye) | AMD64 and ARM64 |
+| 7             | Debian 11.3 (bullseye) | AMD64 and ARM64 |
+| 8             | Debian 11.3 (bullseye) | AMD64 and ARM64 |
 
-| Runtime Version                                 | Apache Airflow version | Release Date       | End of Maintenance Date |
-| ----------------------------------------------- | ---------------------- | ------------------ | ----------------------- |
-| [4](runtime-release-notes.md#astro-runtime-420) | 2.2                    | March 10, 2022     | September 2023          |
-| [5](runtime-release-notes.md#astro-runtime-500) | 2.3                    | April 30, 2022     | October 2023            |
-| [6](runtime-release-notes.md#astro-runtime-600) | 2.4                    | September 19, 2022 | March 2024              |
-| [7](runtime-release-notes.md#astro-runtime-700) | 2.5                    | December 3, 2022   | July 2023               |
-| [8](runtime-release-notes.md#astro-runtime-800) | 2.6                    | April 30, 2023     | October 2023            |
-| [9](runtime-release-notes.md#astro-runtime-900) | 2.7                    | August 18, 2023    | January 2025            |
+Astro Runtime 6.0.4 and later images are multi-arch and support AMD64 and ARM64 processor architectures for local development. Docker automatically uses the correct processor architecture based on the computer you are using.
 
-### Long-term support (LTS) releases 
+## See also
 
-| Runtime Version                                 | Apache Airflow version | Release Date       | End of Maintenance Date |
-| ----------------------------------------------- | ---------------------- | ------------------ | ----------------------- |
-| [4](runtime-release-notes.md#astro-runtime-420) | 2.2                    | March 10, 2022     | September 2023          |
-| [5](runtime-release-notes.md#astro-runtime-500) | 2.3                    | April 30, 2022     | October 2023            |
-| [6](runtime-release-notes.md#astro-runtime-600) | 2.4                    | September 19, 2022 | March 2024              |
-| [9](runtime-release-notes.md#astro-runtime-900) | 2.7                    | August 18, 2023    | January 2025            |
-
-If you have any questions or concerns, contact [Astronomer support](https://cloud.astronomer.io/support).
-
-## Related documentation
-
-- [Astro Runtime architecture](runtime-image-architecture.md)
+- [Astro Runtime overview](runtime-overview.md)
 - [Astro Runtime release notes](runtime-release-notes.md)
+- [Upgrade Runtime](upgrade-runtime.md)
