@@ -242,14 +242,6 @@ module.exports = {
       items: [
         "astro-support",
         "runtime-version-lifecycle-policy",
-        // {
-        //   type: "category",
-        //   label: "Astro Runtime",
-        //   items: [
-        //     "runtime-image-architecture",
-        //     "runtime-version-lifecycle-policy",
-        //   ],
-        // },
         'platform-variables',
         "feature-previews",
         {
