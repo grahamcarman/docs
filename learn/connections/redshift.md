@@ -15,6 +15,13 @@ This document covers two different methods to connect Airflow to Amazon Redshift
 
 - Using database (DB) user credentials
 - Using IAM credentials
+- Using IAM role
+
+:::tip
+
+If you're an Astro user, Astronomer recommends using workload identity to authorize to your Deployments to Redshift. This eliminates the need to specify secrets in your Airflow connections or copying credentials file to your Airflow project. See [Authorize Deployments to your cloud](https://docs.astronomer.io/astro/authorize-deployments-to-your-cloud).
+
+:::
 
 ## Prerequisites
 
@@ -30,7 +37,7 @@ This document covers two different methods to connect Airflow to Amazon Redshift
     values={[
         {label: 'DB user credentials', value: 'db-creds'},
         {label: 'IAM credentials', value: 'iam-creds'},
-        {label: 'Role ARN', value: 'role-arn'},
+        {label: 'IAM role (Recommended)', value: 'iam-role'},
     ]}>
 
 <TabItem value="db-creds">
@@ -82,7 +89,7 @@ Complete the following steps to retrieve these values:
 
 </TabItem>
 
-<TabItem value="role-arn">
+<TabItem value="iam-role">
 
 You can use AWS's [Assume Role](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) method to automatically generate temporary credentials to connect to Redshift. This is useful to grant temporary access to limited-privilege IAM users or roles without storing any credentials on disk. The following information is required to create the connection:
 
@@ -136,7 +143,7 @@ Complete the following steps to retrieve these values:
     values={[
         {label: 'DB credentials', value: 'db-creds'},
         {label: 'IAM credentials', value: 'iam-creds'},
-        {label: 'Role ARN', value: 'role-arn'},
+        {label: 'IAM role (Recommended)', value: 'iam-role'},
     ]}>
 
 <TabItem value="db-creds">
@@ -215,7 +222,7 @@ Complete the following steps to retrieve these values:
 
 </TabItem>
 
-<TabItem value="role-arn">
+<TabItem value="iam-role">
 
 1. Open your Astro project and add the following line to your `requirements.txt` file:
 
@@ -229,9 +236,7 @@ Complete the following steps to retrieve these values:
 
 3. In the Airflow UI for your local Airflow environment, go to **Admin** > **Connections**. Click **+** to add a new connection, then select the connection type as **Amazon Redshift**.
 
-4. Enter a name for the connection in the **Connection Id** field.
-
-5. Complete the following connection fields using the information you retrieved from [Get connection details](#get-connection-details):
+4. Complete the following connection fields using the information you retrieved from [Get connection details](#get-connection-details):
 
     - **Connection Id**: Enter a name for the connection.
     - **Host**: Enter the cluster **Endpoint**.
@@ -247,7 +252,7 @@ Complete the following steps to retrieve these values:
 
         ```
 
-7. Click **Test**. After the connection test succeeds, click **Save**.
+5. Click **Test**. After the connection test succeeds, click **Save**.
 
 </TabItem>
 
