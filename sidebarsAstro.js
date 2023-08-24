@@ -119,16 +119,7 @@ module.exports = {
         "environment-variables",
         "secrets-backend",
         "manage-deployments-as-code",
-        {
-          type: "category",
-          label: "Connect to external resources",
-          link: {
-            type: 'generated-index',
-            title: 'Connect Astro',
-            description: 'Connect Astro to your existing cloud resources.'
-          },
-          items: ["astro-ips","connect-aws", "connect-azure", "connect-gcp"],
-        },       
+        "authorize-deployments-to-your-cloud"
       ],
     },
     {
@@ -186,6 +177,16 @@ module.exports = {
           items: [
             "create-dedicated-cluster",
             "resource-reference-hosted",
+            {
+              type: "category",
+              label: "Connect to external resources",
+              link: {
+                type: 'generated-index',
+                title: 'Connect clusters',
+                description: 'Connect Astro to your existing cloud resources.'
+              },
+              items: ["connect-aws", "connect-azure", "connect-gcp"],
+            },
           ],
         },
         {
