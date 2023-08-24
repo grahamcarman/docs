@@ -110,7 +110,11 @@ module.exports = {
         "configure-worker-queues",
         "api-keys",
         "environment-variables",
-        "secrets-backend",
+        {
+          type: "category",
+          label: "Configure a secrets backend",
+          items: ["secrets-backend", "secrets-backend/aws-secretsmanager", "secrets-backend/hashicorp-vault", "secrets-backend/gcp-secretsmanager", "secrets-backend/azure", "secrets-backend/aws-paramstore"],
+        },
         "manage-deployments-as-code",
         "authorize-deployments-to-your-cloud"
       ],
