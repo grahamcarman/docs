@@ -240,7 +240,7 @@ If your DAGs use any of these providers, ensure that the provider packages are l
 
 ### Upgrade to Python 3.10
 
-Astro Runtime now uses Python 3.10 by default. To continue using Python 3.9, see [Python versioning](runtime-image-architecture.md#python-versioning).
+Astro Runtime now uses Python 3.10 by default. To continue using Python 3.9, see [Python versioning](runtime-version-lifecycle-policy.md#astro-runtime-airflow-and-python-version-mapping).
 
 ### Additional improvements
 
