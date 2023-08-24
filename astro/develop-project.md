@@ -69,6 +69,33 @@ This command generates the following files in the directory:
 
 Use the rest of this document to learn more about modifying each of these folders and files.
 
+## Choosing an Astro Runtime/Airflow version
+
+By default, each Astro project initializes with the latest version of Astro Runtime which correlates to the latest version of OSS Airflow. This version of Astro Runtime must be specified in your Astro project's `Dockerfile`. See [Astro Runtime and Airflow OSS mapping](runtime-version-lifecycle-policy.md#astro-runtime-airflow-and-python-version-mapping).
+
+The main Astro Runtime docker images have the following format: 
+
+- `quay.io/astronomer/astro-runtime:<version>`
+- `quay.io/astronomer/astro-runtime:<version>-base`
+
+Astronomer recommends to use the non-`base` images, which incorporate ONBUILD commands that copy and scaffold your Astro project directory. This makes it easier to pass the Astro project files to the containers running core Airflow components. A `base` Astro Runtime image is recommended for complex use cases that require additional customization, such as [installing Python packages from private sources](develop-project.md#install-python-packages-from-private-sources).
+
+To use a specific version of Airflow in your Astro project, refer to the [Astro Runtime release notes](runtime-release-notes.md) for all available versions.
+
+Starting with Astro Runtime 9 (Airflow 2.7), Astronomer maintains different distributions of Astro Runtime for each supported Python version. Python version distribution images have the following format:
+
+```text
+quay.io/astronomer/astro-runtime:<runtime-version>-python-<python-version>
+```
+
+:::tip
+
+To run different Python versions in Airflow for Astro Runtime 6, 7 and 8, Astronomer recommends to you use the [`ExternalPythonOperator`](http://docs.astronomer.io/learn/external-python-operator). For Astro Runtime versions older than 6, you can use the `KubernetesPodOperator` or the `PythonVirtualenvOperator`. See [Run Airflow tasks in isolated environments](http://docs.astronomer.io/learn/external-python-operator#other-methods-for-running-tasks-in-isolated-environments).
+
+:::
+
+For more information on the Astro Runtime versioning and maintenance policy, see [Astro Runtime versioning and lifecycle policy](runtime-version-lifecycle-policy.md).
+
 ## Build and run a project locally
 
 Applying changes to your Astro project and testing them locally requires an Airflow environment on your computer. To start an Astro project in a local Airflow environment, run the following command:

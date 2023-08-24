@@ -16,11 +16,13 @@ module.exports = {
       items: [
         'astro-architecture',
         'features',
-        {
-          type: "category",
-          label: "Key concepts",
-          items: ["astro-components", "runtime-overview"],
-        }
+        'astro-components', 
+        'runtime-overview'
+        // {
+        //   type: "category",
+        //   label: "Key concepts",
+        //   items: ["astro-components", "runtime-overview"],
+        // }
       ],
     },
     {

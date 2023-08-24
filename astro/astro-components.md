@@ -1,6 +1,6 @@
 ---
-sidebar_label: 'Astro components'
-title: 'Key components of Astro'
+sidebar_label: 'Key Concepts'
+title: 'Astro concepts and components'
 id: astro-components
 description: Learn about the components of Astro
 ---
@@ -55,7 +55,7 @@ Each Astro user can also be added to Team. A team in Astro is a group of users i
 
 You must invite a user to your Organization to grant permissions and add them to teams or Workspaces.
 
-## Interaction of Astro components
+<!-- ## Interaction of Astro components
 
 The following diagrams represent an example of how different components are related to each other in Astro based on the type of cluster you choose.
 
@@ -69,7 +69,7 @@ A _standard_ cluster is a multi-tenant cluster that's hosted and managed by Astr
 
 A _dedicated_ cluster is a cluster that's hosted and managed by Astronomer solely for use by your Organization. 
 
-![Astro dedicated cluster](/img/docs/astro-dedicated.png)
+![Astro dedicated cluster](/img/docs/astro-dedicated.png) -->
 
 
 ## See also

@@ -59,6 +59,6 @@ If you need to set one of these variables for a particular use case, contact [As
 | `OPENLINEAGE_API_KEY`                        | Your OpenLineage API key                                                                                                        | `<your-lineage-api-key>`                                   |
 
 
-## Default Runtime environment variables
+<!-- ## Default Runtime environment variables
 
-Astro Runtime images include baked-in environment variables that have different default values than on Apache Airflow. See [Astro Runtime image architecture](runtime-image-architecture.md) for a complete list of variables and values.
+Astro Runtime images include baked-in environment variables that have different default values than on Apache Airflow. See [Astro Runtime overview](runtime-overview.md) for a complete list of variables and values. -->
