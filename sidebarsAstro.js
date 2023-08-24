@@ -117,7 +117,7 @@ module.exports = {
           "secrets-backend/aws-secretsmanager", 
           "secrets-backend/hashicorp-vault", 
           "secrets-backend/gcp-secretsmanager", 
-          "secrets-backend/azure", 
+          "secrets-backend/azure-key-vault", 
           "secrets-backend/aws-paramstore"],
         },
         "manage-deployments-as-code",
