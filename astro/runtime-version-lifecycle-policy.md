@@ -122,24 +122,6 @@ If you identify a vulnerability that results in relevant risk for your organizat
 Occasionally, Astronomer might deviate from the defined response policy and backport a bug or security fix to releases other than the latest stable and LTS versions. To request a fix for a specific bug, contact your customer success manager.
 
 
-## System distribution
-
-The following table lists the operating systems and architectures supported by each Astro Runtime version. If you're using a Mac computer with an M1 chip, Astronomer recommends using Astro Runtime 6.0.4 or later.
-
-| Astro Runtime | Operating System (OS)  | Architecture    |
-| ------------- | ---------------------- | --------------- |
-| 4             | Debian 11.3 (bullseye) | AMD64           |
-| 5             | Debian 11.3 (bullseye) | AMD64           |
-| 6             | Debian 11.3 (bullseye) | AMD64 and ARM64 |
-| 7             | Debian 11.3 (bullseye) | AMD64 and ARM64 |
-| 8             | Debian 11.3 (bullseye) | AMD64 and ARM64 |
-
-Astro Runtime 6.0.4 and later images are multi-arch and support AMD64 and ARM64 processor architectures for local development. Docker automatically uses the correct processor architecture based on the computer you are using. To use an architecture different from your current machine, use the flag `--platform` in your `Dockerfile`:
-
-```bash
-FROM --platform=linux/amd64 quay.io/astronomer/astro-runtime:8.6.0
-```
-
 ## See also
 
 - [Astro Runtime overview](runtime-overview.md)

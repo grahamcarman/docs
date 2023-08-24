@@ -88,9 +88,15 @@ Starting with Astro Runtime 9 (Airflow 2.7), Astronomer maintains different dist
 quay.io/astronomer/astro-runtime:<runtime-version>-python-<python-version>
 ```
 
+To run different Python versions in Airflow for Astro Runtime 6, 7 and 8, Astronomer recommends to you use the [`ExternalPythonOperator`](http://docs.astronomer.io/learn/external-python-operator). For Astro Runtime versions older than 6, you can use the `KubernetesPodOperator` or the `PythonVirtualenvOperator`. See [Run Airflow tasks in isolated environments](http://docs.astronomer.io/learn/external-python-operator#other-methods-for-running-tasks-in-isolated-environments).
+
 :::tip
 
-To run different Python versions in Airflow for Astro Runtime 6, 7 and 8, Astronomer recommends to you use the [`ExternalPythonOperator`](http://docs.astronomer.io/learn/external-python-operator). For Astro Runtime versions older than 6, you can use the `KubernetesPodOperator` or the `PythonVirtualenvOperator`. See [Run Airflow tasks in isolated environments](http://docs.astronomer.io/learn/external-python-operator#other-methods-for-running-tasks-in-isolated-environments).
+Astro Runtime 6.0.4 and later images are multi-arch and support AMD64 and ARM64 processor architectures for local development. Docker automatically uses the correct processor architecture based on the computer you are using. To use an architecture different from your current machine, use the flag `--platform` in your `Dockerfile`:
+
+```bash
+FROM --platform=linux/amd64 quay.io/astronomer/astro-runtime:8.6.0
+```
 
 :::
 
