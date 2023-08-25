@@ -603,7 +603,7 @@ If you need your Astro Deployment to communicate securely with a remote service 
 
 1. If you aren't already using it, specify the `base` distribution of your Astro Runtime version in your Dockerfile. The base image tag is formatted as `quay.io/astronomer/astro-runtime:<version>-base`.
 
-2. Include the following code in your Astro project `dockerfile`. This entry adds the CA to the trust store and needs to be executed before installing Python packages. 
+2. Include the following code in your Astro project `dockerfile`. This entry adds the CA to the trust store and needs to be executed before any other build-time arguments.
 
     ```docker
     FROM stage1 AS stage2
