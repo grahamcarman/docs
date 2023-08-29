@@ -79,7 +79,7 @@ Occasionally, Astronomer might deviate from the defined response policy and back
 
 The following table contains the exact lifecycle for each published version of Astro Runtime. These timelines are based on the LTS and Stable [release channel maintenance policies](#release-channels).
 
-| Runtime Version                                 | Airflow version | Release date       | End of maintenance date | LTS |
+| Runtime version                                 | Airflow version | Release date       | End of maintenance date | LTS |
 | ----------------------------------------------- | --------------- | ------------------ | ----------------------- | --- |
 | [4](runtime-release-notes.md#astro-runtime-420) | 2.2             | March 10, 2022     | September 2023          |     |
 | [5](runtime-release-notes.md#astro-runtime-500) | 2.3             | April 30, 2022     | April 2024              | ✔️   |
