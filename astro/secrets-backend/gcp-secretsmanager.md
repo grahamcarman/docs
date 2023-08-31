@@ -6,7 +6,7 @@ id: gcp-secretsmanager
 
 This topic provides setup steps for configuring [Google Cloud Secret Manager](https://cloud.google.com/secret-manager/docs/configuring-secret-manager) as a secrets backend on Astro.
 
-#### Prerequisites
+## Prerequisites
 
 - A [Deployment](create-deployment.md).
 - The [Astro CLI](cli/overview.md).
@@ -16,7 +16,7 @@ This topic provides setup steps for configuring [Google Cloud Secret Manager](ht
 - A [service account](https://cloud.google.com/iam/docs/creating-managing-service-accounts) with the [Secret Manager Secret Accessor](https://cloud.google.com/secret-manager/docs/access-control) role on Google Cloud.
 - Optional: A [JSON service account key](https://cloud.google.com/iam/docs/creating-managing-service-account-keys#creating_service_account_keys) for the service account. This is required to provide access to a secrets backend from a local machine, or when you're not using Workload Identity.
 
-#### Create an Airflow variable or connection in Google Cloud Secret Manager
+## Step 1: Create an Airflow variable or connection in Google Cloud Secret Manager
 
 To start, create an Airflow variable or connection in Google Cloud Secret Manager that you want to store as a secret. You can use the Cloud Console or the gcloud CLI.
 
@@ -33,7 +33,7 @@ gcloud secrets create airflow-variables-<my-secret-variable> \
 
 For more information on creating secrets in Google Cloud Secret Manager, read the [Google Cloud documentation](https://cloud.google.com/secret-manager/docs/creating-and-accessing-secrets#create).
 
-#### Set up GCP Secret Manager locally
+## Step 2: Set up GCP Secret Manager locally
 
 1. Copy the complete JSON service account key for the service account that will be used to access Secret Manager. 
 2. Add the following environment variables to your Astro project's `.env` file, replacing `<your-service-account-key>` with the key you copied in step 1:
@@ -45,7 +45,7 @@ For more information on creating secrets in Google Cloud Secret Manager, read th
 
 3. Optional. Run `Variable.get("<your-variable-key>")` to run a DAG locally and confirm that your variables are accessible.
 
-#### Configure Secret Manager on Astro using Workload Identity (Recommended)
+## Step 3: Configure Secret Manager on Astro using Workload Identity (Recommended)
 
 1. Set up Workload Identity for your Airflow Deployment. See [Connect Astro to GCP data sources](connect-gcp.md?tab=Workload%20Identity#authorization-options).
 
@@ -61,7 +61,7 @@ For more information on creating secrets in Google Cloud Secret Manager, read th
 
 To ensure the security of secrets, the `.env` variable is only available in your local environment and not in the Cloud UI . See [Set Environment Variables Locally](https://docs.astronomer.io/astro/develop-project#set-environment-variables-locally).
 
-#### Configure Secret Manager on Astro using a service account JSON key file
+## Step 4: Configure Secret Manager on Astro using a service account JSON key file
 
 1. Set up the Secret Manager locally. See [Set up GCP Secret Manager locally](#set-up-gcp-secret-manager-locally).
 

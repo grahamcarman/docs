@@ -4,20 +4,18 @@ sidebar_label: 'AWS Secrets Manager'
 id: aws-secretsmanager
 ---
 
-## Set up the AWS Secrets Manager
-
 This topic provides setup steps for configuring [AWS Secrets Manager](https://aws.amazon.com/secrets-manager/) as a secrets backend on Astro.
 
 For more information about Airflow and AWS connections, see [Amazon Web Services Connection](https://airflow.apache.org/docs/apache-airflow-providers-amazon/stable/connections/aws.html).
 
-### Prerequisites
+## Prerequisites
 
 - A [Deployment](create-deployment.md).
 - The [Astro CLI](cli/overview.md).
 - An [Astro project](develop-project.md#create-an-astro-project) with `apache-airflow-providers-amazon` version 5.1.0 or later. See [Add Python and OS-level packages](develop-project.md#add-python-and-os-level-packages).
 - An IAM role with the `SecretsManagerReadWrite` policy that your Astro cluster can assume. See [AWS IAM roles](https://docs.astronomer.io/astro/connect-aws?tab=AWS%20IAM%20roles#authorization-options).
 
-#### Add Airflow secrets to Secrets Manager
+## Step 1: Add Airflow secrets to Secrets Manager
 
 Create directories for Airflow variables and connections in AWS Secrets Manager that you want to store as secrets. You can use real or test values.
 
@@ -55,7 +53,7 @@ Secret names must correspond with the `connections_prefix` and `variables_prefix
 
 For more information on adding secrets to Secrets Manager, see [AWS documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_create-basic-secret.html).
 
-#### Set up Secrets Manager locally
+## Step 2: Set up Secrets Manager locally
 
 Add the following environment variables to your Astro project's `.env` file:
 
@@ -69,7 +67,7 @@ AWS_SECRET_ACCESS_KEY=<secret key>
 
 After you configure an Airflow connection to AWS, can run a DAG locally to check that your variables are accessible using `Variable.get("<your-variable-key>")`.
 
-#### Deploy environment variables to Astro
+## Step 3: Deploy environment variables to Astro
 
 1. Run the following commands to export your secrets backend configurations as environment variables to Astro.
 

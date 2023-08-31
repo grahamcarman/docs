@@ -3,8 +3,6 @@ title: 'Set up Hashicorp Vault as your secrets backend'
 sidebar_label: 'Hashicorp Vault'
 id: hashicorp-vault
 ---
-    
-## Set up the Hashicorp Vault
 
 This topic provides steps for using [Hashicorp Vault](https://www.vaultproject.io/) as a secrets backend for both local development and on Astro. To do this, you will:
 
@@ -14,7 +12,7 @@ This topic provides steps for using [Hashicorp Vault](https://www.vaultproject.i
 - Test the backend in a local environment.
 - Deploy your changes to Astro.
 
-#### Prerequisites
+## Prerequisites
 
 - A [Deployment](create-deployment.md) on Astro.
 - [The Astro CLI](cli/overview.md).
@@ -28,7 +26,7 @@ If you do not already have a Vault server deployed but would like to test this f
 - Sign up for a Vault trial on [Hashicorp Cloud Platform (HCP)](https://cloud.hashicorp.com/products/vault) or
 - Deploy a local Vault server. See [Starting the server](https://learn.hashicorp.com/tutorials/vault/getting-started-dev-server?in=vault/getting-started) in Hashicorp documentation. 
 
-#### Create a Policy and AppRole in Vault
+## Step 1: Create a Policy and AppRole in Vault
 
 To use Vault as a secrets backend, Astronomer recommends configuring a Vault AppRole with a policy that grants only the minimum necessary permissions for Astro. To do this:
 
@@ -65,7 +63,7 @@ To use Vault as a secrets backend, Astronomer recommends configuring a Vault App
 
     Save this value. You'll use this later to complete the setup.
   
-#### Create an Airflow variable or connection in Vault
+## Step 2: Create an Airflow variable or connection in Vault
 
 To start, create an Airflow variable or connection in Vault that you want to store as a secret. It can be either a real or test value. You will use this secret to test your backend's functionality.
 
@@ -105,7 +103,7 @@ $ vault kv get -mount=airflow variables/<your-variable-name>
 $ vault kv get -mount=airflow connections/<your-connection-name>
 ```
 
-#### Set up Vault locally
+## Step 3: Set up Vault locally
 
 In your Astro project, add the [Hashicorp Airflow provider](https://airflow.apache.org/docs/apache-airflow-providers-hashicorp/stable/index.html) to your project by adding the following to your `requirements.txt` file:
 
@@ -133,7 +131,7 @@ This tells Airflow to look for variable and connection information at the `airfl
 
 For more information on the Airflow provider for Hashicorp Vault and how to further customize your integration, see the [Apache Airflow documentation](https://airflow.apache.org/docs/apache-airflow-providers-hashicorp/stable/_api/airflow/providers/hashicorp/hooks/vault/index.html).
 
-#### Deploy to Astro  
+## Step 4: Deploy to Astro  
   
 1. Run the following commands to export your environment variables to Astro:   
  

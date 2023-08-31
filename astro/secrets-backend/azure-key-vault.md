@@ -4,8 +4,6 @@ sidebar_label: 'Azure Key Vault'
 id: azure-key-vault
 ---
 
-## Set up Azure Key Vault
-
 This topic provides setup steps for configuring [Azure Key Vault](https://azure.microsoft.com/en-gb/services/key-vault/#getting-started) as a secrets backend on Astro.
 
 ### Prerequisites

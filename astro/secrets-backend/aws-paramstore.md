@@ -6,14 +6,14 @@ id: aws-paramstore
 
 In this section, you'll learn how to use [AWS Systems Manager (SSM) Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html) as a secrets backend on Astro.
 
-#### Prerequisites
+## Prerequisites
 
 - A [Deployment](create-deployment.md).
 - The [Astro CLI](cli/overview.md).
 - An [Astro project](develop-project.md#create-an-astro-project) with version 5.1.0+ of `apache-airflow-providers-amazon`. See [Add Python and OS-level packages](develop-project.md#add-python-and-os-level-packages).
 - An IAM role with access to the [Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-access.html) that your Astro cluster can assume. See [AWS IAM roles](connect-aws.md#AWS-IAM-roles).
 
-#### Create Airflow secrets directories in Parameter Store
+## Step 1: Create Airflow secrets directories in Parameter Store
 
 Create directories for Airflow variables and connections in Parameter Store that you want to store as secrets.
 
@@ -21,7 +21,7 @@ Variables and connections should be stored in `/airflow/variables` and `/airflow
 
 For instructions, see the [AWS Systems Manager Console](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-create-console.html), the [AWS CLI](https://docs.aws.amazon.com/systems-manager/latest/userguide/param-create-cli.html), or the [Tools for Windows PowerShell](https://docs.aws.amazon.com/systems-manager/latest/userguide/param-create-ps.html) documentation.
   
-#### Set up Parameter Store locally
+## Step 2: Set up Parameter Store locally
 
 Add the following environment variables to your Astro project's `.env` file:
 
@@ -32,7 +32,7 @@ AIRFLOW__SECRETS__BACKEND_KWARGS={"connections_prefix": "airflow/connections", "
 
 You can now run a DAG locally to check that your variables are accessible using `Variable.get("<your-variable-key>")`.
 
-#### Deploy environment variables to Astro 
+## Step 3: Deploy environment variables to Astro 
   
 1. Run the following commands to export your secrets backend configurations as environment variables to Astro.
 
