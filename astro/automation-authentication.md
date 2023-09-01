@@ -1,6 +1,6 @@
 ---
-sidebar_label: 'Authenticate your automation tool'
-title: 'Authenticate to Astro for automated workflows'
+sidebar_label: 'Authenticate an automation tool'
+title: 'Authenticate an automation tool to Astro'
 id: automation-authentication
 description: Learn about all possible ways that you can authenticate your automation tool to Astro.
 ---
