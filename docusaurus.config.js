@@ -227,7 +227,7 @@ module.exports = {
           specs: [
             {
               id: 'astro',
-              spec: 'https://api.astronomer-dev.io/openapi/doc.json',
+              spec: './openapi/apispec.yaml',
             },
          ],
           // Theme Options for modifying how redoc renders them
