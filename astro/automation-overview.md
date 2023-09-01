@@ -11,7 +11,7 @@ As an administrator or head of your team, you can use the Astro CLI to automate 
 - Deploying code in a CI/CD pipeline.
 - Creating Deployments.
 
-Automating actions allows your team to interact with Astro in a reliable, predictable way that improves reliability and security. For example, when you automate code deploys with CI/CD, your can have your users deploy from a source where all of their work is tracked and reviewed, such as GitHub.
+Automating actions allows your team to interact with Astro in a predictable way that improves reliability and security. For example, when you automate code deploys with CI/CD, your can have your users deploy from a source where all of their work is tracked and reviewed, such as GitHub.
 
 This section of documentation covers how to automate processes on Astro using Astro CLI. To start automating, you'll first [programmatically authenticate to Astro](automation-authentication.md) using an API key or token. Then, you'll write and run a script to complete the workflow for your use case.
 
