@@ -16,6 +16,8 @@ module.exports = {
       items: [
         'astro-architecture',
         'features',
+        'astro-components',
+        'runtime-overview'
       ],
     },
     {
