@@ -15,7 +15,7 @@ To make your first request using the Astro API, see [Get started with the Astro 
 
 ## Authentication
 
-All requests to the API must be authenticated. You can use bearear authentication to authenticate with a Workspace API token or Organization API token. The following example  shows how you can add a token to a request:
+All requests to the API must be authenticated. You can use bearear authentication to authenticate with a Workspace API token or Organization API token. The following example  shows how you can add a token to a curl request:
 
 ```curl
 GET https://api.astronomer-dev.io/v1alpha1/organizations/{organizationId}/clusters \
