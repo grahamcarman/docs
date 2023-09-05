@@ -13,7 +13,7 @@ Astro Runtime uses OSS Apache Airflow at its core and extends it to provide your
 
 | Area | Improvements | 
 |:----:|---------|
-| Performance | - Capability for deferrable operators, hooks and sensors using [Astronomer providers package](https://registry.astronomer.io/providers/astronomer-providers/versions/1.17.3) <p> - Capability to develop ETL workflows with ease using [Astro SDK package](https://github.com/astronomer/astro-sdk) </p> |
+| Performance | - Capability for deferrable operators, hooks, and sensors using [Astronomer providers package](https://registry.astronomer.io/providers/astronomer-providers/versions/1.17.3) <p> - Capability to develop ETL workflows with ease using [Astro SDK package](https://github.com/astronomer/astro-sdk) </p> |
 | Stability | - Custom logging for task logs recorded directly to cloud storage <p> - Ability to auto-scale </p> | 
 | Security | - Expedited [vulnerability fixes and backport support](runtime-version-lifecycle-policy.md#backport-policy-for-bug-and-security-fixes) <p> - Support for role-based access control (RBAC) using a custom security manager </p> |
 
