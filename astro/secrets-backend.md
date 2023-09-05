@@ -1,6 +1,6 @@
 ---
 title: 'Configure an external secrets backend on Astro'
-sidebar_label: 'Secrets backends'
+sidebar_label: 'Overview'
 id: secrets-backend
 description: "Learn to configure a secrets backend on Astro to store Airflow connections and variables"
 ---
