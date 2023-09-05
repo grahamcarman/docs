@@ -5,23 +5,21 @@ id: runtime-overview
 description: Learn about what is Astro Runtime, it's architecture and features
 ---
 
-Astro Runtime is a [debian-based Docker image](https://quay.io/repository/astronomer/astro-runtime) for running Airflow that's built and maintained by Astronomer. It is the most reliable and efficient way for teams to run data pipelines, bundling Apache Airflow with optimized configurations and commercial add-ons that make it faster and more powerful.
+The _Astro Runtime_ is a [debian-based Docker image](https://quay.io/repository/astronomer/astro-runtime) for running Airflow that's built and maintained by Astronomer. It is the most reliable and efficient way for teams to run data pipelines, bundling Apache Airflow with optimized configurations and commercial add-ons that make it faster and more powerful.
 
-Astro Runtime utilizes OSS Apache Airflow at its core and extends it with additional layers to provide your organization with improved functionality, reliability, efficiency, and performance. With OSS Airflow as it base, it focusses on improving the following areas:
+Astro Runtime uses OSS Apache Airflow at its core and extends it to provide your organization with improved functionality, reliability, efficiency, and performance. With OSS Airflow as its base, Astro Runtime focuses on improving the following areas:
 
 <center>
 
 | Area | Improvements | 
 |:----:|---------|
 | Performance | - Capability for deferrable operators, hooks and sensors using [Astronomer providers package](https://registry.astronomer.io/providers/astronomer-providers/versions/1.17.3) <p> - Capability to develop ETL workflows with ease using [Astro SDK package](https://github.com/astronomer/astro-sdk) </p> |
-| Stability | - Custom logging for task logs directly to cloud storage <p> - Ability to auto-scale </p> | 
+| Stability | - Custom logging for task logs recorded directly to cloud storage <p> - Ability to auto-scale </p> | 
 | Security | - Expedited [vulnerability fixes and backport support](runtime-version-lifecycle-policy.md#backport-policy-for-bug-and-security-fixes) <p> - Support for role-based access control (RBAC) using a custom security manager </p> |
 
 </center>
 
-Every version of Astro Runtime correlates to an Apache Airflow version. Astro Runtime is a requirement for using Astro CLI and deploying to Astro. Hence, every Astro project and Deployment is configured with a version of Astro Runtime. See [Astro Runtime and Airflow version mapping](runtime-version-lifecycle-policy.md#astro-runtime-airflow-and-python-version-mapping).
-
-See [Astro Runtime maintenance and security](runtime-version-lifecycle-policy.md) for more information.
+Every version of Astro Runtime correlates to an Apache Airflow version. Astro Runtime is a requirement for using the Astro CLI and deploying code to Astro. Therefore, every Astro project and Deployment is configured with a version of Astro Runtime. See [Astro Runtime and Airflow version mapping](runtime-version-lifecycle-policy.md#astro-runtime-airflow-and-python-version-mapping).
 
 ## Features
 
