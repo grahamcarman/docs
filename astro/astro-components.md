@@ -41,11 +41,11 @@ For Astro Hosted Dedicated and Astro Hybrid, workspaces can be granted access to
 
 An Astro _Organization_ is the top most entity in Astro created for you when you sign up with Astro. It contains Workspaces, which are collections of Deployments, that are typically owned by a single team. Within an organization you can:
 
-- Invite users, grant roles, and manage permissions
-- Compare DAG runs across environments
-- Monitor usage and manage Billing
-- Manage Workspaces and Deployments
-- Manage clusters (Hosted Dedicated or Hybrid only)
+- [Invite users, grant roles, and manage permissions](manage-organization-users.md)
+- [Compare DAG runs across environments](organization-metrics.md#astro-usage)
+- [Monitor usage and manage Billing](manage-billing.md)
+- [Manage Workspaces](manage-workspaces.md) and [Deployments](create-deployment.md)
+- [Manage clusters](create-dedicated-cluster.md)
 
 ## Users and teams
 

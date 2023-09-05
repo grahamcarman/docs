@@ -31,32 +31,6 @@ Every version of Astro Runtime correlates to an Apache Airflow version. Astro Ru
 - A custom Airflow UI that includes links to Astronomer resources and exposes the currently running Docker image tag in the footer of all UI pages.
 - Ability to choose between CeleryExecutor and KubernetesExecutor in an Astro Deployment.
 
-
-<!-- ### Default environment variables
-
-Astro Runtime images include baked-in environment variables that have different default values than on OSS Apache Airflow to improve your Airflow experience in most use-cases. The following table lists these environment variables.
-
-| Environment Variable                                            | Description                                                                                                                                                                                 | Value                                                                        |
-| --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `AIRFLOW__SCHEDULER__DAG_DIR_LIST_INTERVAL`                     | The time in seconds that Airflow waits before re-scanning the `dags` directory for new files. Note that this environment variable is set for all Deployments regardless of Runtime version. | `30`                                                                         |
-| `AIRFLOW__CELERY__STALLED_TASK_TIMEOUT`                         | The maximum time in seconds that tasks running with the Celery executor can remain in a `queued` state before they are automatically rescheduled.                                           | `600`                                                                        |
-| `AIRFLOW_CORE_PARALLELISM`                                      | The maximum number of task instances that can run concurrently for each scheduler in your Deployment.                                                                                       | `[number-of-running-workers-for-all-worker-queues] * [max-tasks-per-worker]` |
-| `AIRFLOW__KUBERNETES_EXECUTOR__WORKER_PODS_CREATION_BATCH_SIZE` | The number of worker Pods that can be created each time the scheduler parses DAGs. This setting limits the number of tasks that can be scheduled at one time.                               | `16`                                                                         |
-
-Unlike [global environment variables](platform-variables.md), you can override the values of these variables for specific use cases. To edit the values of the default Airflow environment variables, see [Set environment variables on Astro](environment-variables.md). -->
-
-
-<!-- ### Astro monitoring DAG (Hybrid only)
-
-Astro Runtime includes a monitoring DAG that is pre-installed in the Docker image and enabled for all Deployments on Astro Hybrid. In addition to generating Deployment health and metrics functionality, this DAG allows the Astronomer team to monitor the health of your data plane by enabling real-time visibility into whether your workers are healthy and tasks are running.
-
-The `astronomer_monitoring_dag` runs a simple bash task every 5 minutes to ensure that your Airflow scheduler and workers are functioning as expected. If the task fails twice in a row or is not scheduled within a 10-minute interval, Astronomer support receives an alert and will work with you to troubleshoot. The DAG runs and appears in the Airflow UI only on Astro Deployments.
-
-Because this DAG is essential to Astro's managed service, you are not charged for its task runs. For the same reasons, this DAG can't be modified or disabled through the Airflow UI. To modify when this DAG runs on a Deployment, set the following [Deployment environment variable](environment-variables.md):
-
-- Key: `AIRFLOW_MONITORING_DAG_SCHEDULE_INTERVAL`
-- Value: An alternative schedule defined as a [cron expression](https://crontab.guru/) -->
-
 ## See also
 
 - [Create a Deployment](create-deployment.md)
