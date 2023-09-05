@@ -49,7 +49,7 @@ An Astro _Organization_ is the top most entity in Astro created for you when you
 
 ## Users and teams
 
-When you sign up with Astro, a user is created for you along with your Organization. As the first user in your Astro Organization, Astro assigns you the role `Organization Owner` and you have the ability to invite new users to your organization and manage other users' permissions. 
+When you sign up with Astro, a user is created for you along with your Organization. As the first user in your Astro Organization, Astro assigns you the role **Organization Owner** and you have the ability to invite new users to your organization and manage other users' permissions. 
 
 Each Astro user can also be added to a _Team_. A team in Astro is a group of users in an Organization that you can grant the same Organization and Workspace permissions. 
 
