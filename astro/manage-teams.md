@@ -55,6 +55,12 @@ You can now [add your Team to a Workspace](manage-teams.md#add-a-team-to-a-works
 
 4. Select the **Team** you want to add and define their **Workspace Role**, which determines their [Workspace user permissions](/astro/user-permissions.md#workspace-roles).
 
+:::cli
+
+You can add a Team to multiple Workspaces programmatically using the Astro CLI. See [`astro workspace team add`](cli/astro-workspace-team-add.md) for example output and commands.
+
+:::
+
 ## Teams and SCIM provisioning
 
 To preserve a single source of truth for user group management, some Team management actions are limited when you [set up SCIM provisioning](set-up-scim-provisioning.md). Specifically, when you set up SCIM provisioning:
