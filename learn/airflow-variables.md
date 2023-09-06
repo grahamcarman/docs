@@ -52,9 +52,13 @@ There are several ways to create Airflow variables:
 - Using an environment variable.
 - Programmatically from within an Airflow task.
 
+### Using the Airflow UI
+
 To create an Airflow variable in the UI, click on the **Admin** tab and select **Variables**. Then click on the **+** button and enter a key, value and an optional description for your Airflow variable. You also have the option to **Import Variables** from a file.
 
 ![UI](/img/guides/airflow-variables_UI_600.png) 
+
+### Using the Airflow CLI
 
 The Airflow CLI contains options to set, get and delete [Airflow variables](https://airflow.apache.org/docs/apache-airflow/stable/cli-and-env-variables-ref.html#variables). To create an Airflow variable via the CLI use the following command:
 
@@ -88,6 +92,8 @@ airflow variables set -j my_json_var '{"key": "value"}'
 
 </Tabs>
 
+### Using environment variables
+
 To set Airflow variables via an environment variable create an environment variable with the prefix `AIRFLOW_VAR_` + the name of the Airflow variable you want to set
 
 ```text
@@ -95,7 +101,9 @@ AIRFLOW_VAR_MYREGULARVAR='my_value'
 AIRFLOW_VAR_MYJSONVAR='{"hello":"world"}'
 ```
 
-To learn more about how to set environment variables on Astro, see [Environment Variables](https://docs.astronomer.io/astro/environment-variables).
+To learn more about how to set environment variables on Astro, see [Environment Variables](https://docs.astronomer.io/astro/env-vars-astro.md).
+
+### Programmatically from a DAG or task
 
 Lastly, you can programmatically set Airflow variables within your Airflow tasks via the [`Variable` model](https://airflow.apache.org/docs/apache-airflow/stable/_api/airflow/models/variable/index.html#module-airflow.models.variable). If you want to serialize a JSON value, make sure to set `serialize_json=True`.
 

@@ -149,17 +149,13 @@ Utility files in the `/dags` directory will not be parsed by Airflow, so you don
 
 ## Add Airflow connections, pools, variables
 
-Airflow connections connect external applications such as databases and third-party services to Apache Airflow. See [Manage connections in Apache Airflow](https://docs.astronomer.io/learn/connections#airflow-connection-basics) or [Apache Airflow documentation](https://airflow.apache.org/docs/apache-airflow/stable/howto/connection.html).
+When you initialize an Astro project, `airflow_settings.yaml` file is automatically created to set Airflow connections, variables and pools. This values set in this file can used for your local Airflow only. When you deploy your project to an Astro Deployment, the values in this file are not included. 
 
-To add Airflow [connections](https://airflow.apache.org/docs/apache-airflow/stable/howto/connection.html), [pools](https://airflow.apache.org/docs/apache-airflow/stable/administration-and-deployment/pools.html), and [variables](https://airflow.apache.org/docs/apache-airflow/stable/howto/variable.html) to your local Airflow environment, you have the following options:
+This file saves your values in plain-text. To prevent from committing sensitive credentials or passwords to your version control tool, Astronomer recommends adding this file to `.gitignore`.
 
-- Use the Airflow UI. In **Admin**, click **Connections**, **Variables** or **Pools**, and then add your values. These values are stored in the metadata database and are deleted when you run the [`astro dev kill` command](/astro/cli/astro-dev-kill.md), which can sometimes be used for troubleshooting.
-- Modify the `airflow_settings.yaml` file of your Astro project. This file is included in every Astro project and permanently stores your values in plain-text. To prevent you from committing sensitive credentials or passwords to your version control tool, Astronomer recommends adding this file to `.gitignore`.
-- Use a secret backend, such as AWS Secrets Manager, and access the secret backend locally. See [Configure an external secrets backend on Astro](/astro/secrets-backend.md).
+Astronomer recommends using the document [Manage connections and variables in Astro](manage-connections-variables.md) to choose the correct strategy to store your Airflow connections and variables.
 
-When you add Airflow objects to the Airflow UI of a local environment or to your `airflow_settings.yaml` file, your values can only be used locally. When you deploy your project to a Deployment on Astro, the values in this file are not included.
-
-Astronomer recommends using the `airflow_settings.yaml` file so that you don’t have to manually redefine these values in the Airflow UI every time you restart your project. To ensure the security of your data, Astronomer recommends [configuring a secrets backend](/astro/secrets-backend.md).
+See [Configure airflow_settings.yaml](#configure-airflow_settingsyaml-local-development-only) for details on how to use this file for local Airflow.
 
 ## Add test data or files for local testing
 
@@ -247,64 +243,7 @@ To learn more about the format of the `requirements.txt` file, see [Requirements
 
 ## Set environment variables locally
 
-For local development, Astronomer recommends setting environment variables in your Astro project’s `.env` file. You can then push your environment variables from the `.env` file to a Deployment on Astro. To manage environment variables in the Cloud UI, see [Environment variables](/astro/environment-variables.md).
-
-If your environment variables contain sensitive information or credentials that you don’t want to expose in plain-text, you can add your `.env` file to `.gitignore` when you deploy these changes to your version control tool.
-
-1. Open the `.env` file in your Astro project directory.
-2. Add your environment variables to the `.env` file or run `astro deployment variable list --save` to copy environment variables from an existing Deployment to the file.
-
-    Use the following format when you set environment variables in your `.env` file:
-
-    ```text
-    KEY=VALUE
-    ```
-
-    Environment variables should be in all-caps and not include spaces.
-
-3. [Restart your local environment](/astro/develop-project.md#restart-your-local-environment).
-4. Run the following command to confirm that your environment variables were applied locally:
-   
-    ```sh
-    astro dev bash --scheduler "/bin/bash && env"
-    ```
-
-   These commands output all environment variables that are running locally. This includes environment variables set on Astro Runtime by default.
-
-5. Optional. Run `astro deployment variable create --load` or `astro deployment variable update --load` to export environment variables from your `.env` file to a Deployment. You can view and modify the exported environment variables in the Cloud UI page for your Deployment.
-
-:::info
-
-For local environments, the Astro CLI generates an `airflow.cfg` file at runtime based on the environment variables you set in your `.env` file. You can’t create or modify `airflow.cfg` in an Astro project.
-
-To view your local environment variables in the context of the generated Airflow configuration, run:
-
-```sh
-astro dev bash --scheduler "/bin/bash && cat airflow.cfg"
-```
-
-These commands output the contents of the generated `airflow.cfg` file, which lists your environment variables as human-readable configurations with inline comments.
-
-:::
-
-### Use multiple .env files
-
-The Astro CLI looks for `.env` by default, but if you want to specify multiple files, make `.env` a top-level directory and create sub-files within that folder.
-
-A project with multiple `.env` files might look like the following:
-
-```
-my_project
-├── Dockerfile
-├── dags
-│   └── my_dag
-├── plugins
-│   └── my_plugin
-├── airflow_settings.yaml
-└── .env
-    ├── dev.env
-    └── prod.env
-```
+For local development, you can set environment variables in your Astro project’s `.env` file or your `Dockerfile`. See [Environment variables on Astro](env-vars-astro.md) for all available options and use cases.
 
 ## Advanced configuration
 
