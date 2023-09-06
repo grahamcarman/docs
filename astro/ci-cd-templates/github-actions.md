@@ -70,6 +70,7 @@ To automate code deploys to a single Deployment using [GitHub Actions](https://g
         steps:
         - name: Deploy to Astro
           uses: astronomer/deploy-action@v0.2
+          deployment-id: <deployment-id>
     ```
 
 </TabItem>
@@ -169,6 +170,7 @@ If your Astro project requires additional build-time arguments to build an image
         - name: Build image
           uses: docker/build-push-action@v2
           with:
+            deployment-id: <deployment-id>
             tags: ${{ steps.image_tag.outputs.image_tag }}
             load: true
             # Define your custom image's build arguments, contexts, and connections here using
@@ -181,6 +183,7 @@ If your Astro project requires additional build-time arguments to build an image
         - name: Deploy to Astro
           uses: astronomer/deploy-action@v0.2
           with:
+            deployment-id: <deployment-id>
             image-name: ${{ steps.image_tag.outputs.image_tag }}
     ```
 
@@ -222,6 +225,7 @@ If your Astro project requires additional build-time arguments to build an image
         - name: Deploy to Astro
           uses: astronomer/deploy-action@v0.2
           with:
+            deployment-id: <deployment-id>
             image-name: ${{ steps.image_tag.outputs.image_tag }}
     ```
 
