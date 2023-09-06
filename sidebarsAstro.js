@@ -93,8 +93,7 @@ module.exports = {
         "api-keys",
         "environment-variables",
         "secrets-backend",
-        "manage-dags",  
-        "authorize-deployments-to-your-cloud",
+        "manage-dags", 
       ],
     },
     {
@@ -175,10 +174,8 @@ module.exports = {
         },
         {
           type: "category",
-          label: "Organizations",
-          items: [
-            "organization-api-tokens",
-          ],
+          label: "Deployments",
+          items: ["authorize-deployments-to-your-cloud", "transfer-a-deployment"],
         },
         {
           type: "category",
@@ -202,6 +199,13 @@ module.exports = {
               },
               items: ["connect-aws", "connect-azure", "connect-gcp"],
             },
+          ],
+        },
+        {
+          type: "category",
+          label: "Organization",
+          items: [
+            "organization-api-tokens",
           ],
         },
         {
