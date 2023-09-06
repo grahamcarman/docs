@@ -34,7 +34,7 @@ Astro integrates with the following secrets backend tools:
 - [Google Cloud Secret Manager](secrets-backend/gcp-secretsmanager.md)
 - [Azure Key Vault](secrets-backend/azure-key-vault.md)
 
-Secrets backend integrations are configured individually with each Astro Deployment by a Workspace member with either Workspace Operator or Workspace Owner permissions.
+Secrets backend integrations can be configured individually with each Astro Deployment by someone with Workspace Operator permissions.
 
 :::info
 
