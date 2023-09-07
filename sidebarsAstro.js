@@ -78,6 +78,7 @@ module.exports = {
         "deploy-code",
         "deploy-project-image",
         "deploy-dags",
+        "deploy-history",
       ],
     },
     {
@@ -85,7 +86,7 @@ module.exports = {
       label: "Manage Deployments",
       items: [
         "create-deployment",
-        "configure-deployment-resources",
+        "deployment-settings",
         {
           type: "category",
           label: "Executors",
@@ -95,8 +96,7 @@ module.exports = {
         "api-keys",
         "environment-variables",
         "secrets-backend",
-        "manage-dags",  
-        "authorize-deployments-to-your-cloud",
+        "manage-dags", 
       ],
     },
     {
@@ -177,10 +177,8 @@ module.exports = {
         },
         {
           type: "category",
-          label: "Organizations",
-          items: [
-            "organization-api-tokens",
-          ],
+          label: "Deployments",
+          items: ["authorize-deployments-to-your-cloud", "transfer-a-deployment"],
         },
         {
           type: "category",
@@ -192,6 +190,7 @@ module.exports = {
           label: "Clusters",
           items: [
             "create-dedicated-cluster",
+            "authorize-workspaces-to-a-cluster",
             "resource-reference-hosted",
             {
               type: "category",
@@ -203,6 +202,13 @@ module.exports = {
               },
               items: ["connect-aws", "connect-azure", "connect-gcp"],
             },
+          ],
+        },
+        {
+          type: "category",
+          label: "Organization",
+          items: [
+            "organization-api-tokens",
           ],
         },
         {
