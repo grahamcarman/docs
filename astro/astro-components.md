@@ -1,13 +1,13 @@
 ---
-sidebar_label: 'Key concepts'
+sidebar_label: 'Concepts'
 title: 'Astro concepts and components'
 id: astro-components
-description: Learn about the components of Astro
+description: Learn about each of the components you can interact with in Astro.
 ---
 
-Astro is a SaaS application that provides fully managed Apache Airflow environments for teams of all sizes. You have the option to choose a standard or a dedicated cluster for your Deployments. In both the cases, you will come across some terms about the core components of Astro.
+Astro is a SaaS application that provides fully managed Airflow environments for teams of all sizes. To make Airflow more reliable and scalable, the Astro platform includes a few concepts and components that don't exist in open source Apache Airflow. 
 
-Use the following document to understand these core components of Astro and how they are related to each other.
+Use this document to learn about key Astro concepts and how they work together on the platform.
 
 ## Deployment
 
