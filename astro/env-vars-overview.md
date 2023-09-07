@@ -7,23 +7,24 @@ description: Overview of environment variables on Astro
 
 import {siteVariables} from '@site/src/versions';
 
-On Astro, an environment variable is a key-value configuration that is applicable to a specific Deployment. You can use environment variables to configure the following categories:
+On Astro, an _Environment Variable_ is a key-value configuration stored in a configuration file that applies to a specific Deployment. You can use environment variables to configure custom environment variables for your Deployment, customize core settings of Airflow and its pre-installed providers, or store Airflow connections and variables.
 
-- Custom environment variables for your Deployment. For example:
-    - Identify a production Deployment versus a development Deployment allowing you to customize your DAG flow.
-    - Add a token or a URL that is required by your Airflow DAGs or tasks.
-    - Integrate with Datadog or other third-party tooling to [export Deployment metrics](deployment-metrics.md#export-airflow-metrics-to-datadog).
+You can configure custom environment variables for your Deployment to address the following use cases:
+- Identify a production Deployment versus a development Deployment allowing you to customize your DAG flow.
+- Add a token or a URL that is required by your Airflow DAGs or tasks
+- Integrate with Datadog or other third-party tooling to [export Deployment metrics](deployment-metrics.md#export-airflow-metrics-to-datadog).
 
-- Customize core settings of Airflow or any of its pre-installed providers. For example:
-    - Change the import timeout of DAGBAG using `AIRFLOW__CORE__DAGBAG_IMPORT_TIMEOUT`. See all [core settings of Airflow](https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html) that can be customized.
-    - Set up an SMTP service to receive [Airflow alerts](airflow-email-notifications.md) by email.
+You can use environment variables to customize core settings of Airflow or any of its pre-installed providers, including the following examples:
+- Change the import timeout of DAGBAG using `AIRFLOW__CORE__DAGBAG_IMPORT_TIMEOUT`. See all [core settings of Airflow](https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html) that can be customized.
+- Set up an SMTP service to receive [Airflow alerts](airflow-email-notifications.md) by email.
 
-- Store [Airflow connections and variables](manage-connections-variables.md#environment-variables).
-    
+You can also use environment variables to store [Airflow connections](https://docs.astronomer.io/learn/connections) and [variables](https://docs.astronomer.io/learn/airflow-variables).
 
-Some environment variables on Astro are set globally and cannot be overridden for individual Deployments, while others are utilized by Astro Runtime to enhance your Airflow experience. For more information on these, see [Global environment variables](env-vars-global.md).
+Some environment variables on Astro are set globally and cannot be overridden for individual Deployments, while others are used by Astro Runtime to enhance your Airflow experience. For more information on these, see [Global environment variables](env-vars-global.md).
+## Choose how to manage environment variables
 
-## Ways to manage environment variables on Astro
+Environment variables are fundamentally used to take advantage of different performance, behavior, and connection options available to Airflow and Astro. In order to choose the right management and implementation strategy for your needs, you must understand the available management options, how Astro prioritizes environment variables, and how Astro stores them. 
+### Ways to manage environment variables on Astro
 
 On Astro, you can manage environment variable in four different ways for your Deployment:
 
@@ -35,7 +36,7 @@ On Astro, you can manage environment variable in four different ways for your De
 
 Note that, environment variables managed using `Dockerfile` file are not visible in your Cloud UI.
 
-## How Astro prioritizes environment variables
+### How Astro prioritizes environment variables
 
 On Astro, environment variables are applied and overridden in the following order:
 
@@ -45,9 +46,9 @@ On Astro, environment variables are applied and overridden in the following orde
 
 For example, if you set `AIRFLOW__CORE__PARALLELISM` with one value in the Cloud UI and you set the same environment variable with another value in your `Dockerfile`, the value set in the Cloud UI takes precedence.
 
-## How Astro stores your environment variables 
+### How Astro stores your environment variables 
 
-Cloud UI allows you to mark your environment variables as secret. Non-secret environment variables set in the Cloud UI are stored in a database that is hosted and managed by Astronomer. When you configure a secret environment variable in the Cloud UI, the following methodology is used:
+The Cloud UI allows you to mark your environment variables as secret. Astro stores non-secret environment variables set in the Cloud UI in a database that is hosted and managed by Astronomer. When you configure a secret environment variable in the Cloud UI, the following methodology is used:
 
 - Astro generates a manifest that defines a Kubernetes secret, named `env-secrets`, that contains your variable's key and value.
 - Astro applies this manifest to your Deployment's namespace.
@@ -67,16 +68,16 @@ To avoid exposing secret values in task logs, instruct users to not log environm
 :::
 
 
-## Choose the strategy to manage environment variables
+### Choose the strategy to manage environment variables
 
-Astronomer recommends using the Cloud UI to store your environment variables as it provides you:
+Astronomer recommends using the Cloud UI to store your environment variables because it provides you:
 
 - Ease of use
 - Security for your secret variables
 - Visibility into your Airflow environment, without having to print environment variables in your task
 - Ability to export using Astro CLI
 
-But there are scenarios based on your specific use case in which you might want to follow a different strategy or a mix of strategies.
+There are scenarios based on your specific use case in which you might want to follow a different strategy or a mix of strategies. The following table describes recommended methods for particular scenarios.
 
 | Scenario | Recommended method | 
 |----------|:--------------------:|

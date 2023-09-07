@@ -7,7 +7,7 @@ description: Learn how to manage environment variables on Astro
 
 import {siteVariables} from '@site/src/versions';
 
-On Astro, you can manage environment variable in four different ways for your Deployment:
+On Astro, you can manage environment variable in three different ways for your Deployment:
 
 - Your Deployment's **Variable** tab in the Cloud UI
 - Your Astro project's `Dockerfile` during deploy
@@ -15,7 +15,7 @@ On Astro, you can manage environment variable in four different ways for your De
     - Your Astro project's `.env` file
     - Using Astro CLI commands `astro deployment variable create` and `astro deployment variable update`
 
-The method you choose will depend on your specific use case. 
+The method you choose depends on your [specific use case](/astro/env-vars-overview#choose-the-strategy-to-manage-environment-variables). 
 
 Use this document to understand how to use these methods to create environment variables on Astro.
 
@@ -27,7 +27,7 @@ Use this document to understand how to use these methods to create environment v
 
 3. Click **Edit Variables**.
 
-4. Enter an environment variable key and value. For sensitive credentials that should be treated with an additional layer of security, select the **Secret** checkbox. This will permanently hide the variable's value from all users in your Workspace.
+4. Enter an environment variable key and value. For sensitive credentials that should be treated with an additional layer of security, select the **Secret** checkbox. This permanently hides the variable's value from all users in your Workspace.
 
 5. Click **Add**.
 
@@ -35,7 +35,7 @@ Use this document to understand how to use these methods to create environment v
 
 ### Edit existing values
 
-After you set an environment variable key, only the environment variable value can be modified. You can modify environment variables that are set as secret. However, the variable value is never shown. When you modify a secret environment variable, you'll be prompted to enter a new value.
+After you set an environment variable key, only the environment variable value can be modified. While you can modify environment variables that are set as secret, however, the secret variable value is never shown. When you modify a secret environment variable, you'll be prompted to enter a new value.
 
 1. In the Cloud UI, select a Workspace, click **Deployments**, and then select a Deployment.
 
@@ -56,7 +56,7 @@ After you set an environment variable key, only the environment variable value c
 
 ## Using your Dockerfile
 
-If you want to store environment variables using an external version control tool, Astronomer recommends setting them in your `Dockerfile`. This file is automatically created when you first initialize an Astro project using `astro dev init`.
+If you want to store environment variables with an external version control tool, Astronomer recommends setting them in your `Dockerfile`. This file is automatically created when you first initialize an Astro project using `astro dev init`.
 
 :::caution
 
@@ -82,7 +82,7 @@ Environment variables set in your `Dockerfile` are stored in plain text. For thi
 
 :::tip
 
-Note that, environment variables set in your Dockerfile are not visible in the Cloud UI.
+Environment variables set in your Dockerfile are not visible in the Cloud UI.
 
 :::
 
