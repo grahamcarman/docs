@@ -35,7 +35,7 @@ The Cloud UI, hosted at `https://cloud.astronomer.io`, is the visual interface f
 
 An Astro _Deployment_ is an Airflow environment hosted on Astro. It encompasses all core Airflow components, including the Airflow webserver, scheduler, and workers, along with additional tools for reliability and observability. It runs in an isolated Kubernetes namespace in an [Astro cluster](#cluster) and has a set of attached resources to run your Airflow tasks.
 
-Compared to an open source Airflow environment, an Astro Deployment provides you more flexibility to [fine-tune your Airflow settings](configure-deployment-resources.md) directly from the Cloud UI. Deployments also make your Airflow experience more reliable by providing your tasks with a 24-hour grace period to complete in case of any restarts.
+Compared to an open source Airflow environment, an Astro Deployment provides you more flexibility to [fine-tune your Airflow settings](deployment-settings.md) directly from the Cloud UI. Deployments also make your Airflow experience more reliable by providing your tasks with a 24-hour grace period to complete in case of any restarts.
 
 To run DAGs in a Deployment, you first deploy them manually using Astro CLI from your local machine or automatically from your code repository using the Astro CLI. Then, you can open the Airflow UI from the Cloud UI and run your deployed DAGs. See [Run your first DAG](create-first-dag.md) to get started.
 
