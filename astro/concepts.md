@@ -11,7 +11,7 @@ Use this document to learn about key Astro concepts and how they work together o
 
 ## Astro CLI
 
-The [Astro CLI](cli/overview.md) is the primary interface for creating new Airflow projects and deploying them to Astro. You can use the Astro CLI to both test your DAGs locally and manage them on Astro. It is fully open source, and you can use it to run Airflow on your local machine with or without an Astro account.
+The [Astro CLI](cli/overview.md) is the primary interface for creating new Airflow projects and deploying them to Astro. It is fully open source, and you can use it to run Airflow on your local machine with or without an Astro account.
 
 An Airflow project created with the Astro CLI is also known as an _Astro project_. It contains the set of files necessary to run Airflow, including dedicated folders for your DAG files, plugins, and dependencies. See [Run your first DAG](create-first-dag.md) to create your first Astro project.
 
@@ -47,15 +47,11 @@ When more users from your company join Astro, you can assign them [Workspace rol
 
 ### Cluster
 
-A _cluster_ on Astro is a Kubernetes cluster that hosts the infrastructure required to run your Airflow environment, also known as [Deployment](#deployment) in Astro. You must select a cluster to create a Deployment. You can be either choose a _Standard cluster_ or a _Dedicated cluster_ in the cloud of your choice. In both the cases, Astronomer creates and manages the clusters and other necessary infrastructure required to run your Astro Deployments. 
-
-A Standard cluster is a multi-tenant cluster that is shared across many organizations whereas a Dedicated cluster is solely for a single organization. You can choose to use either one or both types of clusters.
-
-You can create multiple dedicated clusters for your organization and manage them from the Astro cloud UI. For all available resources see [Hosted resource reference](resource-reference-hosted.md).
+A _cluster_ on Astro is a Kubernetes cluster that hosts the infrastructure required to run your Airflow environment, also known as [Deployment](#deployment) in Astro. You can either use a pre-configured multi-tenant cluster, known as a standard cluster, or create a cluster for exclusive use by your team, known as a [dedicated cluster](create-dedicated-cluster.md). For both cluster types, Astro creates and manages the clusters, including all necessary infrastructure required to run your Astro Deployments. 
 
 ## Organization
 
-An Astro _Organization_ is the highest level entity in Astro and is created for you when you sign up. An Organization lets you manage all of your users, Deployments, Workspaces, and clusters from a single place in the Cloud UI. To increase security for your company, you can [integrate your Organization with an identity provider (IdP)](configure-idp.md) and [set up SCIM provisioning](set-up-scim-provisioning.md) to have new users automatically join Astro with the correct permissions. 
+An Astro _Organization_ is the highest level entity in Astro and is automatically created when you sign up. An Organization lets you manage all of your users, Deployments, Workspaces, and clusters from a single place in the Cloud UI. To increase security for your company, you can [integrate your Organization with an identity provider (IdP)](configure-idp.md) and [set up SCIM provisioning](set-up-scim-provisioning.md) to have new users automatically join Astro with the correct permissions. 
 
 ## See also
 
