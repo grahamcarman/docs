@@ -95,6 +95,7 @@ module.exports = {
         {
           type: "category",
           label: "Configure a secrets backend",
+          link: { type: 'doc', id: 'secrets-backend' },
           items: ["secrets-backend", 
           "secrets-backend/aws-secretsmanager", 
           "secrets-backend/hashicorp-vault", 
