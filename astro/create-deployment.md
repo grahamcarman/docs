@@ -48,5 +48,5 @@ For more information about possible Deployment health statuses, see [Deployment 
 ## Next steps
 
 - [Deployment settings](deployment-settings.md)
-- [Set environment variables on Astro](environment-variables.md)
+- [Set environment variables on Astro](env-vars-astro.md)
 - [Manage Deployment API keys](api-keys.md)

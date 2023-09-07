@@ -6,11 +6,11 @@ description: Reference documentation for astro deployment variable create.
 hide_table_of_contents: true
 ---
 
-For a given Deployment on Astro, create environment variables in the Astro CLI by supplying either a key and value pair or a file (for example, `.env`) with a list of keys and values. This command is functionally identical to creating an environment variable in the Cloud UI. See [Set Environment Variables on Astro](environment-variables.md).
+For a given Deployment on Astro, create environment variables in the Astro CLI by supplying either a key and value pair or a file (for example, `.env`) with a list of keys and values. This command is functionally identical to creating an environment variable in the Cloud UI. See [Set Environment Variables on Astro](env-vars-astro.md).
 
 ## Usage
 
-```sh
+```shz
 astro deployment variable create <key>=<value>
 ```
 

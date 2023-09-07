@@ -80,7 +80,7 @@ Environment variables set in your `Dockerfile` are stored in plain text. For thi
 
     To view a list of all the environment variables set in your local Airflow environment, refer to the Step 4 of [Using Astro CLI in local Airflow environment](#in-your-local-airflow-environment)
 
-:::tip
+:::info
 
 Environment variables set in your Dockerfile are not visible in the Cloud UI.
 
@@ -162,6 +162,11 @@ When you use Astro CLI commands to add or update environment variabes to your De
 
 To verify if the environment varibles were applied correctly to your Deployment, go to the **Variables** tab of your Deployment in the Cloud UI. 
 
+:::tip
+
+To mark an environment variable as a secret using Astro CLI use the `--secret` flag.
+
+:::
 
 ## See also
 

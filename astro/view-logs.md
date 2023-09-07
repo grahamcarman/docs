@@ -127,7 +127,7 @@ You can forward Airflow task logs from a Deployment to [Datadog](https://www.dat
 #### Setup
 
 1. Create a new Datadog API key or copy an existing API key. See [API and Application Keys](https://docs.datadoghq.com/account_management/api-app-keys/).
-2. Set the following [environment variable](environment-variables.md) on your Deployment:
+2. Set the following [environment variable](env-vars-astro.md) on your Deployment:
 
     - **Key 1**: `DATADOG_API_KEY`
     - **Value 1**: Your Datadog API key.
@@ -146,7 +146,7 @@ You can forward Airflow task logs from a Deployment to [Datadog](https://www.dat
 
   :::
 
-3. (Optional) Set the following [environment variable](environment-variables.md) on your Deployment to send your metrics to a specific [Datadog site](https://docs.datadoghq.com/getting_started/site/):
+3. (Optional) Set the following [environment variable](env-vars-astro.md) on your Deployment to send your metrics to a specific [Datadog site](https://docs.datadoghq.com/getting_started/site/):
 
     - **Key**: `DATADOG_SITE`
     - **Value**: Your Datadog site name. For example, `US3`.

@@ -91,7 +91,6 @@ module.exports = {
         }, 
         "configure-worker-queues",
         "api-keys",
-        // "environment-variables",
         {
           type: "category",
           label: "Environment variables",
@@ -100,7 +99,6 @@ module.exports = {
             title: 'Environment variables on Astro',
             description: 'Manage Environment variables on Astro.'
           },
-          // link: {type: 'doc', id: 'astro/env-var'},
           items: ["env-vars-overview", "env-vars-astro", "env-vars-global"],
         },
         "secrets-backend",
