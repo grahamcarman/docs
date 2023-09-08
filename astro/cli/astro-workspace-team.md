@@ -27,7 +27,7 @@ Add a Team to a Workspace.
 
 #### Usage
 
-`astro workspace team add --workspace-id=<workspace-id> --team-id=<team-id> --role=<workspace_level_role>`
+`astro workspace team add --team-id=<team-id> --role=<workspace_level_role> --workspace-id=<workspace-id>`
 
 You can retrieve a Team's ID in one of two ways:
 
@@ -39,8 +39,8 @@ You can retrieve a Team's ID in one of two ways:
 | Option                   | Description                                      | Possible Values                                                                                                                        |
 | ------------------------ | ------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
 | `--team-id` (_Required_) | The Team's ID                                    | Any valid Team ID                                                                                                                      |
-| `--workspace-id`         | The Workspace ID where you want to add the Team. | Any valid Workspace ID. Default is the current Workspace context you are working in.                                                   |
 | `--role`                 | The Team's role in the Workspace.                | Possible values are `WORKSPACE_MEMBER`, `WORKSPACE_AUTHOR`, `WORKSPACE_OPERATOR`, or `WORKSPACE_OWNER`. Default is `WORKSPACE_MEMBER`. |
+| `--workspace-id`         | The Workspace ID where you want to add the Team. | Any valid Workspace ID. Default is the current Workspace context you are working in.                                                   |
 
 ### astro workspace team list
 
