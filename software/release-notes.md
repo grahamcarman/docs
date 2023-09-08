@@ -19,6 +19,9 @@ Release date: August 3, 2023
 
 Astronomer Software now automatically scales the size of PGBouncer connection pools based on your Airflow component counts and Airflow configuration, instead of solely based on total AU. This improves performance, scalability, and utilization of database connections across all Deployments. 
 
+This feature is off by default. You can enable it by setting  `deployments.pgBouncerResourceCalculationStrategy: airflowStratV2` in your `config.yaml` file. To revert back to previous behavior, set this key to `auStratV1` instead.
+
+
 ### Additional improvements
 
 - You can now disable Airflow and platform alerts on the Prometheus alerts dashboard by setting `prometheus.defaultAlerts.airflow.enabled` and `prometheus.defaultAlerts.airflow.enabled` to `false` in your Prometheus Helm chart. If you disable these alerts, you can still add back specific alerts or configure custom alerts using `prometheus.defaultAlerts.additionalAlerts`. See [Create custom alerts](platform-alerts.md#create-custom-alerts).
