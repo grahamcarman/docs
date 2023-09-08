@@ -11,7 +11,7 @@ Add a Team to your current Workspace and grant it a Workspace role.
 ## Usage
 
 ```sh
-astro workspace team add <team-id>
+astro workspace team add <team-id> <role> <workspace-id>
 ```
 
 To find a Team ID using the Astro CLI, run `astro organization team list`.

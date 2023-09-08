@@ -61,6 +61,50 @@ You can add a Team to multiple Workspaces programmatically using the Astro CLI. 
 
 :::
 
+## Add a Team to multiple Workspaces using the Astro CLI
+
+You can use the Astro CLI and a shell script to add a Team to multiple Workspaces at once. The shell script reads from a text file which contains Team information. You can generate a text file for each Team that needs to be assigned to Workspaces and run the script with the Astro CLI. You must have Organization Owner or Workspace Owner level user access to add Teams to Workspaces.
+
+1. Create a text file named `teams.txt`.
+2. Open the text file. On each line, add a Team ID, the role, and the Workspace ID. The following is an example of how you can write a list for assigning Teams to multiple Workspaces:
+
+    ```text
+    uclk17xqgm124q01hkrgilsr49 WORKSPACE_MEMBER tbkj96wpfl913p90glqfgkrq398
+    uclk17xqgm124q01hkrgilsr49 WORKSPACE_OWNER salk85voek802q89fkpefjqp287
+    uclk17xqgm124q01hkrgilsr49 WORKSPACE_OPERATOR rzkj74undj791p78ejofeipo178
+    vdml28yrhn235r12ilshjmts50 WORKSPACE_OWNER tbkj96wpfl913p90glqfgkrq398
+    ```
+
+3. Create a file named `add-teams.sh` and add the following script to it:
+
+    ```bash
+    #!/bin/bash
+
+    # Check if a file was provided as an argument
+    if [ $# -ne 1 ]; then
+        echo "Usage: $0 <file>"
+        exit 1
+    fi
+    
+    while read line; do
+        team-id=$(echo "$line" | cut -d' ' -f1)
+        role=$(echo "$line" | cut -d' ' -f2)
+        workspace-id=$(echo "$line" | cut -d' ' -f3)
+        echo "Inviting $team to $workspace-id as $role..."
+        astro workspace team add --team-id "$team-id" --role "$role" --workspace-id "$workspace-id
+    done < "$1"
+    ```
+
+4. (Optional) Log in to the Astro CLI using `astro login`, then run `astro workspace list` to ensure that you have access to the Workspaces where you want to add the users. 
+
+5. Run the following command to execute the shell script:
+
+    ```sh
+    sh path/to/add-teams.sh path/to/teams.txt
+    ```
+
+6. (Optional) To use this script as part of a CI/CD pipeline, create an [Organization API token](organization-api-tokens.md) and specify the environment variable `ASTRO_API_TOKEN=<your-token>` in your CI/CD environment.
+
 ## Teams and SCIM provisioning
 
 To preserve a single source of truth for user group management, some Team management actions are limited when you [set up SCIM provisioning](set-up-scim-provisioning.md). Specifically, when you set up SCIM provisioning:
