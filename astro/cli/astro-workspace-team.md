@@ -9,9 +9,9 @@ hide_table_of_contents: true
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-:::info  
+:::info
 
-This command is available only if you're authenticated to an Astronomer Software installation. 
+This command is available only if you're authenticated to an Astronomer Software installation.
 
 :::
 
@@ -27,7 +27,7 @@ Add a Team to a Workspace.
 
 #### Usage
 
-`astro workspace team add --team-id=<team-id> --role=<workspace_level_role>`
+`astro workspace team add --workspace-id=<workspace-id> --team-id=<team-id> --role=<workspace_level_role>`
 
 You can retrieve a Team's ID in one of two ways:
 
@@ -36,10 +36,11 @@ You can retrieve a Team's ID in one of two ways:
 
 #### Options
 
-| Option                        | Description                       | Possible Values                                                                   |
-| ----------------------------- | --------------------------------- | --------------------------------------------------------------------------------- |
-| `--team-id` (_Required_)      | The Team's ID                     | Any valid team ID                                                                 |
-| `--role`                      | The Team's role in the Workspace. | Possible values are `WORKSPACE_MEMBER`, `WORKSPACE_AUTHOR`, `WORKSPACE_OPERATOR`, or `WORKSPACE_OWNER`. Default is `WORKSPACE_MEMBER`. |
+| Option                   | Description                                      | Possible Values                                                                                                                        |
+| ------------------------ | ------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+| `--team-id` (_Required_) | The Team's ID                                    | Any valid Team ID                                                                                                                      |
+| `--workspace-id`         | The Workspace ID where you want to add the Team. | Any valid Workspace ID. Default is the current Workspace context you are working in.                                                   |
+| `--role`                 | The Team's role in the Workspace.                | Possible values are `WORKSPACE_MEMBER`, `WORKSPACE_AUTHOR`, `WORKSPACE_OPERATOR`, or `WORKSPACE_OWNER`. Default is `WORKSPACE_MEMBER`. |
 
 ### astro workspace team list
 
@@ -87,7 +88,7 @@ You can retrieve a Team's ID in one of two ways:
 - Access the Team in the Software UI and copy the last part of the URL in your web browser. For example, if your Team is located at `BASEDOMAIN.astronomer.io/w/cx897fds98csdcsdafasdot8g7/team/cl4iqjamcnmfgigl4852flfgulye`, your Team ID would be `cl4iqjamcnmfgigl4852flfgulye`.
 - Run [`astro workspace team list`](#astro-workspace-team-list) and copy the value in the `ID` column.
 
-#### Related documentation 
+#### Related documentation
 
 - [Import identity provider groups into Astronomer Software](https://docs.astronomer.io/software/import-idp-groups).
 

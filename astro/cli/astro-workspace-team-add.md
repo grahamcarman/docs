@@ -11,18 +11,21 @@ Add a Team to your current Workspace and grant it a Workspace role.
 ## Usage
 
 ```sh
-astro workspace team add <team-id> 
+astro workspace team add <team-id>
 ```
 
 To find a Team ID using the Astro CLI, run `astro organization team list`.
 
 To find a Team ID in the Cloud UI, click your Workspace name in the upper left corner, then click **Organization Settings** > **Access Management** > **Teams**. Search for your Team in the **Teams** table and copy its **ID**. The ID should look something like `clk17xqgm124q01hkrgilsr49`.
 
+To find a Workspace ID using the Astro CLI, run `astro workspace list`.
+
 ## Options
 
-| Option    | Description                                          | Valid Values                                                                                                                           |
-| --------- | ---------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| `--role`  | The Team's role in the Workspace.                    | Possible values are `WORKSPACE_MEMBER`, `WORKSPACE_AUTHOR`, `WORKSPACE_OPERATOR`, or `WORKSPACE_OWNER`. Default is `WORKSPACE_MEMBER`. |
+| Option           | Description                                      | Valid Values                                                                                                                           |
+| ---------------- | ------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+| `--role`         | The Team's role in the Workspace.                | Possible values are `WORKSPACE_MEMBER`, `WORKSPACE_AUTHOR`, `WORKSPACE_OPERATOR`, or `WORKSPACE_OWNER`. Default is `WORKSPACE_MEMBER`. |
+| `--workspace-id` | The Workspace ID where you want to add the Team. | Any valid Workspace ID. Default is the current Workspace context you are working in.                                                   |
 
 ## Related commands
 
