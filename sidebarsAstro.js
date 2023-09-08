@@ -235,7 +235,13 @@ module.exports = {
       type: "category",
       label: "API reference",
       items: [
+        "api/api-overview",
+        "api/get-started",
+        "api/versioning-and-support",
         "api/api-reference",
+        "api/iam-api-reference",
+        "api/platform-api-reference",
+        "api/changelog",
       ],
     },
     {
