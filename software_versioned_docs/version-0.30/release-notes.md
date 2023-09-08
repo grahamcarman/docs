@@ -7,8 +7,84 @@ description: Astronomer Software release notes.
 
 This document contains release notes for each version of Astronomer Software.
 
+<<<<<<< HEAD
+This page contains release notes for all recent Astronomer Software versions. 
+
+0.33 is the latest stable version of Astronomer Software, while 0.32 remains the latest long-term support (LTS) release. To upgrade to 0.33, see [Upgrade Astronomer](upgrade-astronomer.md). For more information about Software release channels, see [Release and lifecycle policies](release-lifecycle-policy.md). To read release notes specifically for the Astro CLI, see [Astro CLI release notes](https://docs.astronomer.io/astro/cli/release-notes).
+
+## 0.33.0
+
+Release date: August 3, 2023
+
+### Automatic PGBouncer connection scaling
+
+Astronomer Software now automatically scales the size of PGBouncer connection pools based on your Airflow component counts and Airflow configuration, instead of solely based on total AU. This improves performance, scalability, and utilization of database connections across all Deployments. 
+
+### Additional improvements
+
+- You can now disable Airflow and platform alerts on the Prometheus alerts dashboard by setting `prometheus.defaultAlerts.airflow.enabled` and `prometheus.defaultAlerts.airflow.enabled` to `false` in your Prometheus Helm chart. If you disable these alerts, you can still add back specific alerts or configure custom alerts using `prometheus.defaultAlerts.additionalAlerts`. See [Create custom alerts](platform-alerts.md#create-custom-alerts).
+- Added support for [Kubernetes 1.27](https://kubernetes.io/blog/2023/04/11/kubernetes-v1-27-release/).
+- The Workspace **Deployments** page is now paginated in the Astronomer UI.
+- The **Extra Capacity** field in the Astronomer UI now shows up to 6 digits of AU.
+- You no longer have to set `elasticsearch.curator.age.timestring` when you configure a custom indexing pattern for [Vector logging sidecars](export-task-logs.md#export-logs-using-container-sidecars). The only required value is now `astronomer.houston.config.deployments.helm.loggingSidecar.indexPattern`.
+- When you create or update a Deployment and select a Runtime version, the Astronomer UI now shows only the latest supported Astro Runtime patch for each supported Astro Runtime major version.
+- You can now set `deployments.canUpsertDeploymentFromUI: false` to prevent all users besides System Admins from updating Deployments and environment variables through the Astronomer UI.
+- You can now [overprovision](https://docs.astronomer.io/software/cluster-resource-provisioning) the `triggerer-log-groomer` component.
+
+### Bug fixes
+
+- Fixed an issue where a Deployment using Runtime 8 or earlier with the Celery executor would show as healthy in the Software UI even when workers were unavailable.
+- Fixed an issue where Grafana could not start up on an OpenShift cluster.
+- Fixed an issue where configurations in `astronomer.houston.config.deployments.components` applied only to Deployments that were created after the configuration was set. 
+- Fixed an issue where a Workspace-level service account would improperly inherit lesser permissions for Deployments it was added to.
+- The Astronomer UI now shows an error if you click the **Delete** button for Teams and you don't have the `system.teams.remove` permission.
+- Fixed an issue where you couldn't upgrade a Deployment's Airflow version if the Deployment used git-sync deploys and had default resources.
+- Fixed an issue where you could get a 500 internal server error from the Airflow UI when switching between pages for a DAG.
+- Fixed an issue where you couldn't set `properties.email` using the `upsertDeployment` mutation.
+- Fixed an issue where the Astronomer UI would not show the right error screen when a user without the appropriate permissions viewed service accounts. 
+- Fixed the following vulnerabilities:
+
+    - [CVE-2023-35945](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-35945)
+    - [CVE-2023-37920](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-37920)
+    - [CVE-2023-2253](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-2253)
+    - [CVE-2023-39417](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-39417)
+    - [CVE-2023-37920](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-37920)
+    - [CVE-2023-35945](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-35945)
+    - [CVE-2023-35945](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-35945)
+
+## 0.32.3
+
+Release date: August 31, 2023
+
+### Additional improvements
+
+- You can now disable Airflow and platform alerts on the Prometheus alerts dashboard by setting `Values.defaultAlerts.airflow.enabled` and `prometheus.defaultAlerts.platform.enabled` to `false` in your Prometheus Helm chart. If you disable these alerts, you can still add back specific alerts or configure custom alerts using `prometheus.defaultAlerts.additionalAlerts`. See [Create custom alerts](platform-alerts.md#create-custom-alerts).
+- You no longer have to set `elasticsearch.curator.age.timestring` when you configure a custom indexing pattern for [Vector logging sidecars](export-task-logs.md#export-logs-using-container-sidecars). The only required value is now `global.loggingSidecar.indexPattern`.
+- You can now configure a service account specifically for your image registry using by setting `astronomer.registry.serviceaccount` in your `config.yaml` file.
+- You can now [overprovision](https://docs.astronomer.io/software/cluster-resource-provisioning) the `triggerer-log-groomer` component.
+- You can now set `astronomer.houston.enableHoustonInternalAuthorization` in your `config.yaml` file to redirect all authorization requests from the ingress controller to the Houston API internal service endpoint. This can increase performance and decrease network latency.
+- Upgraded ElasticSearch to 8.x.
+
+### Bug fixes
+
+- Fixed an issue where Helm changes to statsd Pod resources would apply only to new Deployments.
+- Fixed an issue where Grafana could not start up on an OpenShift cluster.
+- Fixed an issue where a Deployment using Runtime 8 or earlier with the Celery executor would show as healthy in the Software UI even when workers were unavailable.
+- Fixed an issue where a System Admin user that did not belong to a Team could delete the Team from the Software UI.
+- Fixed an issue where syncing an IdP group from Okta failed when SCIM was enabled and a user account was removed only from Astronomer Software.
+- Fixed an issue where you couldn't upgrade a Deployment's Airflow version if the Deployment used git-sync deploys and had default resources.
+- Fixed an issue where the user login process would be unresponsive if the Houston API failed to retrieve IdP group information from Azure.
+- Fixed the following vulnerabilities:
+
+    - [CVE-2023-37920](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-37920)
+    - [CVE-2023-35945](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-35945)
+    - [CVE-2023-36665](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-36665)
+    - [CVE-2023-2650](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-2650)
+
+=======
 0.32 is the latest long-term support (LTS) release for Astronomer Software. To upgrade to 0.32, see [Upgrade Astronomer](upgrade-astronomer.md). For more information about Software release channels and currently maintained versions of Astronomer Software, see [Release and lifecycle policies](release-lifecycle-policy.md). To read release notes specifically for the Astro CLI, see [Astro CLI release notes](https://docs.astronomer.io/astro/cli/release-notes).
 
+>>>>>>> 7445f7da6bea8a52d8659a1e93f8c74a4886dd1b
 ## 0.32.2
 
 Release date: June 23, 2023
@@ -24,7 +100,11 @@ Release date: June 12, 2023
 
 ### Additional improvements
 
+<<<<<<< HEAD
+- [Overprovisioning](https://docs.astronomer.io/software/cluster-resource-provisioningd) now also applies to the following components:
+=======
 - [Overprovisioning](https://docs.astronomer.io/software/cluster-resource-provisioning) now also applies to the following components:
+>>>>>>> 7445f7da6bea8a52d8659a1e93f8c74a4886dd1b
 
     - PGBouncer
     - Statsd
@@ -819,4 +899,8 @@ The flag prints out different levels of logs depending on the value that you pas
 - Fixed an issue where you could not update an existing Deployment's IAM role via the Astronomer CLI
 - Fixed an issue where Deployments would not work on clusters with custom domains
 - Fixed error handling when interacting with a Deployment that wasn't fully spun up
+<<<<<<< HEAD
 - Added a new validation step for Airflow Helm chart values configured in the `astronomer.houston.config.deployments.helm.airflow` section of `config.yaml`
+=======
+- Added a new validation step for Airflow Helm chart values configured in the `astronomer.houston.config.deployments.helm.airflow` section of `config.yaml`
+>>>>>>> 7445f7da6bea8a52d8659a1e93f8c74a4886dd1b
