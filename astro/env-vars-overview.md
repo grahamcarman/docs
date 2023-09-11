@@ -15,7 +15,7 @@ To configure custom environment variables for your Deployment, some examples inc
 - Integrate with Datadog or other third-party tooling to [export Deployment metrics](deployment-metrics.md#export-airflow-metrics-to-datadog).
 
 To customize core settings of Airflow or any of its pre-installed providers, some examples are:
-- Change the import timeout of DAGBAG using `AIRFLOW__CORE__DAGBAG_IMPORT_TIMEOUT`. See all [core settings of Airflow](https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html) that can be customized.
+- Change the import timeout of DAGBag using `AIRFLOW__CORE__DAGBAG_IMPORT_TIMEOUT`. See all [core settings of Airflow](https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html) that can be customized.
 - Set up an SMTP service to receive [Airflow alerts](airflow-email-notifications.md) by email.
 
 You can also use environment variables to store [Airflow connections](https://docs.astronomer.io/learn/connections#define-connections-with-environment-variables) and [variables](https://docs.astronomer.io/learn/airflow-variables#using-environment-variables).

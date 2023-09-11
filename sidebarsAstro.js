@@ -95,9 +95,8 @@ module.exports = {
           type: "category",
           label: "Environment variables",
           link: {
-            type: 'generated-index',
-            title: 'Environment variables on Astro',
-            description: 'Manage Environment variables on Astro.'
+            type: 'doc',
+            id: 'env-vars-overview'
           },
           items: ["env-vars-overview", "env-vars-astro", "env-vars-global"],
         },
