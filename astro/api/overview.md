@@ -43,4 +43,13 @@ Astro supports different levels of [idempotency](https://en.wikipedia.org/wiki/I
 - **`DELETE` requests**: Idempotency is guaranteed for all `DELETE` requests. Any successive identical `DELETE` requests return a 404 error.
 
 
+## API status codes
 
+If the API returns a `200` code, your API request was a success. If the API returns a `40x` or `500` code, your request resulted in one of the following errors:
+
+- `400`: **Bad Request** - Your request was not successful because it was not formatted properly, possibly due to missing required parameters. 
+- `401`: **Unauthorized** - Your request did not include an API token. 
+- `403`: **Forbidden** - The API token you included did not have sufficient permissions to complete the request.
+- `500`: **Internal sever error** - The request could not be completed because of an error caused by Astro.
+
+All error responses include a `requestId` that you can share with Astronomer support if you want to learn more about the error. 

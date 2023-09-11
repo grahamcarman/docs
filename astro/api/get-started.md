@@ -9,19 +9,59 @@ In this quickstart tutorial, you'll make some simple requests to retrieve and mo
 ## Prerequisites
 
 - An [Astro account](log-in-to-astro.md). 
-- A Workspace API token with the Workspace Owner role. Astronomer recommends creating a new API token for this tutorial. 
+- A Organization API token with the Organization Owner role. Astronomer recommends creating a new API token for this tutorial. 
 - A method for making API requests. This tutorial assumes you're using curl, but you can also use tools such as Postman.
 
 ## Step 1: Make your first API request
 
-To access most endpoints, you need to provide an Organization ID to the API as a path parameter.
+To access most endpoints, you need to provide an Organization ID to the API as a path parameter. One of the few requests that doesn't require an Organization ID is the "List Organizations" request, meaning you can programmatically retrieve an Organization ID for other API request types. 
 
-To retrieve your Organization ID:
+To retrieve the Organization ID through the API, run the following command:
 
-1. Click the name of your Workspace in the upper left corner, then click **Organization Settings**.
-2. On the **General** page, copy your **Organization ID**.
+```bash
+curl https://api.astronomer-dev.io/v1alpha1/organizations \
+--H 'Authorization: Bearer <your-api-token>' \
+```
 
-Alternatively, you can retrieve this value from the command line by running `astro organization list`.
+If the command was successful, you'll receive a response that begins similarly to the following:
+
+```json {28}
+[
+  {
+    "authServiceId": "string",
+    "billingEmail": "string",
+    "createdAt": "2019-08-24T14:15:22Z",
+    "createdBy": "string",
+    "createdBySubject": {
+      "apiTokenName": "string",
+      "avatarUrl": "string",
+      "fullName": "string",
+      "id": "string",
+      "subjectType": "USER",
+      "username": "string"
+    },
+    "domains": [
+      "string"
+    ],
+    "entitlements": {
+      "property1": {
+        "enabled": true,
+        "requiredTier": "TRIAL"
+      },
+      "property2": {
+        "enabled": true,
+        "requiredTier": "TRIAL"
+      }
+    },
+    "id": "string",
+    ...
+  }
+]
+```
+
+Copy the value for `id` from this response. While you could have retrieved this value manually from the Cloud UI, using the API lets you script this workflow and execute it on a regular basis.
+
+## Step 2: Request more information from the API
 
 Using the Organization ID you copied, send the following request.
 
@@ -69,14 +109,11 @@ If the command was successful, you'll receive a response similar to the followin
       },
       "userCount": 0
     }
-    {
-        
-    }
   ]
 }
 ```
 
-Copy the `workspace.id` for the next step. While you could have retrieved this value manually from the Cloud UI, using the API lets you script this workflow and execute it on a regular basis.
+Copy the `workspace.id` for the next step. 
 
 :::tip
 
@@ -91,7 +128,7 @@ Query parameters like `search` are useful for limiting the results that the API 
 
 :::
 
-## Step 2: Make a request to update your API token description
+## Step 2: Update your token description using the API
 
 Now that you have both an Organization ID and a Workspace ID, you can update your API token description and check your changes in the Cloud UI. 
 
