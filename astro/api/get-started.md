@@ -128,7 +128,7 @@ Query parameters like `search` are useful for limiting the results that the API 
 
 :::
 
-## Step 2: Update your token description using the API
+## Step 3: Update your token description using the API
 
 Now that you have both an Organization ID and a Workspace ID, you can update your API token description and check your changes in the Cloud UI. 
 
