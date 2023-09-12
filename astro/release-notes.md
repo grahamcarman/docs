@@ -1244,7 +1244,7 @@ To better scale concurrent task runs, Astro now dynamically calculates [`paralle
 
 A Deployment's `parallelism` is now equal to the current number of workers multiplied by the [`worker_concurrency`](https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html#worker-concurrency) value. This change ensures that your task runs won't be limited by a static parallelism limit as workers autoscale in your Deployment. See [Worker Autoscaling Logic](celery-executor.md#celery-worker-autoscaling-logic) for more information.
 
-Note that you can still use a static `parallelism` value by setting `AIRFLOW__CORE__PARALLELISM` as an [environment variable](https://docs.astronomer.io/astro/category/environment-variables.md).
+Note that you can still use a static `parallelism` value by setting `AIRFLOW__CORE__PARALLELISM` as an [environment variable](env-vars-overview.md).
 
 ### Bug Fixes
 
@@ -1696,7 +1696,7 @@ You can now set secret environment variables via the Cloud UI. The values of sec
 
 ![Secrets checkbox available in the Cloud UI](/img/release-notes/secrets-feature.png)
 
-For more information, read [Set environment variables via the Cloud UI](environment-variables.md#set-environment-variables-via-the-astro-ui).
+For more information, read [Set environment variables via the Cloud UI](env-vars-astro.md#using-the-cloud-ui).
 
 ### Additional improvements
 

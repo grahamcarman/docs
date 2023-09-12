@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Manage environment variables'
+sidebar_label: 'Edit environment variables'
 title: 'Manage environment variables on Astro'
 id: env-vars-astro
 description: Learn how to manage environment variables on Astro
@@ -15,7 +15,7 @@ On Astro, you can add, edit, update, or delete environment variables in three di
     - Your Astro project's `.env` file
     - Using Astro CLI commands `astro deployment variable create` and `astro deployment variable update`
 
-The method you choose depends on your [specific use case](/astro/env-vars-overview#choose-the-strategy-to-manage-environment-variables). 
+The method you choose depends on your [specific use case](env-vars-overview.md#choose-the-strategy-to-manage-environment-variables). 
 
 Use this document to understand how to use these methods to create environment variables on Astro.
 
@@ -33,7 +33,7 @@ Use this document to understand how to use these methods to create environment v
 
 6. Click **Save Variables** to save your changes. Your Airflow scheduler, webserver, and workers restart. After saving, it can take up to two minutes for new variables to be applied to your Deployment.
 
-### Edit existing values
+### Edit or delete existing values
 
 After you set an environment variable key, only the environment variable value can be modified. While you can modify environment variables that are set as secret, however, the secret variable value is never shown. When you modify a secret environment variable, you'll be prompted to enter a new value.
 
@@ -41,15 +41,13 @@ After you set an environment variable key, only the environment variable value c
 
 2. Click the **Variables** tab.
 
-3. Click **Edit Variables**.
+3. Click **Edit Variables**. 
 
-4. Click **Edit value** next to the value you want to edit.
+4. Click the pencil icon next to the value you want to edit, modify the variable's value, then click on the tick-mark to complete editing.
 
     ![Edit value location](/img/docs/variable-pencil.png)
 
-5. Modify the variable's value, then click **Done editing**.
-
-    ![Done editing location](/img/docs/variable-checkmark.png)
+5. (Optional) To delete a variable, click on the bin icon next to the variable.
 
 6. Click **Save Variables** to save your changes. Your Airflow scheduler, webserver, and workers restart. After saving, it can take up to two minutes for updated variables to be applied to your Deployment.
 
@@ -78,6 +76,8 @@ Environment variables set in your `Dockerfile` are stored in plain text. For thi
 4. (Optional) To verify if the environment variables are applied correctly to Astro Deployment or your local Airflow environment, you can use `os.getenv("AIRFLOW_VAR_MY_VAR")` inside of Airflow DAGs and tasks.
 
     To view a list of all the environment variables set in your local Airflow environment, refer to the Step 4 of [Using Astro CLI in local Airflow environment](#in-your-local-airflow-environment)
+
+To delete an environment variable from your Astro Runtime image, just remove or comment the line in your `Dockerfile` that defines it.
 
 :::info
 
@@ -157,9 +157,9 @@ Note that when you use `.env` file to add or update environment variables, it wi
 
 :::
 
-When you use Astro CLI commands to add or update environment variabes to your Deployment, your Deployment is automatically restarted to apply the environment variables. 
+When you use Astro CLI commands to add or update environment variabes to your Deployment, your Deployment is automatically restarted to apply the environment variables. To verify if the environment varibles were applied correctly to your Deployment, go to the **Variables** tab of your Deployment in the Cloud UI. 
 
-To verify if the environment varibles were applied correctly to your Deployment, go to the **Variables** tab of your Deployment in the Cloud UI. 
+You cannot delete an environment variable using the Astro CLI. You either need to use the Cloud UI or use the `.env` file to only include the required environment variables.
 
 :::tip
 

@@ -208,4 +208,4 @@ WARNING: The requested image's platform (linux/amd64) does not match the detecte
 
 - [Choose a CI/CD Strategy for deploying code to Astro](set-up-ci-cd.md)
 - [Develop your project](develop-project.md)
-- [Set environment variables](https://docs.astronomer.io/astro/category/environment-variables.md)
+- [Set environment variables](env-vars-overview.md)

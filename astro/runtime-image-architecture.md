@@ -48,6 +48,12 @@ This table lists Astro Runtime releases and their associated Apache Airflow vers
 
 For version compatibility information, see the [Runtime release notes](runtime-release-notes.md).
 
+## Default environment variables
+
+Airflow environment variables are used to set different default values for Astro Runtime for enhanced performance. You can override the values of these variables for specific use cases. To view a list of these variables and their default values, refer to [Astro Runtime environment variables](platform-variables.md#default-runtime-environment-variables).
+
+To edit the values of the Airflow environment variables, see [Set environment variables on Astro](env-vars-overview.md).
+
 ## Astro monitoring DAG (Hybrid only)
 
 Astro Runtime includes a monitoring DAG that is pre-installed in the Docker image and enabled for all Deployments on Astro Hybrid. In addition to generating Deployment health and metrics functionality, this DAG allows the Astronomer team to monitor the health of your data plane by enabling real-time visibility into whether your workers are healthy and tasks are running.

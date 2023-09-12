@@ -7,7 +7,7 @@ description: A list of environment variables that are set globally on Astro and 
 
 This document is a reference for all environment variables on Astronomer with different default values than open source Apache Airflow. You can override [default Runtime environment variables](#default-runtime-environment-variables), but you can't override [system environment variables](#system-environment-variables).
 
-For information on setting your own environment variables, see [Environment variables](environment-variables.md).
+For information on setting your own environment variables, see [Environment variables](env-vars-astro.md).
 
 ## System environment variables
 
@@ -61,4 +61,11 @@ If you need to set one of these variables for a particular use case, contact [As
 
 ## Default Runtime environment variables
 
-Astro Runtime images include baked-in environment variables that have different default values than on Apache Airflow. See [Astro Runtime image architecture](runtime-image-architecture.md) for a complete list of variables and values.
+Astro Runtime images include environment variables that have different default values than on Apache Airflow. The following table shows a list of these variables and their values, which you can override for specific use cases. To edit the values of the default Airflow environment variables, see [Set environment variables on Astro](env-vars-astro.md).
+
+| Environment Variable                                            | Description                                                                                                                                                                                 | Value                                                                        |
+| --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `AIRFLOW__SCHEDULER__DAG_DIR_LIST_INTERVAL`                     | The time in seconds that Airflow waits before re-scanning the `dags` directory for new files. Note that this environment variable is set for all Deployments regardless of Runtime version. | `30`                                                                         |
+| `AIRFLOW__CELERY__STALLED_TASK_TIMEOUT`                         | The maximum time in seconds that tasks running with the Celery executor can remain in a `queued` state before they are automatically rescheduled.                                           | `600`                                                                        |
+| `AIRFLOW_CORE_PARALLELISM`                                      | The maximum number of task instances that can run concurrently for each scheduler in your Deployment.                                                                                       | `[number-of-running-workers-for-all-worker-queues] * [max-tasks-per-worker]` |
+| `AIRFLOW__KUBERNETES_EXECUTOR__WORKER_PODS_CREATION_BATCH_SIZE` | The number of worker Pods that can be created each time the scheduler parses DAGs. This setting limits the number of tasks that can be scheduled at one time.                               | `16`                                                                         |

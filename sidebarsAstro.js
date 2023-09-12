@@ -98,7 +98,7 @@ module.exports = {
             type: 'doc',
             id: 'env-vars-overview'
           },
-          items: ["env-vars-overview", "env-vars-astro", "env-vars-global"],
+          items: ["env-vars-overview", "env-vars-astro"],
         },
         "secrets-backend",
         "manage-dags", 

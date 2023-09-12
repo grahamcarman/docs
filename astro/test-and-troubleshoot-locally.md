@@ -168,7 +168,7 @@ The Astro CLI uses a default set of [Docker Compose](https://docs.docker.com/com
 
 :::info
 
-The Astro CLI does not support overrides to environment variables that are required globally. For the list of environment variables that Astro enforces, see [Global environment variables](platform-variables.md). To learn more about environment variables, read [Environment variables](https://docs.astronomer.io/astro/category/environment-variables.md).
+The Astro CLI does not support overrides to environment variables that are required globally. For the list of environment variables that Astro enforces, see [Global environment variables](platform-variables.md). To learn more about environment variables, read [Environment variables](env-vars-overview.md).
 
 :::
 

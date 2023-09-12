@@ -480,7 +480,7 @@ By default, this setup requires that you prefix any secret names in Key Vault wi
     astro deployment variable create --deployment-id <your-deployment-id> --load --env .env
     ```
     
-    In the Cloud UI, mark `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET`, and `AIRFLOW__SECRETS__BACKEND_KWARGS` as **Secret**. See [Set environment variables in the Cloud UI](environment-variables.md#set-environment-variables-in-the-cloud-ui).
+    In the Cloud UI, mark `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET`, and `AIRFLOW__SECRETS__BACKEND_KWARGS` as **Secret**. See [Set environment variables in the Cloud UI](env-vars-astro.md#using-the-cloud-ui).
   
 2. Run the following command to push your updated `requirements.txt` file to Astro:
   
