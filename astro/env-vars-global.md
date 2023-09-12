@@ -61,7 +61,7 @@ If you need to set one of these variables for a particular use case, contact [As
 
 ## Default Runtime environment variables
 
-Astro Runtime images include environment variables that have different default values than on Apache Airflow. The following table lists these Airflow environment variables that have different default values on Astro Runtime. You can override the values of these variables for specific use cases. To edit the values of the default Airflow environment variables, see [Set environment variables on Astro](env-vars-astro.md).
+Astro Runtime images include environment variables that have different default values than on Apache Airflow. The following table shows a list of these variables and their values, which you can override for specific use cases. To edit the values of the default Airflow environment variables, see [Set environment variables on Astro](env-vars-astro.md).
 
 | Environment Variable                                            | Description                                                                                                                                                                                 | Value                                                                        |
 | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
