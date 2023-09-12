@@ -7,7 +7,7 @@ description: Learn how to manage environment variables on Astro
 
 import {siteVariables} from '@site/src/versions';
 
-On Astro, you can manage environment variable in three different ways for your Deployment:
+On Astro, you can add, edit, update, or delete environment variables in three different ways for your Deployment:
 
 - Your Deployment's **Variable** tab in the Cloud UI
 - Your Astro project's `Dockerfile` during deploy
