@@ -35,7 +35,9 @@ Add a Team to a Workspace.
 
 #### Usage
 
-`astro workspace team add --team-id=<team-id> --role=<workspace_level_role> --workspace-id=<workspace-id>`
+```sh
+astro workspace team add --team-id=<team-id> --role=<workspace_level_role> --workspace-id=<workspace-id>
+```
 
 You can retrieve a Team's ID in one of two ways:
 
@@ -123,7 +125,9 @@ Add a Team to a Workspace.
 
 #### Usage
 
-`astro workspace team add --team-id=<team-id> --role=<workspace_level_role> --workspace-id=<workspace-id>`
+```sh
+astro workspace team add --team-id=<team-id> --role=<workspace_level_role> --workspace-id=<workspace-id>
+```
 
 You can retrieve a Team's ID in one of two ways:
 
