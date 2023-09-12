@@ -59,7 +59,7 @@ If you want to store environment variables with an external version control tool
 
 :::caution
 
-Environment variables set in your `Dockerfile` are stored in plain text. For this reason, Astronomer recommends storing sensitive environment variables using the Cloud UI or a third party secrets backend. For more information, see [Configure a secrets backend](secrets-backend.md).
+Environment variables set in your `Dockerfile` are stored in plain text. For this reason, Astronomer recommends storing sensitive environment variables using the Cloud UI or a third-party secrets backend. For more information, see [Configure a secrets backend](secrets-backend.md).
 
 :::
 
