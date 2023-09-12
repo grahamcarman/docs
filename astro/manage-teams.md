@@ -87,11 +87,11 @@ You can use the Astro CLI and a shell script to add a Team to multiple Workspace
     fi
     
     while read line; do
-        team-id=$(echo "$line" | cut -d' ' -f1)
+        team_id=$(echo "$line" | cut -d' ' -f1)
         role=$(echo "$line" | cut -d' ' -f2)
-        workspace-id=$(echo "$line" | cut -d' ' -f3)
-        echo "Inviting $team to $workspace-id as $role..."
-        astro workspace team add --team-id "$team-id" --role "$role" --workspace-id "$workspace-id
+        workspace_id=$(echo "$line" | cut -d' ' -f3)
+        echo "Inviting ${team_id} to ${workspace_id} as $role..."
+        astro workspace team add "$team_id" --role "$role" --workspace-id "$workspace_id
     done < "$1"
     ```
 
