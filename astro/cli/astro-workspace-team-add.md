@@ -24,11 +24,11 @@ If you want to add a team to the current Workspace with the default role of Work
 
 ## Options
 
-| Option           | Description                                      | Valid Values                                                                                                                           |
-| ---------------- | ------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
-| <team-id>             | Specifies the Team ID to add to a Workspace and bypasses the Team selection prompt | Any valid Team ID |
-| `-r`, `--role`         | The Team's role in the Workspace.                | Possible values are `WORKSPACE_MEMBER`, `WORKSPACE_AUTHOR`, `WORKSPACE_OPERATOR`, or `WORKSPACE_OWNER`. Default is `WORKSPACE_MEMBER`. |
-| `--workspace-id` | The Workspace ID where you want to add the Team. | Any valid Workspace ID. Default is the current Workspace context you are working in.                                                   |
+| Option           | Description                                                                         | Valid Values                                                                                                                           |
+| ---------------- | ----------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| `--team-id`      | Specifies the Team ID to add to a Workspace and bypasses the Team selection prompt. | Any valid Team ID.                                                                                                                     |
+| `-r`, `--role`   | The Team's role in the Workspace.                                                   | Possible values are `WORKSPACE_MEMBER`, `WORKSPACE_AUTHOR`, `WORKSPACE_OPERATOR`, or `WORKSPACE_OWNER`. Default is `WORKSPACE_MEMBER`. |
+| `--workspace-id` | The Workspace ID where you want to add the Team.                                    | Any valid Workspace ID. Default is the current Workspace context you are working in.                                                   |
 
 ## Related commands
 
