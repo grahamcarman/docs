@@ -12,7 +12,13 @@ Astronomer Software includes access to a Docker image registry that is managed b
 
 Using the Astronomer registry is recommended when you're getting started and your team is comfortable deploying code. However, the Astronomer registry might not meet your organization's security requirements.
 
-If your organization can't support the Astronomer default internal registry, you can configure a custom container image registry. This option is best suited for organizations who require additional control for security and governance reasons. Using a custom registry provides your organization with the opportunity to scan images for CVEs, malicious code, and unapproved Python and OS-level packages contained in Docker images.
+If your organization can't support the Astronomer default internal registry, you can configure a custom container image registry. This option is best suited for organizations who require additional control for security and governance reasons. Using a custom registry provides your organization with the opportunity to scan images for CVEs, malicious code, and unapproved Python and OS-level packages contained in Docker images. However, a custom registry can still connect to public networks or internet.
+
+:::info
+
+Because these directions allow you to create a custom-managed registry for your Astronomer images, this procedure is different from preparing for installing Astronomer in an airgapped environment. If you need to install Astronomer Software in a system that cannot connect to the public networks or internet, see [Install Astronomer in an airgapped environment](install-airgapped.md).
+
+:::
 
 ## Implementation considerations
 
