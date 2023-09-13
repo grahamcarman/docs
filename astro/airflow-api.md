@@ -106,34 +106,6 @@ To make a request based on Airflow documentation, make sure to:
 - Use the Astro access token from Step 1 for authentication.
 - Replace `airflow.apache.org` with your Deployment URL from Step 1.
 
-## Step 4: (Optionally) Make an HTTP Airflow Connection
-
-You can create a connection in Airflow to use Airflow Operators such as the [SimpleHttpOperator](https://registry.astronomer.io/providers/apache-airflow-providers-http/versions/latest/modules/SimpleHttpOperator) to execute calls against Airflows API.
-
-  :::info
-
-  If the `HTTP` connection type is not available, double-check that the [HTTP provider](https://registry.astronomer.io/providers/apache-airflow-providers-http/versions/latest) is installed in your Airflow environment. If not, add `apache-airflow-providers-http` to your `requirements.txt`. 
-  It is also possible to add it with [`astro registry provider add http`](https://docs.astronomer.io/astro/cli/astro-registry-provider-add)
-
-  :::
-
-
-To create an [HTTP Airflow Connection](https://airflow.apache.org/docs/apache-airflow-providers-http/4.5.1/connections/http.html), follow these steps:
-
-1. In the Airflow UI, navigate to `Admin > Connections`. Hit the `+` button to add a new connection.
-2. Define your connection as follow:
-    - Connection Id: Pick a name for your connection - operators will refer to this name
-    - Connection Type: HTTP
-    - Host: `<your-deployment-url>`
-    - Schema: https
-    - Extras: 
-    ```json
-    {
-        "Content-Type": "application/json",
-        "Authorization": "Bearer <your-access-token>"
-    }
-    ```
-
 ## Example API Requests
 
 The following are common examples of Airflow REST API requests that you can run against a Deployment on Astro.
@@ -283,12 +255,41 @@ This topic has guidelines on how to trigger a DAG run, but you can modify the ex
 
 1. Create an access token, as described in Step 1 of this document.
 
-2. On the triggering Deployment, create an Airflow connection as described in Step 4. See [Set environment variables on Astro](environment-variables.md) if you want to create this connection as an Astro Deployment Variable instead.
 
-3. In your DAG, add a task using the `SimpleHttpOperator`, and use the Airflow Connection ID from Step 4 to make a request to the `dagRuns` endpoint of the Airflow REST API. For example:
+2. On the triggering Deployment, create an Airflow HTTP Connection. See [Set environment variables on Astro](environment-variables.md) if you want to create this connection as an Astro Deployment Variable instead.
 
-    ````python
+  :::info
+
+  If the `HTTP` connection type is not available, double-check that the [HTTP provider](https://registry.astronomer.io/providers/apache-airflow-providers-http/versions/latest) is installed in your Airflow environment. If not, add `apache-airflow-providers-http` to your `requirements.txt`. 
+  It is also possible to add it with [`astro registry provider add http`](https://docs.astronomer.io/astro/cli/astro-registry-provider-add)
+
+  :::
+
+
+To create an [HTTP Airflow Connection](https://airflow.apache.org/docs/apache-airflow-providers-http/4.5.1/connections/http.html), follow these steps:
+
+    1. In the Airflow UI, navigate to `Admin > Connections`. Hit the `+` button to add a new connection.
+    2. Define your connection as follow:
+        - Connection Id: Pick a name for your connection - operators will refer to this name
+        - Connection Type: HTTP
+        - Host: `<your-deployment-url>`
+        - Schema: https
+        - Extras: 
+        ```json
+        {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer <your-access-token>"
+        }
+        ```
+
+
+
+3. In your DAG, add a task using the [SimpleHttpOperator](https://registry.astronomer.io/providers/apache-airflow-providers-http/versions/latest/modules/SimpleHttpOperator) to execute calls against Airflows API. We will use the Airflow Connection ID from the previous step to make a request to the `dagRuns` endpoint of the Airflow REST API. For example:
+
+    ```python
     from datetime import datetime
+    from airflow import DAG
+    from airflow.providers.http.operators.http import SimpleHttpOperator
 
     with DAG(dag_id="triggering_dag", schedule=None, start_date=datetime(2023, 1, 1)):
         SimpleHttpOperator(
