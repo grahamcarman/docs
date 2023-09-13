@@ -112,7 +112,7 @@ You can create a connection in Airflow to use Airflow Operators such as the [Sim
 
   :::info
 
-  If the `HTTP` connection type is not available, double check that the [HTTP provider](https://registry.astronomer.io/providers/apache-airflow-providers-http/versions/latest) is installed in your Airflow environment. Ensure that `apache-airflow-providers-http` is listed in your `requirements.txt`. 
+  If the `HTTP` connection type is not available, double-check that the [HTTP provider](https://registry.astronomer.io/providers/apache-airflow-providers-http/versions/latest) is installed in your Airflow environment. If not, add `apache-airflow-providers-http` to your `requirements.txt`. 
   If it is not you can add it manually to the file or with [`astro registry provider add http`](https://docs.astronomer.io/astro/cli/astro-registry-provider-add)
 
   :::
