@@ -113,15 +113,15 @@ You can create a connection in Airflow to use Airflow Operators such as the [Sim
   :::info
 
   If the `HTTP` connection type is not available, double-check that the [HTTP provider](https://registry.astronomer.io/providers/apache-airflow-providers-http/versions/latest) is installed in your Airflow environment. If not, add `apache-airflow-providers-http` to your `requirements.txt`. 
-  If it is not you can add it manually to the file or with [`astro registry provider add http`](https://docs.astronomer.io/astro/cli/astro-registry-provider-add)
+  It is also possible to add it with [`astro registry provider add http`](https://docs.astronomer.io/astro/cli/astro-registry-provider-add)
 
   :::
 
 
 To create an [HTTP Airflow Connection](https://airflow.apache.org/docs/apache-airflow-providers-http/4.5.1/connections/http.html), follow these steps:
 
-1. In the Airflow UI, navigate to `Admin > Connections`. Hit the `+` button to add a new connection
-2. Your connection should look like the following:
+1. In the Airflow UI, navigate to `Admin > Connections`. Hit the `+` button to add a new connection.
+2. Define your connection as follow:
     - Connection Id: Pick a name for your connection - operators will refer to this name
     - Connection Type: HTTP
     - Host: `<your-deployment-url>`
@@ -281,23 +281,23 @@ You can use the Airflow REST API to make a request in one Deployment that trigge
 
 This topic has guidelines on how to trigger a DAG run, but you can modify the example DAG provided to trigger any request that's supported in the Airflow REST API.
 
-1. Create an access token, as described earlier in this document.
+1. Create an access token, as described in Step 1 of this document.
 
-2. On the triggering Deployment, create an Airflow connection as described earlier in this document. See [Set environment variables on Astro](environment-variables.md) if you want to create this connection as an Astro Deployment Variable instead.
+2. On the triggering Deployment, create an Airflow connection as described in Step 4. See [Set environment variables on Astro](environment-variables.md) if you want to create this connection as an Astro Deployment Variable instead.
 
-3. In your DAG, add a task using the `SimpleHttpOperator`, and use the Airflow Connection to make a request to the `dagRuns` endpoint of the Airflow REST API. For example:
+3. In your DAG, add a task using the `SimpleHttpOperator`, and use the Airflow Connection ID from Step 4 to make a request to the `dagRuns` endpoint of the Airflow REST API. For example:
 
     ````python
     from datetime import datetime
 
-    with DAG(dag_id="triggering_dag", schedule=None, start_date=datetime(2023, 1, 1))
+    with DAG(dag_id="triggering_dag", schedule=None, start_date=datetime(2023, 1, 1)):
         SimpleHttpOperator(
             task_id="trigger_external_dag",
             log_response=True,
             method="POST",
                 # Change this to the DAG_ID of the DAG you are triggering
             endpoint=f"api/v1/dags/<triggered_dag>/dagRuns",
-            http_conn_id="<your http connection>",
+            http_conn_id="<your-http-connection-id>",
             data={
                 "logical_date": "{{ logical_date }}",
                 
