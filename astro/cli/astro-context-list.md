@@ -16,6 +16,12 @@ If you're an Astro user, you should only see `astronomer.io` on this list.
 astro context list
 ```
 
+## Output
+
+| Output | Description                                                    | Data Type |
+| ------ | -------------------------------------------------------------- | --------- |
+| `NAME` | the names of the domain where you have logged in from the CLI. | String    |
+
 ## Related Commands
 
 - [astro context switch](cli/astro-context-switch.md)
