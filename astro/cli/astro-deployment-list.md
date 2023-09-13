@@ -28,6 +28,17 @@ $ astro deployment list --all
 # Shows Deployments from all Workspaces that you're authenticated to
 ```
 
+## Output
+
+| Output               | Description                                                                                        | Data Type                                  |
+| -------------------- | -------------------------------------------------------------------------------------------------- | ------------------------------------------ |
+| `NAME`               | The name of the Deployment.                                                                        | String                                     |
+| `NAMESPACE`          | A unique, auto-generated label for your Deployment.                                                | String                                     |
+| `CLUSTER`            | The name of the Astro cluster where the Deployment runs.                                           | String                                     |
+| `DEPLOYMENT ID`      | The Deployment ID                                                                                  | String                                     |
+| `RUNTIME VERSION`    | Which version of the Astro Runtime the Deployment uses, and the Airflow version it corresponds to. | String. (`X.X.X (based on Airflow X.X.X)`) |
+| `DAG DEPLOY ENABLED` | Whether the deployment method is DAG only or a full image deployment.                              | Boolean                                    |
+
 ## Related Commands
 
 - [`astro login`](cli/astro-login.md)
