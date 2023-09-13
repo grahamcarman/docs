@@ -124,7 +124,7 @@ To create an [HTTP Airflow Connection](https://airflow.apache.org/docs/apache-ai
 2. Your connection should look like the following:
     - Connection Id: Pick a name for your connection - operators will refer to this name
     - Connection Type: HTTP
-    - Host: <your-deployment-url>
+    - Host: `<your-deployment-url>`
     - Schema: https
     - Extras: 
     ```json
