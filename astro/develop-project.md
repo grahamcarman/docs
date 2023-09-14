@@ -453,29 +453,41 @@ This example assumes that the name of each of your Python packages is identical 
 
 1. Optional. Copy and save any existing build steps in your `Dockerfile`.
 
-2. Add `openssh-client` and `git` to your `packages.txt` file.
+2. Add the following to your `packages.txt` file:
+
+    ```bash
+    openssh-client
+    git
+    ```
 
 3. In your Dockerfile, add the following instructions:
 
     ```docker
+    USER root
     RUN mkdir -p -m 0700 ~/.ssh && \
         echo "github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl" >> ~/.ssh/known_hosts
 
     COPY private-requirements.txt .
     RUN --mount=type=ssh,id=github pip install --no-cache-dir --requirement private-requirements.txt
+    USER astro
+
     ENV PATH="/home/astro/.local/bin:$PATH"
     ```
 
     In order, these instructions:
 
+    - Switch to `root` user for SSH setup and installation from private repo
     - Add the fingerprint for GitHub to `known_hosts`
     - Copy your `private-requirements.txt` file into the image
     - Install Python-level packages from your private repository as specified in your `private-requirements.txt` file. This securely mounts your SSH key at build time, ensuring that the key itself is not stored in the resulting Docker image filesystem or metadata.
+    - Switch back to `astro` user
     - Add the user bin directory to `PATH`
 
   :::info
 
-  If your repository isn't hosted on GitHub, replace the fingerprint with one from where the package is hosted. Use `ssh-keyscan` to generate the fingerprint.
+  See GitHub's documentation for all available [SSH key fingerprints](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints). 
+  
+  If your repository isn't hosted on GitHub, replace the fingerprint with one from where the package is hosted. Use `ssh-keyscan` to generate the fingerprint. 
 
   :::
 
