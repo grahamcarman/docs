@@ -471,7 +471,6 @@ module.exports = {
             "cli/astro-workspace-list",
             "cli/astro-workspace-service-account",
             "cli/astro-workspace-switch",
-            "cli/astro-workspace-team",
             "cli/astro-workspace-team-add",
             "cli/astro-workspace-team-list",
             "cli/astro-workspace-team-remove",
