@@ -14,9 +14,9 @@ Office hours are _not_ a replacement for support - please [submit a support requ
 
 :::
 
-Additionally, please browse the content of our documentation, the [Astronomer Academy](https://academy.astronomer.io/), our [Airflow Guides](https://docs.astronomer.io/learn/), or discussion on the [Astronomer Forum](https://forum.astronomer.io) to see if there is already available guides or resources for what you would like to discuss.
+Additionally, please browse the content of our documentation, the [Astronomer Academy](https://academy.astronomer.io/), our [Airflow Guides](https://docs.astronomer.io/learn/), or discussion on the [Astronomer Forum](https://forum.astronomer.io) to see if there is already available guides or resources for what you would like to discuss. You can email [success@astronomer.io](mailto:success@astronomer.io) for general account related questions. If you need more extensive assistance or guidance, or regular long-term engagement, please talk to our [Professional Services](https://www.astronomer.io/professional-services/) team.
 
-You can also email [success@astronomer.io](mailto:success@astronomer.io) for general account related questions.
+## Topics
 
 Examples of possible Office Hour topics:
 - Ask questions about Airflow features
@@ -25,7 +25,6 @@ Examples of possible Office Hour topics:
 - Do an Architecture Review or discuss scaling Airflow and Astro Deployments 
 - Conduct a code-review for a DAG
 
-If you need more extensive assistance or guidance, please talk to our [Professional Services](https://www.astronomer.io/professional-services/) team.
 
 ## Booking Office Hours
 You will be able to book office hours in the top right `(?)` menu on [cloud.astronomer.io](https://cloud.astronomer.io) or in the bottom left of our [docs](https://docs.astronomer.io/astro).
