@@ -1,5 +1,5 @@
 ---
-title: 'Book Astro Office Hours'
+title: 'Book Office Hours'
 navTitle: 'Astro Office Hours'
 id: astro-office-hours
 description: Attend Office Hours with our team of Data Engineers
