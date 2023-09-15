@@ -72,10 +72,7 @@ Non-secret environment variables set in the Cloud UI are stored in a database th
 - Astro applies this manifest to your Deployment's namespace.
 - After the manifest is applied, the key and value of your environment variable are stored in a managed [etcd cluster](https://etcd.io/) at rest within Astro.
 
-This process occurs every time you update the environment variable's key or value. To use a secret environment variable value in a task running on the Kubernetes executor or the KubernetesPodOperator, you need to mount the value from the Astro kubernetes secret to your Kubernetes Pod. See:
-
-- [Mount secret environment variables to worker pods](kubernetes-executor.md#mount-secret-environment-variables-to-worker-pods)
-- [Use secret environment variables with the KubernetesPodOperator](kubernetespodoperator.md#use-secret-environment-variables-with-the-kubernetespodoperator)
+This process occurs every time you update the environment variable's key or value. To use a secret environment variable value in a KubernetesPodOperator, you need to mount the value from the Astro kubernetes secret to your Kubernetes Pod. See [Use secret environment variables with the KuberernetesPodOperator](kubernetespodoperator.md#use-secret-environment-variables-with-the-kubernetespodoperator).
 
 :::caution
 

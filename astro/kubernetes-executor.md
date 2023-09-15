@@ -92,11 +92,17 @@ with DAG(
 
 When this DAG runs, it launches a Kubernetes Pod with exactly 0.5m of CPU and 1024Mi of memory, as long as that infrastructure is available in your Deployment. After the task finishes, the Pod terminates gracefully.
 
+## Use secret environment variables in worker Pods
+
+In Astro, [environment variables](environment-variables.md) marked as secrets are stored in a Kubernetes secret called `env-secrets`. These environment variables are already available to your worker Pods and can be accessed in your tasks just like any other environment variable, `os.environ[<your-secret-env-var>]` or `os.getenv(<your-secret-env-var>, None)`. 
+
+However, in KubernetesPodOperator, you need to read the value from `env-secrets` as described in [Run the KubernetesPodOperator on Astro](kubernetespodoperator.md#use-secret-environment-variables-with-the-kubernetespodoperator).
+
 ## (Astro Hybrid only) Change the Kubernetes executor's worker node type
 
 :::info
 
-This section applies only to [Astro Hybrid](hybrid-overview.md) users. To see whether you're an Astro Hybrid user, open go to the Cloud UI, click on your Workspace name and go to **Organization Settings** > **General**. Your Astro product type is listed under **Product Type**.
+This section applies only to [Astro Hybrid](hybrid-overview.md) users. To see whether you're an Astro Hybrid user, open your Organization in the Cloud UI and go to **Settings** > **General**. Your Astro product type is listed under **Product Type**.
 
 :::
 
