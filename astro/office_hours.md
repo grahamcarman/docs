@@ -28,3 +28,5 @@ Examples of possible Office Hour topics:
 
 ## Booking Office Hours
 You will be able to book office hours in the top right `(?)` menu on [cloud.astronomer.io](https://cloud.astronomer.io) or in the bottom left of our [docs](https://docs.astronomer.io/astro).
+
+![A screenshot showing the menu in cloud.astronomer.io which contains a Book Office Hours entry](/img/docs/office_hours.png)
