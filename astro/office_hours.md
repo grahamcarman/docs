@@ -8,7 +8,7 @@ description: Attend Office Hours with our team of Data Engineers
 Office hours are a new way for Astro customers to meet with the talented Data Engineers.
 These sessions are typically 30 minutes long and are available weekly on a first-come-first-serve basis.
 
-:::alert
+:::caution
 
 Office hours are _not_ a replacement for support - please [submit a support request](astro-support.md) if you have any urgent issue, bug, or something that needs fixing. We will not be able to assist you with these topics during office hours sessions.
 
