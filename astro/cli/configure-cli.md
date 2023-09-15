@@ -298,6 +298,19 @@ If you receive an error after running `podman ps`, there is likely a problem wit
 
 </Tabs>
 
+### Troubleshoot your configuration
+
+Sometimes, after you configure Podman, the following error occurs when Astro tries to build container images when running `astro deploy` or `astro dev start`. 
+
+```zsh
+WARN[0010] SHELL is not supported for OCI image format, [/bin/bash -o pipefail -e -u -x -c] will be ignored. Must use `docker` format 
+```
+You can resolve this issue by exporting the `BUILDAH_FORMAT` [environment variable](astro/environment-variables.md) to Podman:
+
+```dockerfile
+export BUILDAH_FORMAT=docker
+```
+
 ## Switch between Docker and Podman
 
 After you set up the Astro CLI to use Podman on your local machine, the CLI automatically runs Podman containers whenever you run a command that requires them. To revert to the default behavior and run CLI commands in Docker containers, run the following command:
@@ -311,3 +324,5 @@ If you need to switch back to using Podman again, run the following command:
 ```sh
 astro config set container.binary podman
 ```
+
+
