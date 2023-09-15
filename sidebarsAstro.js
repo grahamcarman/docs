@@ -240,6 +240,7 @@ module.exports = {
                 "resource-reference-gcp-hybrid",
               ],
             },
+            hybrid-billing.md,
           ],
         },
         "manage-billing",
