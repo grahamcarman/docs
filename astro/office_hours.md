@@ -16,7 +16,7 @@ Office hours are _not_ a replacement for support - please [submit a support requ
 
 Additionally, please browse the content of our documentation, the [Astronomer Academy](https://academy.astronomer.io/), our [Airflow Guides](https://docs.astronomer.io/learn/), or discussion on the [Astronomer Forum](https://forum.astronomer.io) to see if there is already available guides or resources for what you would like to discuss.
 
-You can also email [mailto:success@astronomer.io](success@astronomer.io) for general account related questions.
+You can also email [success@astronomer.io](mailto:success@astronomer.io) for general account related questions.
 
 Examples of possible Office Hour topics:
 - Ask questions about Airflow features
