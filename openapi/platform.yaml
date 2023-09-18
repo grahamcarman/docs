@@ -1,0 +1,3147 @@
+components:
+  schemas:
+    BasicSubjectProfile:
+      properties:
+        apiTokenName:
+          description: The API token's name. Returned only when `SubjectType` is `SERVICEKEY`.
+          example: my-token
+          type: string
+        avatarUrl:
+          description: The URL for the user's profile image. Returned only when `SubjectType`
+            is `USER`.
+          example: https://avatar.url
+          type: string
+        fullName:
+          description: The subject's full name. Returned only when `SubjectType` is
+            `USER`.
+          example: Jane Doe
+          type: string
+        id:
+          description: The subject's ID.
+          example: clm8qv74h000008mlf08scq7k
+          type: string
+        subjectType:
+          description: 'The subject type. Can be one of: `USER`, `SERVICEKEY`.'
+          enum:
+          - USER
+          - SERVICEKEY
+          example: USER
+          type: string
+        username:
+          description: The subject's username. Returned only when `SubjectType` is
+            `USER`.
+          example: user1@company.com
+          type: string
+      required:
+      - id
+      type: object
+    Cluster:
+      properties:
+        cloudProvider:
+          description: 'The name of the cluster''s cloud provider. Can be one of:
+            `AWS`, `AZURE`, `GCP`.'
+          enum:
+          - AWS
+          - AZURE
+          - GCP
+          example: AWS
+          type: string
+        createdAt:
+          description: The time when the cluster was created in UTC. formatted as
+            `YYYY-MM-DDTHH:MM:SSZ`.
+          example: 2022-11-22T04:37:12T
+          format: date-time
+          type: string
+        dbInstanceType:
+          description: The type of database instance that is used for the cluster.
+            For Hybrid cluster only.
+          example: db.t3.medium
+          type: string
+        id:
+          description: The cluster's ID.
+          example: clm7k8tgw000008jz97i37y81
+          type: string
+        isLimited:
+          description: Whether the cluster is limited.
+          example: false
+          type: boolean
+        k8sTags:
+          description: The Kubernetes tags in the cluster.
+          items:
+            $ref: '#/components/schemas/ClusterK8sTag'
+          type: array
+        metadata:
+          $ref: '#/components/schemas/ClusterMetadata'
+        name:
+          description: The name of the cluster.
+          example: my cluster
+          type: string
+        nodePools:
+          description: The list of node pools that are created in the cluster.
+          items:
+            $ref: '#/components/schemas/NodePool'
+          type: array
+        organizationId:
+          description: The ID of the Organization that the cluster belongs to.
+          example: clm88r8hi000008jwhzxu5crg
+          type: string
+        podSubnetRange:
+          description: The subnet range for Pods. For GCP clusters only.
+          example: 172.21.0.0/19
+          type: string
+        providerAccount:
+          description: The provider account ID. For GCP clusters only.
+          example: provider-account
+          type: string
+        region:
+          description: The region in which the cluster is created.
+          example: us-east-1
+          type: string
+        servicePeeringRange:
+          description: The service peering range. For GCP clusters only.
+          example: 172.23.0.0/20
+          type: string
+        serviceSubnetRange:
+          description: The service subnet range. For GCP clusters only.
+          example: 172.22.0.0/22
+          type: string
+        status:
+          description: 'The status of the cluster. Can be one of: `CREATING`, `CREATED`,
+            `CREATE_FAILED`, `UPDATING`.'
+          enum:
+          - CREATING
+          - CREATED
+          - CREATE_FAILED
+          - UPDATING
+          example: CREATED
+          type: string
+        tenantId:
+          description: The tenant ID. For Azure clusters only.
+          example: your-tenant-id
+          type: string
+        type:
+          description: 'The type of the cluster. Can be one of: `DEDICATED`, `HYBRID`.'
+          enum:
+          - DEDICATED
+          - HYBRID
+          example: DEDICATED
+          type: string
+        updatedAt:
+          description: The time when the cluster was last updated in UTC. formatted
+            as `YYYY-MM-DDTHH:MM:SSZ`.
+          example: 2022-11-22T04:37:12T
+          format: date-time
+          type: string
+        vpcSubnetRange:
+          description: The VPC subnet range.
+          example: 172.20.0.0/22
+          type: string
+        workspaces:
+          description: The list of Workspaces that are authorized to the cluster.
+          example:
+          - '[clm88rddl000108jwgeka2div]'
+          items:
+            type: string
+          type: array
+      required:
+      - cloudProvider
+      - createdAt
+      - dbInstanceType
+      - id
+      - name
+      - organizationId
+      - region
+      - status
+      - type
+      - updatedAt
+      - vpcSubnetRange
+      type: object
+    ClusterK8sTag:
+      properties:
+        key:
+          description: The tag's key.
+          example: key1
+          type: string
+        value:
+          description: The tag's value.
+          example: value1
+          type: string
+      type: object
+    ClusterMetadata:
+      properties:
+        externalIPs:
+          description: External IPs of the cluster.
+          example:
+          - 35.100.100.1
+          items:
+            type: string
+          type: array
+      type: object
+    ClusterOptions:
+      properties:
+        databaseInstances:
+          items:
+            $ref: '#/components/schemas/ProviderInstanceType'
+          type: array
+        defaultDatabaseInstance:
+          $ref: '#/components/schemas/ProviderInstanceType'
+        defaultNodeInstance:
+          $ref: '#/components/schemas/ProviderInstanceType'
+        defaultPodSubnetRange:
+          type: string
+        defaultRegion:
+          $ref: '#/components/schemas/ProviderRegion'
+        defaultServicePeeringRange:
+          type: string
+        defaultServiceSubnetRange:
+          type: string
+        defaultVpcSubnetRange:
+          type: string
+        nodeCountDefault:
+          type: integer
+        nodeCountMax:
+          type: integer
+        nodeCountMin:
+          type: integer
+        nodeInstances:
+          items:
+            $ref: '#/components/schemas/ProviderInstanceType'
+          type: array
+        provider:
+          enum:
+          - AWS
+          - AZURE
+          - GCP
+          type: string
+        regions:
+          items:
+            $ref: '#/components/schemas/ProviderRegion'
+          type: array
+      required:
+      - databaseInstances
+      - defaultDatabaseInstance
+      - defaultNodeInstance
+      - defaultRegion
+      - defaultVpcSubnetRange
+      - nodeCountDefault
+      - nodeCountMax
+      - nodeCountMin
+      - nodeInstances
+      - provider
+      - regions
+      type: object
+    ClustersPaginated:
+      properties:
+        clusters:
+          description: The list of clusters in the current page.
+          items:
+            $ref: '#/components/schemas/Cluster'
+          type: array
+        limit:
+          description: The maximum number of clusters in one page.
+          example: 10
+          type: integer
+        offset:
+          description: The offset of the current page of clusters.
+          example: 0
+          type: integer
+        totalCount:
+          description: The total number of clusters.
+          example: 100
+          type: integer
+      required:
+      - clusters
+      - limit
+      - offset
+      - totalCount
+      type: object
+    CreateAwsClusterRequest:
+      properties:
+        cloudProvider:
+          enum:
+          - AWS
+          - AZURE
+          - GCP
+          type: string
+        dbInstanceType:
+          type: string
+        k8sTags:
+          items:
+            $ref: '#/components/schemas/ClusterK8sTag'
+          type: array
+        name:
+          type: string
+        nodePools:
+          items:
+            $ref: '#/components/schemas/CreateNodePoolRequest'
+          type: array
+        providerAccount:
+          type: string
+        region:
+          type: string
+        type:
+          enum:
+          - DEDICATED
+          - HYBRID
+          type: string
+        vpcSubnetRange:
+          type: string
+      required:
+      - cloudProvider
+      - dbInstanceType
+      - name
+      - region
+      - type
+      - vpcSubnetRange
+      type: object
+    CreateAzureClusterRequest:
+      properties:
+        cloudProvider:
+          enum:
+          - AWS
+          - AZURE
+          - GCP
+          type: string
+        dbInstanceType:
+          type: string
+        k8sTags:
+          items:
+            $ref: '#/components/schemas/ClusterK8sTag'
+          type: array
+        name:
+          type: string
+        nodePools:
+          items:
+            $ref: '#/components/schemas/CreateNodePoolRequest'
+          type: array
+        providerAccount:
+          type: string
+        region:
+          type: string
+        tenantId:
+          type: string
+        type:
+          enum:
+          - DEDICATED
+          - HYBRID
+          type: string
+        vpcSubnetRange:
+          type: string
+      required:
+      - cloudProvider
+      - dbInstanceType
+      - name
+      - region
+      - type
+      - vpcSubnetRange
+      type: object
+    CreateClusterRequest:
+      oneOf:
+      - $ref: '#/components/schemas/CreateAwsClusterRequest'
+      - $ref: '#/components/schemas/CreateAzureClusterRequest'
+      - $ref: '#/components/schemas/CreateGcpClusterRequest'
+      type: object
+    CreateDedicatedDeploymentRequest:
+      properties:
+        astroRuntimeVersion:
+          description: Version of the astro runtime to use
+          type: string
+        clusterId:
+          description: Cluster where the deployment should be created on
+          type: string
+        defaultTaskPodCpu:
+          description: Must be valid kubernetes cpu resource string, at least 0.25
+            in terms of cpu cores
+          type: string
+        defaultTaskPodMemory:
+          description: Must be valid kubernetes memory resource string, at least 0.5Gi
+            in terms of Gibibytes (GiB)
+          type: string
+        description:
+          description: Optional description fo the deployment
+          maxLength: 1000
+          type: string
+        executor:
+          enum:
+          - CELERY
+          - KUBERNETES
+          type: string
+        isCicdEnforced:
+          description: If true, deployment specifications can only be updated through
+            API token, changes will not be allowed through UI. This option can be
+            turned off by admin
+          type: boolean
+        isDagDeployEnabled:
+          description: If true, dags can be independently pushed through CLI
+          type: boolean
+        isHighAvailability:
+          description: If true, deployment will have backup components
+          type: boolean
+        name:
+          description: The deployment name
+          maxLength: 500
+          type: string
+        resourceQuotaCpu:
+          description: Must be valid kubernetes cpu resource string, at least 1 in
+            terms of cpu cores
+          type: string
+        resourceQuotaMemory:
+          description: Must be valid kubernetes memory resource string, at least 2Gi
+            in terms of Gibibytes (GiB)
+          type: string
+        schedulerSize:
+          description: 'Size of scheduler, one of: SMALL, MEDIUM, LARGE'
+          enum:
+          - SMALL
+          - MEDIUM
+          - LARGE
+          type: string
+        type:
+          description: 'Types of the deployment, one of: DEDICATED, HYBRID, STANDARD'
+          enum:
+          - DEDICATED
+          - HYBRID
+          - STANDARD
+          type: string
+        workerQueues:
+          description: Must be non-empty list of worker queues if deployment Airflow
+            executor is Celery
+          items:
+            $ref: '#/components/schemas/MutateWorkerQueueRequest'
+          minItems: 1
+          type: array
+        workspaceId:
+          description: Workspace Id
+          type: string
+      required:
+      - astroRuntimeVersion
+      - clusterId
+      - defaultTaskPodCpu
+      - defaultTaskPodMemory
+      - executor
+      - isCicdEnforced
+      - isDagDeployEnabled
+      - isHighAvailability
+      - name
+      - resourceQuotaCpu
+      - resourceQuotaMemory
+      - schedulerSize
+      - type
+      - workspaceId
+      type: object
+    CreateDeploymentRequest:
+      oneOf:
+      - $ref: '#/components/schemas/CreateDedicatedDeploymentRequest'
+      - $ref: '#/components/schemas/CreateHybridDeploymentRequest'
+      - $ref: '#/components/schemas/CreateStandardDeploymentRequest'
+      type: object
+    CreateGcpClusterRequest:
+      properties:
+        cloudProvider:
+          enum:
+          - AWS
+          - AZURE
+          - GCP
+          type: string
+        dbInstanceType:
+          type: string
+        k8sTags:
+          items:
+            $ref: '#/components/schemas/ClusterK8sTag'
+          type: array
+        name:
+          type: string
+        nodePools:
+          items:
+            $ref: '#/components/schemas/CreateNodePoolRequest'
+          type: array
+        podSubnetRange:
+          type: string
+        providerAccount:
+          type: string
+        region:
+          type: string
+        servicePeeringRange:
+          type: string
+        serviceSubnetRange:
+          type: string
+        type:
+          enum:
+          - DEDICATED
+          - HYBRID
+          type: string
+        vpcSubnetRange:
+          type: string
+      required:
+      - cloudProvider
+      - dbInstanceType
+      - name
+      - podSubnetRange
+      - region
+      - servicePeeringRange
+      - serviceSubnetRange
+      - type
+      - vpcSubnetRange
+      type: object
+    CreateHybridDeploymentRequest:
+      properties:
+        astroRuntimeVersion:
+          description: Version of the astro runtime to use
+          type: string
+        clusterId:
+          description: Cluster where the deployment should be created on
+          type: string
+        description:
+          description: Optional description fo the deployment
+          maxLength: 1000
+          type: string
+        executor:
+          enum:
+          - CELERY
+          - KUBERNETES
+          type: string
+        isCicdEnforced:
+          description: If true, deployment specifications can only be updated through
+            API token, changes will not be allowed through UI. This option can be
+            turned off by admin
+          type: boolean
+        isDagDeployEnabled:
+          description: If true, dags can be independently pushed through CLI
+          type: boolean
+        name:
+          description: The deployment name
+          maxLength: 500
+          type: string
+        scheduler:
+          $ref: '#/components/schemas/DeploymentInstanceSpecRequest'
+        taskPodNodePoolId:
+          description: Must be non-empty if deployment Airflow executor is Kubernetes,
+            ID of node pool to use for task pods
+          type: string
+        type:
+          description: 'Types of the deployment, one of: DEDICATED, HYBRID, STANDARD'
+          enum:
+          - DEDICATED
+          - HYBRID
+          - STANDARD
+          type: string
+        workerQueues:
+          description: Must be non-empty list of worker queues if deployment Airflow
+            executor is Celery
+          items:
+            $ref: '#/components/schemas/MutateWorkerQueueRequest'
+          minItems: 1
+          type: array
+        workspaceId:
+          description: Workspace Id
+          type: string
+      required:
+      - astroRuntimeVersion
+      - clusterId
+      - executor
+      - isCicdEnforced
+      - isDagDeployEnabled
+      - name
+      - scheduler
+      - type
+      - workspaceId
+      type: object
+    CreateNodePoolRequest:
+      properties:
+        isDefault:
+          description: Whether the node pool is the default node pool of the cluster.
+          example: true
+          type: boolean
+        maxNodeCount:
+          description: The maximum number of nodes that can be created in the node
+            pool.
+          example: 10
+          type: integer
+        name:
+          description: The name of the node pool.
+          example: my-nodepool
+          type: string
+        nodeInstanceType:
+          description: The type of node instance that is used for the node pool.
+          example: t3.medium
+          type: string
+      required:
+      - maxNodeCount
+      - name
+      - nodeInstanceType
+      type: object
+    CreateStandardDeploymentRequest:
+      properties:
+        astroRuntimeVersion:
+          description: Version of the astro runtime to use
+          type: string
+        cloudProvider:
+          description: Supported cloud providers are AWS, AZURE, GCP. Optional if
+            cluster id is specified
+          enum:
+          - AWS
+          - AZURE
+          - GCP
+          type: string
+        clusterId:
+          description: Optional if cloud provider and region is specified
+          type: string
+        defaultTaskPodCpu:
+          description: Must be valid kubernetes cpu resource string, at least 0.25
+            in terms of cpu cores
+          type: string
+        defaultTaskPodMemory:
+          description: Must be valid kubernetes memory resource string, at least 0.5Gi
+            in terms of Gibibytes (GiB)
+          type: string
+        description:
+          description: Optional description fo the deployment
+          maxLength: 1000
+          type: string
+        executor:
+          enum:
+          - CELERY
+          - KUBERNETES
+          type: string
+        isCicdEnforced:
+          description: If true, deployment specifications can only be updated through
+            API token, changes will not be allowed through UI. This option can be
+            turned off by admin
+          type: boolean
+        isDagDeployEnabled:
+          description: If true, dags can be independently pushed through CLI
+          type: boolean
+        isHighAvailability:
+          description: If true, deployment will have backup components
+          type: boolean
+        name:
+          description: The deployment name
+          maxLength: 500
+          type: string
+        region:
+          description: Cloud provider region. Optional if cluster id is specified
+          type: string
+        resourceQuotaCpu:
+          description: Must be valid kubernetes cpu resource string, at least 1 in
+            terms of cpu cores
+          type: string
+        resourceQuotaMemory:
+          description: Must be valid kubernetes memory resource string, at least 2Gi
+            in terms of Gibibytes (GiB)
+          type: string
+        schedulerSize:
+          description: 'Size of scheduler, one of: SMALL, MEDIUM, LARGE'
+          enum:
+          - SMALL
+          - MEDIUM
+          - LARGE
+          type: string
+        type:
+          description: 'Types of the deployment, one of: DEDICATED, HYBRID, STANDARD'
+          enum:
+          - DEDICATED
+          - HYBRID
+          - STANDARD
+          type: string
+        workerQueues:
+          description: Must be non-empty list of worker queues if deployment Airflow
+            executor is Celery                                                                                                               //
+            At least one worker queue must be specified
+          items:
+            $ref: '#/components/schemas/MutateWorkerQueueRequest'
+          minItems: 1
+          type: array
+        workspaceId:
+          description: Workspace Id
+          type: string
+      required:
+      - astroRuntimeVersion
+      - defaultTaskPodCpu
+      - defaultTaskPodMemory
+      - executor
+      - isCicdEnforced
+      - isDagDeployEnabled
+      - isHighAvailability
+      - name
+      - resourceQuotaCpu
+      - resourceQuotaMemory
+      - schedulerSize
+      - type
+      - workspaceId
+      type: object
+    CreateWorkspaceRequest:
+      properties:
+        cicdEnforcedDefault:
+          description: Whether new Deployments enforce CI/CD deploys by default.
+          example: true
+          type: boolean
+        description:
+          description: The Workspace's description.
+          example: This is a test workspace
+          type: string
+        name:
+          description: The Workspace's name.
+          example: My Workspace
+          maxLength: 50
+          type: string
+      required:
+      - name
+      type: object
+    Deployment:
+      properties:
+        clusterId:
+          type: string
+        contactEmails:
+          items:
+            type: string
+          type: array
+        createdAt:
+          format: date-time
+          type: string
+        dagDeployEnabled:
+          type: boolean
+        dagTarballVersion:
+          type: string
+        defaultTaskPodCpu:
+          type: string
+        defaultTaskPodMemory:
+          type: string
+        description:
+          type: string
+        environmentVariables:
+          items:
+            $ref: '#/components/schemas/DeploymentEnvironmentVariable'
+          type: array
+        executor:
+          enum:
+          - KUBERNETES
+          - CELERY
+          type: string
+        externalIPs:
+          items:
+            type: string
+          type: array
+        id:
+          type: string
+        imageRepository:
+          type: string
+        imageTag:
+          type: string
+        imageVersion:
+          type: string
+        isCicdEnforced:
+          type: boolean
+        isHighAvailability:
+          type: boolean
+        name:
+          type: string
+        organizationId:
+          type: string
+        resourceQuotaCpu:
+          type: string
+        resourceQuotaMemory:
+          type: string
+        runtimeVersion:
+          type: string
+        schedulerAu:
+          type: integer
+        schedulerCpu:
+          type: string
+        schedulerMemory:
+          type: string
+        schedulerReplicas:
+          type: integer
+        schedulerSize:
+          type: string
+        status:
+          enum:
+          - HEALTHY
+          - UNHEALTHY
+          - UNKNOWN
+          - CREATING
+          - DEPLOYING
+          type: string
+        statusReason:
+          type: string
+        taskPodNodePoolId:
+          type: string
+        type:
+          enum:
+          - Dedicated
+          - Hybrid
+          - Standard
+          type: string
+        updatedAt:
+          format: date-time
+          type: string
+        webServerCpu:
+          type: string
+        webServerIngressHostname:
+          type: string
+        webServerMemory:
+          type: string
+        webServerReplicas:
+          type: integer
+        webServerUrl:
+          type: string
+        workerQueues:
+          items:
+            $ref: '#/components/schemas/WorkerQueue'
+          type: array
+        workloadIdentity:
+          type: string
+        workspaceId:
+          type: string
+      required:
+      - createdAt
+      - dagDeployEnabled
+      - id
+      - imageRepository
+      - imageTag
+      - isCicdEnforced
+      - name
+      - organizationId
+      - runtimeVersion
+      - schedulerCpu
+      - schedulerMemory
+      - schedulerReplicas
+      - status
+      - updatedAt
+      - webServerCpu
+      - webServerIngressHostname
+      - webServerMemory
+      - webServerUrl
+      - workspaceId
+      type: object
+    DeploymentEnvironmentVariable:
+      properties:
+        isSecret:
+          type: boolean
+        key:
+          type: string
+        updatedAt:
+          type: string
+        value:
+          type: string
+      required:
+      - isSecret
+      - key
+      - updatedAt
+      type: object
+    DeploymentEnvironmentVariableRequest:
+      properties:
+        isSecret:
+          type: boolean
+        key:
+          type: string
+        value:
+          type: string
+      required:
+      - isSecret
+      - key
+      type: object
+    DeploymentInstanceSpecRequest:
+      properties:
+        au:
+          maximum: 24
+          minimum: 5
+          type: integer
+        replicas:
+          maximum: 4
+          minimum: 1
+          type: integer
+      required:
+      - au
+      - replicas
+      type: object
+    DeploymentOptions:
+      properties:
+        executors:
+          items:
+            type: string
+          type: array
+        resourceQuotas:
+          $ref: '#/components/schemas/ResourceQuotaOptions'
+        runtimeReleases:
+          items:
+            $ref: '#/components/schemas/RuntimeRelease'
+          type: array
+        schedulerMachines:
+          items:
+            $ref: '#/components/schemas/SchedulerMachine'
+          type: array
+        workerMachines:
+          items:
+            $ref: '#/components/schemas/WorkerMachine'
+          type: array
+        workerQueues:
+          $ref: '#/components/schemas/WorkerQueueOptions'
+        workloadIdentityOptions:
+          items:
+            $ref: '#/components/schemas/WorkloadIdentityOption'
+          type: array
+      required:
+      - executors
+      - resourceQuotas
+      - runtimeReleases
+      - schedulerMachines
+      - workerMachines
+      - workerQueues
+      type: object
+    DeploymentsPaginated:
+      properties:
+        deployments:
+          items:
+            $ref: '#/components/schemas/Deployment'
+          type: array
+        limit:
+          type: integer
+        offset:
+          type: integer
+        totalCount:
+          type: integer
+      required:
+      - deployments
+      - limit
+      - offset
+      - totalCount
+      type: object
+    Error:
+      properties:
+        message:
+          type: string
+        requestId:
+          type: string
+        statusCode:
+          maximum: 600
+          minimum: 400
+          type: integer
+      required:
+      - message
+      - requestId
+      - statusCode
+      type: object
+    MachineSpec:
+      properties:
+        concurrency:
+          type: number
+        cpu:
+          description: A slice of CPU expressed in number of cores.
+          type: string
+        ephemeralStorage:
+          description: A slice of Ephemeral Storage expressed in Gibibytes (Gi).
+          type: string
+        memory:
+          description: A slice of Memory expressed in Gibibytes (Gi).
+          type: string
+      required:
+      - cpu
+      - memory
+      type: object
+    ManagedDomain:
+      properties:
+        createdAt:
+          format: date-time
+          type: string
+        enforcedLogins:
+          items:
+            type: string
+          type: array
+        id:
+          type: string
+        name:
+          type: string
+        organizationId:
+          type: string
+        status:
+          enum:
+          - PENDING
+          - VERIFIED
+          type: string
+        updatedAt:
+          format: date-time
+          type: string
+      required:
+      - createdAt
+      - id
+      - name
+      - organizationId
+      - status
+      - updatedAt
+      type: object
+    MutateWorkerQueueRequest:
+      properties:
+        astroMachine:
+          enum:
+          - A5
+          - A10
+          - A20
+          - A40
+          - A60
+          type: string
+        id:
+          type: string
+        isDefault:
+          type: boolean
+        maxWorkerCount:
+          minimum: 1
+          type: integer
+        minWorkerCount:
+          minimum: 0
+          type: integer
+        name:
+          maxLength: 63
+          type: string
+        nodePoolId:
+          type: string
+        workerConcurrency:
+          minimum: 1
+          type: integer
+      required:
+      - isDefault
+      - maxWorkerCount
+      - minWorkerCount
+      - name
+      - workerConcurrency
+      type: object
+    NodePool:
+      properties:
+        cloudProvider:
+          description: 'The name of the cloud provider. Can be one of: `AWS`, `AZURE`,
+            `GCP`.'
+          enum:
+          - AWS
+          - AZURE
+          - GCP
+          example: AWS
+          type: string
+        clusterId:
+          description: The ID of the cluster that the node pool belongs to.
+          example: clm891jb6000308jrc3vjdtde
+          type: string
+        createdAt:
+          description: The time when the node pool was created in UTC, formatted as
+            `YYYY-MM-DDTHH:MM:SSZ`.
+          example: "2022-11-22T04:37:12Z"
+          format: date-time
+          type: string
+        id:
+          description: The node pool's ID.
+          example: clm890zhe000208jr39dd0ubs
+          type: string
+        isDefault:
+          description: Whether the node pool is the default node pool of the cluster.
+          example: true
+          type: boolean
+        maxNodeCount:
+          description: The maximum number of nodes that can be created in the node
+            pool.
+          example: 1
+          type: integer
+        name:
+          description: The name of the node pool.
+          example: default
+          type: string
+        nodeInstanceType:
+          description: The type of node instance that is used for the node pool.
+          example: t3.medium
+          type: string
+        supportedAstroMachines:
+          description: The list of supported Astro machines for the node pool. Returned
+            only for Hosted dedicated clusters.
+          example:
+          - '[A5'
+          - A10]
+          items:
+            type: string
+          type: array
+        updatedAt:
+          description: The time when the node pool was last updated in UTC, formatted
+            as `YYYY-MM-DDTHH:MM:SSZ`.
+          example: "2022-11-22T04:37:12Z"
+          format: date-time
+          type: string
+      required:
+      - cloudProvider
+      - clusterId
+      - createdAt
+      - id
+      - isDefault
+      - maxNodeCount
+      - name
+      - nodeInstanceType
+      - updatedAt
+      type: object
+    Organization:
+      properties:
+        billingEmail:
+          description: The Organization's billing email.
+          example: billing@company.com
+          type: string
+        createdAt:
+          description: The time when the Organization is created in UTC, formatted
+            as `YYYY-MM-DDTHH:MM:SSZ`.
+          example: 2022-11-22T04:37:12T
+          format: date-time
+          type: string
+        createdBySubject:
+          $ref: '#/components/schemas/BasicSubjectProfile'
+        id:
+          description: The Organization's ID.
+          example: clmaxoarx000008l2c5ayb9pt
+          type: string
+        isScimEnabled:
+          description: Whether SCIM is enabled for the Organization.
+          example: false
+          type: boolean
+        managedDomains:
+          description: The list of managed domains configured in the Organization.
+          items:
+            $ref: '#/components/schemas/ManagedDomain'
+          type: array
+        name:
+          description: The Organization's name.
+          example: My organization
+          type: string
+        paymentMethod:
+          description: 'The Organization''s payment method. Can be one of: `CREDIT_CARD`,
+            `INVOICE`, `AWS_MARKETPLACE`, `AZURE_MARKETPLACE`, `GCP_MARKETPLACE`.'
+          enum:
+          - CREDIT_CARD
+          - INVOICE
+          - AWS_MARKETPLACE
+          - AZURE_MARKETPLACE
+          - GCP_MARKETPLACE
+          example: CREDIT_CARD
+          type: string
+        product:
+          description: The Organization's product.
+          enum:
+          - HOSTED
+          - HYBRID
+          example: HOSTED
+          type: string
+        status:
+          description: 'The Organization''s status. Can be one of: `ACTIVE`, `INACTIVE`,
+            `SUSPENDED`.'
+          enum:
+          - ACTIVE
+          - INACTIVE
+          - SUSPENDED
+          type: string
+        supportPlan:
+          description: The Organization's support plan.
+          enum:
+          - TRIAL
+          - BASIC
+          - STANDARD
+          - PREMIUM
+          - BUSINESS_CRITICAL
+          example: BUSINESS_CRITICAL
+          type: string
+        trialExpiresAt:
+          description: The time when the Organization's trial expires in UTC, formatted
+            as `YYYY-MM-DDTHH:MM:SSZ`. Organizations that are no longer in Trial will
+            not have a expiry date.
+          example: 2022-11-22T04:37:12T
+          format: date-time
+          type: string
+        updatedAt:
+          description: The time when the Organization is updated in UTC, formatted
+            as `YYYY-MM-DDTHH:MM:SSZ`.
+          example: 2022-11-22T04:37:12T
+          format: date-time
+          type: string
+        updatedBySubject:
+          $ref: '#/components/schemas/BasicSubjectProfile'
+      required:
+      - createdAt
+      - createdBySubject
+      - id
+      - isScimEnabled
+      - name
+      - supportPlan
+      - updatedAt
+      - updatedBySubject
+      type: object
+    OrganizationsPaginated:
+      properties:
+        limit:
+          description: The maximum number of Organizations in the page.
+          example: 10
+          type: integer
+        offset:
+          description: The offset of the Organizations in the page.
+          example: 0
+          type: integer
+        organizations:
+          description: The list of Organizations in the page.
+          items:
+            $ref: '#/components/schemas/Organization'
+          type: array
+        totalCount:
+          description: The total number of Organizations.
+          example: 100
+          type: integer
+      required:
+      - limit
+      - offset
+      - organizations
+      - totalCount
+      type: object
+    ProviderInstanceType:
+      properties:
+        cpu:
+          type: integer
+        name:
+          type: string
+        ram:
+          type: string
+      required:
+      - cpu
+      - name
+      - ram
+      type: object
+    ProviderRegion:
+      properties:
+        bannedInstances:
+          items:
+            type: string
+          type: array
+        limited:
+          type: boolean
+        name:
+          type: string
+      required:
+      - name
+      type: object
+    Range:
+      properties:
+        ceiling:
+          type: number
+        default:
+          type: number
+        floor:
+          type: number
+      required:
+      - ceiling
+      - default
+      - floor
+      type: object
+    ResourceOption:
+      properties:
+        cpu:
+          $ref: '#/components/schemas/ResourceRange'
+        memory:
+          $ref: '#/components/schemas/ResourceRange'
+      required:
+      - cpu
+      - memory
+      type: object
+    ResourceQuotaOptions:
+      properties:
+        defaultPodSize:
+          $ref: '#/components/schemas/ResourceOption'
+        resourceQuota:
+          $ref: '#/components/schemas/ResourceOption'
+      required:
+      - defaultPodSize
+      - resourceQuota
+      type: object
+    ResourceRange:
+      properties:
+        ceiling:
+          type: string
+        default:
+          type: string
+        floor:
+          type: string
+      required:
+      - ceiling
+      - default
+      - floor
+      type: object
+    RuntimeRelease:
+      properties:
+        airflowDatabaseMigration:
+          type: boolean
+        airflowVersion:
+          type: string
+        channel:
+          type: string
+        releaseDate:
+          type: string
+        stellarDatabaseMigration:
+          type: boolean
+        version:
+          type: string
+      required:
+      - airflowDatabaseMigration
+      - airflowVersion
+      - channel
+      - releaseDate
+      - stellarDatabaseMigration
+      - version
+      type: object
+    SchedulerMachine:
+      properties:
+        name:
+          description: The name of this machine.
+          type: string
+        spec:
+          $ref: '#/components/schemas/MachineSpec'
+      required:
+      - name
+      - spec
+      type: object
+    UpdateClusterRequest:
+      properties:
+        dbInstanceType:
+          type: string
+        k8sTags:
+          items:
+            $ref: '#/components/schemas/ClusterK8sTag'
+          type: array
+        name:
+          type: string
+        nodePools:
+          items:
+            $ref: '#/components/schemas/UpdateNodePoolRequest'
+          type: array
+      required:
+      - dbInstanceType
+      - k8sTags
+      - name
+      type: object
+    UpdateDedicatedDeploymentRequest:
+      properties:
+        contactEmails:
+          items:
+            type: string
+          type: array
+        defaultTaskPodCpu:
+          description: Must be valid kubernetes cpu resource string, at least 0.25
+            in terms of cpu cores
+          type: string
+        defaultTaskPodMemory:
+          description: Must be valid kubernetes memory resource string, at least 0.5Gi
+            in terms of Gibibytes (GiB)
+          type: string
+        description:
+          maxLength: 1000
+          type: string
+        environmentVariables:
+          description: List of deployment environment variables
+          items:
+            $ref: '#/components/schemas/DeploymentEnvironmentVariableRequest'
+          type: array
+        executor:
+          enum:
+          - CELERY
+          - KUBERNETES
+          type: string
+        isCicdEnforced:
+          type: boolean
+        isDagDeployEnabled:
+          type: boolean
+        isHighAvailability:
+          description: If true, deployment will have backup components
+          type: boolean
+        name:
+          maxLength: 500
+          type: string
+        resourceQuotaCpu:
+          description: Must be valid kubernetes cpu resource string, at least 1 in
+            terms of cpu cores
+          type: string
+        resourceQuotaMemory:
+          description: Must be valid kubernetes memory resource string, at least 2Gi
+            in terms of Gibibytes (GiB)
+          type: string
+        schedulerSize:
+          description: 'Size of scheduler, one of: SMALL, MEDIUM, LARGE'
+          enum:
+          - SMALL
+          - MEDIUM
+          - LARGE
+          type: string
+        type:
+          enum:
+          - DEDICATED
+          - HYBRID
+          - STANDARD
+          type: string
+        workerQueues:
+          description: Must be non-empty list of worker queues if deployment Airflow
+            executor is Celery
+          items:
+            $ref: '#/components/schemas/MutateWorkerQueueRequest'
+          minItems: 1
+          type: array
+        workloadIdentity:
+          type: string
+        workspaceId:
+          type: string
+      required:
+      - defaultTaskPodCpu
+      - defaultTaskPodMemory
+      - description
+      - environmentVariables
+      - executor
+      - isCicdEnforced
+      - isDagDeployEnabled
+      - isHighAvailability
+      - name
+      - resourceQuotaCpu
+      - resourceQuotaMemory
+      - schedulerSize
+      - type
+      - workspaceId
+      type: object
+    UpdateDeploymentRequest:
+      oneOf:
+      - $ref: '#/components/schemas/UpdateDedicatedDeploymentRequest'
+      - $ref: '#/components/schemas/UpdateHybridDeploymentRequest'
+      - $ref: '#/components/schemas/UpdateStandardDeploymentRequest'
+      type: object
+    UpdateHybridDeploymentRequest:
+      properties:
+        contactEmails:
+          items:
+            type: string
+          type: array
+        description:
+          maxLength: 1000
+          type: string
+        environmentVariables:
+          description: List of deployment environment variables
+          items:
+            $ref: '#/components/schemas/DeploymentEnvironmentVariableRequest'
+          type: array
+        executor:
+          enum:
+          - CELERY
+          - KUBERNETES
+          type: string
+        isCicdEnforced:
+          type: boolean
+        isDagDeployEnabled:
+          type: boolean
+        name:
+          maxLength: 500
+          type: string
+        scheduler:
+          $ref: '#/components/schemas/DeploymentInstanceSpecRequest'
+        taskPodNodePoolId:
+          description: Must be non-empty if deployment Airflow executor is Kubernetes,
+            ID of node pool to use for task pods
+          type: string
+        type:
+          enum:
+          - DEDICATED
+          - HYBRID
+          - STANDARD
+          type: string
+        workerQueues:
+          description: Must be non-empty list of worker queues if deployment Airflow
+            executor is Celery
+          items:
+            $ref: '#/components/schemas/MutateWorkerQueueRequest'
+          minItems: 1
+          type: array
+        workloadIdentity:
+          type: string
+        workspaceId:
+          type: string
+      required:
+      - description
+      - environmentVariables
+      - executor
+      - isCicdEnforced
+      - isDagDeployEnabled
+      - name
+      - scheduler
+      - type
+      - workspaceId
+      type: object
+    UpdateNodePoolRequest:
+      properties:
+        id:
+          description: The node pool's ID.
+          example: clm8bvk8b000008l9deowc5lx
+          type: string
+        isDefault:
+          description: Whether the node pool is the default node pool of the cluster.
+          example: true
+          type: boolean
+        maxNodeCount:
+          description: The maximum number of nodes that can be created in the node
+            pool.
+          example: 10
+          type: integer
+        name:
+          description: The name of the node pool.
+          example: my-nodepool
+          type: string
+        nodeInstanceType:
+          description: The type of node instance that is used for the node pool.
+          example: t3.medium
+          type: string
+      required:
+      - maxNodeCount
+      - name
+      - nodeInstanceType
+      type: object
+    UpdateOrganizationRequest:
+      properties:
+        billingEmail:
+          description: The Organization's billing email
+          example: billing@company.com
+          type: string
+        isScimEnabled:
+          description: Whether SCIM is enabled for the Organization
+          example: false
+          type: boolean
+        name:
+          description: The name of the Organization
+          example: My organization
+          maxLength: 50
+          type: string
+      required:
+      - billingEmail
+      - isScimEnabled
+      - name
+      type: object
+    UpdateStandardDeploymentRequest:
+      properties:
+        contactEmails:
+          items:
+            type: string
+          type: array
+        defaultTaskPodCpu:
+          description: Must be valid kubernetes cpu resource string, at least 0.25
+            in terms of cpu cores
+          type: string
+        defaultTaskPodMemory:
+          description: Must be valid kubernetes memory resource string, at least 0.5Gi
+            in terms of Gibibytes (GiB)
+          type: string
+        description:
+          maxLength: 1000
+          type: string
+        environmentVariables:
+          description: List of deployment environment variables
+          items:
+            $ref: '#/components/schemas/DeploymentEnvironmentVariableRequest'
+          type: array
+        executor:
+          enum:
+          - CELERY
+          - KUBERNETES
+          type: string
+        isCicdEnforced:
+          type: boolean
+        isDagDeployEnabled:
+          type: boolean
+        isHighAvailability:
+          description: If true, deployment will have backup components
+          type: boolean
+        name:
+          maxLength: 500
+          type: string
+        resourceQuotaCpu:
+          description: Must be valid kubernetes cpu resource string, at least 1 in
+            terms of cpu cores
+          type: string
+        resourceQuotaMemory:
+          description: Must be valid kubernetes memory resource string, at least 2Gi
+            in terms of Gibibytes (GiB)
+          type: string
+        schedulerSize:
+          description: 'Size of scheduler, one of: SMALL, MEDIUM, LARGE'
+          enum:
+          - SMALL
+          - MEDIUM
+          - LARGE
+          type: string
+        type:
+          enum:
+          - DEDICATED
+          - HYBRID
+          - STANDARD
+          type: string
+        workerQueues:
+          description: Must be non-empty list of worker queues if deployment Airflow
+            executor is Celery
+          items:
+            $ref: '#/components/schemas/MutateWorkerQueueRequest'
+          minItems: 1
+          type: array
+        workloadIdentity:
+          type: string
+        workspaceId:
+          type: string
+      required:
+      - defaultTaskPodCpu
+      - defaultTaskPodMemory
+      - description
+      - environmentVariables
+      - executor
+      - isCicdEnforced
+      - isDagDeployEnabled
+      - isHighAvailability
+      - name
+      - resourceQuotaCpu
+      - resourceQuotaMemory
+      - schedulerSize
+      - type
+      - workspaceId
+      type: object
+    UpdateWorkspaceRequest:
+      properties:
+        cicdEnforcedDefault:
+          description: Whether new Deployments enforce CI/CD deploys by default.
+          example: true
+          type: boolean
+        description:
+          description: The Workspace's description.
+          example: This is a test workspace
+          type: string
+        name:
+          description: The Workspace's name.
+          example: My Workspace
+          maxLength: 50
+          type: string
+      required:
+      - cicdEnforcedDefault
+      - description
+      - name
+      type: object
+    WorkerMachine:
+      properties:
+        concurrency:
+          $ref: '#/components/schemas/Range'
+        name:
+          description: The name of this machine.
+          type: string
+        spec:
+          $ref: '#/components/schemas/MachineSpec'
+      required:
+      - concurrency
+      - name
+      - spec
+      type: object
+    WorkerQueue:
+      properties:
+        astroMachine:
+          type: string
+        id:
+          type: string
+        isDefault:
+          type: boolean
+        maxWorkerCount:
+          type: integer
+        minWorkerCount:
+          type: integer
+        name:
+          type: string
+        nodePoolId:
+          type: string
+        podCpu:
+          type: string
+        podRam:
+          type: string
+        workerConcurrency:
+          type: integer
+      required:
+      - id
+      - isDefault
+      - maxWorkerCount
+      - minWorkerCount
+      - name
+      - podCpu
+      - podRam
+      - workerConcurrency
+      type: object
+    WorkerQueueOptions:
+      properties:
+        maxWorkers:
+          $ref: '#/components/schemas/Range'
+        minWorkers:
+          $ref: '#/components/schemas/Range'
+        workerConcurrency:
+          $ref: '#/components/schemas/Range'
+      required:
+      - maxWorkers
+      - minWorkers
+      - workerConcurrency
+      type: object
+    WorkloadIdentityOption:
+      properties:
+        label:
+          type: string
+        role:
+          type: string
+      required:
+      - label
+      - role
+      type: object
+    Workspace:
+      properties:
+        cicdEnforcedDefault:
+          description: Whether CI/CD deploys are enforced by default.
+          example: true
+          type: boolean
+        createdAt:
+          description: The time when the Workspace was created in UTC, formatted as
+            `YYYY-MM-DDTHH:MM:SSZ`
+          example: "2023-09-08T12:00:00Z"
+          format: date-time
+          type: string
+        createdBy:
+          $ref: '#/components/schemas/BasicSubjectProfile'
+        description:
+          description: The Workspace's description.
+          example: This is a test workspace
+          type: string
+        id:
+          description: The Workspace's ID.
+          example: clm8t5u4q000008jq4qoc3036
+          type: string
+        name:
+          description: The Workspace's name.
+          example: My Workspace
+          type: string
+        organizationId:
+          description: The ID of the organization to which the workspace belongs.
+          example: clm8t5u4q000008jq4qoc3036
+          type: string
+        organizationName:
+          description: The name of the Organization to which the Workspace belongs.
+          example: My Organization
+          type: string
+        updatedAt:
+          description: The time when the Workspace was updated in UTC, formatted as
+            `YYYY-MM-DDTHH:MM:SSZ`
+          example: "2023-09-08T13:30:00Z"
+          format: date-time
+          type: string
+        updatedBy:
+          $ref: '#/components/schemas/BasicSubjectProfile'
+      required:
+      - cicdEnforcedDefault
+      - createdAt
+      - id
+      - name
+      - organizationId
+      - updatedAt
+      type: object
+    WorkspacesPaginated:
+      properties:
+        limit:
+          description: The maximum number of workspaces that can be retrieved per
+            page.
+          example: 0
+          type: integer
+        offset:
+          description: The offset for the current page of workspaces in the complete
+            result.
+          example: 0
+          type: integer
+        totalCount:
+          description: The total number of Workspaces in the paginated result.
+          example: 0
+          type: integer
+        workspaces:
+          description: An array of Workspace objects representing a list of workspaces.
+          items:
+            $ref: '#/components/schemas/Workspace'
+          type: array
+      required:
+      - limit
+      - offset
+      - totalCount
+      - workspaces
+      type: object
+  securitySchemes:
+    JWT:
+      in: header
+      name: Authorization
+      type: apiKey
+info:
+  contact: {}
+  description: Astro Runtime API
+  title: Astro Runtime API
+  version: v1beta1
+openapi: 3.0.3
+paths:
+  /organizations:
+    get:
+      description: List the details about all Organizations that you have access to.
+        Requires using a personal access token (PAT) for authentication.
+      operationId: ListOrganizations
+      parameters:
+      - description: 'Filters the Organization list by support plan. Can be one of:
+          TRIAL, BASIC, STANDARD, PREMIUM, BUSINESS_CRITICAL'
+        in: query
+        name: supportPlan
+        schema:
+          enum:
+          - TRIAL
+          - BASIC
+          - STANDARD
+          - PREMIUM
+          - BUSINESS_CRITICAL
+          type: string
+      - description: Filters the Organization list by product.
+        in: query
+        name: product
+        schema:
+          enum:
+          - HOSTED
+          - HYBRID
+          type: string
+      - description: Offset for pagination
+        in: query
+        name: offset
+        schema:
+          default: 0
+          minimum: 0
+          type: integer
+      - description: Limit for pagination
+        in: query
+        name: limit
+        schema:
+          default: 20
+          maximum: 1000
+          minimum: 0
+          type: integer
+      - description: Sorting criteria, each criterion should conform to format 'fieldName:asc'
+          or 'fieldName:desc'
+        in: query
+        name: sorts
+        schema:
+          items:
+            enum:
+            - name:asc
+            - name:desc
+            - createdAt:asc
+            - createdAt:desc
+            - updatedAt:asc
+            - updatedAt:desc
+            type: string
+          type: array
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationsPaginated'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Forbidden
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal Server Error
+      security:
+      - JWT: []
+      summary: List Organizations
+      tags:
+      - Organization
+  /organizations/{organizationId}:
+    get:
+      description: Retrieve information about a specific Organization.
+      operationId: GetOrganization
+      parameters:
+      - description: Organization's ID
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          type: string
+      - description: Whether to show only Organization metadata.
+        in: query
+        name: isLookUpOnly
+        schema:
+          type: boolean
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Organization'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal Server Error
+      security:
+      - JWT: []
+      summary: Get an Organization
+      tags:
+      - Organization
+      x-permission:
+      - action: organization.get
+    post:
+      description: Update an Organization's details.
+      operationId: UpdateOrganization
+      parameters:
+      - description: The ID of the Organization to update.
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateOrganizationRequest'
+        description: The request body for updating the Organization.
+        required: true
+        x-originalParamName: body
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Organization'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal Server Error
+      security:
+      - JWT: []
+      summary: Update an Organization
+      tags:
+      - Organization
+      x-permission:
+      - action: organization.settings.update
+  /organizations/{organizationId}/cluster-options:
+    get:
+      description: Cluster options
+      operationId: GetClusterOptions
+      parameters:
+      - description: organization ID
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          type: string
+      - description: cloud provider
+        in: query
+        name: provider
+        schema:
+          enum:
+          - AWS
+          - AZURE
+          - GCP
+          type: string
+      - description: cluster type
+        in: query
+        name: type
+        required: true
+        schema:
+          enum:
+          - DEDICATED
+          - HYBRID
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ClusterOptions'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal Server Error
+      security:
+      - JWT: []
+      summary: Cluster options
+      tags:
+      - Options
+  /organizations/{organizationId}/clusters:
+    get:
+      description: List clusters in the Organization.
+      operationId: ListClusters
+      parameters:
+      - description: The ID of the Organization to list clusters for.
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          type: string
+      - description: 'The cloud provider to list clusters for. Can be one of: `AWS`,
+          `AZURE`, or `GCP`. Clusters from other providers will be filtered out of
+          the results.'
+        in: query
+        name: provider
+        schema:
+          enum:
+          - AWS
+          - AZURE
+          - GCP
+          type: string
+      - description: Offset for pagination
+        in: query
+        name: offset
+        schema:
+          default: 0
+          minimum: 0
+          type: integer
+      - description: Limit for pagination
+        in: query
+        name: limit
+        schema:
+          default: 20
+          maximum: 1000
+          minimum: 0
+          type: integer
+      - description: Sorting criteria, each criterion should conform to format 'fieldName:asc'
+          or 'fieldName:desc'
+        in: query
+        name: sorts
+        schema:
+          items:
+            enum:
+            - name:asc
+            - name:desc
+            - createdAt:asc
+            - createdAt:desc
+            - updatedAt:asc
+            - updatedAt:desc
+            type: string
+          type: array
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClustersPaginated'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Forbidden
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal Server Error
+      security:
+      - JWT: []
+      summary: List clusters
+      tags:
+      - Cluster
+      x-permission:
+      - action: organization.clusters.list
+    post:
+      description: Create cluster
+      operationId: CreateCluster
+      parameters:
+      - description: organization ID
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateClusterRequest'
+        description: request body for creating a new cluster
+        required: true
+        x-originalParamName: body
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cluster'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Not Found
+        "412":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Precondition Failed
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal Server Error
+      security:
+      - JWT: []
+      summary: Create cluster
+      tags:
+      - Cluster
+      x-permission:
+      - action: organization.clusters.create
+  /organizations/{organizationId}/clusters/{clusterId}:
+    delete:
+      description: Delete a cluster from an Organization.
+      operationId: DeleteCluster
+      parameters:
+      - description: The ID of the Organization where you want to delete the cluster
+          from.
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          type: string
+      - description: The ID of the cluster you want to delete.
+        in: path
+        name: clusterId
+        required: true
+        schema:
+          type: string
+      responses:
+        "204":
+          description: ""
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal Server Error
+      security:
+      - JWT: []
+      summary: Delete a cluster
+      tags:
+      - Cluster
+      x-permission:
+      - action: organization.clusters.delete
+    get:
+      description: Get information about a cluster.
+      operationId: GetCluster
+      parameters:
+      - description: The ID of the Organization where you want to retrieve the cluster
+          information.
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          type: string
+      - description: The ID of the cluster to retrieve information for.
+        in: path
+        name: clusterId
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cluster'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal Server Error
+      security:
+      - JWT: []
+      summary: Get a cluster
+      tags:
+      - Cluster
+      x-permission:
+      - action: organization.clusters.get
+    post:
+      description: Update cluster
+      operationId: UpdateCluster
+      parameters:
+      - description: organization ID
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          type: string
+      - description: cluster ID
+        in: path
+        name: clusterId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateClusterRequest'
+        description: request body for updating a cluster
+        required: true
+        x-originalParamName: body
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cluster'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Not Found
+        "412":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Precondition Failed
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal Server Error
+      security:
+      - JWT: []
+      summary: Update cluster
+      tags:
+      - Cluster
+      x-permission:
+      - action: organization.clusters.update
+  /organizations/{organizationId}/deployment-options:
+    get:
+      description: Deployment options
+      operationId: GetDeploymentOptions
+      parameters:
+      - description: organization ID
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          type: string
+      - description: deployment ID
+        in: query
+        name: deploymentId
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeploymentOptions'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Forbidden
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal Server Error
+      security:
+      - JWT: []
+      summary: Deployment options
+      tags:
+      - Options
+      x-permission:
+      - action: organization.deploymentConfigurations.get
+  /organizations/{organizationId}/deployments:
+    get:
+      description: List deployments
+      operationId: ListDeployments
+      parameters:
+      - description: organization ID
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          type: string
+      - description: IDs that define the deployments
+        in: query
+        name: deploymentIds
+        schema:
+          items:
+            type: string
+          type: array
+      - description: IDs that define the workspaces where deployments belong to
+        in: query
+        name: workspaceIds
+        schema:
+          items:
+            type: string
+          type: array
+      - description: offset for pagination
+        in: query
+        name: offset
+        schema:
+          default: 0
+          minimum: 0
+          type: integer
+      - description: limit for pagination
+        in: query
+        name: limit
+        schema:
+          default: 20
+          minimum: 0
+          type: integer
+      - description: sorting criteria, each criterion should conform to format 'fieldName:asc'
+          or 'fieldName:desc'
+        in: query
+        name: sorts
+        schema:
+          items:
+            enum:
+            - name:asc
+            - name:desc
+            - createdAt:asc
+            - createdAt:desc
+            - updatedAt:asc
+            - updatedAt:desc
+            type: string
+          type: array
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeploymentsPaginated'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Forbidden
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal Server Error
+      security:
+      - JWT: []
+      summary: List deployments
+      tags:
+      - Deployment
+      x-permission:
+      - action: organization.runtimes.list
+    post:
+      description: Create deployment
+      operationId: CreateDeployment
+      parameters:
+      - description: organization ID
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateDeploymentRequest'
+        description: request body for create a deployment
+        required: true
+        x-originalParamName: body
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Deployment'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Forbidden
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal Server Error
+      security:
+      - JWT: []
+      summary: Create deployment
+      tags:
+      - Deployment
+      x-permission:
+      - action: workspace.deployments.create
+  /organizations/{organizationId}/deployments/{deploymentId}:
+    delete:
+      description: Delete deployment
+      operationId: DeleteDeployment
+      parameters:
+      - description: organization ID
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          type: string
+      - description: deployment ID
+        in: path
+        name: deploymentId
+        required: true
+        schema:
+          type: string
+      responses:
+        "204":
+          description: ""
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal Server Error
+      security:
+      - JWT: []
+      summary: Delete deployment
+      tags:
+      - Deployment
+      x-permission:
+      - action: deployment.delete
+    get:
+      description: Get deployment
+      operationId: GetDeployment
+      parameters:
+      - description: organization ID
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          type: string
+      - description: ID of the deployment
+        in: path
+        name: deploymentId
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Deployment'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal Server Error
+      security:
+      - JWT: []
+      summary: Get deployment
+      tags:
+      - Deployment
+      x-permission:
+      - action: deployment.get
+    post:
+      description: Update deployment
+      operationId: UpdateDeployment
+      parameters:
+      - description: organization ID
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          type: string
+      - description: deployment ID
+        in: path
+        name: deploymentId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateDeploymentRequest'
+        description: request body for updating a deployment
+        required: true
+        x-originalParamName: body
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Deployment'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal Server Error
+      security:
+      - JWT: []
+      summary: Update deployment
+      tags:
+      - Deployment
+      x-permission:
+      - action: deployment.update
+  /organizations/{organizationId}/workspaces:
+    get:
+      description: List Workspaces in an Organization
+      operationId: ListWorkspaces
+      parameters:
+      - description: The ID of the Organization to list Workspaces for.
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          type: string
+      - description: A list of IDs for specific Workspaces to list. The API will list
+          information only for Workspaces which have been specified in this list.
+        in: query
+        name: workspaceIds
+        schema:
+          items:
+            type: string
+          type: array
+      - description: Offset for pagination.
+        in: query
+        name: offset
+        schema:
+          default: 0
+          minimum: 0
+          type: integer
+      - description: Limit for pagination.
+        in: query
+        name: limit
+        schema:
+          default: 20
+          maximum: 1000
+          minimum: 0
+          type: integer
+      - description: Sorting criteria, each criterion should conform to format 'fieldName:asc'
+          or 'fieldName:desc'
+        in: query
+        name: sorts
+        schema:
+          items:
+            enum:
+            - name:asc
+            - name:desc
+            - createdAt:asc
+            - createdAt:desc
+            - updatedAt:asc
+            - updatedAt:desc
+            type: string
+          type: array
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkspacesPaginated'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Forbidden
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal Server Error
+      security:
+      - JWT: []
+      summary: List Workspaces
+      tags:
+      - Workspace
+      x-permission:
+      - action: organization.workspaces.list
+    post:
+      description: Create a Workspace.
+      operationId: CreateWorkspace
+      parameters:
+      - description: The ID of the Organization to which the Workspace will belong.
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateWorkspaceRequest'
+        description: The request body for creating a new Workspace.
+        required: true
+        x-originalParamName: body
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Workspace'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal Server Error
+      security:
+      - JWT: []
+      summary: Create Workspace
+      tags:
+      - Workspace
+      x-permission:
+      - action: organization.workspaces.create
+  /organizations/{organizationId}/workspaces/{workspaceId}:
+    delete:
+      description: Delete a Workspace.
+      operationId: DeleteWorkspace
+      parameters:
+      - description: The ID of the Organization to which the Workspace belongs.
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          type: string
+      - description: The Workspace's ID.
+        in: path
+        name: workspaceId
+        required: true
+        schema:
+          type: string
+      responses:
+        "204":
+          description: ""
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal Server Error
+      security:
+      - JWT: []
+      summary: Delete Workspace
+      tags:
+      - Workspace
+      x-permission:
+      - action: workspace.delete
+    get:
+      description: Get information about a Workspace.
+      operationId: GetWorkspace
+      parameters:
+      - description: The ID of the Organization to which the Workspace belongs.
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          type: string
+      - description: The Workspace's ID.
+        in: path
+        name: workspaceId
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Workspace'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal Server Error
+      security:
+      - JWT: []
+      summary: Get Workspace
+      tags:
+      - Workspace
+      x-permission:
+      - action: workspace.get
+    post:
+      description: Update a Workspace.
+      operationId: UpdateWorkspace
+      parameters:
+      - description: The ID of the Organization to which the Workspace belongs.
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          type: string
+      - description: The Workspace's ID.
+        in: path
+        name: workspaceId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateWorkspaceRequest'
+        description: The request body for updating a new Workspace.
+        required: true
+        x-originalParamName: body
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Workspace'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal Server Error
+      security:
+      - JWT: []
+      summary: Update Workspace
+      tags:
+      - Workspace
+      x-permission:
+      - action: workspace.settings.update
+servers:
+- url: https://api.astronomer-dev.io/platform/v1beta1
+tags:
+- description: Cluster related APIs
+  name: Cluster
+- description: Organization related APIs
+  name: Organization
+- description: Options related APIs
+  name: Options
+- description: Workspace related APIs
+  name: Workspace

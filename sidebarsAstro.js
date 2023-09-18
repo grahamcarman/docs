@@ -235,7 +235,8 @@ module.exports = {
       type: "category",
       label: "API reference",
       items: [
-        "api/api-reference",
+        "api/platform-api-reference",
+        "api/iam-api-reference",
       ],
     },
     {
