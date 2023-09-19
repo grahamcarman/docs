@@ -27,6 +27,37 @@ Astronomer is committed to continuous delivery of both features and bug fixes to
 
 <!-- ALL LINKS TO INTERNAL DOCS MUST BE COMPLETE URLS INCLUDING HTTPS. Otherwise the links will break in RSS. -->
 
+## September 19, 2023
+
+### Manage Deployments programmatically using Deployment API tokens
+
+:::caution
+
+This feature is in [Public Preview](https://docs.astronomer.io/astro/feature-previews).
+
+:::
+
+Deployment API tokens replace Deployment API keys as the most secure and customizable way to manage Deployments programmatically. You can use Deployment API tokens to perform all of the same actions as a Deployment API key, including:
+
+- [Pushing code](https://docs.astronomer.io/astro/deploy-code) to a Deployment.
+- Updating a Deployment's [environment variables](https://docs.astronomer.io/astro/environment-variables).
+- Making requests to update your Deployment's Airflow environment using the [Airflow REST API](https://docs.astronomer.io/astro/airflow-api).
+
+Unlike Deployment API keys, you can set an expiration date for Deployment API tokens and rotate them to better manage access to your Deployment. See [Deployment API tokens](https://docs.astronomer.io/astro/deployment-api-tokens) to learn how to create and manage Deployment API tokens.
+
+:::caution
+
+Deployment API tokens are a direct replacement for Deployment API keys. Therefore, Astronomer recommends always using Deployment API tokens over API keys. While you can still continue to use and manage existing Deployment API keys, Astronomer will soon require using Deployment API tokens. 
+
+When your Deployment has no API keys, the **API Keys** tab disappears from the Cloud UI and you can no longer create Deployment API keys. If you want to continue using API keys, ensure that you always have at least one API key configured for the Deployment. 
+
+:::
+
+### Additional improvements
+
+- When you create a new Deployment, the Cloud UI now presents new options and suggestions for running your first DAG.
+- You can now retrieve a Workspace's ID from the Cloud UI. To find a Workspace's ID, open the Workspace in the Cloud UI and go to **Workspace Settings** > **General**.
+
 ## September 12, 2023
 
 ### Per-Deployment IAM workload identities on AWS 
