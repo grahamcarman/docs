@@ -432,7 +432,7 @@ You can now use the `astro run` command to run and debug a DAG from the command 
 
 This command is an alternative to running `astro dev restart` every time you make a change to your DAG. Running DAGs without a scheduler or webserver improves the speed at which you can develop and test data pipelines.
 
-To learn more, see [Run and Debug DAGs with Astro Run](test-and-troubleshoot-locally.md#run-and-debug-dags-with-astro-run).
+To learn more, see [Test your Astro project locally](cli/test-your-astro-project-locally.md).
 
 ### Additional improvements
 
@@ -588,7 +588,7 @@ Release date: July 19, 2022
 
 ### Deploy a custom Docker image with new `--image-name` flag
 
-You can now deploy your Astro project with a custom Docker image by running `astro deploy --image-name <custom-image>`, as long as the image is based on Astro Runtime and is available in a local Docker registry. Customizing your Runtime image lets you securely mount additional files and arguments in your project, which is required for setups such as [installing Python packages from private sources](develop-project.md#install-python-packages-from-private-sources).
+You can now deploy your Astro project with a custom Docker image by running `astro deploy --image-name <custom-image>`, as long as the image is based on Astro Runtime and is available in a local Docker registry. Customizing your Runtime image lets you securely mount additional files and arguments in your project, which is required for setups such as [installing Python packages from private sources](cli/develop-project.md#install-python-packages-from-private-sources).
 
 Using this flag, you can automate deploying custom Runtime images from a CI/CD pipeline. You can also separate your build and deploy workflows in different pipelines.
 
@@ -616,7 +616,8 @@ By default, `astro deploy` automatically parses the DAGs in your Astro project f
 - Add `skip_parse: true` to your `.astro/config.yaml` file.
 - Add `ASTRONOMER_SKIP_PARSE=true` as an environment variable to your local environment or CI/CD pipeline.
 
-For more information on parsing DAGs, see [Parse DAGs](test-and-troubleshoot-locally.md#parse-dags). For more information about deploying to Astro, see [Deploy code](deploy-code.md).
+For more information on parsing DAGs, see [Test your Astro project locally](cli/test-your-astro-project-locally.md). For more information about deploying to Astro, see [Deploy code](deploy-code.md).
+
 ### Additional improvements
 
 - Upgraded the CLI to Go version 1.18, which includes improvements to both performance and the development experience. See the [Go Blog](https://go.dev/blog/go1.18).
@@ -764,7 +765,7 @@ Release date: April 14, 2022
 
 ### New command to create and update environment variables
 
-`astro deployment variable create` is a new Astro CLI command that allows you to create and update [environment variables](environment-variables.md) for a Deployment on Astro. New environment variables can be loaded from a file (e.g. `.env`) or specified as inputs to the CLI command itself. If you already set environment variables [via a `.env` file locally](develop-project.md#set-environment-variables-via-env-local-development-only), this command allows you to set environment variables on Astro from that file as well. More generally, this command makes it easy to automate creating or modifying environment variables instead of setting them manually in the Cloud UI.
+`astro deployment variable create` is a new Astro CLI command that allows you to create and update [environment variables](environment-variables.md) for a Deployment on Astro. New environment variables can be loaded from a file (e.g. `.env`) or specified as inputs to the CLI command itself. If you already set environment variables [via a `.env` file locally](cli/develop-project.md#set-environment-variables-via-env-local-development-only), this command allows you to set environment variables on Astro from that file as well. More generally, this command makes it easy to automate creating or modifying environment variables instead of setting them manually in the Cloud UI.
 
 For more information about this command and its options, see the [Astro CLI command reference](cli/astro-deployment-variable-create.md).
 
@@ -837,7 +838,7 @@ Release date: March 3, 2022
 
 This command was built to replace the need to constantly run `astro dev restart` during troubleshooting to see if your DAGs render in the Airflow UI. Now, you can quickly run `astro dev parse` and see import and syntax errors directly in your terminal without having to restart all Airflow services locally. For more complex testing, we still recommend using `astro dev pytest`, which allows you to run other custom tests in your project.
 
-For more information about `astro dev parse`, see the [CLI command reference](cli/astro-dev-parse.md). For more guidance on testing DAGs locally, see [Test DAGs locally](test-and-troubleshoot-locally.md#test-dags-locally).
+For more information about `astro dev parse`, see the [CLI command reference](cli/astro-dev-parse.md). For more guidance on testing DAGs locally, see [Test DAGs locally](cli/test-your-astro-project-locally.md#unit-test-dags).
 
 ### `astro deploy` parses DAGs by default
 
@@ -897,7 +898,7 @@ For example, you can use this command to run tests that check for:
 
 These tests don't require a fully functional Airflow environment in order to execute, which makes this Astro CLI command the fastest and easiest way to test DAGs locally.
 
-In addition to running tests locally, you can also run pytest as part of the Astro deploy process. To do so, specify the `--pytest` flag when running `astro deploy`. This ensures that your code push to Astro automatically fails if any DAGs do not pass all pytests specified in the `tests` directory of your Astro project. For more information, see [Test DAGs locally with pytest](test-and-troubleshoot-locally.md#test-dags-locally-with-pytest).
+In addition to running tests locally, you can also run pytest as part of the Astro deploy process. To do so, specify the `--pytest` flag when running `astro deploy`. This ensures that your code push to Astro automatically fails if any DAGs do not pass all pytests specified in the `tests` directory of your Astro project. For more information, see [Test your Astro project locally](cli/test-your-astro-project-locally.md).
 
 ### New command to view Deployment scheduler Logs
 

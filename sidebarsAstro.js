@@ -36,7 +36,11 @@ module.exports = {
       type: "category",
       label: "Develop",
       items: [
-        "develop-project",
+        {
+          type: 'link',
+          label: 'Develop your Astro project',
+          href: 'https://docs.astronomer.io/astro/cli/develop-project',
+        },
         "kubernetespodoperator",
         {
           type: "category",
@@ -66,7 +70,6 @@ module.exports = {
         },
         "upgrade-runtime",
         "airflow-api",
-        "test-and-troubleshoot-locally",
       ],
     },
     {
@@ -310,23 +313,31 @@ module.exports = {
     },
     {
       type: "doc",
-      label: "Configure the CLI",
-      id: "cli/configure-cli",
+      label: "Develop your project",
+      id: "cli/develop-project",
     },
     {
       type: "doc",
-      label: "Test your Astro project locally",
+      label: "Run Airflow locally",
+      id: "cli/run-airflow-locally",
+    },
+    {
+      type: "doc",
+      label: "Test your project",
       id: "cli/test-your-astro-project-locally",
-    },
-    {
-      type: "doc",
-      label: "Authenticate to cloud services",
-      id: "cli/authenticate-to-clouds",
     },
     {
       type: "doc",
       label: "Release notes",
       id: "cli/release-notes",
+    },
+    {
+      type: "category",
+      label: "Advanced",
+      items: [
+        "cli/configure-cli",
+        "cli/authenticate-to-clouds",
+      ],
     },
     {
       type: 'category',

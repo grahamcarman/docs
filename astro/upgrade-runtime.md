@@ -15,9 +15,9 @@ New versions of Astro Runtime are released regularly to support new Astro and Ap
 
 ## Prerequisites
 
-- An [Astro project](develop-project.md#create-an-astro-project).
-- An [Astro Deployment](create-deployment.md).
 - The [Astro CLI](cli/install-cli.md).
+- An [Astro project](cli/get-started-cli.md).
+- An [Astro Deployment](create-deployment.md).
 
 :::info
 
