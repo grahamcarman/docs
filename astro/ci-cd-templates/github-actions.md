@@ -70,6 +70,7 @@ To automate code deploys to a single Deployment using [GitHub Actions](https://g
         steps:
         - name: Deploy to Astro
           uses: astronomer/deploy-action@v0.2
+          deployment-id: <your-deployment-id>
     ```
 
 </TabItem>
@@ -169,6 +170,7 @@ If your Astro project requires additional build-time arguments to build an image
         - name: Build image
           uses: docker/build-push-action@v2
           with:
+            deployment-id: <your-deployment-id>
             tags: ${{ steps.image_tag.outputs.image_tag }}
             load: true
             # Define your custom image's build arguments, contexts, and connections here using
@@ -181,6 +183,7 @@ If your Astro project requires additional build-time arguments to build an image
         - name: Deploy to Astro
           uses: astronomer/deploy-action@v0.2
           with:
+            deployment-id: <your-deployment-id>
             image-name: ${{ steps.image_tag.outputs.image_tag }}
     ```
 
@@ -222,6 +225,7 @@ If your Astro project requires additional build-time arguments to build an image
         - name: Deploy to Astro
           uses: astronomer/deploy-action@v0.2
           with:
+            deployment-id: <your-deployment-id>
             image-name: ${{ steps.image_tag.outputs.image_tag }}
     ```
 
@@ -395,7 +399,7 @@ To automate code deploys to a Deployment using [GitHub Actions](https://github.c
         - name: Deploy to Astro
           run: |
             curl -sSL install.astronomer.io | sudo bash -s
-            astro deploy
+            astro deploy <your-deployment-id>
     ```
 
 </TabItem>
@@ -443,7 +447,7 @@ The following setup can be used to create a multiple branch CI/CD pipeline using
         - name: Deploy to Astro
           run: |
             curl -sSL install.astronomer.io | sudo bash -s
-            astro deploy --deployment-name "<dev-deployment-name>"
+            astro deploy <your-dev-deployment-id>
       prod-push:
         if: github.event.action == 'closed' && github.event.pull_request.merged == true
         env:
@@ -456,7 +460,7 @@ The following setup can be used to create a multiple branch CI/CD pipeline using
         - name: Deploy to Astro
           run: |
             curl -sSL install.astronomer.io | sudo bash -s
-            astro deploy --deployment-name "<prod-deployment-name>"
+            astro deploy <your-prod-deployment-id>
     ```
 
 </TabItem>
@@ -511,55 +515,66 @@ If your Astro project requires additional build-time arguments to build an image
         - name: Deploy to Astro
           run: |
             curl -sSL install.astronomer.io | sudo bash -s
-            astro deploy --image-name ${{ steps.image_tag.outputs.image_tag }}
+            astro deploy <your-deployment-id> --image-name ${{ steps.image_tag.outputs.image_tag }}
     ```
-
-    For example, to create a CI/CD pipeline that deploys a project which [installs Python packages from a private GitHub repository](cli/develop-project.md#install-python-packages-from-private-sources), you would use the following configuration:
-
-    ```yaml
-    name: Astronomer CI - Custom base image
-
-    on:
-      push:
-        branches:
-          - main
-
-    jobs:
-      build:
-        runs-on: ubuntu-latest
-        env:
-          ASTRO_API_TOKEN: ${{ secrets.ASTRO_API_TOKEN }}
-        steps:
-        - name: Check out the repo
-          uses: actions/checkout@v3
-        - name: Create image tag
-          id: image_tag
-          run: echo ::set-output name=image_tag::astro-$(date +%Y%m%d%H%M%S)
-        - name: Create SSH Socket
-          uses: webfactory/ssh-agent@v0.5.4
-          with:
-            # GITHUB_SSH_KEY must be defined as a GitHub secret.
-            ssh-private-key: ${{ secrets.GITHUB_SSH_KEY }}
-        - name: (Optional) Test SSH Connection - Should print hello message.
-          run: (ssh git@github.com) || true
-        - name: Build image
-          uses: docker/build-push-action@v2
-          with:
-            tags: ${{ steps.image_tag.outputs.image_tag }}
-            load: true
-            ssh: |
-              github=${{ env.SSH_AUTH_SOCK }
-        - name: Deploy to Astro
-          run: |
-            curl -sSL install.astronomer.io | sudo bash -s
-            astro deploy --image-name ${{ steps.image_tag.outputs.image_tag }}
-    ```
-
-  :::info
-
-  If you need guidance configuring a CI/CD pipeline for a more complex use case involving custom Runtime images, reach out to [Astronomer support](https://support.astronomer.io/).
-
-  :::
 
 </TabItem>
+
 </Tabs>
+
+:::tip important
+
+If you use a self-hosted runner for your CI/CD process and use a Workspace or Organization API token that has access to more than one Astro Deployment, remember to explictly pass the `deployment-id` in the [`astro deploy`](../cli/astro-deploy.md) command. This will avoid accidental deploys to wrong Deployments.
+
+:::
+
+### Example 
+
+To create a CI/CD pipeline that deploys a project which [installs Python packages from a private GitHub repository](develop-project.md#install-python-packages-from-private-sources), you would use the following configuration:
+
+  ```yaml
+  name: Astronomer CI - Custom base image
+
+  on:
+    push:
+      branches:
+        - main
+
+  jobs:
+    build:
+      runs-on: ubuntu-latest
+      env:
+        ASTRO_API_TOKEN: ${{ secrets.ASTRO_API_TOKEN }}
+      steps:
+      - name: Check out the repo
+        uses: actions/checkout@v3
+      - name: Create image tag
+        id: image_tag
+        run: echo ::set-output name=image_tag::astro-$(date +%Y%m%d%H%M%S)
+      - name: Create SSH Socket
+        uses: webfactory/ssh-agent@v0.5.4
+        with:
+          # GITHUB_SSH_KEY must be defined as a GitHub secret.
+          ssh-private-key: ${{ secrets.GITHUB_SSH_KEY }}
+      - name: (Optional) Test SSH Connection - Should print hello message.
+        run: (ssh git@github.com) || true
+      - name: Build image
+        uses: docker/build-push-action@v2
+        with:
+          tags: ${{ steps.image_tag.outputs.image_tag }}
+          load: true
+          ssh: |
+            github=${{ env.SSH_AUTH_SOCK }
+      - name: Deploy to Astro
+        run: |
+          curl -sSL install.astronomer.io | sudo bash -s
+          astro deploy <your-deployment-id> --image-name ${{ steps.image_tag.outputs.image_tag }}
+  ```
+
+  
+:::info
+
+If you need guidance configuring a CI/CD pipeline for a more complex use case involving custom Runtime images, reach out to [Astronomer support](https://support.astronomer.io/).
+
+:::
+
