@@ -226,8 +226,12 @@ module.exports = {
           // Plugin Options for loading OpenAPI files
           specs: [
             {
-              id: 'astro',
-              spec: './openapi/apispec.yaml',
+              id: 'platform',
+              spec: './openapi/platform.yaml',
+            },
+            {
+              id: 'iam',
+              spec: './openapi/iam.yaml',
             },
          ],
           // Theme Options for modifying how redoc renders them

@@ -233,7 +233,7 @@ module.exports = {
     },
     {
       type: "category",
-      label: "API reference",
+      label: "Astro API",
       items: [
         "api/overview",
         "api/get-started",
