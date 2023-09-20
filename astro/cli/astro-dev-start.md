@@ -35,9 +35,9 @@ astro dev start
 $ astro dev start --env=/users/username/documents/myfile.env
 ```
 
-:::tip
+:::info
 
-If you see the following error when using `astro deploy` and you configured your CLI to work with [Podman](cli/configure-cli.md), you might need to set an additional environment variable to correctly build containers during your code deploys to Astro.
+The following error can sometimes occur when the CLI tries to build your Astro Runtime image using Podman:
 
 ```bash
 WARN[0010] SHELL is not supported for OCI image format, [/bin/bash -o pipefail -e -u -x -c] will be ignored. Must use `docker` format 

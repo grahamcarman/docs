@@ -298,15 +298,14 @@ If you receive an error after running `podman ps`, there is likely a problem wit
 
 </Tabs>
 
-### Troubleshoot your configuration
+### Troubleshoot your Podman configuration
 
-Sometimes, after you configure Podman, the following error occurs when Astro tries to build container images when running `astro deploy` or `astro dev start`. 
+The following error can sometimes occur when the CLI tries to build your Astro Runtime image using Podman:
 
 ```bash
 WARN[0010] SHELL is not supported for OCI image format, [/bin/bash -o pipefail -e -u -x -c] will be ignored. Must use `docker` format 
 ```
-You can resolve this issue by exporting the `BUILDAH_FORMAT` [environment variable](astro/environment-variables.md) to Podman:
-
+To resolve this issue, run the following command to set the `BUILDAH_FORMAT` environment variable on your machine:
 ```dockerfile
 export BUILDAH_FORMAT=docker
 ```
