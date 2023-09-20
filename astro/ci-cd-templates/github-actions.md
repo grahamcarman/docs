@@ -523,13 +523,7 @@ If your Astro project requires additional build-time arguments to build an image
             astro deploy <your-deployment-id> --image-name ${{ steps.image_tag.outputs.image_tag }}
     ```
 
-</TabItem>
-
-</Tabs>
-
-### Example implementation: Install private Python packages
-
-To create a CI/CD pipeline that deploys a project which [installs Python packages from a private GitHub repository](cli/develop-project.md#install-python-packages-from-private-sources), you would use the following configuration:
+For example, to create a CI/CD pipeline that deploys a project which [installs Python packages from a private GitHub repository](cli/develop-project.md#install-python-packages-from-private-sources), you would use the following configuration:
 
   ```yaml
   name: Astronomer CI - Custom base image
@@ -576,4 +570,9 @@ To create a CI/CD pipeline that deploys a project which [installs Python package
 If you need guidance configuring a CI/CD pipeline for a more complex use case involving custom Runtime images, reach out to [Astronomer support](https://support.astronomer.io/).
 
 :::
+
+</TabItem>
+
+</Tabs>
+
 
