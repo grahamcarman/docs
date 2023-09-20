@@ -1,6 +1,6 @@
 ---
 title: "Orchestrate Redshift operations with Airflow"
-sidebar_label: "Amazon Redshift"
+sidebar_label: "Example"
 description: "Orchestrate Redshift queries from your Airflow DAGs."
 id: airflow-redshift
 tags: [Database, SQL, DAGs, Integrations, AWS]

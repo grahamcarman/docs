@@ -151,7 +151,20 @@ module.exports = {
         description: 'Integrate Airflow with commonly used data engineering tools.',
       },
       items: [
-        'airflow-redshift',
+        {
+          type: 'category',
+          label: 'Redshift',
+          link: {
+              type: 'generated-index',
+              title: 'Redshift',
+              description: 'Orchestrate Redshift queries from your Airflow DAGs.',
+              image: '/img/integrations/redshift.png'
+          },
+          items: [
+            'airflow-redshift',
+            'connections/redshift'
+          ],
+        },
         'airflow-sagemaker',
         'airflow-kafka',
         'airflow-azure-container-instances',
@@ -201,7 +214,6 @@ module.exports = {
               'connections/dbt-cloud',
               'connections/ms-sqlserver',
               'connections/postgres',
-              'connections/redshift',
               'connections/snowflake'
             ],
           },
