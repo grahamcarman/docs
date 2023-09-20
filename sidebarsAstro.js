@@ -36,7 +36,11 @@ module.exports = {
       type: "category",
       label: "Develop",
       items: [
-        "develop-project",
+        {
+          type: 'link',
+          label: 'Develop your Astro project',
+          href: 'https://docs.astronomer.io/astro/cli/develop-project',
+        },
         "kubernetespodoperator",
         {
           type: "category",
@@ -66,7 +70,6 @@ module.exports = {
         },
         "upgrade-runtime",
         "airflow-api",
-        "test-and-troubleshoot-locally",
       ],
     },
     {
@@ -76,6 +79,7 @@ module.exports = {
         "deploy-code",
         "deploy-project-image",
         "deploy-dags",
+        "deploy-history",
       ],
     },
     {
@@ -175,7 +179,7 @@ module.exports = {
         {
           type: "category",
           label: "Deployments",
-          items: ["authorize-deployments-to-your-cloud", "transfer-a-deployment"],
+          items: ["deployment-api-tokens", "authorize-deployments-to-your-cloud", "transfer-a-deployment"],
         },
         {
           type: "category",
@@ -309,23 +313,31 @@ module.exports = {
     },
     {
       type: "doc",
-      label: "Configure the CLI",
-      id: "cli/configure-cli",
+      label: "Develop your project",
+      id: "cli/develop-project",
     },
     {
       type: "doc",
-      label: "Test your Astro project locally",
+      label: "Run Airflow locally",
+      id: "cli/run-airflow-locally",
+    },
+    {
+      type: "doc",
+      label: "Test your project",
       id: "cli/test-your-astro-project-locally",
-    },
-    {
-      type: "doc",
-      label: "Authenticate to cloud services",
-      id: "cli/authenticate-to-clouds",
     },
     {
       type: "doc",
       label: "Release notes",
       id: "cli/release-notes",
+    },
+    {
+      type: "category",
+      label: "Advanced",
+      items: [
+        "cli/configure-cli",
+        "cli/authenticate-to-clouds",
+      ],
     },
     {
       type: 'category',
@@ -399,6 +411,9 @@ module.exports = {
             'cli/astro-deployment-variable-create',
             'cli/astro-deployment-variable-list',
             'cli/astro-deployment-variable-update',
+            'cli/astro-deployment-worker-queue-create',
+            'cli/astro-deployment-worker-queue-delete',
+            'cli/astro-deployment-worker-queue-update',
           ],
         },
         {

@@ -23,9 +23,9 @@ To learn more about CI/CD on Astro, see [Choose a CI/CD strategy](set-up-ci-cd.m
 
 ## Prerequisites
 
-- An [Astro project](develop-project.md#create-an-astro-project) hosted in a GitHub repository.
+- An [Astro project](cli/develop-project.md#create-an-astro-project) hosted in a GitHub repository.
 - An [Astro Deployment](create-deployment.md).
-- Either a [Workspace API token](workspace-api-tokens.md) or an [Organization API token](organization-api-tokens.md).
+- A [Deployment API token](deployment-api-tokens.md), [Workspace API token](workspace-api-tokens.md), or [Organization API token](organization-api-tokens.md).
 - Access to [GitHub Actions](https://github.com/features/actions).
 
 Each CI/CD template implementation might have additional requirements.
@@ -187,7 +187,7 @@ If your Astro project requires additional build-time arguments to build an image
             image-name: ${{ steps.image_tag.outputs.image_tag }}
     ```
 
-    For example, to create a CI/CD pipeline that deploys a project which [installs Python packages from a private GitHub repository](develop-project.md#install-python-packages-from-private-sources), you would use the following configuration:
+    For example, to create a CI/CD pipeline that deploys a project which [installs Python packages from a private GitHub repository](cli/develop-project.md#install-python-packages-from-private-sources), you would use the following configuration:
 
     ```yaml
     name: Astronomer CI - Custom base image
