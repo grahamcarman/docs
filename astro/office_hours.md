@@ -1,35 +1,34 @@
 ---
-title: 'Book Office Hours'
-navTitle: 'Astro Office Hours'
+title: 'Book Astro office hours'
+navTitle: 'Office hours'
 id: astro-office-hours
-description: Attend Office Hours with our team of Data Engineers
+description: Attend office hours with Astronomer data engineers to ask non-support questions about Airflow.
 ---
 
-Office hours are a new way for Astro customers to meet with our team of talented Data Engineers.
-These sessions are typically 30 minutes in duration and available weekly on a first-come-first-serve basis.
+Office hours are a way for you to meet with Astronomer data engineers and ask about Astro and Airflow features and best practices . Office hours are available weekly on a first-come, first-served basis. An office hour session is typically 30 minutes long. 
 
 :::caution
 
-**Office hours are not a replacement for support!** 
+Office hours are not a replacement for support. [Submit a support request](astro-support.md) if you have any urgent issue, bug, or something that needs fixing. Astronomer data engineers will not be able to answer support requests during office hour sessions.
 
-Please [submit a support request](astro-support.md) if you have any urgent issue, bug, or something that needs fixing. We will not be able to assist you with these topics during office hours sessions.
+If you have questions about your Astronomer account or billing, email `success@astronomer.io` instead of attending office hours. If you need more extensive assistance, guidance, or regular long-term engagement, reach out to the [Professional Services](https://www.astronomer.io/professional-services/) team.
 
 :::
 
-Before your office hours appointment, please browse the documentation, [Astronomer Academy](https://academy.astronomer.io/), [Airflow Guides](https://docs.astronomer.io/learn/), or discussion on the [Astronomer Forum](https://forum.astronomer.io) to see if there are existing guides or resources for what you would like to discuss. 
+Before an office hour appointment, please browse the documentation, [Astronomer Academy](https://academy.astronomer.io/), [Airflow Guides](https://docs.astronomer.io/learn/), or discussion on the [Astronomer Forum](https://forum.astronomer.io) to see if there are existing guides or resources that cover what you'd like to discuss. 
 
-You can also email [success@astronomer.io](mailto:success@astronomer.io) if you have general account related questions. However, if you need more extensive assistance, guidance, or regular long-term engagement - please talk to our [Professional Services](https://www.astronomer.io/professional-services/) team.
+During an office hours meeting, you can:
 
-## Example Topics
+- Ask questions about Airflow features.
+- Discuss new Astro features or provide feedback.
+- Get insight on integrating Airflow with new systems.
+- Do an architecture review or discuss scaling Airflow and Astro Deployments .
+- Conduct a code review for a DAG.
 
-Examples of possible Office Hour topics:
-- Ask questions about Airflow features
-- Discuss new Astro features or provide feedback
-- Get insight on integrating Airflow with new systems 
-- Do an Architecture Review or discuss scaling Airflow and Astro Deployments 
-- Conduct a Code Review for a DAG
+## Book an office hours appointment 
 
-## Book Office Hours
-Book office hours by clicking the **Help** menu in the [Cloud UI](https://cloud.astronomer.io) or **Book office hours** at the end of the [docs navigation menu](https://docs.astronomer.io/astro).
+To book office hours, click **Help** > **Book Office Hours** in the [Cloud UI](https://cloud.astronomer.io). Alternatively, you can click **Book office hours** in the left sidebar of this page.
 
 ![A screenshot showing the menu in cloud.astronomer.io which contains a Book Office Hours entry](/img/docs/office_hours.png)
+
+Before an office hour appointment, take a moment to browse the documentation, [Astronomer Academy](https://academy.astronomer.io/), [Airflow Guides](https://docs.astronomer.io/learn/), or discussion on the [Astronomer Forum](https://forum.astronomer.io) to see if there are existing guides or resources that cover what you'd like to discuss. 
