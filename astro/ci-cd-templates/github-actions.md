@@ -20,7 +20,6 @@ Read the following sections to choose the right template for your use case. If y
 
 To learn more about CI/CD on Astro, see [Choose a CI/CD strategy](set-up-ci-cd.md).
 
-
 ## Prerequisites
 
 - An [Astro project](cli/develop-project.md#create-an-astro-project) hosted in a GitHub repository.
@@ -29,6 +28,12 @@ To learn more about CI/CD on Astro, see [Choose a CI/CD strategy](set-up-ci-cd.m
 - Access to [GitHub Actions](https://github.com/features/actions).
 
 Each CI/CD template implementation might have additional requirements.
+
+:::info
+
+If you use a self-hosted runner for GitHub Actions and you're using a Workspace or Organization API token that has access to more than one Deployment, ensure that you specify `deployment-id` in your action as shown in the following templates. This reduces the risk of accidentally deploying to the wrong Deployment.
+
+:::
 
 ## Deploy action templates
 
@@ -522,15 +527,9 @@ If your Astro project requires additional build-time arguments to build an image
 
 </Tabs>
 
-:::tip important
+### Example implementation: Install private Python packages
 
-If you use a self-hosted runner for your CI/CD process and use a Workspace or Organization API token that has access to more than one Astro Deployment, remember to explictly pass the `deployment-id` in the [`astro deploy`](../cli/astro-deploy.md) command. This will avoid accidental deploys to wrong Deployments.
-
-:::
-
-### Example 
-
-To create a CI/CD pipeline that deploys a project which [installs Python packages from a private GitHub repository](develop-project.md#install-python-packages-from-private-sources), you would use the following configuration:
+To create a CI/CD pipeline that deploys a project which [installs Python packages from a private GitHub repository](cli/develop-project.md#install-python-packages-from-private-sources), you would use the following configuration:
 
   ```yaml
   name: Astronomer CI - Custom base image

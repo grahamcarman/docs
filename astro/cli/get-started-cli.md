@@ -72,7 +72,7 @@ The Astro CLI uses port `8080` for the Airflow webserver and port `5432` for the
 
 ## Step 3: Develop locally with the CLI
 
-Now that you have a locally running project, you can start to develop your Astro project by adding DAGs, dependencies, environment variables, and more. See [Develop your project](develop-project.md) for more details on how to modify all aspects of your Astro project. 
+Now that you have a locally running project, you can start to develop your Astro project by adding DAGs, dependencies, environment variables, and more. See [Develop your project](cli/develop-project.md) for more details on how to modify all aspects of your Astro project. 
 
 Most changes you make, including updates to your DAG code, are applied automatically to your running environment and don't require rebuilding your project. However, you must rebuild your project and restart your environment to apply changes from any of the following files in your Astro project:
 
