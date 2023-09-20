@@ -6,16 +6,16 @@ id: overview
 
 The Astro API is a standard REST API that you can use to develop applications for interacting with Astro components.
 
-The API contains multiple schemas, with each schema representing a different part of Astro management:
+The API contains multiple schemas, with each schema representing a different part of Astro:
 
-- **Platform API**: This schema includes endpoints for updating your Astro infrastructure and resources, such as clusters, Deployments, and Workspaces.
-- **Identity and access management (IAM) API**: This schema includes endpoints for managing role-based access control (RBAC) components, such as users and Teams.
+- **Platform API schema**: Includes endpoints for updating your Astro infrastructure and resources, such as clusters, Deployments, and Workspaces.
+- **Identity and access management (IAM) API schema**: Includes endpoints for managing role-based access control (RBAC) components, such as users and Teams.
 
 To make your first request using the Astro API, see [Get started with the Astro API](api/get-started.md).
 
 :::info
 
-The Astro API is currently in beta. See [Support](versioning-and-support.md) for all policies related to using beta releases.
+The Astro API is currently in beta. See [Support](versioning-and-support.md) for all policies related to using beta releases of the API.
 
 :::
 
@@ -41,7 +41,6 @@ Astro supports different levels of [idempotency](https://en.wikipedia.org/wiki/I
 - **`CREATE` requests**: Identical `CREATE` requests will result in the creation of multiple objects. For example, if you post identical requests to create an Organization, Astro creates multiple Organizations with identical settings and unique IDs.
 - **`UPDATE` requests**: Idempotency is guaranteed for all `UPDATE` requests.
 - **`DELETE` requests**: Idempotency is guaranteed for all `DELETE` requests. Any successive identical `DELETE` requests return a 404 error.
-
 
 ## API status codes
 
