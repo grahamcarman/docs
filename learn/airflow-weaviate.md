@@ -133,7 +133,6 @@ The DAG in this tutorial runs a query on vectorized movie descriptions from [IMD
     import re
     from uuid import uuid4
 
-
     def create_parquet_file_from_txt(text_file_path, parquet_file_path):
         with open(text_file_path, "r") as f:
             lines = f.readlines()
