@@ -2,7 +2,7 @@
 title: "Orchestrate Weaviate with Apache Airflow"
 sidebar_label: "Weaviate"
 description: "Learn how to integrate Weaviate and Airflow."
-id: weaviate-dbt
+id: airflow-weaviate
 sidebar_custom_props: { icon: 'img/integrations/weaviate.png' }
 ---
 
