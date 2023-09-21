@@ -2,7 +2,7 @@
 sidebar_label: "astro dev ps"
 title: "astro dev ps"
 id: astro-dev-ps
-description: List all running Docker containers in your local Astro project.
+description: List all running Docker containers in your local Airflow environment.
 hide_table_of_contents: true
 sidebar_custom_props: { icon: 'img/term-icon.png' }
 ---

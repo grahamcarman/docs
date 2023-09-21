@@ -422,7 +422,7 @@ module.exports = {
           link: {
             type: 'generated-index',
             title: "astro dev command reference",
-            description: 'Use astro dev commands to manage your Astro project and interact with your local Airflow environment.'
+            description: 'Use `astro dev` commands to manage your Astro project and interact with your local Airflow environment.'
           },
           items: [
             'cli/astro-dev-bash',

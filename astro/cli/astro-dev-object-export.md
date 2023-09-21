@@ -2,7 +2,7 @@
 sidebar_label: "astro dev object export"
 title: "astro dev object export"
 id: astro-dev-object-export
-description: Export Airflow objects from local Airflow environment.
+description: Export Airflow objects from a local Airflow environment.
 sidebar_custom_props: { icon: 'img/term-icon.png' }
 ---
 

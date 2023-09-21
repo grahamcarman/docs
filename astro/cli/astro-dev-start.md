@@ -2,7 +2,7 @@
 sidebar_label: "astro dev start"
 title: "astro dev start"
 id: astro-dev-start
-description: Build your Astro project to start a local Airflow environment.
+description: Build your Astro project and start a local Airflow environment.
 hide_table_of_contents: true
 sidebar_custom_props: { icon: 'img/term-icon.png' }
 ---
