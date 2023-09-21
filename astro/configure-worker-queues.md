@@ -18,6 +18,13 @@ Use worker queues to create optimized execution environments for different types
 - Isolate a single task from other tasks in your Deployment.
 - Allow some workers to scale to zero but keep a minimum of 1 for other types of workers.
 
+:::tip
+
+Worker queue, at its core, describes the execution environment and does not alter scheduling behaviour. Be sure to review concurrency settings like [Airflow Pools](learn/airflow-pools.md) to ensure the deployment can leverage the worker queue sizing.
+
+:::
+
+
 ## Benefits
 
 Worker queues can enhance performance, decrease cost, and increase the reliability of task execution in your Deployment. Specifically:
