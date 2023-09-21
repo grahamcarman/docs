@@ -11,7 +11,7 @@ id: 'create-first-DAG'
 
 import {siteVariables} from '@site/src/versions';
 
-Astro is the industry's leading managed service for Apache Airflow. The best way to understand how Astro works is to run an Apache Airflow DAG with the Astro CLI. In this quickstart, follow the steps required to deploy an example DAG to Astro and trigger a DAG run from the Astro CLI.
+Astro is the industry's leading managed service for Apache Airflow. You can quickly learn how Astro works by running an Apache Airflow DAG with the Astro CLI. In this quickstart, follow the steps required to deploy an example DAG to Astro and trigger a DAG run from the Astro CLI.
 
 Specifically, you will:
 
