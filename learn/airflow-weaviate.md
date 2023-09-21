@@ -7,7 +7,7 @@ sidebar_custom_props: { icon: 'img/integrations/weaviate.png' }
 ---
 
 import CodeBlock from '@theme/CodeBlock';
-import query_movie_vectors from '!!raw-loader!../code-samples/dags/weaviate-dbt/query_movie_vectors.py';
+import query_movie_vectors from '!!raw-loader!../code-samples/dags/airflow-weaviate/query_movie_vectors.py';
 
 [Weaviate](https://weaviate.io/developers/weaviate) is an open source vector database that stores objects with its vectors. Vector databases are powerful tools to store high-dimensional embeddings of objects like text, images, audio or video. The [Weaviate Airflow provider](https://github.com/astronomer/airflow-provider-weaviate) offers operators and decorators to easily integrate Weaviate with Airflow.
 
