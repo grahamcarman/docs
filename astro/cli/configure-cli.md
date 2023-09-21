@@ -305,7 +305,9 @@ The following error can sometimes occur when the CLI tries to build your Astro R
 ```bash
 WARN[0010] SHELL is not supported for OCI image format, [/bin/bash -o pipefail -e -u -x -c] will be ignored. Must use `docker` format 
 ```
+
 To resolve this issue, run the following command to set the `BUILDAH_FORMAT` environment variable on your machine:
+
 ```dockerfile
 export BUILDAH_FORMAT=docker
 ```
