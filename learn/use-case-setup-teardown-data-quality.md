@@ -54,7 +54,7 @@ This project consists of two DAGs, `create_rose_table` and `rose_classification`
 
 ![Datasets view of the use case project showing the create_rose_table DAG that produces to the dataset postgres://public/roses which is consumed by the second DAG named rose_classification.](/img/examples/use-case-setup-teardown-data-quality_datasets_view.png)
 
-The [`create_rose_table`](https://github.com/astronomer/use-case-setup-teardown-data-quality/blob/main/dags/create_rose_table.py) DAG contains a create table [task group](task-group.md) with a table creation pattern that includes two types of data quality checks: those that stop the pipeline if data does not pass the checks and those which only log a warning but do not stop the pipeline. The first type of checks are run on a temporary table that is created and dropped using [setup/ teardown tasks](airflow-setup-teardown.md) to efficiently handle data quality check failures.
+The [`create_rose_table`](https://github.com/astronomer/use-case-setup-teardown-data-quality/blob/main/dags/create_rose_table.py) DAG contains a create table [task group](task-groups.md) with a table creation pattern that includes two types of data quality checks: those that stop the pipeline if data does not pass the checks and those which only log a warning but do not stop the pipeline. The first type of checks are run on a temporary table that is created and dropped using [setup/ teardown tasks](airflow-setup-teardown.md) to efficiently handle data quality check failures.
 
 ![Graph view of the create_rose_table DAG showing a task group called create_table containing 2 nested task groups and 6 individual tasks. The first two tasks of the DAG graph are setup tasks that create the temporary table (create_tmp) and load data into the temporary table (load_data_into_tmp) using the PostgresOperator. Afterwards the test_temp task group run halting data quality checks on the temporary table using a SQLTableCheckOperator and SQLColumnCheckOperator. If the data passes these checks the swap task (PostgresOperator) swaps the temporary for the permanent table, creating a backup table in the process (for this reason the swap task is a setup task in its own right). After the swap both the temporary (drop_tmp) and backup table (drop_backup) tables are dropped, with those two tasks being teardown tasks. After the last teardown task an empty task (done) runs, this task exists to allow for different trigger rules in case the pipeline should not be stopped if a new table has not been swapped in. In parallel the validate task group runs non-halting data quality checks using the same two SQL check operators. After these checks complete there is an empty task called sql_check_done which will always be successful (its trigger_rule is all_done) so that data quality failures in the validation group will never halt the pipeline. After the create table task group the table_ready_for_model task runs and produces to the postgres://public/roses dataset.](/img/examples/use-case-setup-teardown-data-quality_create_rose_table_dag_graph.png)
 
@@ -208,7 +208,7 @@ drop_backup.as_teardown(setups=[swap])
 
 In the second half of the create table task group, the nested `validate` task group runs non-halting data quality checks on the target table. These checks are defined using the same two SQL check operators as the halting checks on the temporary table. If the data fails the checks in this second task group, the pipeline will not be stopped, but the check failures are printed to the logs. It is common to set up [notifications](error-notifications-in-airflow.md) to alert relevant data stakeholders of these check failures.
 
-![Graph view of the create_table task group showing the 5 tasks that make up the setup/ teardown workflow.](/img/examples/use-case-setup-teardown-data-quality_validate_taskgroup.png)
+![Graph view of the second half of the create table task group showing the nested validate task group with two data quality check tasks, as well as the downstream `sql_check_done` task.](/img/examples/use-case-setup-teardown-data-quality_validate_taskgroup.png)
 
 Validation level checks often contain more stringent checks than the halting checks, for example to make sure that the data is not only in a reasonable range, but also within the expected range. The code snippet below shows the `test_cols` task checks, containing more strict ranges for the numerical columns of the dataset. The `test_table` task checks that the table contains at least 800 rows and at least 20 rows for the `tea` cultivar. The `month_check` task checks that the `blooming_month` column only contains the months in which we expect these roses to bloom.
 
@@ -406,9 +406,6 @@ def plot_results(input):
     labels = labels_df.iloc[:, 0].to_list()
     cm = confusion_matrix(y_test, y_pred, labels=labels)
 
-    print(labels)
-    print(cm)
-
     sns.heatmap(
         cm,
         annot=True,
@@ -451,6 +448,8 @@ def plot_results(input):
     plt.tight_layout()
     plt.savefig("include/results.png")
 ```
+
+The [aql.cleanup](https://astro-sdk-python.readthedocs.io/en/stable/astro/sql/operators/cleanup.html) task is run in parallel to DAG and cleans up any temporary tables that were created as soon as they are no longer needed.
 
 Congratulations! You ran an end to end pipeline from creating a table in a best practice pattern including two sets of efficient data quality checks to model training and plotting! Use this project as a blueprint to build your own data-driven pipelines.
 
