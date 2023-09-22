@@ -118,7 +118,7 @@ chain(
 drop_tmp.as_teardown(setups=[create_tmp, load_data_into_tmp])
 ```
 
-Data quality checks are defined using the two [SQL check operators](airflow-sql-data-quality.md) [SQLColumnCheckOperator](https://registry.astronomer.io/providers/apache-airflow-providers-common-sql/versions/latest/modules/SQLColumnCheckOperator) and [SQLTableCheckOperator](https://registry.astronomer.io/providers/apache-airflow-providers-common-sql/versions/latest/modules/SQLTableCheckOperator). 
+Data quality checks are defined using the two [SQL check operators](airflow-sql-data-quality.md): [SQLColumnCheckOperator](https://registry.astronomer.io/providers/apache-airflow-providers-common-sql/versions/latest/modules/SQLColumnCheckOperator) and [SQLTableCheckOperator](https://registry.astronomer.io/providers/apache-airflow-providers-common-sql/versions/latest/modules/SQLTableCheckOperator). 
 
 The `test_cols` task runs a checks on individual columns of the temporary table, in this case to check that the `petal_size_cm`, `stem_length_cm` and `leaf_size_cm` columns contain values in a reasonable range for these rose cultivars. To learn more about defining data quality check statements in the SQLColumnCheckOperator and SQLTableCheckOperator, see the [How it works](airflow-sql-data-quality.md#how-it-works) section of the related tutorial.
 
@@ -449,7 +449,7 @@ def plot_results(input):
     plt.savefig("include/results.png")
 ```
 
-The [aql.cleanup](https://astro-sdk-python.readthedocs.io/en/stable/astro/sql/operators/cleanup.html) task is run in parallel to DAG and cleans up any temporary tables that were created as soon as they are no longer needed.
+The [aql.cleanup](https://astro-sdk-python.readthedocs.io/en/stable/astro/sql/operators/cleanup.html) task is run in parallel to the rest of the DAG and cleans up any temporary tables that were created as soon as they are no longer needed.
 
 Congratulations! You ran an end to end pipeline from creating a table in a best practice pattern including two sets of efficient data quality checks to model training and plotting! Use this project as a blueprint to build your own data-driven pipelines.
 
