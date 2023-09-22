@@ -29,9 +29,13 @@ To learn more about CI/CD on Astro, see [Choose a CI/CD strategy](set-up-ci-cd.m
 
 Each CI/CD template implementation might have additional requirements.
 
-:::info
+:::caution
 
-If you use a self-hosted runner for GitHub Actions and you're using a Workspace or Organization API token that has access to more than one Deployment, ensure that you specify `deployment-id` in your action as shown in the following templates. This reduces the risk of accidentally deploying to the wrong Deployment.
+If you use a self-hosted runner to execute jobs from GitHub Actions, Astro CLI's `config.yaml` might be shared across your organization. In such cases, to reduce the risk of accidentally deploying to the wrong Deployment, ensure the following:
+
+- Add the Astronomer GitHub secrets to your repository and include a check in your GitHub workflow to verify this; otherwise, throw an error.
+- Specify `deployment-id` or `deplyment-name` in your [`astro deploy`](cli/astro-deploy.md) command.
+- Add an `astro logout` command at the end of your workflow to ensure the token is cleared from the `config.yaml` file.
 
 :::
 
@@ -523,6 +527,13 @@ If your Astro project requires additional build-time arguments to build an image
             astro deploy <your-deployment-id> --image-name ${{ steps.image_tag.outputs.image_tag }}
     ```
 
+</TabItem>
+
+</Tabs>
+
+
+### Example
+
 For example, to create a CI/CD pipeline that deploys a project which [installs Python packages from a private GitHub repository](cli/develop-project.md#install-python-packages-from-private-sources), you would use the following configuration:
 
   ```yaml
@@ -570,9 +581,5 @@ For example, to create a CI/CD pipeline that deploys a project which [installs P
 If you need guidance configuring a CI/CD pipeline for a more complex use case involving custom Runtime images, reach out to [Astronomer support](https://support.astronomer.io/).
 
 :::
-
-</TabItem>
-
-</Tabs>
 
 
