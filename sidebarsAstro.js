@@ -25,7 +25,7 @@ module.exports = {
         "trial",
         "create-first-DAG",
         "run-dag-ui",
-        'log-in-to-astro', 
+        "log-in-to-astro", 
         {
           type: "category",
           label: "Migrate to Astro",
