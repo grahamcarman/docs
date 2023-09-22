@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Deploy an image'
+sidebar_label: 'Deploy a project image'
 title: 'Deploy an Astro project as an image'
 id: deploy-project-image
 description: Deploy a complete Astro project to a Deployment as a Docker image.
@@ -88,12 +88,12 @@ Your Deployment uses the following components to process your code deploy:
 
 - A proprietary operator for deploying Docker images to your Airflow containers
 - A sidecar for downloading DAGs attached to each Airflow component container
-- A Blob Storage container hosted by Astronomer
+- A blob storage container hosted by Astronomer
   
 When you run `astro deploy`, the Astro CLI deploys all non-DAG files in your project as an image to an Astronomer-hosted Docker registry. The proprietary operator pulls the images from a Docker registry, then updates the running image for all Airflow containers in your Deployment. DAG changes are deployed through a separate and simultaneous process:
 
-- The Astro CLI uploads your `dags` folder to the Deployment's Azure Blob Storage.
-- The DAG downloader sidecars download the new DAGs from Azure Blob Storage.
+- The Astro CLI uploads your `dags` folder to the Deployment's blob storage.
+- The DAG downloader sidecars download the new DAGs from blob storage.
 
 :::info
 
@@ -104,7 +104,7 @@ This process is different if your Deployment has DAG-only deploys disabled, whic
 Use the following diagram to understand the relationship between Astronomer, your local machine, and your Deployment.  
 
 ```mermaid
-flowchart BT;
+flowchart TB;
 classDef subgraph_padding fill:none,stroke:none
 classDef astro fill:#dbcdf6,stroke:#333,stroke-width:2px;
     subgraph AstroCLI[Astro CLI]
@@ -114,34 +114,30 @@ classDef astro fill:#dbcdf6,stroke:#333,stroke-width:2px;
     end
     end
     subgraph ControlPlane[Control plane]
-    id9[(Azure blob storage)]:::astro
-    id2[Astro API]:::astro
+    id9[(Blob storage)]:::astro
     id4[(Docker registry)]:::astro
     end
-    subgraph DataPlane ["Data plane"]
+    subgraph DataPlane ["Hypervisor"]
     subgraph subgraph_padding3 [ ]
     id5(("Image deploy operator")):::astro
     subgraph Deployment ["Deployment"]
     subgraph subgraph_padding2 [ ]
-    id6["Airflow webserver </br> with DAG downloader"]:::astro
-    id7["Airflow scheduler </br> with DAG downloader"]:::astro
-    id8["Airflow workers </br> with DAG downloader"]:::astro
+    id6["Airflow webserver"]:::astro
+    id7["Airflow scheduler"]:::astro
+    id8["Airflow workers"]:::astro
     end
     end
     end
     end
-    id1["Project image </br> excluding 'dags'"]:::astro-->|API request to <br/>update Docker image| id2;
     id10["'dags' folder"]:::astro-->|Upload DAGs|id9
-    id10-->|Retrieve Azure blob </br> storage URL and token|id2
-    id1-->|Docker push| id4
+    id1["Project image </br> excluding 'dags'"]:::astro-->|Docker push| id4
     id4-->|Pull image|id5
     id5-->id6 & id7 & id8
-    id5-->|Check for new images and </br> DAGs to download|id2
     id9-->id6 & id7 & id8
     class subgraph_padding3 subgraph_padding
     class subgraph_padding2 subgraph_padding
     class subgraph_padding1 subgraph_padding
-    linkStyle 0,1,2,3,4,5,6,7,8,9,10,11 stroke:#7f7f7f,stroke-width:3px
+    linkStyle 0,1,2,3,4,5,6,7,8 stroke:#7f7f7f,stroke-width:3px
     style ControlPlane fill:#bfeaff,stroke:#333,stroke-width:2px
     style DataPlane fill:#bfeaff,stroke:#333,stroke-width:2px
     style AstroCLI fill:#bfeaff,stroke:#333,stroke-width:2px
