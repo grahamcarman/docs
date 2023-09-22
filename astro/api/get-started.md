@@ -14,7 +14,7 @@ In this quickstart tutorial, you'll make some simple requests to retrieve and mo
 
 ## Step 1: Make your first API request
 
-To access most endpoints, you need to provide an Organization ID to the API as a path parameter. One of the few requests that doesn't require an Organization ID is the "List Organizations" request, meaning you can programmatically retrieve an Organization ID for other API request types. 
+To access most endpoints, you need to provide an Organization ID to the API as a path parameter. One of the few requests that doesn't require an Organization ID is the [List Organizations](https://docs.astronomer.io/astro/api/platform-api-reference#tag/Organization/operation/ListOrganizations) request, which means you can programmatically retrieve an Organization ID for other API request types. 
 
 To retrieve the Organization ID through the API, run the following command:
 
@@ -23,7 +23,7 @@ curl https://api.astronomer-dev.io/v1alpha1/organizations \
 --H 'Authorization: Bearer <your-api-token>' \
 ```
 
-If the command was successful, you'll receive a response that begins similarly to the following:
+If the command was successful, then you receive a response that begins similarly to the following:
 
 ```json {28}
 [
@@ -59,7 +59,9 @@ If the command was successful, you'll receive a response that begins similarly t
 ]
 ```
 
-Copy the value for `id` from this response. While you could have retrieved this value manually from the Cloud UI, using the API lets you script this workflow and execute it on a regular basis.
+Copy the value for `id` from this response. This is your Organization ID.
+
+While you could have retrieved this value manually from the Cloud UI, using the API lets you script this workflow and execute it on a regular basis.
 
 ## Step 2: Request more information from the API
 
@@ -70,7 +72,7 @@ curl https://api.astronomer-dev.io/v1beta1/organizations/<your-organization-id>/
 --H 'Authorization: Bearer <your-api-token>' \
 ```
 
-If the command was successful, you'll receive a response similar to the following:
+If the command succeeds, then you receive a response similar to the following:
 
 ```json
 {
@@ -156,5 +158,5 @@ Now that you have both an Organization ID and a Workspace ID, you can update you
 
 Get familiar with the Astro API using the API reference guides:
 
-- Platform API reference [LINK TBD]
-- IAM API reference [LINK TBD]
+- [Platform API reference](api/platform-api-reference.mdx)
+- [IAM API reference](api/iam-api-reference.mdx)
