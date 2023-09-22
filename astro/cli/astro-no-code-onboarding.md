@@ -73,7 +73,9 @@ When you use GitHub Actions to deploy DAGs to Astro, you need to provide GitHub 
 
 2. Go to **Workspace settings > Access management** and then click **Workspace API Token**.
 
-3. 
+3. Enter the API Token name and choose the credentials permissions level. Then generate your token.
+
+4. Leave this browser window open, so you can quickly access your API token in a later step.
 
 ## Step 3: Fork the example DAGs Repository
 
