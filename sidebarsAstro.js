@@ -24,6 +24,7 @@ module.exports = {
       items: [
         "trial",
         "create-first-DAG",
+        "astro-no-code-onboarding",
         'log-in-to-astro', 
         {
           type: "category",
