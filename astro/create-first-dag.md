@@ -23,6 +23,8 @@ Specifically, you will:
 
 This tutorial takes about 15 minutes. If you're new to Airflow and want a more in-depth tutorial, see [Write your First DAG](https://docs.astronomer.io/learn/get-started-with-airflow).
 
+If you just want to run Airflow on your local machine without deploying to Astro, see [Get started with Airflow using the Astro CLI](cli/get-started-cli.md). Also, if you want to deploy your first DAG without installing any software to a local machine, see [Run your first DAG with the Cloud UI](astro-no-code-onboarding.md).
+
 ## Prerequisites
 
 - An Astro account. To start an Astro trial, see [Start a trial](trial.md). 
@@ -32,8 +34,6 @@ Although it's not required for this tutorial, Astronomer also recommends install
 
 - [Docker Desktop](https://docs.docker.com/get-docker/) (Recommended).
 - [Podman](https://podman.io/). See [Run the Astro CLI using Podman](cli/configure-cli.md#run-the-astro-cli-using-podman).
-
-If you just want to run Airflow on your local machine without deploying to Astro, see [Get started with Airflow using the Astro CLI](cli/get-started-cli.md).
 
 :::info
 

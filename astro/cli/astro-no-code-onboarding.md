@@ -32,6 +32,21 @@ This tutorial takes about 15 minutes. You can also create and run your first DAG
 - An Astro account. To start an Astro trial, see [Start a trial](trial.md).
 - A [GitHub](https://docs.github.com/en/get-started/signing-up-for-github) account.
 
+:::info
+
+If you're on your organization's network and can't access Astro, make a request to allowlist the following domains on your network:
+
+- `https://cloud.astronomer.io/`
+- `https://api.astronomer.io/`
+- `https://images.astronomer.cloud/`
+- `https://auth.astronomer.io/`
+- `https://updates.astronomer.io/`
+- `https://install.astronomer.io/`
+- `https://astro-<your-org>.datakin.com/`
+- `https://<your-org>.astronomer.run/`
+
+:::
+
 ## Step 1: Create a Deployment
 
 An Astro _Deployment_ is an instance of Apache Airflow that is powered by all core Airflow components, including a webserver, scheduler, and one or more workers. You deploy DAGs to a Deployment, and you can have one or more Deployments within a Workspace.
@@ -92,11 +107,9 @@ In this tutorial, you'll be deploying these example DAGs to your Deployment on A
 
 5. In the [Cloud UI](https://cloud.astronomer.io), Go to **Workspace settings > Access management** and then click **Workspace API Token**.
 
-6. --choose API options -- 
+6. Copy the API Token and paste in the **API Token** field on your GitHub Actions workflow page.
 
-7. Copy the API Token and paste in the **API Token** field on your GitHub Actions workflow page.
-
-8. Then click, **Run workflow**. 
+7. Then click, **Run workflow**. 
 
 This automatically deploys the DAGs in your forked repository to your Deployment worker queue. 
 
