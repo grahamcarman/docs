@@ -23,8 +23,13 @@ module.exports = {
       label: "Get started",
       items: [
         "trial",
-        "create-first-DAG",
-        "run-dag-ui",
+        {
+          type: "category",
+          label: "Run your first DAG",
+          link: { type: 'doc', id: 'run-first-DAG' },
+          items: ["create-first-DAG", "run-dag-ui"],
+        
+        },
         "log-in-to-astro", 
         {
           type: "category",
