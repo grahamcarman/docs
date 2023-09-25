@@ -20,7 +20,7 @@ To access most endpoints, you need to provide an Organization ID to the API as a
 To retrieve the Organization ID through the API, run the following command:
 
 ```bash
-curl https://api.astronomer-dev.io/v1alpha1/organizations \
+curl https://api.astronomer.io/v1alpha1/organizations \
 --H 'Authorization: Bearer <your-organization-api-token>' \
 ```
 
@@ -59,7 +59,7 @@ Using the Organization ID you copied, you can now find the ID for the Workspace 
 Run the following command to list all Workspaces in your Organization:
 
 ```bash
-curl https://api.astronomer-dev.io/v1beta1/organizations/<your-organization-id>/workspaces \
+curl https://api.astronomer.io/platform/v1beta1/organizations/{organizationId}/workspaces \
 --H 'Authorization: Bearer <your-api-token>' \
 ```
 
@@ -123,9 +123,9 @@ Now that you have both an Organization ID and a Workspace ID, you can create a W
 1. Run the following command to create a new Workspace API token:
 
     ```bash
-    curl -X POST https://api.astronomer-dev.io/v1alpha1/organizations/<your-organization-id>/workspaces/<your-workspace-id>/api-tokens/<your-token-id> \
+    curl -X POST https://api.astronomer.io/v1alpha1/organizations/<your-organization-id>/workspaces/<your-workspace-id>/api-tokens/<your-token-id> \
     --H 'Authorization: Bearer <your-organization-api-token>' \
-    -D Copy { "description": "I updated this description using the Astro API!", "name": "My new API token", "role": "WORKSPACE_MEMBER" }
+    -D Copy { "description": "I wrote this description using the Astro API!", "name": "My new API token", "role": "WORKSPACE_MEMBER" }
     ```
 
     If the request was successful, the API will return a response with all of your new token's details.
