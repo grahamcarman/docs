@@ -27,7 +27,7 @@ module.exports = {
           type: "category",
           label: "Run your first DAG",
           link: { type: 'doc', id: 'run-first-DAG' },
-          items: ["create-first-DAG", "run-dag-ui"],
+          items: ["first-dag-ga", "first-DAG-cli"],
         
         },
         "log-in-to-astro", 

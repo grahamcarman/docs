@@ -1,7 +1,7 @@
 ---
-sidebar_label: 'Run a DAG in the Cloud UI'
-title: 'Run your first DAG with the Cloud UI'
-id: 'run-dag-ui'
+sidebar_label: 'Run a DAG with GitHub Actions'
+title: 'Run your first DAG with GitHub Actions'
+id: 'first-dag-ga'
 ---
 
 <head>

@@ -1,7 +1,7 @@
 ---
-sidebar_label: 'Run your first DAG'
-title: 'Create and run your first DAG on Astro'
-id: 'create-first-DAG'
+sidebar_label: 'Run your first DAG with Astro CLI'
+title: 'Run your first DAG with the Astro CLI'
+id: 'first-DAG-cli'
 ---
 
 <head>
