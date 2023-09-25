@@ -25,41 +25,29 @@ curl https://api.astronomer-dev.io/v1alpha1/organizations \
 
 If the command was successful, then you receive a response that begins similarly to the following:
 
-```json {28}
-[
-  {
-    "authServiceId": "string",
-    "billingEmail": "string",
-    "createdAt": "2019-08-24T14:15:22Z",
-    "createdBy": "string",
-    "createdBySubject": {
-      "apiTokenName": "string",
-      "avatarUrl": "string",
-      "fullName": "string",
-      "id": "string",
-      "subjectType": "USER",
-      "username": "string"
-    },
-    "domains": [
-      "string"
-    ],
-    "entitlements": {
-      "property1": {
-        "enabled": true,
-        "requiredTier": "TRIAL"
+```json {16}
+{
+  "limit": 10,
+  "offset": 0,
+  "organizations": [
+    {
+      "billingEmail": "billing@company.com",
+      "createdAt": "2022-11-22T04:37:12T",
+      "createdBySubject": {
+        "apiTokenName": "my-token",
+        "avatarUrl": "https://avatar.url",
+        "fullName": "Jane Doe",
+        "id": "clm8qv74h000008mlf08scq7k",
+        "subjectType": "USER",
+        "username": "user1@company.com"
       },
-      "property2": {
-        "enabled": true,
-        "requiredTier": "TRIAL"
-      }
-    },
-    "id": "string",
-    ...
-  }
-]
+      "id": "clmaxoarx000008l2c5ayb9pt",
+      "isScimEnabled": false,
+...
+      ],
 ```
 
-Copy the value for `id` from this response. This is your Organization ID.
+Copy the top-level `id` from this response. This is your Organization ID.
 
 While you could have retrieved this value manually from the Cloud UI, using the API lets you script this workflow and execute it on a regular basis.
 
