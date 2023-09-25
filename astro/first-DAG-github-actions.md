@@ -1,7 +1,7 @@
 ---
 sidebar_label: 'Run a DAG with GitHub Actions'
 title: 'Run your first DAG with GitHub Actions'
-id: 'first-dag-ga'
+id: 'first-DAG-ga'
 ---
 
 <head>
