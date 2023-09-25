@@ -31,11 +31,12 @@ Each CI/CD template implementation might have additional requirements.
 
 :::caution
 
-If you use a self-hosted runner to execute jobs from GitHub Actions, Astro CLI's `config.yaml` might be shared across your organization. In such cases, to reduce the risk of accidentally deploying to the wrong Deployment, ensure the following:
+If you use a [self-hosted runner](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners) to execute jobs from GitHub Actions, the Astro CLI's `config.yaml` file, which stores default deploy details, might be shared across your organization and hence multiple CI/CD pipelines. To reduce the risk of accidentally deploying to the wrong Deployment, ensure the following:
 
-- Add the Astronomer GitHub secrets to your repository and include a check in your GitHub workflow to verify this; otherwise, throw an error.
-- Specify `deployment-id` or `deplyment-name` in your [`astro deploy`](cli/astro-deploy.md) command.
-- Add an `astro logout` command at the end of your workflow to ensure the token is cleared from the `config.yaml` file.
+- Add `ASTRO_API_TOKEN` to your repository and include a check in your GitHub workflow to verify that it exists. 
+- Use Deployment API tokens, which are scoped only to one Deployment, instead of Workspace or Organization API tokens.
+- Specify `deployment-id` or `deplyment-name` in your action as shown in the following templates.
+- Add the command `astro logout` at the end of your workflow to ensure that your authentication token is cleared from the `config.yaml` file.
 
 :::
 
