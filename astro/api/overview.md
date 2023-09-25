@@ -32,14 +32,18 @@ Endpoints can return subsets of specific attributes based on the permissions of 
 
 ## Rate limiting
 
-You can make a maximum of 10 requests per second with the same API token.
+The maximum number of API requests you can make with the same API token depends on the type of request you're making:
+
+- **`POST` requests**: You can make a make a maximum of 5 requests per second using the same API token.
+- **`DELETE` requests**: You can make a make a maximum of 5 requests per second using the same API token.
+- **`GET` requests**: You can make a make a maximum of 10 requests per second using the same API token.
 
 ## Idempotent requests
 
 Astro supports different levels of [idempotency](https://en.wikipedia.org/wiki/Idempotence) for different request types.
 
-- **`CREATE` requests**: Identical `CREATE` requests will result in the creation of multiple objects. For example, if you post identical requests to create an Organization, Astro creates multiple Organizations with identical settings and unique IDs.
-- **`UPDATE` requests**: Idempotency is guaranteed for all `UPDATE` requests.
+- **`POST` requests (Create)**: Identical `POST` requests to create a new object will result in the creation of multiple objects. For example, if you make identical requests to create an Organization, Astro creates multiple Organizations with identical settings and unique IDs.
+- **`POST` requests (Update)**: Idempotency is guaranteed for all `POST` requests to update an existing object.
 - **`DELETE` requests**: Idempotency is guaranteed for all `DELETE` requests. Any successive identical `DELETE` requests return a 404 error.
 
 ## API status codes
